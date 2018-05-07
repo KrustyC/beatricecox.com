@@ -1,9 +1,14 @@
 import React from 'react'
 
+import FooterContainer from './Container'
+import Contacts from './Contacts'
+import Socials from './Socials'
+
 const Footer = () => (
-  <section>
-    What an amazing footer man!
-  </section>
+  <FooterContainer>
+    <Socials />
+    <Contacts />
+  </FooterContainer>
 )
 
 export default Footer

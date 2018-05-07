@@ -3,22 +3,23 @@ import PropTypes from 'prop-types'
 
 import { Navbar, Footer } from '../components'
 
-const DefaultLayout = ({ hideNavigation, children }) => (
+const DefaultLayout = ({ children }) => (
   <Fragment>
-    { !hideNavigation && <Navbar />}
-    {children}
-    { !hideNavigation && <Footer />}
+    <Navbar />
+    <div className="columns" style={{ minHeight: '600px' }}>
+      <div className="column col-xs-3" />
+      <div className="column col-xs-6">
+        {children}
+      </div>  
+      <div className="column col-xs-3" />
+    </div>
+    <Footer />
   </Fragment>
 
 )
 
 DefaultLayout.propTypes = {
-  hideNavigation: PropTypes.bool,
   children: PropTypes.any.isRequired
-}
-
-DefaultLayout.defaultProps = {
-  hideNavigation: false
 }
 
 export default DefaultLayout

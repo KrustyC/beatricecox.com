@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react'
+import { DefaultLayout as Layout } from 'layouts'
 
 import Hero from './components/hero'
 import Main from './components/main'
 
 export default class Home extends Component {
   state = {
-    isHeroDisplayed: true
+    isHeroDisplayed: false
   }
 
   onHeroClick = () => this.setState({ isHeroDisplayed: false })
@@ -15,7 +16,11 @@ export default class Home extends Component {
     return (
       <Fragment>
         <Hero onClick={this.onHeroClick} display={isHeroDisplayed} />
-        {isHeroDisplayed && <Main />}
+        {!isHeroDisplayed && (
+          <Layout>
+            <Main />
+          </Layout>
+        )}
       </Fragment>
     )
   }

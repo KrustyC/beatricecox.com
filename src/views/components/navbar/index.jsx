@@ -15,9 +15,15 @@ const Menu = styled.section`
   justify-content: center;
 `
 
+const Icon = styled.i`
+  font-size: 40px;
+`
+
 const Navbar = () => (
   <Nav className="navbar">
-    <i className="" />
+    <Menu>
+      <Icon className="icon icon-time" />
+    </Menu>
     <Menu>
       <Link to="/" className="btn btn-link">Home</Link>
       <Link to="/about" className="btn btn-link">About</Link>
