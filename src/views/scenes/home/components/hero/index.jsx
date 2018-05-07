@@ -1,39 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Transition from 'react-transition-group/Transition'
+import TransitionGroup from 'react-addons-transition-group'
 
 import HeroImage from './HeroImage'
 import HeroText from './HeroText'
 
-const duration = 900
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0
-}
-
-const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 }
-}
-
-const Hero = ({ onClick, inProp }) => (
-  <Transition in={inProp} timeout={duration}>
-    {state => (
-      <div style={{ ...defaultStyle, ...transitionStyles[state] }}>
-        <HeroImage onClick={onClick}>
-          <HeroText>
-            <h1>Hi! I'm Beatrice Duguid Cox</h1>
-            <p>And I'm a Designer</p>
-          </HeroText>
-        </HeroImage>
-      </div>
+const Hero = ({ onClick, display }) => (
+  <TransitionGroup>
+    {display && (
+      <HeroImage onClick={onClick}>
+        <HeroText>
+          <h1>Hi! I'm Beatrice Duguid Cox</h1>
+          <p>And I'm a Designer</p>
+        </HeroText>
+      </HeroImage>
     )}
-  </Transition>
+  </TransitionGroup>
 )
 
 Hero.propTypes = {
-  inProp: PropTypes.bool.isRequired,
+  display: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired
 }
 

@@ -14,7 +14,7 @@ export default class Home extends Component {
     const { isHeroDisplayed } = this.state
     return (
       <Fragment>
-        <Hero onClick={this.onHeroClick} inProp={isHeroDisplayed} />
+        <Hero onClick={this.onHeroClick} display={isHeroDisplayed} />
         {isHeroDisplayed && <Main />}
       </Fragment>
     )
