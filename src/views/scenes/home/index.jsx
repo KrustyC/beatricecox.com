@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { DefaultLayout as Layout } from 'layouts' 
+import React, { Component, Fragment } from 'react'
 
 import Hero from './components/hero'
+import Main from './components/main'
 
 export default class Home extends Component {
   state = {
@@ -13,16 +13,10 @@ export default class Home extends Component {
   render() {
     const { isHeroDisplayed } = this.state
     return (
-      <Layout hideNavigation={isHeroDisplayed}>
-        { isHeroDisplayed
-          ? <Hero onClick={this.onHeroClick} />
-          : (
-            <section>
-              Bimba's home
-            </section>
-          )
-        }
-      </Layout>
+      <Fragment>
+        <Hero onClick={this.onHeroClick} inProp={isHeroDisplayed} />
+        {isHeroDisplayed && <Main />}
+      </Fragment>
     )
   }
 }
