@@ -18,9 +18,6 @@ injectGlobal`
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    @media only screen and (min-width: 768px) {
-      overflow: hidden !important;
-    }
     color: ${DARK};
   }
 
@@ -34,7 +31,7 @@ injectGlobal`
   }
 
   ::-webkit-scrollbar-thumb {
-      background: ${PRIMARY};
+      background: ${GREY};
       border-radius: 0px;
   }
 `
@@ -50,6 +47,9 @@ export default {
     dark: DARK,
     grey: GREY,
     light: lighten(0.5, GREY)
+  },
+  navbar: {
+    height: '64px'
   },
   sizes: {
     xs: '767px', // less than - phones
