@@ -27,7 +27,7 @@ coverage
 bower_components
 
 # node-waf configuration
-.lock-wscriptut 
+.lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
@@ -51,10 +51,19 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
-.yarn-integrity
-
 # dotenv environment variables file
 .env
 
-dist/
+# gatsby files
+.cache/
+public
+
+# Mac files
+.DS_Store
+
+# Yarn
+yarn-error.log
+.pnp/
+.pnp.js
+# Yarn Integrity file
+.yarn-integrity
