@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
-import Item from './Item';
+import Item from './_Item';
 
 const Grid = styled.div`
   display: grid;
@@ -27,7 +27,7 @@ const Portfolio = ({
     <p>Now go build something great.</p>
     <Grid>
       {nodes.map(({ id, data }) => (
-        <Item key={id} id={id} data={data} />
+        <Item key={id} data={data} />
       ))}
     </Grid>
   </Layout>
@@ -39,7 +39,17 @@ Portfolio.propTypes = {
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.string.isRequired,
-          data: PropTypes.object.isRequired,
+          data: PropTypes.shape({
+            title: PropTypes.shape({
+              text: PropTypes.string.isRequired,
+            }).isRequired,
+            project_description: PropTypes.shape({
+              text: PropTypes.string.isRequired,
+            }).isRequired,
+            project_picture: PropTypes.shape({
+              url: PropTypes.string.isRequired,
+            }).isRequired,
+          }),
         })
       ),
     }).isRequired,
