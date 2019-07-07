@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "beatricecox.com",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal website of Beatrice Duguid Cox, designer.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Davide Crestini <davide.crestini94@gmail.com>",
   "dependencies": {
     "gatsby": "^2.13.6",
     "gatsby-image": "^2.2.4",
@@ -47,7 +47,11 @@
     }
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react",
+    "designer",
+    "portfolio",
+    "design"
   ],
   "license": "MIT",
   "lint-staged": {
@@ -67,9 +71,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/KrustyC/beatricecox.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/KrustyC/beatricecox.com/issues"
   }
 }
