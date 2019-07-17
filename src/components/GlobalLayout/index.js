@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 import posed, { PoseGroup } from 'react-pose';
 import { connect } from 'react-redux';
 
-import Header from './header';
 import InitialOverlay from './InitialOverlay';
-import './layout.css';
+import '../layout.css';
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -18,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing:border-box;
     height: 100%;
     width: 100%;
+  }
+  * {
+    font-family: 'Montserrat' !important;
   }
 `;
 
@@ -37,34 +38,11 @@ const Box = posed.div({
   },
 });
 
-const Wrapper = styled(Box)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: mediumaquamarine;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
+const Wrapper = styled(Box)``;
 
 const Global = styled.div``;
 
 const GlobalLayout = ({ children, showOverlay, onHideOverlay }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -75,10 +53,7 @@ const GlobalLayout = ({ children, showOverlay, onHideOverlay }) => {
             <InitialOverlay />
           </Wrapper>
         ) : (
-          <Global key="global">
-            {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-            {children}
-          </Global>
+          <Global key="global">{children}</Global>
         )}
       </PoseGroup>
     </React.Fragment>
@@ -87,6 +62,8 @@ const GlobalLayout = ({ children, showOverlay, onHideOverlay }) => {
 
 GlobalLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  showOverlay: PropTypes.bool.isRequired,
+  onHideOverlay: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ showOverlay }) => {

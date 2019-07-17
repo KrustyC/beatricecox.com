@@ -4,10 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require("path")
+const path = require('path');
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const pages = await graphql(`
     {
@@ -19,9 +19,9 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
-  const template = path.resolve("src/templates/PortfolioItem/index.js")
+  const template = path.resolve('src/templates/PortfolioItem/index.js');
 
   pages.data.allPrismicPortfolioItem.edges.forEach(edge => {
     createPage({
@@ -30,6 +30,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: edge.node.id,
       },
-    })
-  })
-}
+    });
+  });
+};
