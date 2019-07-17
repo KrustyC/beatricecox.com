@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components';
 import posed, { PoseGroup } from 'react-pose';
-import { connect } from "react-redux"
+import { connect } from 'react-redux';
 
 import Header from './header';
 import InitialOverlay from './InitialOverlay';
@@ -16,8 +16,10 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     outline: 0;
     box-sizing:border-box;
+    height: 100%;
+    width: 100%;
   }
-`
+`;
 
 const Box = posed.div({
   enter: {
@@ -50,10 +52,9 @@ const Wrapper = styled(Box)`
   cursor: pointer;
 `;
 
-const Global = styled.div`
-`
+const Global = styled.div``;
 
-const Layout = ({ children, showOverlay, onHideOverlay }) => {
+const GlobalLayout = ({ children, showOverlay, onHideOverlay }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -67,50 +68,38 @@ const Layout = ({ children, showOverlay, onHideOverlay }) => {
   return (
     <React.Fragment>
       <GlobalStyle />
-    
-    <PoseGroup>
-      {showOverlay ? (
-        <Wrapper key="wrapper" tabIndex="0" onClick={onHideOverlay}>
-          <InitialOverlay />
-        </Wrapper>
-      ) :(
-        
+
+      <PoseGroup>
+        {showOverlay ? (
+          <Wrapper key="wrapper" tabIndex="0" onClick={onHideOverlay}>
+            <InitialOverlay />
+          </Wrapper>
+        ) : (
           <Global key="global">
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              padding: `0px 1.0875rem 1.45rem`,
-              paddingTop: 0,
-            }}
-          >
-            <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
-          </div>
+            {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+            {children}
           </Global>
-          )}
+        )}
       </PoseGroup>
     </React.Fragment>
   );
 };
 
-Layout.propTypes = {
+GlobalLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
 const mapStateToProps = ({ showOverlay }) => {
-  return { showOverlay }
-}
+  return { showOverlay };
+};
 
 const mapDispatchToProps = dispatch => {
-  return { 
-    onHideOverlay: () => dispatch({ type: `HIDE_OVERLAY` })
-  }
-}
+  return {
+    onHideOverlay: () => dispatch({ type: `HIDE_OVERLAY` }),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GlobalLayout);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Layout from '../../components/layout';
+import GlobalLayout from '../../components/GlobalLayout';
 import SEO from '../../components/seo';
 import Item from './_Item';
 
@@ -20,7 +20,7 @@ const Portfolio = ({
     allPrismicPortfolioItem: { nodes },
   },
 }) => (
-  <Layout>
+  <GlobalLayout>
     <SEO title="Portfolio" />
     <h1>Portfolio</h1>
     <p>This is a list of all the amazing stuff {`I've`} done during my life</p>
@@ -30,7 +30,7 @@ const Portfolio = ({
         <Item key={id} data={data} />
       ))}
     </Grid>
-  </Layout>
+  </GlobalLayout>
 );
 
 Portfolio.propTypes = {
