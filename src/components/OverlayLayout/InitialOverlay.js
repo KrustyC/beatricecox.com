@@ -50,7 +50,7 @@ const Footer = styled.div`
   align-items: flex-end;
 
   h1 {
-    font-size: 190px;
+    font-size: 150px;
     font-weight: 100;
   }
 `;
