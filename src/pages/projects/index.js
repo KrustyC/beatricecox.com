@@ -3,15 +3,37 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import SEO from '../../components/seo';
+import SEO from '../../components/Seo';
 import Item from './_Item';
 
 const Grid = styled.div`
+  min-height: 100vh;
   display: grid;
-  width: 70vw;
-  margin: 3rem auto;
+  color: black;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas:
+    '. header header header header header header header'
+    'main main main main main main main hero-side'
+    'main main main main main main main hero-side'
+    'main main main main main main main hero-side'
+    'main main main main main main main hero-side'
+    'main main main main main main main hero-side'
+    'main main main main main main main hero-side';
+`;
 
-  grid-template-columns: repeat(3, 1fr);
+const Header = styled.div`
+  text-transform: uppercase;
+  grid-area: header;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  h1 {
+    margin: 0;
+    font-weight: 100;
+    font-size: 40px;
+  }
 `;
 
 const Portfolio = ({
@@ -21,14 +43,19 @@ const Portfolio = ({
 }) => (
   <>
     <SEO title="Portfolio" />
-    <h1>Portfolio</h1>
+    <Grid>
+      <Header>
+        <h1>What?</h1>
+      </Header>
+    </Grid>
+    {/* <h1>Portfolio</h1>
     <p>This is a list of all the amazing stuff {`I've`} done during my life</p>
     <p>Now go build something great.</p>
     <Grid>
       {nodes.map(({ id, data }) => (
         <Item key={id} data={data} />
       ))}
-    </Grid>
+    </Grid> */}
   </>
 );
 

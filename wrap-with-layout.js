@@ -1,7 +1,11 @@
 import React from 'react';
-import GlobalLayout from './src/components/GlobalLayout';
+import OverlayLayout from './src/components/OverlayLayout';
+import GlobalStyle from './src/components/GlobalStyle';
 
 // eslint-disable-next-line react/prop-types
 export default ({ element, props }) => (
-  <GlobalLayout {...props}>{element}</GlobalLayout>
+  <>
+    <GlobalStyle />
+    <OverlayLayout {...props}>{element}</OverlayLayout>
+  </>
 );

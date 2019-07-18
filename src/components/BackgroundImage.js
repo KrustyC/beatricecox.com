@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import styled from 'styled-components';
 
 import BackgroundImage from 'gatsby-background-image';
 
@@ -18,11 +18,11 @@ const BackgroundSection = ({ children }) => (
       }
     `}
     render={data => {
-      // Set ImageData.
       const imageData = data.desktop.childImageSharp.fluid;
       return (
         <BackgroundImage
           Tag="section"
+          style={{ width: '100%', height: '100%' }}
           fluid={imageData}
           backgroundColor="#040e18"
         >
@@ -33,12 +33,8 @@ const BackgroundSection = ({ children }) => (
   />
 );
 
-const StyledBackgroundSection = styled(BackgroundSection)`
-  background-position: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+BackgroundSection.propTypes = {
+  children: PropTypes.any.isRequired,
+};
 
-  height: 100vh !important;
-`;
-
-export default StyledBackgroundSection;
+export default BackgroundSection;
