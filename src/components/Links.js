@@ -9,7 +9,6 @@ const Ul = styled.ul`
   padding-left: 0;
   text-transform: uppercase;
   font-size: 24px;
-  color: ${({ overlay }) => (overlay ? '#FFF' : '#000')};
 `;
 
 const lineThrough = css`
@@ -25,6 +24,7 @@ const lineThrough = css`
 
 const Li = styled.li`
   a {
+    color: ${({ overlay }) => (overlay ? '#FFF' : '#000')};
     position: relative;
     display: inline-block;
     text-decoration: none;
@@ -68,7 +68,7 @@ const links = [
 ];
 
 const Links = ({ overlay }) => (
-  <Ul overlay={overlay}>
+  <Ul>
     {links.map(({ label, to }) => (
       <Li key={label} overlay={overlay}>
         <Link activeClassName="active" to={to}>
