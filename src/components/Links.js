@@ -70,7 +70,7 @@ const links = [
 const Links = ({ overlay }) => (
   <Ul overlay={overlay}>
     {links.map(({ label, to }) => (
-      <Li overlay={overlay}>
+      <Li key={label} overlay={overlay}>
         <Link activeClassName="active" to={to}>
           {label}
         </Link>

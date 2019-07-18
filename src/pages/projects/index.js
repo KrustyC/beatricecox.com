@@ -10,33 +10,28 @@ import Item from './_Item';
 const Grid = styled.div`
   min-height: 100vh;
   display: grid;
-  color: black;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 100px auto 200px;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 150px auto 200px;
 `;
 
 const Header = styled.div`
   text-transform: uppercase;
-  grid-column-start: 2;
-  grid-column-end: end;
-  grid-row-start: 1;
-  grid-row-end: 1;
+  grid-column: 2;
+  grid-row-start: 1 / 1;
 
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 
   h1 {
     margin: 0;
     font-weight: 100;
-    font-size: 40px;
+    font-size: 35px;
   }
 `;
 
 const Main = styled.div`
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
+  grid-column: 2 / 3;
+  grid-row: 2;
 
   display: grid;
   grid-column-gap: 10px;
@@ -45,18 +40,16 @@ const Main = styled.div`
 `;
 
 const MainSide = styled.div`
-  grid-column-start: 3;
-  grid-column-end: end;
-  grid-row-start: 2;
-  grid-row-end: end;
-  padding-left: 50px;
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
 `;
 
 const Footer = styled.div`
   text-transform: uppercase;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
+  grid-column: 2 / 3;
+  grid-row: 3;
 
   padding-bottom: 20px;
   display: flex;
@@ -66,129 +59,6 @@ const Footer = styled.div`
     padding-bottom: 20px;
   }
 `;
-
-const fakeData = [
-  {
-    id: 1,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 2,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 3,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 4,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 5,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 6,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 7,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-  {
-    id: 8,
-    data: {
-      title: {
-        text: 'babington',
-      },
-      project_description: {
-        text: 'Whatever',
-      },
-      project_picture: {
-        url:
-          'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-      },
-    },
-  },
-];
 
 const Portfolio = ({
   data: {
@@ -202,7 +72,7 @@ const Portfolio = ({
         <h1>What?</h1>
       </Header>
       <Main>
-        {fakeData.map(({ id, data }, i) => (
+        {nodes.map(({ id, data }, i) => (
           <Item key={id} data={data} order={i + 1} />
         ))}
       </Main>

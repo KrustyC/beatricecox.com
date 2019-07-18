@@ -1,30 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import BackgroundImage from '../components/BackgroundImage';
+import BackgroundImage from './_BackgroundImage';
 import Links from '../components/Links';
 
 const Grid = styled.div`
-  min-height: 100vh;
   display: grid;
-  color: black;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-areas:
-    '. header header header header header header header'
-    'hero hero hero hero hero hero hero hero-side'
-    'hero hero hero hero hero hero hero hero-side'
-    'hero hero hero hero hero hero hero hero-side'
-    'hero hero hero hero hero hero hero hero-side'
-    'hero hero hero hero hero hero hero hero-side'
-    'hero hero hero hero hero hero hero hero-side'
-    '. main main main main main . .'
-    '. main main main main main . .'
-    '. main main main main main . .'
-    '. main main main main main . .';
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 150px 500px auto;
 `;
 
 const Header = styled.div`
   text-transform: uppercase;
-  grid-area: header;
+  grid-column: 2;
+  grid-row-start: 1 / 1;
 
   display: flex;
   align-items: center;
@@ -33,32 +21,30 @@ const Header = styled.div`
   h1 {
     margin: 0;
     font-weight: 100;
-    font-size: 40px;
+    font-size: 35px;
   }
 `;
 
 const Hero = styled.div`
-  grid-area: hero;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
 `;
 
 const HeroSide = styled.div`
-  grid-area: hero-side;
-  padding-left: 50px;
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
 `;
 
 const Main = styled.div`
-  display: flex;
-  grid-area: main;
-  color: black;
-  width: 100%;
-  overflow: hidden;
+  grid-column: 2 / 3;
+  grid-row: 3;
 `;
 
 const Text = styled.p`
-  width: 100%;
-  /* max-width: 50vw; */
   font-family: 'Montserrat' !important;
-  margin-top: 10px;
+  margin-top: 30px;
   text-align: left;
   overflow: auto;
 `;

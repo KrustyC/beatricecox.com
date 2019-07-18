@@ -1,13 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SEO from '../Seo';
-import BackgroundImage from '../BackgroundImage';
+import BackgroundImage from './BackgroundImage';
 import Links from '../Links';
+
+const Div = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+`;
 
 const Overlay = styled.div`
   height: 100vh;
   text-transform: uppercase;
+  position: relative;
   color: #ffffff;
   display: grid;
   grid-template-areas:
@@ -48,20 +56,22 @@ const Footer = styled.div`
 `;
 
 const InitialOverlay = () => (
-  <BackgroundImage>
-    <SEO title="Designer" />
-    <Overlay>
-      <Header>
-        <h3>When? - Now!</h3>
-      </Header>
-      <Main>
-        <Links overlay />
-      </Main>
-      <Footer>
-        <h1>Beatrice Cox</h1>
-      </Footer>
-    </Overlay>
-  </BackgroundImage>
+  <div>
+    <BackgroundImage />
+    <Div>
+      <Overlay>
+        <Header>
+          <h3>When? - Now!</h3>
+        </Header>
+        <Main>
+          <Links overlay />
+        </Main>
+        <Footer>
+          <h1>Beatrice Cox</h1>
+        </Footer>
+      </Overlay>
+    </Div>
+  </div>
 );
 
 export default InitialOverlay;

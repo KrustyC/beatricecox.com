@@ -1,10 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { graphql, StaticQuery } from 'gatsby';
 
 import BackgroundImage from 'gatsby-background-image';
 
-const BackgroundSection = ({ children }) => (
+const StyledBackgrounImage = styled(BackgroundImage)`
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(6px) brightness(85%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+`;
+
+const BackgroundSection = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -20,21 +36,14 @@ const BackgroundSection = ({ children }) => (
     render={data => {
       const imageData = data.desktop.childImageSharp.fluid;
       return (
-        <BackgroundImage
+        <StyledBackgrounImage
           Tag="section"
-          style={{ width: '100%', height: '100%' }}
           fluid={imageData}
           backgroundColor="#040e18"
-        >
-          {children}
-        </BackgroundImage>
+        />
       );
     }}
   />
 );
-
-BackgroundSection.propTypes = {
-  children: PropTypes.any.isRequired,
-};
 
 export default BackgroundSection;
