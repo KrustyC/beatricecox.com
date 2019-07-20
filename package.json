@@ -71,7 +71,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop -H 192.168.0.10",
+    "dev": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
