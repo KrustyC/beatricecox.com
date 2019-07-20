@@ -7,17 +7,27 @@ const Wrapper = styled(Link)`
   text-decoration: none;
   background-image: url('${({ url }) => url}');
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
+  background-size: cover;
+  display: block;
   padding-top: 100px;
-  padding-right: 10px;
-  height: 500px;
+  height: 450px;
+  /* width: 450px; */
+
+  position: relative;
+  :first-of-type {
+    span {
+      padding-right: 4px;
+      right: 3px !important;
+    }
+  }
 `;
+
 const Number = styled.span`
-  font-size: 50px;
+  font-size: 65px;
   transform: rotate(-90deg);
+  position: absolute;
+  top: 100;
+  right: -1px;
   color: #000;
 `;
 

@@ -5,7 +5,7 @@ import Links from '../components/Links';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 150px 500px auto;
 `;
 
@@ -55,8 +55,11 @@ const HeroImage = styled.div`
   height: 100%;
   justify-content: flex-start;
   align-items: flex-end;
+  z-index: 1;
 
   h1 {
+    margin: 0;
+    margin-bottom: -10px;
     text-transform: uppercase;
     font-size: 120px;
     font-weight: 100;

@@ -26,7 +26,8 @@ const Overlay = styled.div`
     'main'
     'footer'
     'footer';
-  padding: 20px 100px 10px 0px;
+  padding: 20px 100px 0px 0px;
+  z-index: 1000;
 `;
 
 const Header = styled.div`
@@ -50,6 +51,8 @@ const Footer = styled.div`
   align-items: flex-end;
 
   h1 {
+    margin: 0px;
+    /* margin-bottom: -10px; */
     font-size: 150px;
     font-weight: 100;
   }

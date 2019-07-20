@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import Links from '../../components/Links';
 
+import Links from '../../components/Links';
 import SEO from '../../components/Seo';
 import Item from './_Item';
+import DownloadCurriculum from './_DownloadCurriculum';
+import DownloadPortfolio from './_DownloadPortfolio';
 
 const Grid = styled.div`
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 150px auto 200px;
 `;
 
@@ -37,6 +39,9 @@ const Main = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-template-columns: 1fr 1fr;
+  /* padding: 0 20px; */
+  align-items: center;
+  justify-content: center;
 `;
 
 const MainSide = styled.div`
@@ -44,6 +49,12 @@ const MainSide = styled.div`
   grid-row: 2;
   display: flex;
   justify-content: center;
+  position: sticky;
+  position: sticky;
+  top: 0;
+  top: 150px;
+  right: 0;
+  height: 100vh;
 `;
 
 const Footer = styled.div`
@@ -55,12 +66,10 @@ const Footer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  span:first-of-type {
-    padding-bottom: 20px;
-  }
+  align-items: flex-start;
 `;
 
-const Portfolio = ({
+const Projetcs = ({
   data: {
     allPrismicPortfolioItem: { nodes },
   },
@@ -72,22 +81,24 @@ const Portfolio = ({
         <h1>What?</h1>
       </Header>
       <Main>
-        {nodes.map(({ id, data }, i) => (
-          <Item key={id} data={data} order={i + 1} />
+        {nodes.map((node, i) => (
+          <Item key={node.id} order={i + 1} {...node} />
         ))}
       </Main>
       <MainSide>
         <Links />
       </MainSide>
       <Footer>
-        <span>Download CV</span>
-        <span>Download Portfolio</span>
+        <DownloadCurriculum />
+        <br />
+        <br />
+        <DownloadPortfolio />
       </Footer>
     </Grid>
   </>
 );
 
-Portfolio.propTypes = {
+Projetcs.propTypes = {
   data: PropTypes.shape({
     allPrismicPortfolioItem: PropTypes.shape({
       nodes: PropTypes.arrayOf(
@@ -131,4 +142,4 @@ export const query = graphql`
   }
 `;
 
-export default Portfolio;
+export default Projetcs;
