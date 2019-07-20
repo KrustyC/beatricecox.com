@@ -91,7 +91,6 @@ const Projetcs = ({
       <Footer>
         <DownloadCurriculum />
         <br />
-        <br />
         <DownloadPortfolio />
       </Footer>
     </Grid>
