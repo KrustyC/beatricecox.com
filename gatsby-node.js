@@ -21,11 +21,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const template = path.resolve('src/templates/PortfolioItem/index.js');
+  const template = path.resolve('src/templates/Project/index.js');
 
   pages.data.allPrismicPortfolioItem.edges.forEach(edge => {
     createPage({
-      path: `portfolio/${edge.node.id}`,
+      path: `project/${edge.node.id}`,
       component: template,
       context: {
         id: edge.node.id,

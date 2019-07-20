@@ -32,7 +32,7 @@ const Number = styled.span`
 `;
 
 const Item = ({ id, data, order }) => (
-  <Wrapper to={`/portfolio/${id}`} url={data.project_picture.url}>
+  <Wrapper to={`/project/${id}`} url={data.project_picture.url}>
     <Number>{order < 10 ? `0${order}` : order}</Number>
   </Wrapper>
 );
