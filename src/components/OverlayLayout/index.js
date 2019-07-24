@@ -26,9 +26,15 @@ const Wrapper = styled(Box)``;
 
 const Global = styled.div``;
 
-const GlobalLayout = ({ children, showOverlay, onHideOverlay }) => {
+const singlePorjectRegex = /\/project\//;
+
+const OverlayLayout = ({ children, location, showOverlay, onHideOverlay }) => {
   const onClick = e => {
-    if (e.target.tagName.toLowerCase() === 'a') {
+    if (
+      showOverlay &&
+      (e.target.tagName.toLowerCase() === 'a' ||
+        singlePorjectRegex.test(location.pathname))
+    ) {
       onHideOverlay();
     }
   };
@@ -46,8 +52,11 @@ const GlobalLayout = ({ children, showOverlay, onHideOverlay }) => {
   );
 };
 
-GlobalLayout.propTypes = {
+OverlayLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   showOverlay: PropTypes.bool.isRequired,
   onHideOverlay: PropTypes.func.isRequired,
 };
@@ -65,4 +74,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(GlobalLayout);
+)(OverlayLayout);
