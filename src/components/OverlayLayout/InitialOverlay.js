@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
+import media from 'styled-media-query';
+
 import BackgroundImage from './BackgroundImage';
 import Links from '../Links';
 
@@ -13,7 +14,11 @@ const Grid = styled.div`
   position: relative;
   z-index: 1000;
 
-  ${breakpoint('xl')`
+  ${media.greaterThan('huge')`
+    grid-template-columns: 1fr 3fr 1fr;
+  `}
+
+  ${media.greaterThan('huge')`
     grid-template-columns: 1fr 2fr 1fr;
   `}
 `;

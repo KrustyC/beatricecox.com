@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
+import media from 'styled-media-query';
 import Links from './Links';
 
 const Grid = styled.div`
@@ -10,7 +10,11 @@ const Grid = styled.div`
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: ${({ rows }) => rows};
 
-  ${breakpoint('xl')`
+  ${media.greaterThan('huge')`
+    grid-template-columns: 1fr 3fr 1fr;
+  `}
+
+  ${media.greaterThan('huge')`
     grid-template-columns: 1fr 2fr 1fr;
   `}
 `;
