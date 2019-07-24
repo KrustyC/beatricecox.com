@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Parser as HtmlToReactParser } from 'html-to-react';
 import { graphql } from 'gatsby';
 
-import Links from '../../components/Links';
 import SEO from '../../components/Seo';
-import { Grid, Header, Main, MainSide, ImgContainer, Text } from './style';
+import Layout from '../../components/Layout';
+import { Main, ImgContainer, Text } from './style';
 
 const htmlToReactParser = new HtmlToReactParser();
 
@@ -16,10 +16,7 @@ const Project = ({
 }) => (
   <>
     <SEO title={data.title.text} />
-    <Grid>
-      <Header>
-        <h1>{data.title.text}</h1>
-      </Header>
+    <Layout title={data.title.text}>
       <Main>
         <Text>{htmlToReactParser.parse(data.project_intro.html)}</Text>
         <ImgContainer>
@@ -27,10 +24,7 @@ const Project = ({
         </ImgContainer>
         <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
       </Main>
-      <MainSide>
-        <Links />
-      </MainSide>
-    </Grid>
+    </Layout>
   </>
 );
 

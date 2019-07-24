@@ -1,52 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import posed, { PoseGroup } from 'react-pose';
 import { connect } from 'react-redux';
 
 import InitialOverlay from './InitialOverlay';
 
-const Box = posed.div({
-  enter: {
-    y: 0,
-    opacity: 1,
-    delay: 300,
-    transition: {
-      y: { type: 'spring', stiffness: 1000, damping: 15 },
-      default: { duration: 300 },
-    },
-  },
+const BackgroundBox = posed.div({
   exit: {
     opacity: 0,
     transition: { duration: 1000 },
   },
 });
 
-const Wrapper = styled(Box)``;
+const MainBox = posed.div({
+  enter: {
+    opacity: 1,
+    height: 1,
+    delay: 500,
+  },
+  exit: {
+    opacity: 0,
+  },
+});
 
-const Global = styled.div``;
-
-const singlePorjectRegex = /\/project\//;
-
-const OverlayLayout = ({ children, location, showOverlay, onHideOverlay }) => {
+const OverlayLayout = ({
+  children,
+  location: { pathname },
+  showOverlay,
+  onHideOverlay,
+}) => {
   const onClick = e => {
-    if (
-      showOverlay &&
-      (e.target.tagName.toLowerCase() === 'a' ||
-        singlePorjectRegex.test(location.pathname))
-    ) {
-      onHideOverlay();
+    if (!showOverlay) {
+      return null;
     }
+
+    const {
+      target: { tagName },
+    } = e;
+    if (tagName.toLowerCase() === 'a' || /\/project\//.test(pathname)) {
+      return onHideOverlay();
+    }
+
+    return null;
   };
 
   return (
     <PoseGroup>
       {showOverlay ? (
-        <Wrapper key="wrapper" tabIndex="0" onClick={onClick}>
+        <BackgroundBox key="wrapper" tabIndex="0" onClick={onClick}>
           <InitialOverlay />
-        </Wrapper>
+        </BackgroundBox>
       ) : (
-        <Global key="global">{children}</Global>
+        <MainBox key="global">{children}</MainBox>
       )}
     </PoseGroup>
   );

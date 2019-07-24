@@ -1,8 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import breakpoint from 'styled-components-breakpoint';
 import BackgroundImage from './BackgroundImage';
 import Links from '../Links';
+
+const Grid = styled.div`
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 150px auto 150px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1000;
+
+  ${breakpoint('xl')`
+    grid-template-columns: 1fr 2fr 1fr;
+  `}
+`;
 
 const Div = styled.div`
   position: absolute;
@@ -12,69 +26,60 @@ const Div = styled.div`
   z-index: 2;
 `;
 
-const Overlay = styled.div`
-  height: 100vh;
-  text-transform: uppercase;
-  position: relative;
-  color: #ffffff;
-  display: grid;
-  grid-template-areas:
-    'header'
-    'header'
-    'main'
-    'main'
-    'main'
-    'footer'
-    'footer';
-  padding: 20px 100px 0px 0px;
-  z-index: 1000;
-`;
-
 const Header = styled.div`
-  grid-area: header;
-  font-size: 50px;
-  padding-top: 30px;
-  padding-left: 10vw;
+  text-transform: uppercase;
+  grid-column: 2;
+  grid-row: 1 / 1;
+
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+    font-weight: 100;
+    font-size: 35px;
+  }
 `;
 
-const Main = styled.div`
-  grid-area: main;
+const RightSide = styled.div`
+  grid-column: 3;
+  grid-row: 2 / 3;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
 `;
 
 const Footer = styled.div`
-  grid-area: footer;
+  grid-column: 1 / end;
+  grid-row: 3;
+
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
 
   h1 {
     margin: 0px;
-    /* margin-bottom: -10px; */
     font-size: 150px;
     font-weight: 100;
   }
 `;
 
 const InitialOverlay = () => (
-  <div>
+  <>
     <BackgroundImage />
     <Div>
-      <Overlay>
+      <Grid>
         <Header>
-          <h3>When? - Now!</h3>
+          <h1>When? - Now!</h1>
         </Header>
-        <Main>
+        <RightSide>
           <Links overlay />
-        </Main>
+        </RightSide>
         <Footer>
           <h1>Beatrice Cox</h1>
         </Footer>
-      </Overlay>
+      </Grid>
     </Div>
-  </div>
+  </>
 );
 
 export default InitialOverlay;
