@@ -11,7 +11,6 @@ const Wrapper = styled(Link)`
   display: block;
   padding-top: 100px;
   height: 450px;
-  /* width: 450px; */
 
   position: relative;
   :first-of-type {
@@ -41,9 +40,6 @@ Item.propTypes = {
   id: PropTypes.string.isRequired,
   data: PropTypes.shape({
     title: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-    }).isRequired,
-    project_description: PropTypes.shape({
       text: PropTypes.string.isRequired,
     }).isRequired,
     project_picture: PropTypes.shape({

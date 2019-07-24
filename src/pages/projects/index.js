@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 
 import Links from '../../components/Links';
 import SEO from '../../components/Seo';
@@ -14,6 +15,10 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 150px auto 200px;
+
+  ${breakpoint('xl')`
+    grid-template-columns: 1fr 2fr 1fr;
+  `}
 `;
 
 const Header = styled.div`
@@ -39,7 +44,6 @@ const Main = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-template-columns: 1fr 1fr;
-  /* padding: 0 20px; */
   align-items: center;
   justify-content: center;
 `;
@@ -107,9 +111,6 @@ Projetcs.propTypes = {
             title: PropTypes.shape({
               text: PropTypes.string.isRequired,
             }).isRequired,
-            project_description: PropTypes.shape({
-              text: PropTypes.string.isRequired,
-            }).isRequired,
             project_picture: PropTypes.shape({
               url: PropTypes.string.isRequired,
             }).isRequired,
@@ -126,9 +127,6 @@ export const query = graphql`
       nodes {
         id
         data {
-          project_description {
-            text
-          }
           project_picture {
             url
           }
