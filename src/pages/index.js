@@ -7,6 +7,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 150px 500px auto;
+  color: white;
 `;
 
 const Header = styled.div`
