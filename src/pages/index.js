@@ -15,7 +15,7 @@ const Main = styled.div`
 `;
 
 const Text = styled.p`
-  font-family: 'Rubik' !important;
+  font-family: 'Montserrat' !important;
   margin-top: 30px;
   text-align: left;
   overflow: auto;

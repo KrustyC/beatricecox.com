@@ -36,7 +36,7 @@ const Header = styled.div`
   }
 
   h5 {
-    font-family: 'Rubik' !important;
+    font-family: 'Montserrat' !important;
     font-weight: bold;
     font-size: 18px;
     margin: 0;

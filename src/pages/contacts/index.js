@@ -18,7 +18,7 @@ const Main = styled.div`
 const Contacts = () => (
   <>
     <SEO title="Contacts" />
-    <Layout title="Contacts">
+    <Layout title="Where?">
       <Main>Contact me on all my social media</Main>
     </Layout>
   </>

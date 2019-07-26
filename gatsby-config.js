@@ -29,14 +29,14 @@ module.exports = {
         background_color: `#292929`,
         theme_color: `#292929`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/logo.png`,
       },
     },
     {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `beatricecox`,
-        accessToken: `${process.env.API_KEY}`,
+        accessToken: `${process.env.PRISMIC_API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
       },
     },
