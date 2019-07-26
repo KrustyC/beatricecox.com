@@ -1,50 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import BackgroundImage from './_BackgroundImage';
-import Links from '../components/Links';
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 150px 500px auto;
-  color: white;
-`;
-
-const Header = styled.div`
-  text-transform: uppercase;
-  grid-column: 2;
-  grid-row-start: 1 / 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  h1 {
-    margin: 0;
-    font-weight: 100;
-    font-size: 35px;
-  }
-`;
+import Layout from '../components/Layout';
 
 const Hero = styled.div`
   grid-column: 1 / 3;
   grid-row: 2 / 3;
 `;
 
-const HeroSide = styled.div`
-  grid-column: 3;
-  grid-row: 2;
-  display: flex;
-  justify-content: center;
-`;
-
 const Main = styled.div`
   grid-column: 2 / 3;
   grid-row: 3;
+  padding-top: 40px;
 `;
 
 const Text = styled.p`
-  font-family: 'Montserrat' !important;
+  font-family: 'Rubik' !important;
   margin-top: 30px;
   text-align: left;
   overflow: auto;
@@ -68,10 +39,7 @@ const HeroImage = styled.div`
 `;
 
 const About = () => (
-  <Grid>
-    <Header>
-      <h1>Who?</h1>
-    </Header>
+  <Layout title="Who?" rows="150px 500px auto">
     <Hero>
       <BackgroundImage>
         <HeroImage>
@@ -79,9 +47,6 @@ const About = () => (
         </HeroImage>
       </BackgroundImage>
     </Hero>
-    <HeroSide>
-      <Links />
-    </HeroSide>
     <Main>
       <Text>
         Hello! Welcome to my website. Lorem ipsum dolor sit amet, consectetuer
@@ -95,7 +60,7 @@ const About = () => (
         nulla facilisi.
       </Text>
     </Main>
-  </Grid>
+  </Layout>
 );
 
 export default About;

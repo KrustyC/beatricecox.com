@@ -3,33 +3,11 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Links from '../../components/Links';
 import SEO from '../../components/Seo';
+import Layout from '../../components/Layout';
 import Item from './_Item';
 import DownloadCurriculum from './_DownloadCurriculum';
 import DownloadPortfolio from './_DownloadPortfolio';
-
-const Grid = styled.div`
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 150px auto 200px;
-`;
-
-const Header = styled.div`
-  text-transform: uppercase;
-  grid-column: 2;
-  grid-row-start: 1 / 1;
-
-  display: flex;
-  align-items: center;
-
-  h1 {
-    margin: 0;
-    font-weight: 100;
-    font-size: 35px;
-  }
-`;
 
 const Main = styled.div`
   grid-column: 2 / 3;
@@ -39,22 +17,8 @@ const Main = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-template-columns: 1fr 1fr;
-  /* padding: 0 20px; */
   align-items: center;
   justify-content: center;
-`;
-
-const MainSide = styled.div`
-  grid-column: 3;
-  grid-row: 2;
-  display: flex;
-  justify-content: center;
-  position: sticky;
-  position: sticky;
-  top: 0;
-  top: 150px;
-  right: 0;
-  height: 100vh;
 `;
 
 const Footer = styled.div`
@@ -62,7 +26,7 @@ const Footer = styled.div`
   grid-column: 2 / 3;
   grid-row: 3;
 
-  padding-bottom: 20px;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,24 +40,18 @@ const Projetcs = ({
 }) => (
   <>
     <SEO title="Portfolio" />
-    <Grid>
-      <Header>
-        <h1>What?</h1>
-      </Header>
+    <Layout title="What?">
       <Main>
         {nodes.map((node, i) => (
           <Item key={node.id} order={i + 1} {...node} />
         ))}
       </Main>
-      <MainSide>
-        <Links />
-      </MainSide>
       <Footer>
         <DownloadCurriculum />
         <br />
         <DownloadPortfolio />
       </Footer>
-    </Grid>
+    </Layout>
   </>
 );
 
@@ -105,9 +63,6 @@ Projetcs.propTypes = {
           id: PropTypes.string.isRequired,
           data: PropTypes.shape({
             title: PropTypes.shape({
-              text: PropTypes.string.isRequired,
-            }).isRequired,
-            project_description: PropTypes.shape({
               text: PropTypes.string.isRequired,
             }).isRequired,
             project_picture: PropTypes.shape({
@@ -126,9 +81,6 @@ export const query = graphql`
       nodes {
         id
         data {
-          project_description {
-            text
-          }
           project_picture {
             url
           }
