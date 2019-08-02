@@ -20,11 +20,6 @@ const Grid = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  /* max-width: 728px;
-
-  img {
-    width: 100%;
-  } */
 `;
 
 const fetchFlickPhotos = () => fetch(FLICKR_URL).then(res => res.json());

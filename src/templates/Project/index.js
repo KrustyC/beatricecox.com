@@ -6,8 +6,17 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import { Main, ImgContainer, Text } from './style';
+import Carousel from './Carousel';
 
 const htmlToReactParser = new HtmlToReactParser();
+
+const items = [
+  'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/HA1RQCRQJ7.jpg',
+  'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/EVHXF4MUT6.jpg',
+  'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/D7VE3SK3RD.jpg',
+  'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/0XRFUE80AZ.jpg',
+  'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/2DQJJ9RLVD.jpg',
+];
 
 const Project = ({
   data: {
@@ -23,6 +32,7 @@ const Project = ({
           <img src={data.project_picture.url} alt="project" />
         </ImgContainer>
         <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
+        <Carousel items={items} />
       </Main>
     </Layout>
   </>
@@ -74,6 +84,9 @@ export const pageQuery = graphql`
         title {
           text
         }
+        # slideshow {
+
+        # }
       }
     }
   }
