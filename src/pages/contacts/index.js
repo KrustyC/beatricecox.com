@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
@@ -13,6 +14,12 @@ const Main = styled.div`
   grid-template-columns: 1fr 1fr;
   align-items: flex-start;
   justify-content: center;
+
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    grid-template-columns: 1fr;
+    padding: 0 .5em;
+  `}
 `;
 
 const Contacts = () => (

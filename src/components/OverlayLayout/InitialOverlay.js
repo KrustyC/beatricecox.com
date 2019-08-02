@@ -4,6 +4,7 @@ import media from 'styled-media-query';
 
 import BackgroundImage from './BackgroundImage';
 import Links from '../Links';
+import Burger from '../Burger';
 
 const Grid = styled.div`
   display: grid;
@@ -34,16 +35,26 @@ const Div = styled.div`
 
 const Header = styled.div`
   text-transform: uppercase;
-  grid-column: 2;
+  grid-column: 2 / end;
   grid-row: 1 / 1;
 
   display: flex;
   align-items: center;
 
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+  `}
+
   h1 {
     margin: 0;
     font-weight: 100;
     font-size: 35px;
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr 2fr 1fr;
+      font-size: 30px;
+    `}
   }
 `;
 
@@ -52,6 +63,10 @@ const RightSide = styled.div`
   grid-row: 2 / 3;
   display: flex;
   justify-content: center;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `}
 `;
 
 const Footer = styled.div`
@@ -66,6 +81,10 @@ const Footer = styled.div`
     margin: 0px;
     font-size: 150px;
     font-weight: 100;
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr 2fr 1fr;
+      font-size: 50px;
+    `}
   }
 `;
 
@@ -76,6 +95,7 @@ const InitialOverlay = () => (
       <Grid>
         <Header>
           <h1>When? - Now!</h1>
+          <Burger />
         </Header>
         <RightSide>
           <Links overlay />
