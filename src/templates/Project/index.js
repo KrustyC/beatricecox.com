@@ -6,6 +6,7 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import { Main, ImgContainer, Text } from './style';
+import Carousel from './Carousel';
 
 const htmlToReactParser = new HtmlToReactParser();
 
@@ -13,20 +14,28 @@ const Project = ({
   data: {
     prismicPortfolioItem: { data },
   },
-}) => (
-  <>
-    <SEO title={data.title.text} />
-    <Layout title={data.title.text} description={data.project_description.text}>
-      <Main>
-        <Text>{htmlToReactParser.parse(data.project_intro.html)}</Text>
-        <ImgContainer>
-          <img src={data.project_picture.url} alt="project" />
-        </ImgContainer>
-        <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
-      </Main>
-    </Layout>
-  </>
-);
+}) => {
+  const slideshowPics = data.slideshow.map(({ pic: { url } }) => url);
+
+  return (
+    <>
+      <SEO title={data.title.text} />
+      <Layout
+        title={data.title.text}
+        description={data.project_description.text}
+      >
+        <Main>
+          <Text>{htmlToReactParser.parse(data.project_intro.html)}</Text>
+          <ImgContainer>
+            <img src={data.project_picture.url} alt="project" />
+          </ImgContainer>
+          <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
+          <Carousel items={slideshowPics} />
+        </Main>
+      </Layout>
+    </>
+  );
+};
 
 Project.propTypes = {
   data: PropTypes.shape({
@@ -34,19 +43,26 @@ Project.propTypes = {
       data: PropTypes.shape({
         title: PropTypes.shape({
           text: PropTypes.string.isRequired,
-        }),
+        }).isRequired,
         project_description: PropTypes.shape({
           text: PropTypes.string.isRequired,
-        }),
+        }).isRequired,
         project_intro: PropTypes.shape({
           html: PropTypes.string.isRequired,
-        }),
+        }).isRequired,
         project_content: PropTypes.shape({
           html: PropTypes.string.isRequired,
-        }),
+        }).isRequired,
         project_picture: PropTypes.shape({
           url: PropTypes.string.isRequired,
-        }),
+        }).isRequired,
+        slideshow: PropTypes.arrayOf(
+          PropTypes.shape({
+            pic: PropTypes.shape({
+              url: PropTypes.string.isRequired,
+            }),
+          })
+        ).isRequired,
       }),
     }).isRequired,
   }).isRequired,
@@ -73,6 +89,11 @@ export const pageQuery = graphql`
         }
         title {
           text
+        }
+        slideshow {
+          pic {
+            url
+          }
         }
       }
     }
