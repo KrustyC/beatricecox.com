@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  min-height: 500px;
+  height: 400px;
   overflow: hidden;
 `;
 
@@ -13,9 +13,12 @@ export const Slide = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
+  height: 100%;
   z-index: 1;
   display: flex;
   align-items: center;
+
+  justify-content: center;
 
   &.leave {
     transform: translateX(0);
@@ -47,28 +50,29 @@ export const Slide = styled.div`
   }
 
   img {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
+    margin: 0;
   }
 `;
 
 export const HistoryContainer = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 10px;
+  bottom: 0;
   width: 100%;
 `;
 
 export const List = styled.ul`
   list-style: none;
   padding: 0;
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
   margin: 0;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 50px;
 `;
 
 export const ListItem = styled.div`
