@@ -26,8 +26,4 @@ export const Text = styled.div`
   text-align: left;
   width: 100%;
   margin: 10px auto;
-  /* padding: 0 calc((100% - 728px) / 2); */
-  /* * {
-    font-family: 'Arial' !important;
-  } */
 `;
