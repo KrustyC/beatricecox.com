@@ -5,6 +5,8 @@ export const CarouselContainer = styled.div`
   width: 100%;
   height: 700px;
   overflow: hidden;
+
+  height: 400px;
 `;
 
 export const Slide = styled.div`

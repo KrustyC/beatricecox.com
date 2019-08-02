@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
@@ -14,6 +15,12 @@ const Main = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    grid-template-columns: 1fr;
+    padding: 0 .5em;
+  `}
 `;
 
 const Grid = styled.div`
@@ -44,14 +51,14 @@ const Extras = () => {
             {photos1.map(photo => {
               const { farm, server, id, secret } = photo;
               const link = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
-              return <img src={link} alt="" />;
+              return <img key={id} src={link} alt="" />;
             })}
           </Grid>
           <Grid>
             {photos2.map(photo => {
               const { farm, server, id, secret } = photo;
               const link = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
-              return <img src={link} alt="" />;
+              return <img key={id} src={link} alt="" />;
             })}
           </Grid>
         </Main>

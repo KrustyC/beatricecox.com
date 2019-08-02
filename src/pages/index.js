@@ -1,17 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import BackgroundImage from './_BackgroundImage';
 import Layout from '../components/Layout';
 
 const Hero = styled.div`
   grid-column: 1 / 3;
   grid-row: 2 / 3;
+
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+  `}
 `;
 
 const Main = styled.div`
   grid-column: 2 / 3;
   grid-row: 3;
   padding-top: 40px;
+
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    padding: 20px .5rem;
+  `}
 `;
 
 const Text = styled.p`
@@ -35,11 +45,13 @@ const HeroImage = styled.div`
     text-transform: uppercase;
     font-size: 120px;
     font-weight: 100;
+
+    font-size: 55px;
   }
 `;
 
 const About = () => (
-  <Layout title="Who?" rows="150px 500px auto">
+  <Layout title="Who?" middleRow="500px">
     <Hero>
       <BackgroundImage>
         <HeroImage>

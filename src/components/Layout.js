@@ -3,21 +3,22 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Links from './Links';
+import Burger from './Burger';
 
 const Grid = styled.div`
   min-height: 100vh;
+  max-width: 100vw;
   display: grid;
   grid-template-columns: auto 728px auto;
-  grid-template-rows: ${({ rows }) => rows};
+  grid-template-rows: ${({ middleRow }) =>
+    middleRow ? `150px ${middleRow} auto` : '150px auto'};
   color: #000;
 
-  /* ${media.greaterThan('huge')`
-    grid-template-columns: 1fr 3fr 1fr;
+  ${media.lessThan('medium')`
+    grid-template-columns: 0 100vw 0;
+    grid-template-rows: ${({ middleRow }) =>
+      middleRow ? `80px ${middleRow} auto` : '80px auto'};
   `}
-
-  ${media.greaterThan('huge')`
-    grid-template-columns: 1fr 2fr 1fr;
-  `} */
 `;
 
 const Header = styled.div`
@@ -25,8 +26,9 @@ const Header = styled.div`
   grid-row: 1 / 1;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
 
   h1 {
     margin: 0;
@@ -34,6 +36,12 @@ const Header = styled.div`
     font-size: 35px;
     text-transform: uppercase;
   }
+
+  ${media.lessThan('medium')`
+    grid-column: 1/ end;
+    padding: 0 .5em;
+    font-size: 30px;
+  `}
 
   h5 {
     font-family: 'Montserrat' !important;
@@ -54,13 +62,20 @@ const RightSide = styled.div`
   top: 150px;
   right: 0;
   height: calc(100vh - 150px);
+
+  ${media.lessThan('medium')`
+    display: none;
+  `}
 `;
 
-const GeneralLayout = ({ title, description, rows, children }) => (
-  <Grid rows={rows}>
+const GeneralLayout = ({ title, description, middleRow, children }) => (
+  <Grid middleRow={middleRow}>
     <Header>
-      <h1>{title}</h1>
-      {description && <h5>{description}</h5>}
+      <div>
+        <h1>{title}</h1>
+        {description && <h5>{description}</h5>}
+      </div>
+      <Burger />
     </Header>
     <RightSide>
       <Links />
@@ -70,7 +85,7 @@ const GeneralLayout = ({ title, description, rows, children }) => (
 );
 
 GeneralLayout.propTypes = {
-  rows: PropTypes.string,
+  middleRow: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
@@ -78,7 +93,7 @@ GeneralLayout.propTypes = {
 
 GeneralLayout.defaultProps = {
   description: null,
-  rows: '150px auto',
+  middleRow: null,
 };
 
 export default GeneralLayout;

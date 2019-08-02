@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
@@ -19,6 +20,12 @@ const Main = styled.div`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
+
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    grid-template-columns: 1fr;
+    padding: 0 .5em;
+  `}
 `;
 
 const Footer = styled.div`
@@ -31,6 +38,11 @@ const Footer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    padding: .5rem;
+  `}
 `;
 
 const Projetcs = ({
