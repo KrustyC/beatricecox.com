@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
-import { Main, ImgContainer, Text } from './style';
+import { Main, Text } from './style';
 import Carousel from './Carousel';
 
 const htmlToReactParser = new HtmlToReactParser();
@@ -26,11 +26,8 @@ const Project = ({
       >
         <Main>
           <Text>{htmlToReactParser.parse(data.project_intro.html)}</Text>
-          <ImgContainer>
-            <img src={data.project_picture.url} alt="project" />
-          </ImgContainer>
-          <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
           <Carousel items={slideshowPics} />
+          <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
         </Main>
       </Layout>
     </>

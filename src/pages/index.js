@@ -29,6 +29,10 @@ const Text = styled.p`
   margin-top: 30px;
   text-align: left;
   overflow: auto;
+
+  :not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const HeroImage = styled.div`
@@ -61,16 +65,20 @@ const About = () => (
     </Hero>
     <Main>
       <Text>
-        Hello! Welcome to my website. Lorem ipsum dolor sit amet, consectetuer
-        adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-        nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-        ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-        vulputate velit esse molestie consequat, vel illum dolore eu feugiat
-        nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-        blandit praesent luptatum zzril delenit augue duis dolore te feugait
-        nulla facilisi.
+        Welcome to my personal website, here is a bit of my background! I{"'"}m
+        an anglo-italian designer and moved to London a couple of years ago. I
+        {"'"}m really enjoying this city{"'"}s multicultural vibe and love how
+        you can never get bored with it!
       </Text>
+      <Text>
+        Born in Sansepolcro, small town in Tuscany, Piero della Francesca{"'"}s
+        hometown! Been to art school since the age of 10 and I{"'"}ve always had
+        a passion for all forms of art and am a creative who likes to be
+        multidisciplinary and always on the look out for learning something new.
+        I try to get the most out of everything and like to make note of what I
+        see by either photographing it or drawing it.
+      </Text>
+      <Text>Hope you enjoy looking at my projects :)</Text>
     </Main>
   </Layout>
 );

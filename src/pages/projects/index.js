@@ -8,7 +8,6 @@ import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import Item from './_Item';
 import DownloadCurriculum from './_DownloadCurriculum';
-import DownloadPortfolio from './_DownloadPortfolio';
 
 const Main = styled.div`
   grid-column: 2 / 3;
@@ -60,8 +59,6 @@ const Projetcs = ({
       </Main>
       <Footer>
         <DownloadCurriculum />
-        <br />
-        <DownloadPortfolio />
       </Footer>
     </Layout>
   </>

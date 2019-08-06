@@ -17,17 +17,6 @@ export const Main = styled.div`
   `}
 `;
 
-export const ImgContainer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0px;
-  img {
-    width: 100%;
-  }
-`;
-
 export const Text = styled.div`
   text-align: left;
   width: 100%;
