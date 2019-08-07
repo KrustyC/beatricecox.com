@@ -11,7 +11,6 @@ const StyledBackgrounImage = styled(BackgroundImage)`
   top: 0;
   left: 0;
   z-index: -1;
-  filter: blur(6px) brightness(85%);
   position: absolute;
   left: 0;
   top: 0;

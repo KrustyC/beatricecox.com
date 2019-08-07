@@ -17,11 +17,7 @@ const Grid = styled.div`
   color: #fff;
 
   ${media.greaterThan('huge')`
-    grid-template-columns: 1fr 3fr 1fr;
-  `}
-
-  ${media.greaterThan('huge')`
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 728px 1fr;
   `}
 `;
 

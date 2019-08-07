@@ -33,6 +33,10 @@ const Text = styled.p`
   :not(:last-of-type) {
     margin-bottom: 2rem;
   }
+
+  :last-of-type {
+    margin-bottom: 4rem;
+  }
 `;
 
 const HeroImage = styled.div`
