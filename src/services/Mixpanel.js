@@ -1,6 +1,6 @@
 import mixpanel from 'mixpanel-browser';
 
-mixpanel.init(process.env.MIX_PANEL_TOKEN);
+mixpanel.init(process.env.GATSBY_MIX_PANEL_TOKEN);
 
 const envCheck = process.env.NODE_ENV === 'production';
 

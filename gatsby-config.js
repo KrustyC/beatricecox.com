@@ -36,7 +36,7 @@ module.exports = {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `beatricecox`,
-        accessToken: `${process.env.PRISMIC_API_KEY}`,
+        accessToken: `${process.env.GATSBY_PRISMIC_API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
       },
     },

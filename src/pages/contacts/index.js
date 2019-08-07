@@ -59,28 +59,28 @@ const Contacts = () => (
         </Text>
         <Social>
           <Icon
-            href="https://google.com"
+            href="https://www.instagram.com/beets_and_roots/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <InstagramSvg />
           </Icon>
           <Icon
-            href="https://google.com"
+            href="https://www.behance.net/BeatriceCox"
             target="_blank"
             rel="noopener noreferrer"
           >
             <BehanceSvg />
           </Icon>
           <Icon
-            href="https://it.linkedin.com/in/beatrice-duguid-cox-b96419b9"
+            href="https://www.linkedin.com/in/beatrice-duguid-cox-b96419b9/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <LinkedinSvg />
           </Icon>
           <Icon
-            href="https://google.com"
+            href="https://www.flickr.com/photos/147991560@N07/"
             target="_blank"
             rel="noopener noreferrer"
           >
