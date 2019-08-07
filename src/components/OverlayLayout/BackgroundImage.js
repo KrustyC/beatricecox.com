@@ -17,6 +17,21 @@ const StyledBackgrounImage = styled(BackgroundImage)`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  opacity: 0.2;
+`;
+
+const StyledOverlay = styled.div`
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: black;
+  opacity: 0.3;
 `;
 
 const BackgroundSection = () => (
@@ -35,11 +50,14 @@ const BackgroundSection = () => (
     render={data => {
       const imageData = data.desktop.childImageSharp.fluid;
       return (
-        <StyledBackgrounImage
-          Tag="section"
-          fluid={imageData}
-          backgroundColor="#040e18"
-        />
+        <>
+          <StyledBackgrounImage
+            Tag="section"
+            fluid={imageData}
+            backgroundColor="#040e18"
+          />
+          <StyledOverlay />
+        </>
       );
     }}
   />
