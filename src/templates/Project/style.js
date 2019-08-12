@@ -20,5 +20,9 @@ export const Main = styled.div`
 export const Text = styled.div`
   text-align: left;
   width: 100%;
-  margin: 10px auto;
+  margin: 0 auto;
+
+  * {
+    font-family: 'Montserrat' !important;
+  }
 `;

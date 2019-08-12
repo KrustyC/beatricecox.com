@@ -54,7 +54,9 @@ const HeroImage = styled.div`
     font-size: 120px;
     font-weight: 100;
 
-    font-size: 55px;
+    ${media.lessThan('medium')`
+      font-size: 55px;
+    `}
   }
 `;
 

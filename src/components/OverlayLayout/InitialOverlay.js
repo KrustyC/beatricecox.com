@@ -75,7 +75,7 @@ const Footer = styled.div`
 
   h1 {
     margin: 0px;
-    font-size: 150px;
+    font-size: 180px;
     font-weight: 100;
     ${media.lessThan('medium')`
       grid-template-columns: 1fr 2fr 1fr;

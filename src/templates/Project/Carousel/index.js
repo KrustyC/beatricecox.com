@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ProgressiveImage from 'react-progressive-image';
 import { CarouselContainer, Slide } from './style';
 import History from './History';
 
@@ -26,7 +27,9 @@ const Carousel = ({ items }) => {
         transitionLeaveTimeout={0}
       >
         <Slide key={current}>
-          <img src={items[current]} alt="active_image" />
+          <ProgressiveImage src={items[current]}>
+            {src => <img src={src} alt="project_image" />}
+          </ProgressiveImage>
         </Slide>
       </ReactCSSTransitionGroup>
       <History

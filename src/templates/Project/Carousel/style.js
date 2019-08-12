@@ -7,6 +7,8 @@ export const CarouselContainer = styled.div`
   overflow: hidden;
 
   height: 400px;
+
+  margin: ${({ theme }) => theme.margin.md} 0;
 `;
 
 export const Slide = styled.div`
@@ -51,8 +53,8 @@ export const Slide = styled.div`
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     margin: 0;
   }
 `;
@@ -62,15 +64,18 @@ export const HistoryContainer = styled.div`
   z-index: 2;
   bottom: 0;
   width: 100%;
+  height: 50px;
+  padding: 0;
 `;
 
 export const List = styled.ul`
   list-style: none;
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 0;
   padding-left: 10px;
-  padding-bottom: 10px;
   margin: 0;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -80,6 +85,7 @@ export const ListItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
   &:not(:last-of-type) {
     margin-right: 10px;
   }
@@ -88,6 +94,7 @@ export const ListItem = styled.div`
 export const HistoryButton = styled.button`
   border: none;
   outline: none;
+  margin: 0;
   width: 15px;
   height: 15px;
   border-radius: 50%;

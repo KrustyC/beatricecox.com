@@ -12,6 +12,13 @@ const theme = {
     xl: 1920,
     xxl: 2560,
   },
+  margin: {
+    xs: '0.5rem',
+    sm: '1rem',
+    md: '2rem',
+    lg: '4rem',
+    xl: '8rem',
+  },
 };
 
 // eslint-disable-next-line react/prop-types
