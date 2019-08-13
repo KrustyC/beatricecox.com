@@ -6,6 +6,7 @@ import media from 'styled-media-query';
 
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
+import CopyRight from '../../components/CopyRight';
 import Item from './_Item';
 import DownloadCurriculum from './_DownloadCurriculum';
 
@@ -28,11 +29,10 @@ const Main = styled.div`
 `;
 
 const Footer = styled.div`
-  text-transform: uppercase;
   grid-column: 2 / 3;
   grid-row: 3;
 
-  padding: 2rem 0;
+  padding: ${({ theme }) => theme.margin.md} 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@ const Footer = styled.div`
 
   ${media.lessThan('medium')`
     grid-column: 1 / end;
-    padding: .5rem;
+    padding: ${({ theme }) => theme.margin.md} 0.5rem;
   `}
 `;
 
@@ -59,6 +59,7 @@ const Projetcs = ({
       </Main>
       <Footer>
         <DownloadCurriculum />
+        <CopyRight />
       </Footer>
     </Layout>
   </>

@@ -4,6 +4,7 @@ import media from 'styled-media-query';
 import Masonry from 'react-masonry-css';
 
 import SEO from '../../components/Seo';
+import CopyRight from '../../components/CopyRight';
 import Layout from '../../components/Layout';
 
 const BASE_URL =
@@ -46,6 +47,10 @@ const Main = styled.div`
   }
 `;
 
+const Bottom = styled.div`
+  padding: ${({ theme }) => theme.margin.sm} 0;
+`;
+
 const fetchFlickrPhotos = () => fetch(FLICKR_URL).then(res => res.json());
 
 const Extras = () => {
@@ -76,6 +81,9 @@ const Extras = () => {
               return <img key={id} src={link} alt="" />;
             })}
           </Masonry>
+          <Bottom>
+            <CopyRight />
+          </Bottom>
         </Main>
       </Layout>
     </>

@@ -71,20 +71,21 @@ const About = () => (
     </Hero>
     <Main>
       <Text>
-        Welcome to my personal website, here is a bit of my background! I{"'"}m
-        an anglo-italian designer and moved to London a couple of years ago. I
-        {"'"}m really enjoying this city{"'"}s multicultural vibe and love how
-        you can never get bored with it!
+        Welcome to my personal website, here is a bit of background on me. I
+        {"'"}m an anglo-italian designer who moved to London a couple of years
+        ago. I{"'"}m really enjoying this city{"'"}s multicultural vibe and love
+        how you can never get bored with it!
       </Text>
       <Text>
-        Born in Sansepolcro, small town in Tuscany, Piero della Francesca{"'"}s
-        hometown! Been to art school since the age of 10 and I{"'"}ve always had
-        a passion for all forms of art and am a creative who likes to be
-        multidisciplinary and always on the look out for learning something new.
-        I try to get the most out of everything and like to make note of what I
-        see by either photographing it or drawing it.
+        I was born in Sansepolcro, a small town in Tuscany, perhaps most famous
+        as the birthplace of Piero della Francesca. I went to art school at the
+        age of 10 and I{"'"}ve always had a passion for all forms of art. I am a
+        creative who likes to be multidisciplinary, and I am always on the look
+        out for new solutions to problems. I try to get the most out of
+        everything, and like to make a record of interesting things that I see,
+        either by photographing them or drawing them.
       </Text>
-      <Text>Hope you enjoy looking at my projects :)</Text>
+      <Text>I hope you enjoy looking at the projects I{"'"}ve worked on.</Text>
     </Main>
   </Layout>
 );

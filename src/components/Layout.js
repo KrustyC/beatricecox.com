@@ -26,7 +26,6 @@ const Header = styled.div`
   grid-row: 1 / 1;
 
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
 
@@ -52,32 +51,6 @@ const Header = styled.div`
   }
 `;
 
-const LeftSide = styled.div`
-  grid-column: 1 / 2;
-  grid-row: 2 / end;
-  display: flex;
-  padding: ${({ theme }) => theme.margin.md};
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 100%;
-  * {
-    font-family: 'Montserrat' !important;
-  }
-  span {
-    font-size: 14px;
-    writing-mode: tb-rl;
-    transform: rotate(180deg);
-    max-width: 100%;
-    a {
-      text-decoration: none;
-    }
-  }
-
-  ${media.lessThan('medium')`
-    display: none;
-  `}
-`;
-
 const RightSide = styled.div`
   grid-column: 3;
   grid-row: 2;
@@ -94,13 +67,7 @@ const RightSide = styled.div`
   `}
 `;
 
-const GeneralLayout = ({
-  title,
-  description,
-  middleRow,
-  showCredits,
-  children,
-}) => (
+const GeneralLayout = ({ title, description, middleRow, children }) => (
   <Grid middleRow={middleRow}>
     <Header>
       <div>
@@ -109,20 +76,6 @@ const GeneralLayout = ({
       </div>
       <Burger />
     </Header>
-    {showCredits && (
-      <LeftSide>
-        <span>
-          © 2019 Design by Beatrice Cox and{' '}
-          <a
-            href="https://dcrestini.me"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Davide Crestini
-          </a>
-        </span>
-      </LeftSide>
-    )}
     <RightSide>
       <Links />
     </RightSide>
@@ -133,7 +86,6 @@ const GeneralLayout = ({
 GeneralLayout.propTypes = {
   middleRow: PropTypes.string,
   description: PropTypes.string,
-  showCredits: PropTypes.bool,
   title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
 };
@@ -141,7 +93,6 @@ GeneralLayout.propTypes = {
 GeneralLayout.defaultProps = {
   description: null,
   middleRow: null,
-  showCredits: true,
 };
 
 export default GeneralLayout;
