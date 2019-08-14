@@ -11,6 +11,28 @@ export const CarouselContainer = styled.div`
   margin: ${({ theme }) => theme.margin.md} 0;
 `;
 
+export const Left = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  min-width: 100px;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+`;
+
+export const Right = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  min-width: 100px;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+`;
+
 export const Slide = styled.div`
   position: absolute;
   bottom: 0;

@@ -55,10 +55,10 @@ const Text = styled.p`
   :not(:last-of-type) {
     margin-bottom: 2rem;
   }
-
+  /* 
   :last-of-type {
-    /* margin-bottom: 4rem; */
-  }
+    margin-bottom: 4rem;
+  } */
 `;
 
 const Footer = styled.div`
