@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import BackgroundImage from './_BackgroundImage';
 import Layout from '../components/Layout';
+import CopyRight from '../components/CopyRight';
 
 const Hero = styled.div`
   grid-column: 1 / 3;
@@ -11,6 +12,27 @@ const Hero = styled.div`
   ${media.lessThan('medium')`
     grid-column: 1 / end;
   `}
+`;
+
+const HeroImage = styled.div`
+  display: flex;
+  color: white;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-end;
+  z-index: 1;
+
+  h1 {
+    margin: 0;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    font-size: 120px;
+    font-weight: 100;
+
+    ${media.lessThan('medium')`
+      font-size: 55px;
+    `}
+  }
 `;
 
 const Main = styled.div`
@@ -35,29 +57,24 @@ const Text = styled.p`
   }
 
   :last-of-type {
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
   }
 `;
 
-const HeroImage = styled.div`
+const Footer = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 4;
+
+  padding: ${({ theme }) => theme.margin.md} 0;
   display: flex;
-  color: white;
-  height: 100%;
-  justify-content: flex-start;
-  align-items: flex-end;
-  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  h1 {
-    margin: 0;
-    margin-bottom: -10px;
-    text-transform: uppercase;
-    font-size: 120px;
-    font-weight: 100;
-
-    ${media.lessThan('medium')`
-      font-size: 55px;
-    `}
-  }
+  ${media.lessThan('medium')`
+    grid-column: 1 / end;
+    padding: ${({ theme }) => theme.margin.sm} 0.5rem;
+  `}
 `;
 
 const About = () => (
@@ -87,6 +104,9 @@ const About = () => (
       </Text>
       <Text>I hope you enjoy looking at the projects I{"'"}ve worked on.</Text>
     </Main>
+    <Footer>
+      <CopyRight />
+    </Footer>
   </Layout>
 );
 

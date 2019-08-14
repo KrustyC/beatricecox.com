@@ -32,15 +32,19 @@ const Footer = styled.div`
   grid-column: 2 / 3;
   grid-row: 3;
 
-  padding: ${({ theme }) => theme.margin.md} 0;
+  padding: ${({ theme }) => theme.margin.lg} 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
+
+  > span {
+    margin-top: ${({ theme }) => theme.margin.sm};
+  }
 
   ${media.lessThan('medium')`
     grid-column: 1 / end;
-    padding: ${({ theme }) => theme.margin.md} 0.5rem;
+    padding: ${({ theme }) => theme.margin.sm} 0.5rem;
   `}
 `;
 

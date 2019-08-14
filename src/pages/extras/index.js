@@ -48,7 +48,10 @@ const Main = styled.div`
 `;
 
 const Bottom = styled.div`
-  padding: ${({ theme }) => theme.margin.sm} 0;
+  padding: ${({ theme }) => theme.margin.lg} 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const fetchFlickrPhotos = () => fetch(FLICKR_URL).then(res => res.json());
