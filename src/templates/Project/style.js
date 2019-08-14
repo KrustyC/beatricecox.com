@@ -9,7 +9,23 @@ export const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-bottom: 3rem;
+  /* padding-bottom: 3rem; */
+
+  ${media.lessThan('medium')`
+    padding: 0 .5em;
+    padding-bottom: 1rem;
+  `}
+`;
+
+export const Bottom = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: ${({ theme }) => theme.margin.md} 0;
 
   ${media.lessThan('medium')`
     padding: 0 .5em;

@@ -5,7 +5,8 @@ import { graphql } from 'gatsby';
 
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
-import { Main, Text } from './style';
+import CopyRight from '../../components/CopyRight';
+import { Bottom, Main, Text } from './style';
 import Carousel from './Carousel';
 
 const htmlToReactParser = new HtmlToReactParser();
@@ -29,6 +30,9 @@ const Project = ({
           <Carousel items={slideshowPics} />
           <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
         </Main>
+        <Bottom>
+          <CopyRight />
+        </Bottom>
       </Layout>
     </>
   );

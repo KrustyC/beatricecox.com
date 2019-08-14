@@ -1,14 +1,16 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 600px;
   overflow: hidden;
-
-  height: 400px;
-
   margin: ${({ theme }) => theme.margin.md} 0;
+
+  ${media.lessThan('medium')`
+    height: 400px;
+  `}
 `;
 
 export const Left = styled.div`
@@ -35,10 +37,10 @@ export const Right = styled.div`
 
 export const Slide = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 50px);
   z-index: 1;
   display: flex;
   align-items: center;
@@ -92,14 +94,13 @@ export const HistoryContainer = styled.div`
 
 export const List = styled.ul`
   list-style: none;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 0;
   padding-left: 10px;
   margin: 0;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -121,6 +122,6 @@ export const HistoryButton = styled.button`
   height: 15px;
   border-radius: 50%;
   cursor: pointer;
-  background: ${({ active }) => (active ? 'red' : 'white')};
+  background: ${({ active }) => (active ? 'red' : '#333')};
   transition: background-color 300ms ease;
 `;
