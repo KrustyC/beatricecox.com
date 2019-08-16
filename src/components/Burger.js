@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { Link } from 'gatsby';
@@ -40,13 +41,13 @@ const Overlay = styled.div`
 
 const Button = styled.button`
   border: none;
-  background: white;
+  background: transparent;
 `;
 
 const Bar = styled.div`
   width: 30px;
   height: 4px;
-  background-color: #333;
+  background-color: ${({ overlay }) => (overlay ? '#FFF' : '#333')};
   margin: 6px 0;
   transition: 0.4s;
 `;
@@ -68,17 +69,16 @@ const Li = styled.li`
   a {
     text-decoration: none;
 
+    &:active,
     &:visited,
+    &:hover,
     &:focus {
-      color: inherit;
-    }
-    &:hover {
-      color: inherit;
+      color: white !important;
     }
   }
 `;
 
-const Burger = () => {
+const Burger = ({ overlay }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggle = () => setIsOpen(!isOpen);
@@ -86,15 +86,15 @@ const Burger = () => {
   return (
     <Div>
       <Button type="button" onClick={onToggle}>
-        <Bar />
-        <Bar />
-        <Bar />
+        <Bar overlay={overlay} />
+        <Bar overlay={overlay} />
+        <Bar overlay={overlay} />
       </Button>
       {isOpen && (
         <Overlay>
           <Ul>
             {links.map(({ label, to }) => (
-              <Li ket={to}>
+              <Li key={to}>
                 <Link activeClassName="active" to={to}>
                   {label}
                 </Link>
@@ -105,6 +105,14 @@ const Burger = () => {
       )}
     </Div>
   );
+};
+
+Burger.propTypes = {
+  overlay: PropTypes.bool,
+};
+
+Burger.defaultProps = {
+  overlay: false,
 };
 
 export default Burger;

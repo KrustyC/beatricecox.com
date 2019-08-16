@@ -4,6 +4,7 @@ import media from 'styled-media-query';
 import BehanceSvg from '../../assets/icons/behance.svg';
 import LinkedinSvg from '../../assets/icons/linkedin.svg';
 import InstagramSvg from '../../assets/icons/instagram.svg';
+import PinterestSvg from '../../assets/icons/pinterest.svg';
 import FlickrSvg from '../../assets/icons/flickr.svg';
 
 import SEO from '../../components/Seo';
@@ -41,6 +42,11 @@ const Icon = styled.a`
   svg {
     width: 50px;
     height: 50px;
+
+    ${media.lessThan('medium')`
+      width: 40px;
+      height: 40px;
+    `}
   }
 
   &:not(:last-of-type) {
@@ -65,6 +71,7 @@ const Contacts = () => (
           >
             <InstagramSvg />
           </Icon>
+
           <Icon
             href="https://www.behance.net/BeatriceCox"
             target="_blank"
@@ -72,6 +79,7 @@ const Contacts = () => (
           >
             <BehanceSvg />
           </Icon>
+
           <Icon
             href="https://www.linkedin.com/in/beatrice-duguid-cox-b96419b9/"
             target="_blank"
@@ -79,12 +87,21 @@ const Contacts = () => (
           >
             <LinkedinSvg />
           </Icon>
+
           <Icon
             href="https://www.flickr.com/photos/147991560@N07/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FlickrSvg />
+          </Icon>
+
+          <Icon
+            href="https://www.pinterest.co.uk/beatriceduguidc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <PinterestSvg />
           </Icon>
         </Social>
         <Text>

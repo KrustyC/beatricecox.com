@@ -44,7 +44,7 @@ const Footer = styled.div`
 
   ${media.lessThan('medium')`
     grid-column: 1 / end;
-    padding: ${({ theme }) => theme.margin.sm} 0.5rem;
+    padding: ${({ theme }) => theme.margin.md} 0.5rem;
   `}
 `;
 

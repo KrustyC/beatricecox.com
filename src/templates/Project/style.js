@@ -9,11 +9,15 @@ export const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* padding-bottom: 3rem; */
 
   ${media.lessThan('medium')`
+    grid-column: 1 / end;
     padding: 0 .5em;
     padding-bottom: 1rem;
+
+    * {
+      font-size: 15px;
+    }
   `}
 `;
 

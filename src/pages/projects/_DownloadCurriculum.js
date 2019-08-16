@@ -17,7 +17,12 @@ const DownloadCurriculum = () => {
 
   const { publicURL: link } = data.desktop;
   return (
-    <A href={link} download="beatricecox_cv" onClick={onClickHandler}>
+    <A
+      href={link}
+      download="beatricecox_cv"
+      onClick={onClickHandler}
+      style={{ marginBottom: '15px' }}
+    >
       Download CV
     </A>
   );

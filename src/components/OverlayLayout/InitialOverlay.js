@@ -91,7 +91,7 @@ const InitialOverlay = () => (
       <Grid>
         <Header>
           <h1>When? - Now!</h1>
-          <Burger />
+          <Burger overlay />
         </Header>
         <RightSide>
           <Links overlay />

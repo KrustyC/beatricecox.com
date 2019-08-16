@@ -36,12 +36,6 @@ const Header = styled.div`
     text-transform: uppercase;
   }
 
-  ${media.lessThan('medium')`
-    grid-column: 1/ end;
-    padding: 0 .5em;
-    font-size: 30px;
-  `}
-
   h5 {
     font-family: 'Montserrat' !important;
     font-weight: bold;
@@ -49,6 +43,20 @@ const Header = styled.div`
     margin: 0;
     margin-top: 7px;
   }
+
+  ${media.lessThan('medium')`
+    grid-column: 1/ end;
+    padding: 0 .5rem;
+    font-size: 30px;
+
+    h1 {
+      font-size: 30px; 
+      }
+
+    h5 {
+      font-size: 16px;
+    }
+  `}
 `;
 
 const RightSide = styled.div`
