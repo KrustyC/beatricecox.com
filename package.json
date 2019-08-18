@@ -9,7 +9,7 @@
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.6",
     "gatsby-background-image": "^0.8.0",
-    "gatsby-image": "^2.2.4",
+    "gatsby-image": "^2.2.8",
     "gatsby-plugin-manifest": "^2.2.1",
     "gatsby-plugin-offline": "^2.2.1",
     "gatsby-plugin-react-helmet": "^3.1.0",

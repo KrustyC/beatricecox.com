@@ -10,8 +10,10 @@ const Carousel = ({ items }) => {
   const [isNext, setIsNext] = useState(true);
 
   const onGoToHistoryClick = index => {
-    setCurrent(index);
+    // @TODO check the next
     setIsNext(current < index);
+    setCurrent(index);
+    console.log(current < index);
   };
 
   const onGoToPrev = () => onGoToHistoryClick(current > 0 ? current - 1 : 0);
@@ -36,7 +38,9 @@ const Carousel = ({ items }) => {
         <Slide key={current}>
           <Left onClick={onGoToPrev} />
           <ProgressiveImage src={items[current]}>
-            {src => <img src={src} alt="project_image" />}
+            {(src, loading) =>
+              loading ? 'LOADING...' : <img src={src} alt="project_image" />
+            }
           </ProgressiveImage>
           <Right onClick={onGoToNext} />
         </Slide>
