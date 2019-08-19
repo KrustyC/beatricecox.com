@@ -28,8 +28,12 @@ const Project = ({
   const isConcept = data.project_concept.html !== null;
   const hasSkills = data.project_skills.text !== null;
   const hasMembers = data.project_members.html !== null;
-  const skills = hasSkills ? data.project_skills.text.split(';') : [];
-  console.log(skills);
+  const skills = hasSkills
+    ? data.project_skills.text
+        .split(';')
+        .map(skill => skill.trim())
+        .filter(skill => skill !== '')
+    : [];
 
   return (
     <>
@@ -61,7 +65,7 @@ const Project = ({
               <TextTitle>Skills</TextTitle>
               <Skills>
                 {skills.map(skill => (
-                  <Chip>{skill}</Chip>
+                  <Chip key={skill}>{skill}</Chip>
                 ))}
               </Skills>
             </SkillContainer>
