@@ -54,12 +54,12 @@ const Project = ({
             <TextTitle>The Project</TextTitle>
             {htmlToReactParser.parse(data.project_content.html)}
           </Text>
-          {hasSkills && (
+          {/* {hasSkills && (
             <Text>
               <TextTitle>Skills</TextTitle>
               {htmlToReactParser.parse(data.project_skills.html)}
             </Text>
-          )}
+          )} */}
           {hasSkills && (
             <SkillContainer>
               <TextTitle>Skills</TextTitle>
