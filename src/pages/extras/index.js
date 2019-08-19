@@ -47,6 +47,14 @@ const Main = styled.div`
   }
 `;
 
+const Loading = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+`;
+
 const Bottom = styled.div`
   padding: ${({ theme }) => theme.margin.lg} 0;
   display: flex;
@@ -58,9 +66,13 @@ const fetchFlickrPhotos = () => fetch(FLICKR_URL).then(res => res.json());
 
 const Extras = () => {
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchFlickrPhotos().then(res => setPhotos(res.photos.photo));
+    fetchFlickrPhotos().then(res => {
+      setPhotos(res.photos.photo);
+      setLoading(false);
+    });
   }, []);
 
   return (
@@ -68,22 +80,26 @@ const Extras = () => {
       <SEO title="Extras" />
       <Layout title="Why?">
         <Main>
-          <Masonry
-            breakpointCols={{
-              default: 2,
-              1100: 2,
-              700: 2,
-              500: 1,
-            }}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-          >
-            {photos.map(photo => {
-              const { farm, server, id, secret } = photo;
-              const link = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
-              return <img key={id} src={link} alt="" />;
-            })}
-          </Masonry>
+          {loading ? (
+            <Loading>Loading...</Loading>
+          ) : (
+            <Masonry
+              breakpointCols={{
+                default: 2,
+                1100: 2,
+                700: 2,
+                500: 1,
+              }}
+              className="my-masonry-grid"
+              columnClassName="my-masonry-grid_column"
+            >
+              {photos.map(photo => {
+                const { farm, server, id, secret } = photo;
+                const link = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
+                return <img key={id} src={link} alt="" />;
+              })}
+            </Masonry>
+          )}
           <Bottom>
             <CopyRight />
           </Bottom>
