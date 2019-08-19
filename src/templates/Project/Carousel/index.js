@@ -10,10 +10,8 @@ const Carousel = ({ items }) => {
   const [isNext, setIsNext] = useState(true);
 
   const onGoToHistoryClick = index => {
-    // @TODO check the next
     setIsNext(current < index);
     setCurrent(index);
-    console.log(current < index);
   };
 
   const onGoToPrev = () => onGoToHistoryClick(current > 0 ? current - 1 : 0);
@@ -32,8 +30,8 @@ const Carousel = ({ items }) => {
           leave: 'leave',
           leaveActive: isNext ? 'leave-active-next' : 'leave-active-prev',
         }}
-        transitionEnterTimeout={0}
-        transitionLeaveTimeout={0}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
       >
         <Slide key={current}>
           <Left onClick={onGoToPrev} />

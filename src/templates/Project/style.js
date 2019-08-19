@@ -42,7 +42,7 @@ export const Skills = styled.div`
 export const Chip = styled.div`
   padding: 0 0.5rem;
   margin-top: 10px;
-  background: #434343;
+  background: #333;
   color: #fff;
   font-size: 14px;
   border-radius: 5px;
