@@ -21,6 +21,37 @@ export const Main = styled.div`
   `}
 `;
 
+export const SkillContainer = styled.div`
+  text-align: left;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.45rem;
+
+  * {
+    font-family: 'Montserrat' !important;
+  }
+`;
+
+export const Skills = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: -10px;
+`;
+
+export const Chip = styled.div`
+  padding: 0 0.5rem;
+  margin-top: 10px;
+  background: #434343;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+
+  :not(:last-of-type) {
+    margin-right: 10px;
+  }
+`;
+
 export const Bottom = styled.div`
   grid-column: 2 / 3;
   grid-row: 3;
@@ -45,4 +76,10 @@ export const Text = styled.div`
   * {
     font-family: 'Montserrat' !important;
   }
+`;
+
+export const TextTitle = styled.span`
+  margin-bottom: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
 `;

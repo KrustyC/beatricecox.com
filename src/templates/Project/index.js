@@ -6,7 +6,15 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import CopyRight from '../../components/CopyRight';
-import { Bottom, Main, Text } from './style';
+import {
+  Bottom,
+  Chip,
+  Main,
+  SkillContainer,
+  Skills,
+  Text,
+  TextTitle,
+} from './style';
 import Carousel from './Carousel';
 
 const htmlToReactParser = new HtmlToReactParser();
@@ -17,6 +25,11 @@ const Project = ({
   },
 }) => {
   const slideshowPics = data.slideshow.map(({ pic: { url } }) => url);
+  const isConcept = data.project_concept.html !== null;
+  const hasSkills = data.project_skills.text !== null;
+  const hasMembers = data.project_members.html !== null;
+  const skills = hasSkills ? data.project_skills.text.split(';') : [];
+  console.log(skills);
 
   return (
     <>
@@ -26,9 +39,39 @@ const Project = ({
         description={data.project_description.text}
       >
         <Main>
-          <Text>{htmlToReactParser.parse(data.project_intro.html)}</Text>
+          <Text>
+            <TextTitle>{isConcept ? 'The Concept' : 'The Brief'}</TextTitle>
+            {htmlToReactParser.parse(
+              isConcept ? data.project_concept.html : data.project_brief.html
+            )}
+          </Text>
           <Carousel items={slideshowPics} />
-          <Text>{htmlToReactParser.parse(data.project_content.html)}</Text>
+          <Text>
+            <TextTitle>The Project</TextTitle>
+            {htmlToReactParser.parse(data.project_content.html)}
+          </Text>
+          {hasSkills && (
+            <Text>
+              <TextTitle>Skills</TextTitle>
+              {htmlToReactParser.parse(data.project_skills.html)}
+            </Text>
+          )}
+          {hasSkills && (
+            <SkillContainer>
+              <TextTitle>Skills</TextTitle>
+              <Skills>
+                {skills.map(skill => (
+                  <Chip>{skill}</Chip>
+                ))}
+              </Skills>
+            </SkillContainer>
+          )}
+          {hasMembers && (
+            <Text>
+              <TextTitle>Members</TextTitle>
+              {htmlToReactParser.parse(data.project_members.html)}
+            </Text>
+          )}
         </Main>
         <Bottom>
           <CopyRight />
@@ -48,11 +91,21 @@ Project.propTypes = {
         project_description: PropTypes.shape({
           text: PropTypes.string.isRequired,
         }).isRequired,
-        project_intro: PropTypes.shape({
-          html: PropTypes.string.isRequired,
+        project_brief: PropTypes.shape({
+          html: PropTypes.string,
+        }).isRequired,
+        project_concept: PropTypes.shape({
+          html: PropTypes.string,
         }).isRequired,
         project_content: PropTypes.shape({
           html: PropTypes.string.isRequired,
+        }).isRequired,
+        project_skills: PropTypes.shape({
+          html: PropTypes.string,
+          text: PropTypes.string,
+        }).isRequired,
+        project_members: PropTypes.shape({
+          html: PropTypes.string,
         }).isRequired,
         project_picture: PropTypes.shape({
           url: PropTypes.string.isRequired,
@@ -79,10 +132,20 @@ export const pageQuery = graphql`
         project_description {
           text
         }
-        project_intro {
+        project_brief {
+          html
+        }
+        project_concept {
           html
         }
         project_content {
+          html
+        }
+        project_skills {
+          html
+          text
+        }
+        project_members {
           html
         }
         project_picture {
