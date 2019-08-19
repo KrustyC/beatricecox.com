@@ -33,6 +33,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `${process.env.GOOGLE_ANALYTICS_TRACKING_ID}`,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'beatricecox.com',
+      },
+    },
+    {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `beatricecox`,
