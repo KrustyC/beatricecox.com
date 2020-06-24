@@ -4,6 +4,14 @@ import OverlayLayout from './src/components/OverlayLayout';
 import GlobalStyle from './src/components/GlobalStyle';
 
 const theme = {
+  colors: {
+    accent: 'orange',
+  },
+  fontSize: '200',
+  fonts: {
+    main: 'Poppins',
+    titles: 'Bazar',
+  },
   breakpoints: {
     xs: 0,
     sm: 768,

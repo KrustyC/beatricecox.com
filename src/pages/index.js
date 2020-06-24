@@ -47,7 +47,8 @@ const Main = styled.div`
 `;
 
 const Text = styled.p`
-  font-family: 'Montserrat' !important;
+  font-family: '${({ theme }) => theme.fonts.main}' !important;
+  font-weight: ${({ theme }) => theme.fontSize};
   margin-top: 30px;
   text-align: left;
   overflow: auto;

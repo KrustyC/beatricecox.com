@@ -28,7 +28,8 @@ export const SkillContainer = styled.div`
   margin-bottom: 1.45rem;
 
   * {
-    font-family: 'Montserrat' !important;
+    font-family: '${({ theme }) => theme.fonts.main}' !important;
+    font-weight: ${({ theme }) => theme.fontSize};
   }
 `;
 
@@ -74,12 +75,13 @@ export const Text = styled.div`
   margin: 0 auto;
 
   * {
-    font-family: 'Montserrat' !important;
+    font-family: '${({ theme }) => theme.fonts.main}' !important;
+    font-weight: ${({ theme }) => theme.fontSize};
   }
 `;
 
 export const TextTitle = styled.span`
   margin-bottom: 3px;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 `;

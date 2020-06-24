@@ -14,11 +14,11 @@ const Ul = styled.ul`
 const lineThrough = css`
   ::before {
     content: '';
-    border-bottom: 2px solid red;
+    border-bottom: 6px solid ${({ theme }) => theme.colors.accent};
     width: 100%;
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 40%;
   }
 `;
 
@@ -56,10 +56,6 @@ const links = [
   {
     label: 'Projects',
     to: '/projects',
-  },
-  {
-    label: 'Extras',
-    to: '/extras',
   },
   {
     label: 'Contacts',

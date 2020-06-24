@@ -7,24 +7,22 @@ import media from 'styled-media-query';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import CopyRight from '../../components/CopyRight';
-import Item from './_Item';
+import ItemsRow from './_ItemsRow';
 import DownloadCurriculum from './_DownloadCurriculum';
 
 const Main = styled.div`
   grid-column: 2 / 3;
   grid-row: 2;
 
-  display: grid;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   ${media.lessThan('medium')`
     grid-column: 1 / end;
     grid-template-columns: 1fr;
-    padding: 0 .5em;
+    padding: 0 1em;
   `}
 `;
 
@@ -52,22 +50,31 @@ const Projetcs = ({
   data: {
     allPrismicPortfolioItem: { nodes },
   },
-}) => (
-  <>
-    <SEO title="Portfolio" />
-    <Layout title="What?">
-      <Main>
-        {nodes.map((node, i) => (
-          <Item key={node.id} order={i + 1} {...node} />
-        ))}
-      </Main>
-      <Footer>
-        <DownloadCurriculum />
-        <CopyRight />
-      </Footer>
-    </Layout>
-  </>
-);
+}) => {
+  const projects = nodes.reduce((result, value, index, array) => {
+    if (index % 2 === 0) {
+      result.push(array.slice(index, index + 2));
+    }
+    return result;
+  }, []);
+
+  return (
+    <>
+      <SEO title="Portfolio" />
+      <Layout title="What?">
+        <Main>
+          {projects.map((projectCouple, i) => (
+            <ItemsRow key={projectCouple[0].id} items={projectCouple} row={i} />
+          ))}
+        </Main>
+        <Footer>
+          <DownloadCurriculum />
+          <CopyRight />
+        </Footer>
+      </Layout>
+    </>
+  );
+};
 
 Projetcs.propTypes = {
   data: PropTypes.shape({

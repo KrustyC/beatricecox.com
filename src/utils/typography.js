@@ -3,11 +3,11 @@ import Typography from 'typography';
 const typography = new Typography({
   baseFontSize: '18px',
   baseLineHeight: 1.666,
-  headerFontFamily: ['Montserrat', 'Arial', 'sans-serif'],
-  bodyFontFamily: ['Montserrat', 'serif'],
+  headerFontFamily: ['Poppins', 'Arial', 'sans-serif'],
+  bodyFontFamily: ['Poppins', 'serif'],
   googleFonts: [
     {
-      name: 'Montserrat',
+      name: 'Poppins',
       styles: ['100', '200', '300', '400', '400i', '700', '700i'],
     },
   ],

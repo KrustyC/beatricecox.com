@@ -14,10 +14,6 @@ const links = [
     to: '/projects',
   },
   {
-    label: 'Extras',
-    to: '/extras',
-  },
-  {
     label: 'Contacts',
     to: '/contacts',
   },

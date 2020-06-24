@@ -14,7 +14,8 @@ const Div = styled.div`
   p {
     text-align: center;
     * {
-      font-family: 'Montserrat' !important;
+      font-family: '${({ theme }) => theme.fonts.main}' !important;
+      font-weight: ${({ theme }) => theme.fontSize};
     }
   }
 `;

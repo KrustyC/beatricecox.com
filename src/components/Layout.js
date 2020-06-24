@@ -34,10 +34,12 @@ const Header = styled.div`
     font-weight: 100;
     font-size: 35px;
     text-transform: uppercase;
+
+    color: #000000;
   }
 
   h5 {
-    font-family: 'Montserrat' !important;
+    font-family: '${({ theme }) => theme.fonts.main}' !important;
     font-weight: bold;
     font-size: 18px;
     margin: 0;

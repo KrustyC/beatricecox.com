@@ -11,7 +11,8 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   * {
-    font-family: 'Montserrat' !important;
+    font-family: '${({ theme }) => theme.fonts.main}' !important;
+    font-weight: ${({ theme }) => theme.fontSize};
   }
 
   span {
