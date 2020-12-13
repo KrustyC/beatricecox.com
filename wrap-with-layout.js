@@ -9,8 +9,8 @@ const theme = {
   },
   fontSize: '200',
   fonts: {
-    main: 'Poppins',
-    titles: 'Bazar',
+    main: 'EB Garamond',
+    titles: 'Oswald',
   },
   breakpoints: {
     xs: 0,

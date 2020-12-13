@@ -622,22 +622,11 @@ pre tt:after {
   }
 }
 
-@font-face {
-  font-family: 'Bazar';
-  src: url('../fonts/Bazar.eot');
-  src: url('../fonts/Bazar.woff') format('woff'),
-    url('../fonts/Bazar.ttf') format('truetype'),
-    url('../fonts/Bazar.otf') format('opentype'),
-    url('../fonts/Bazar.svg#Bazar') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
-  font-family: 'Bazar' !important;
+  font-family: 'Oswald' !important;
 }
 
 p {
-  font-family: 'Poppins' !important;
+  font-family: 'EB Garamond' !important;
   font-weight: 200;
 }

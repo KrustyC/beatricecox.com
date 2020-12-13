@@ -28,7 +28,7 @@ const Main = styled.div`
 const Text = styled.p`
   max-width: 360px;
   text-transform: uppercase;
-  font-family: 'Bazar' !important;
+  font-family: 'Oswald' !important;
   margin: 0;
 `;
 

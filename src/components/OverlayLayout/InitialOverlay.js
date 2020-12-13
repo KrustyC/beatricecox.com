@@ -65,7 +65,7 @@ const RightSide = styled.div`
   `}
 `;
 
-const Footer = styled.div`
+const Bottom = styled.div`
   grid-column: 1 / end;
   grid-row: 3;
 
@@ -75,6 +75,7 @@ const Footer = styled.div`
 
   h1 {
     margin: 0px;
+    margin-bottom: -20px;
     font-size: 180px;
     font-weight: 100;
     ${media.lessThan('medium')`
@@ -96,9 +97,9 @@ const InitialOverlay = () => (
         <RightSide>
           <Links overlay />
         </RightSide>
-        <Footer>
+        <Bottom>
           <h1>Beatrice Cox</h1>
-        </Footer>
+        </Bottom>
       </Grid>
     </Div>
   </>

@@ -21,6 +21,7 @@ export const Left = styled.div`
   min-width: 100px;
   height: 100%;
   cursor: pointer;
+  z-index: 1;
   background: transparent;
 `;
 
@@ -46,35 +47,6 @@ export const Slide = styled.div`
   align-items: center;
 
   justify-content: center;
-
-  &.leave {
-    transform: translateX(0);
-  }
-
-  &.enter-active.enter-next,
-  &.enter-active.enter-prev {
-    transform: translateX(0);
-    transition: transform 500ms linear;
-  }
-
-  &.enter-next {
-    transform: translateX(100%);
-  }
-
-  &.enter-prev {
-    transform: translateX(-100%);
-    transition: transform 500ms linear;
-  }
-
-  &.leave-active-next {
-    transform: translateX(-100%);
-    transition: transform 500ms linear;
-  }
-
-  &.leave.leave-active-prev {
-    transform: translateX(100%);
-    transition: transform 500ms linear;
-  }
 
   img {
     max-width: 100%;
@@ -114,14 +86,15 @@ export const ListItem = styled.div`
   }
 `;
 
-export const HistoryButton = styled.button`
+export const HistoryButton = styled.div`
   border: none;
   outline: none;
   margin: 0;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
   cursor: pointer;
-  background: ${({ active }) => (active ? 'red' : '#333')};
+  background: ${({ theme, active }) =>
+    active ? theme.colors.accent : '#E8E8E8'};
   transition: background-color 300ms ease;
 `;

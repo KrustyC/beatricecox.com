@@ -24,7 +24,7 @@ const HeroImage = styled.div`
 
   h1 {
     margin: 0;
-    margin-bottom: -10px;
+    margin-bottom: -15px;
     text-transform: uppercase;
     font-size: 120px;
     font-weight: 100;
