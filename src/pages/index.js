@@ -56,10 +56,6 @@ const Text = styled.p`
   :not(:last-of-type) {
     margin-bottom: 2rem;
   }
-  /* 
-  :last-of-type {
-    margin-bottom: 4rem;
-  } */
 `;
 
 const Footer = styled.div`
@@ -89,19 +85,25 @@ const About = () => (
     </Hero>
     <Main>
       <Text>
-        Welcome to my personal website, here is a bit of background on me. I
-        {"'"}m an anglo-italian designer who moved to London a couple of years
-        ago. I{"'"}m really enjoying this city{"'"}s multicultural vibe and love
-        how you can never get bored with it!
+        Welcome to my personal website, here is a bit of background about me. I
+        {"'"}m an Anglo-Italian who moved to London a couple of years ago having
+        graduated as a Product Designer from Bologna University with a First
+        Class Degree.
       </Text>
       <Text>
-        I was born in Sansepolcro, a small town in Tuscany, perhaps most famous
-        as the birthplace of Piero della Francesca. I went to art school at the
-        age of 10 and I{"'"}ve always had a passion for all forms of art. I am a
-        creative who likes to be multidisciplinary, and I am always on the look
-        out for new solutions to problems. I try to get the most out of
-        everything, and like to make a record of interesting things that I see,
-        either by photographing them or drawing them.
+        This time has inspired me and given me a broad range of experience in
+        different disciplines. The multidisciplinary environment suits me and
+        has given me the opportunity to be creative working with a great variety
+        of people and projects - I love the {"'"}surprise{"'"} aspect this has.
+        I{"'"}m a true believer in working ways around things to try and make
+        them environmentally less impactful, ethical and, really, just always be
+        aware of the bigger picture.
+      </Text>
+      <Text>
+        Currently working at Minale Tattersfield a multi-award winning Design
+        Strategy company based in London - where I have been given the chance to
+        work on really interesting projects, from 2D graphic artwork to 3D
+        interiors.
       </Text>
       <Text>I hope you enjoy looking at the projects I{"'"}ve worked on.</Text>
     </Main>
