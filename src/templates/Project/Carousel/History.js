@@ -8,7 +8,6 @@ const History = ({ items, current, onChangeSlide }) => (
       {items.map((_, index) => (
         <ListItem key={Math.random()}>
           <HistoryButton
-            type="button"
             active={index === current}
             onClick={() => onChangeSlide(index)}
           />

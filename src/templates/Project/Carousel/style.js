@@ -92,9 +92,12 @@ export const HistoryButton = styled.div`
   margin: 0;
   width: 8px;
   height: 8px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
   border-radius: 100px;
   cursor: pointer;
   background: ${({ theme, active }) =>
     active ? theme.colors.accent : '#E8E8E8'};
+
   transition: background-color 300ms ease;
 `;
