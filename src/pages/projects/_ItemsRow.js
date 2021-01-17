@@ -115,7 +115,6 @@ ItemsRow.propTypes = {
           url: PropTypes.string.isRequired,
         }).isRequired,
       }).isRequired,
-      order: PropTypes.number.isRequired,
     })
   ).isRequired,
   row: PropTypes.number.isRequired,

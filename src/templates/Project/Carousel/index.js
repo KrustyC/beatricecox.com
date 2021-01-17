@@ -4,7 +4,7 @@ import { CarouselContainer, Slide, Left, Right } from './style';
 import History from './History';
 import Image from './Image';
 
-const Carousel = ({ items }) => {
+const Carousel = ({ items, imageFit }) => {
   const [current, setCurrent] = useState(0);
 
   const onGoToHistoryClick = index => setCurrent(index);
@@ -22,7 +22,7 @@ const Carousel = ({ items }) => {
       <Slide key={current}>
         <Left onClick={onGoToPrev} />
 
-        <Image src={items[current]} />
+        <Image src={items[current]} fit={imageFit} />
 
         <Right onClick={onGoToNext} />
       </Slide>
@@ -37,6 +37,11 @@ const Carousel = ({ items }) => {
 
 Carousel.propTypes = {
   items: PropTypes.array.isRequired,
+  imageFit: PropTypes.oneOf(['contain', 'cover']),
+};
+
+Carousel.defaultProps = {
+  imageFit: 'cover',
 };
 
 export default Carousel;

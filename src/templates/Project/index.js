@@ -19,6 +19,12 @@ import Carousel from './Carousel';
 
 const htmlToReactParser = new HtmlToReactParser();
 
+// List of project for which the image property should be set to contin
+const CONTAIN_PROJECTS = ['Inventive Vents', "A caccia dei tesori dell'arte"];
+function getImageFit(title) {
+  return CONTAIN_PROJECTS.includes(title) ? 'contain' : 'cover';
+}
+
 const Project = ({
   data: {
     prismicPortfolioItem: { data },
@@ -49,7 +55,10 @@ const Project = ({
               isConcept ? data.project_concept.html : data.project_brief.html
             )}
           </Text>
-          <Carousel items={slideshowPics} />
+          <Carousel
+            items={slideshowPics}
+            imageFit={getImageFit(data.title.text)}
+          />
           <Text>
             <TextTitle>The Project</TextTitle>
             {htmlToReactParser.parse(data.project_content.html)}

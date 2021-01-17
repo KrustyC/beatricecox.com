@@ -18,7 +18,7 @@ const lineThrough = css`
     width: 100%;
     position: absolute;
     right: 0;
-    top: 40%;
+    top: 45%;
   }
 `;
 

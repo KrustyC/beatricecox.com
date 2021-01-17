@@ -29,13 +29,13 @@ const Container = styled.div`
 const Img = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
 
+  object-fit: ${({ fit }) => fit};
   position: absolute;
-  background-color: #e2e5e7;
+  background-color: white;
 `;
 
-const Image = ({ src }) => {
+const Image = ({ src, fit }) => {
   return (
     <Container>
       <SwitchTransition mode="in-out">
@@ -46,7 +46,7 @@ const Image = ({ src }) => {
           }
           classNames="fade"
         >
-          <Img src={src} />
+          <Img src={src} fit={fit} />
         </CSSTransition>
       </SwitchTransition>
     </Container>
@@ -55,6 +55,11 @@ const Image = ({ src }) => {
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,
+  fit: PropTypes.oneOf(['contain', 'cover']),
+};
+
+Image.defaultProps = {
+  fit: 'cover',
 };
 
 export default Image;
