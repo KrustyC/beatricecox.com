@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import BehanceSvg from '../../assets/icons/behance.svg';
 import LinkedinSvg from '../../assets/icons/linkedin.svg';
 import InstagramSvg from '../../assets/icons/instagram.svg';
 import PinterestSvg from '../../assets/icons/pinterest.svg';
@@ -70,14 +69,6 @@ const Contacts = () => (
             rel="noopener noreferrer"
           >
             <InstagramSvg />
-          </Icon>
-
-          <Icon
-            href="https://www.behance.net/BeatriceCox"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BehanceSvg />
           </Icon>
 
           <Icon
