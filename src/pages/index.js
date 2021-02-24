@@ -4,6 +4,7 @@ import media from 'styled-media-query';
 import BackgroundImage from './_BackgroundImage';
 import Layout from '../components/Layout';
 import CopyRight from '../components/CopyRight';
+import SEO from '../components/Seo';
 
 const Hero = styled.div`
   grid-column: 1 / 3;
@@ -76,6 +77,7 @@ const Footer = styled.div`
 
 const About = () => (
   <Layout title="Who?" middleRow="500px">
+    <SEO title="Home" />
     <Hero>
       <BackgroundImage>
         <HeroImage>

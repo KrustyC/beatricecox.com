@@ -5,6 +5,7 @@ import media from 'styled-media-query';
 import BackgroundImage from './BackgroundImage';
 import Links from '../Links';
 import Burger from '../Burger';
+import SEO from '../Seo';
 
 const Grid = styled.div`
   display: grid;
@@ -87,6 +88,7 @@ const Bottom = styled.div`
 
 const InitialOverlay = () => (
   <>
+    <SEO title="Home" />
     <BackgroundImage />
     <Div>
       <Grid>
