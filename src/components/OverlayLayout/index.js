@@ -66,17 +66,10 @@ OverlayLayout.propTypes = {
   onHideOverlay: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ showOverlay }) => {
-  return { showOverlay };
-};
+const mapStateToProps = ({ showOverlay }) => ({ showOverlay });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onHideOverlay: () => dispatch({ type: `HIDE_OVERLAY` }),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onHideOverlay: () => dispatch({ type: `HIDE_OVERLAY` }),
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(OverlayLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(OverlayLayout);

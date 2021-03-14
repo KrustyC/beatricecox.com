@@ -35,23 +35,21 @@ const Img = styled.img`
   background-color: white;
 `;
 
-const Image = ({ src, fit }) => {
-  return (
-    <Container>
-      <SwitchTransition mode="in-out">
-        <CSSTransition
-          key={src}
-          addEndListener={(node, done) =>
-            node.addEventListener('transitionend', done, false)
-          }
-          classNames="fade"
-        >
-          <Img src={src} fit={fit} />
-        </CSSTransition>
-      </SwitchTransition>
-    </Container>
-  );
-};
+const Image = ({ src, fit }) => (
+  <Container>
+    <SwitchTransition mode="in-out">
+      <CSSTransition
+        key={src}
+        addEndListener={(node, done) =>
+          node.addEventListener('transitionend', done, false)
+        }
+        classNames="fade"
+      >
+        <Img src={src} fit={fit} />
+      </CSSTransition>
+    </SwitchTransition>
+  </Container>
+);
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,

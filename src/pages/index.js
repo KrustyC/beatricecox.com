@@ -88,18 +88,18 @@ const About = () => (
     <Main>
       <Text>
         Welcome to my personal website, here is a bit of background about me. I
-        {"'"}m an Anglo-Italian who moved to London a couple of years ago having
-        graduated as a Product Designer from Bologna University with a First
-        Class Degree.
+        `&apos;`m an Anglo-Italian who moved to London a couple of years ago
+        having graduated as a Product Designer from Bologna University with a
+        First Class Degree.
       </Text>
       <Text>
         This time has inspired me and given me a broad range of experience in
         different disciplines. The multidisciplinary environment suits me and
         has given me the opportunity to be creative working with a great variety
-        of people and projects - I love the {"'"}surprise{"'"} aspect this has.
-        I{"'"}m a true believer in working ways around things to try and make
-        them environmentally less impactful, ethical and, really, just always be
-        aware of the bigger picture.
+        of people and projects - I love the `&&lsquo;`surprise`&&lsquo;` aspect
+        this has. I`&apos;`m a true believer in working ways around things to
+        try and make them environmentally less impactful, ethical and, really,
+        just always be aware of the bigger picture.
       </Text>
       <Text>
         Currently working at Minale Tattersfield a multi-award winning Design
@@ -107,7 +107,9 @@ const About = () => (
         work on really interesting projects, from 2D graphic artwork to 3D
         interiors.
       </Text>
-      <Text>I hope you enjoy looking at the projects I{"'"}ve worked on.</Text>
+      <Text>
+        I hope you enjoy looking at the projects I`&apos;`ve worked on.
+      </Text>
     </Main>
     <Footer>
       <CopyRight />
