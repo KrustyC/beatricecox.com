@@ -20,7 +20,11 @@ import Carousel from './Carousel';
 const htmlToReactParser = new HtmlToReactParser();
 
 // List of project for which the image property should be set to contin
-const CONTAIN_PROJECTS = ['Inventive Vents', "A caccia dei tesori dell'arte"];
+const CONTAIN_PROJECTS = [
+  'Inventive Vents',
+  "A caccia dei tesori dell'arte",
+  'Crawl',
+];
 function getImageFit(title) {
   return CONTAIN_PROJECTS.includes(title) ? 'contain' : 'cover';
 }
@@ -37,8 +41,8 @@ const Project = ({
   const skills = hasSkills
     ? data.project_skills.text
         .split(';')
-        .map(skill => skill.trim())
-        .filter(skill => skill !== '')
+        .map((skill) => skill.trim())
+        .filter((skill) => skill !== '')
     : [];
 
   return (
@@ -73,7 +77,7 @@ const Project = ({
             <SkillContainer>
               <TextTitle>Skills</TextTitle>
               <Skills>
-                {skills.map(skill => (
+                {skills.map((skill) => (
                   <Chip key={skill}>{skill}</Chip>
                 ))}
               </Skills>
