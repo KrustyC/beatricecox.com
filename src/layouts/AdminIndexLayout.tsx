@@ -5,13 +5,9 @@ interface IndexLayoutProps {
   itemName: string;
 }
 
-export const IndexLayout: React.FC<React.PropsWithChildren<IndexLayoutProps>> = ({
-  title,
-  subtitle,
-  createItemPath,
-  itemName,
-  children,
-}) => {
+export const IndexLayout: React.FC<
+  React.PropsWithChildren<IndexLayoutProps>
+> = ({ title, subtitle, createItemPath, itemName, children }) => {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center">

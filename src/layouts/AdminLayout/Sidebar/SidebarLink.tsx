@@ -6,11 +6,9 @@ interface SidebarLinkProps {
   icon: React.ReactNode;
 }
 
-export const SidebarLink: React.FC<React.PropsWithChildren<SidebarLinkProps>> = ({
-  href,
-  label,
-  icon,
-}) => {
+export const SidebarLink: React.FC<
+  React.PropsWithChildren<SidebarLinkProps>
+> = ({ href, label, icon }) => {
   const isActive = "/admin" === href;
 
   return (

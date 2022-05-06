@@ -1,6 +1,5 @@
 import { PieChartIcon } from "../../../components/icons/PieChart";
 import { NewsIcon } from "../../../components/icons/News";
-import { ArchiveIcon } from "../../../components/icons/Archive";
 import { ImageIcon } from "../../../components/icons/Image";
 import { DocumentIcon } from "../../../components/icons/Document";
 import { SidebarLink } from "./SidebarLink";
@@ -25,19 +24,9 @@ export const Sidebar: React.FC<React.PropsWithChildren<unknown>> = () => (
 
             <li>
               <SidebarLink
-                href="/admin/news/"
-                label="News"
+                href="/admin/projects/"
+                label="Projects"
                 icon={<NewsIcon />}
-              />
-            </li>
-          </ul>
-
-          <ul className="py-2">
-            <li>
-              <SidebarLink
-                href="/admin/teaching-resources/"
-                label="Teacher Resources"
-                icon={<ArchiveIcon />}
               />
             </li>
           </ul>
