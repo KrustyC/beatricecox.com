@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     baseUrl: process.env.BASE_URL || "http://localhost:3000",
-    s3BucketUrl: `https://${process.env.S3_OUR_HUT_BUCKET}.s3.amazonaws.com`,
+    s3BucketUrl: `https://${process.env.S3_BEATRICECOX_BUCKET}.s3.amazonaws.com`,
   },
   images: {
     domains: [

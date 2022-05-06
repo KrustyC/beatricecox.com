@@ -6,7 +6,7 @@ import { HTTP_METHODS } from "../shared/variables";
 async function get() {
   try {
     const params = {
-      Bucket: process.env.S3_OUR_HUT_BUCKET as string,
+      Bucket: process.env.S3_BEATRICECOX_BUCKET as string,
       Prefix: `${FOLDERS.PARTNERS_LOGOS}/`,
     };
 
@@ -16,7 +16,7 @@ async function get() {
       listObjects?.Contents?.filter((file) => {
         return file.Size > 0;
       }).map((file) => {
-        return `https://${process.env.S3_OUR_HUT_BUCKET}.s3.amazonaws.com/${file.Key}`;
+        return `https://${process.env.S3_BEATRICECOX_BUCKET}.s3.amazonaws.com/${file.Key}`;
       }) || [];
 
     return jsonResponse({

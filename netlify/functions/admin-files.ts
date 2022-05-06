@@ -10,7 +10,7 @@ import {
 async function get() {
   try {
     const params = {
-      Bucket: process.env.S3_OUR_HUT_BUCKET as string,
+      Bucket: process.env.S3_BEATRICECOX_BUCKET as string,
       Prefix: FOLDERS.FILES,
     };
 
@@ -20,7 +20,7 @@ async function get() {
       listObjects?.Contents?.filter((file) => {
         return file.Size > 0;
       }).map((file) => {
-        return `https://${process.env.S3_OUR_HUT_BUCKET}.s3.amazonaws.com/${file.Key}`;
+        return `https://${process.env.S3_BEATRICECOX_BUCKET}.s3.amazonaws.com/${file.Key}`;
       }) || [];
 
     return jsonResponse({
@@ -42,7 +42,7 @@ async function deleteFile(handlerEvent: HandlerEvent) {
     const { name } = handlerEvent.queryStringParameters as { name?: string };
 
     const params = {
-      Bucket: process.env.S3_OUR_HUT_BUCKET as string,
+      Bucket: process.env.S3_BEATRICECOX_BUCKET as string,
       Key: `${FOLDERS.FILES}/${name}`,
     };
 
