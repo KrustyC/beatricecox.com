@@ -1,14 +1,6 @@
 import { PieChartIcon } from "../../../components/icons/PieChart";
-import { ProjectsIcon } from "../../../components/icons/Projects";
 import { NewsIcon } from "../../../components/icons/News";
-import { CalendarIcon } from "../../../components/icons/Calendar";
-import { CartIcon } from "../../../components/icons/Cart";
 import { ArchiveIcon } from "../../../components/icons/Archive";
-import { LoveIcon } from "../../../components/icons/Love";
-import { PeopleIcon } from "../../../components/icons/People";
-import { ResearchIcon } from "../../../components/icons/Research";
-import { NewspaperIcon } from "../../../components/icons/Newspaper";
-import { SchoolIcon } from "../../../components/icons/School";
 import { ImageIcon } from "../../../components/icons/Image";
 import { DocumentIcon } from "../../../components/icons/Document";
 import { SidebarLink } from "./SidebarLink";
@@ -33,33 +25,9 @@ export const Sidebar: React.FC<React.PropsWithChildren<unknown>> = () => (
 
             <li>
               <SidebarLink
-                href="/admin/projects/"
-                label="Projects"
-                icon={<ProjectsIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
                 href="/admin/news/"
                 label="News"
                 icon={<NewsIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
-                href="/admin/events/"
-                label="Events"
-                icon={<CalendarIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
-                href="/admin/products/"
-                label="Shop"
-                icon={<CartIcon />}
               />
             </li>
           </ul>
@@ -70,48 +38,6 @@ export const Sidebar: React.FC<React.PropsWithChildren<unknown>> = () => (
                 href="/admin/teaching-resources/"
                 label="Teacher Resources"
                 icon={<ArchiveIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
-                href="/admin/publications/"
-                label="Press & Publications"
-                icon={<NewspaperIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
-                href="/admin/researches/"
-                label="Research"
-                icon={<ResearchIcon />}
-              />
-            </li>
-          </ul>
-
-          <ul className="py-2">
-            <li>
-              <SidebarLink
-                href="/admin/trustees/"
-                label="Trustees"
-                icon={<PeopleIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
-                href="/admin/partners/"
-                label="Partners"
-                icon={<LoveIcon />}
-              />
-            </li>
-
-            <li>
-              <SidebarLink
-                href="/admin/schools/"
-                label="Schools"
-                icon={<SchoolIcon />}
               />
             </li>
           </ul>
