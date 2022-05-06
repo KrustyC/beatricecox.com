@@ -5,10 +5,9 @@ interface AuthenticatedViewProps {
   onLogout: VoidFunction;
 }
 
-export const AuthenticatedView: React.FC<React.PropsWithChildren<AuthenticatedViewProps>> = ({
-  children,
-  onLogout,
-}) => (
+export const AuthenticatedView: React.FC<
+  React.PropsWithChildren<AuthenticatedViewProps>
+> = ({ children, onLogout }) => (
   <div>
     <NavBar onLogout={onLogout} />
 

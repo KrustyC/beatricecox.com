@@ -5,7 +5,6 @@ import { connect } from "../shared/mongodb-client";
 import { HTTP_METHODS } from "../shared/variables";
 
 const PROJECTS_COLLECTION = "projects";
-const PRODUCTS_COLLECTION = "products";
 
 async function get(event: HandlerEvent) {
   try {

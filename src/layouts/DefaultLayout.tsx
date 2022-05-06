@@ -1,6 +1,8 @@
-import { Navbar } from "@/components/Navbar";
+// import { Navbar } from "@/components/Navbar";
 
-export const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+export const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
+  children,
+}) => {
   return (
     <>
       <div>
