@@ -13,7 +13,6 @@ export const NavBar: React.FC<React.PropsWithChildren<NavBarProps>> = ({
             className="text-xl flex items-center lg:ml-2.5 z-40"
             style={{ zIndex: "500" }}
           >
-            <div className="h-3 w-3 mr-1 rounded-full bg-primary" />
             <span className="self-center font-semibold whitespace-nowrap text-gray-800 ml-1">
               beatricecox.com
             </span>
