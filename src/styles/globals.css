@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-cabin font-[800];
+  }
+
+  h5,
+  h6 {
+    @apply font-cabin font-[400];
+  }
+
+  #editor > p {
+    @apply text-gray-700;
+  }
+
+  #tippy-1 {
+    @apply h-8;
+  }
+
+  #tippy-2 {
+    @apply h-8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1 {
+    @apply text-6xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+
+  a {
+    @apply text-accent;
+  }
+
+  body {
+    @apply bg-white;
+    @apply font-montserrat;
+    @apply tracking-wide;
+  }
+
+  .btn {
+    @apply font-cabin w-auto px-5 py-3 text-lg shadow-sm font-semibold tracking-wider transition-all duration-200 ease-in-out text-center;
+  }
+
+  .btn.btn-primary {
+    @apply text-white border-white border-2 bg-primary hover:bg-white hover:text-primary;
+  }
+
+  .btn.btn-transparent-outlined {
+    @apply text-black border-black border-2 bg-transparent hover:bg-black hover:text-white disabled:bg-[#F5F5F5] disabled:hover:bg-[#F5F5F5] disabled:text-gray-400 disabled:border-gray-200 disabled:shadow-none  disabled:cursor-not-allowed;
+  }
+
+  .btn.btn-transparent-outlined.active {
+    @apply text-black border-black border-2 bg-black text-white;
+  }
+
+  .btn.btn-transparent-outlined-white {
+    @apply text-white border-white border-2 bg-transparent hover:bg-white hover:text-primary;
+  }
+
+  .btn-admin {
+    @apply h-12 w-auto px-5 py-2 text-sm shadow-sm font-medium tracking-wider rounded-lg hover:shadow-lg disabled:bg-gray-50 disabled:hover:bg-gray-50 disabled:text-gray-800 disabled:border-gray-200 disabled:shadow-none  disabled:cursor-not-allowed;
+  }
+
+  .btn-admin.btn-sm {
+    @apply h-8 text-xs;
+  }
+
+  .btn-admin.btn-primary {
+    @apply bg-blue-500 border border-blue-500 text-white hover:bg-admin-primary-dark;
+  }
+
+  .btn-admin.btn-dark {
+    @apply bg-black text-white;
+  }
+
+  .btn-admin.btn-outlined-primary {
+    @apply bg-white text-blue-500 hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500;
+  }
+
+  .btn-admin {
+    @apply disabled:bg-gray-50 disabled:hover:bg-gray-50 disabled:text-gray-800 disabled:border-gray-200 disabled:shadow-none  disabled:cursor-not-allowed;
+  }
+
+  .btn-admin.btn-danger {
+    @apply bg-admin-danger border text-white hover:bg-admin-danger-dark disabled:bg-admin-danger-light disabled:hover:bg-admin-danger-light disabled:text-gray-500 disabled:border-gray-200 disabled:shadow-none;
+  }
+}
+
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.ProseMirror {
+  height: 100% !important;
+  outline: none !important;
+}
+
+#slider-shadow {
+  box-shadow: inset 0px 0px 75px 18px #000000;
+}
+
+@media screen and (min-width: 768px) {
+  #slider-shadow {
+    box-shadow: inset 0px 0px 105px 38px #000000;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+#burger-menu > focus {
+  outline: none;
+}
+
+#burger-menu > div {
+  width: 1.5rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+#burger-menu > div:first-child {
+  transform: rotate(0);
+}
+
+#burger-menu > div:first-child.open {
+  transform: rotate(45deg);
+}
+
+#burger-menu > div:nth-child(2) {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#burger-menu > div:nth-child(2).open {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+#burger-menu > div:nth-child(3) {
+  transform: rotate(0);
+}
+
+#burger-menu > div:nth-child(3).open {
+  transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 768px) {
+  #burger-menu {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  #burger-menu > div {
+    width: 2rem;
+    height: 0.25rem;
+  }
+}
+
+#educational-approach-parallax {
+  background-image: url(/images/educational-approach.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 4s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.editor-container > div {
+  height: 100%;
+}
+
+/* TEACHER RESOURCES LIST */
+#teacher-resources-list > div:first-of-type {
+  background: #e5e5e5;
+}
+
+#teacher-resources-list > div:nth-of-type(2) {
+  background: rgba(244, 33, 33, 0.31);
+}
+
+#teacher-resources-list > div:nth-of-type(3) {
+  background: rgba(201, 228, 237, 1);
+}
+
+#teacher-resources-list > div:nth-of-type(4) {
+  background: rgba(244, 126, 33, 0.31);
+}
+
+/* PUBLICATIONS LIST */
+#publications-list > div:first-of-type {
+  background: #e6e6e6;
+}
+
+#publications-list > div:nth-of-type(2) {
+  background: #e1dbff;
+}
+
+#publications-list > div:nth-of-type(3) {
+  background: #bac5fc;
+}
+
+#publications-list > div:nth-of-type(4) {
+  background: #39a7724f;
+}
+
+/* RESEARCHES LIST */
+#researches-list > div:first-of-type {
+  background: #bac4fc;
+}
+
+#researches-list > div:nth-of-type(2) {
+  background: #f47e214f;
+}
+
+#researches-list > div:nth-of-type(3) {
+  background: #39a7724f;
+}
+
+#project-description > p {
+  margin-bottom: 20px !important;
+}
