@@ -27,11 +27,9 @@ const DEFAULT_MATERIAL: ResearchMaterial = {
   link: undefined,
 };
 
-export const ResearchForm: React.FC<ResearchFormProps> = ({
-  research = DEFAULT_RESEARCH,
-  pending,
-  onSaveResearch,
-}) => {
+export const ResearchForm: React.FC<
+  React.PropsWithChildren<ResearchFormProps>
+> = ({ research = DEFAULT_RESEARCH, pending, onSaveResearch }) => {
   const {
     register,
     watch,

@@ -3,7 +3,10 @@ interface BinIconProps {
   onClick?: VoidFunction;
 }
 
-export const BinIcon: React.FC<BinIconProps> = ({ className, onClick }) => (
+export const BinIcon: React.FC<React.PropsWithChildren<BinIconProps>> = ({
+  className,
+  onClick,
+}) => (
   <svg
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"

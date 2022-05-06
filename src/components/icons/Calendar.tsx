@@ -3,10 +3,9 @@ interface CalendarIconProps {
   width?: string;
 }
 
-export const CalendarIcon: React.FC<CalendarIconProps> = ({
-  height = "h-6",
-  width = "w-6",
-}) => (
+export const CalendarIcon: React.FC<
+  React.PropsWithChildren<CalendarIconProps>
+> = ({ height = "h-6", width = "w-6" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`${height} ${width}`}

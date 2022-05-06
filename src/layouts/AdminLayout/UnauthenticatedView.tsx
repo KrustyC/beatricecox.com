@@ -2,7 +2,7 @@ interface AuthenticatedViewProps {
   onLogin: VoidFunction;
 }
 
-export const UnauthenticatedView: React.FC<AuthenticatedViewProps> = ({
+export const UnauthenticatedView: React.FC<React.PropsWithChildren<AuthenticatedViewProps>> = ({
   onLogin,
 }) => (
   <div className="h-screen flex flex-col items-center justify-center bg-admin-grey text-gray-700">

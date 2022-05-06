@@ -29,11 +29,9 @@ const DEFAULT_PROJECT: Project = {
   },
 };
 
-export const ProjectForm: React.FC<ProjectFormProps> = ({
-  project = DEFAULT_PROJECT,
-  pending,
-  onSaveProject,
-}) => {
+export const ProjectForm: React.FC<
+  React.PropsWithChildren<ProjectFormProps>
+> = ({ project = DEFAULT_PROJECT, pending, onSaveProject }) => {
   const {
     register,
     control,

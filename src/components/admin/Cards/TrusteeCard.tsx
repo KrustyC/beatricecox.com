@@ -5,10 +5,9 @@ interface TrusteeCardProps {
   onWantToRemoveTrustee: VoidFunction;
 }
 
-export const TrusteeCard: React.FC<TrusteeCardProps> = ({
-  trustee,
-  onWantToRemoveTrustee,
-}) => (
+export const TrusteeCard: React.FC<
+  React.PropsWithChildren<TrusteeCardProps>
+> = ({ trustee, onWantToRemoveTrustee }) => (
   <div className="bg-white shadow rounded-lg p-4 ">
     <div className="flex flex-col">
       <span className="text-xl font-bold text-gray-900">{trustee.name}</span>

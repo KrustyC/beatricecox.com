@@ -14,11 +14,9 @@ export type FileEventTarget = React.ChangeEventHandler<HTMLInputElement> & {
   target: { files: FileList };
 };
 
-export const MaterialLinkModal: React.FC<MaterialLinkModalProps> = ({
-  value,
-  onConfirm,
-  onCancel,
-}) => {
+export const MaterialLinkModal: React.FC<
+  React.PropsWithChildren<MaterialLinkModalProps>
+> = ({ value, onConfirm, onCancel }) => {
   const onConfirmWebsite = (url: string) =>
     onConfirm({
       value: url,

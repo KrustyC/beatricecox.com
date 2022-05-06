@@ -4,7 +4,7 @@ import { Sidebar } from "./Sidebar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const AdminLayout: React.FC = ({ children }) => {
+export const AdminLayout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   const { logout } = useAuth();
 
   return (

@@ -3,7 +3,7 @@ interface LinkIconProps {
   width?: string;
 }
 
-export const LinkIcon: React.FC<LinkIconProps> = ({
+export const LinkIcon: React.FC<React.PropsWithChildren<LinkIconProps>> = ({
   height = "h-6",
   width = "w-6",
 }) => (

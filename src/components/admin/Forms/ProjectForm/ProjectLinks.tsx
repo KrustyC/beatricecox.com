@@ -11,7 +11,9 @@ interface ProjectLinksProps {
   control: Control<FormProject>;
 }
 
-export const ProjectLinks: React.FC<ProjectLinksProps> = ({ control }) => {
+export const ProjectLinks: React.FC<
+  React.PropsWithChildren<ProjectLinksProps>
+> = ({ control }) => {
   return (
     <div className="flex flex-col">
       <span className="mt-10 mb-2 text-xl uppercase">

@@ -23,7 +23,7 @@ const LINKS = [
   },
 ];
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <div className="flex flex-col bg-[#FCFCFC]">
       <div className="p-6 flex justify-between">

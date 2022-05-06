@@ -27,11 +27,9 @@ const DEFAULT_MATERIAL: PublicationMaterial = {
   link: undefined,
 };
 
-export const PublicationForm: React.FC<PublicationFormProps> = ({
-  publication = DEFAULT_PUBLICATION,
-  pending,
-  onSavePublication,
-}) => {
+export const PublicationForm: React.FC<
+  React.PropsWithChildren<PublicationFormProps>
+> = ({ publication = DEFAULT_PUBLICATION, pending, onSavePublication }) => {
   const {
     register,
     watch,

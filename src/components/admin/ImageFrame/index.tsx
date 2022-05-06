@@ -6,7 +6,7 @@ interface ImageFrameProps {
   isSelected?: boolean;
 }
 
-export const ImageFrame: React.FC<ImageFrameProps> = ({
+export const ImageFrame: React.FC<React.PropsWithChildren<ImageFrameProps>> = ({
   image,
   isSelected = false,
 }) => (

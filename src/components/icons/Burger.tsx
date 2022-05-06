@@ -3,7 +3,7 @@ interface BurgerIconProps {
   onClick?: VoidFunction;
 }
 
-export const BurgerIcon: React.FC<BurgerIconProps> = ({
+export const BurgerIcon: React.FC<React.PropsWithChildren<BurgerIconProps>> = ({
   className = "h-6 w-6",
   onClick = () => null,
 }) => (

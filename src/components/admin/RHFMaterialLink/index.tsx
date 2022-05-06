@@ -11,10 +11,9 @@ export type FileEventTarget = React.ChangeEventHandler<HTMLInputElement> & {
   target: { files: FileList };
 };
 
-export const RHFMaterialLink: React.FC<RHFMaterialLinkProps> = ({
-  value,
-  onConfirm,
-}) => {
+export const RHFMaterialLink: React.FC<
+  React.PropsWithChildren<RHFMaterialLinkProps>
+> = ({ value, onConfirm }) => {
   const [showModal, setShowModal] = useState(false);
 
   const onShowModal = () => {

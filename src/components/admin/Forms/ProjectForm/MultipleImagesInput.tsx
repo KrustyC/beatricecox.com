@@ -9,10 +9,9 @@ interface MultipleImagesProps {
   onChangeImages: (images: FormProjectImage[]) => void;
 }
 
-export const MultipleImagesInput: React.FC<MultipleImagesProps> = ({
-  images,
-  onChangeImages,
-}) => {
+export const MultipleImagesInput: React.FC<
+  React.PropsWithChildren<MultipleImagesProps>
+> = ({ images, onChangeImages }) => {
   const [showModal, setShowModal] = useState(false);
 
   const onShowModal = () => {

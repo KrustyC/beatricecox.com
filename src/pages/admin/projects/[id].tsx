@@ -16,7 +16,7 @@ interface EditProps {
   id: string;
 }
 
-const Edit: React.FC<EditProps> = ({ id }) => {
+const Edit: React.FC<React.PropsWithChildren<EditProps>> = ({ id }) => {
   const { user } = useAuth();
   const router = useRouter();
 

@@ -14,11 +14,9 @@ interface MultipleImagesModalProps {
   onCancel: VoidFunction;
 }
 
-export const MultipleImagesModal: React.FC<MultipleImagesModalProps> = ({
-  images,
-  onConfirm,
-  onCancel,
-}) => {
+export const MultipleImagesModal: React.FC<
+  React.PropsWithChildren<MultipleImagesModalProps>
+> = ({ images, onConfirm, onCancel }) => {
   const [selectedImages, setSelectedImages] =
     useState<FormProjectImage[]>(images);
 

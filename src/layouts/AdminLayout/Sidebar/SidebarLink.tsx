@@ -6,7 +6,7 @@ interface SidebarLinkProps {
   icon: React.ReactNode;
 }
 
-export const SidebarLink: React.FC<SidebarLinkProps> = ({
+export const SidebarLink: React.FC<React.PropsWithChildren<SidebarLinkProps>> = ({
   href,
   label,
   icon,

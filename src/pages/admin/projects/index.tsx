@@ -61,7 +61,9 @@ const AdminProjects: NextPageWithLayout<undefined> = () => {
   );
 };
 
-const AdminProjectsLayout: React.FC = ({ children }) => (
+const AdminProjectsLayout: React.FC<React.PropsWithChildren<unknown>> = ({
+  children,
+}) => (
   <AdminLayout>
     <IndexLayout
       title="Projects"

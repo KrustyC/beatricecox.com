@@ -5,10 +5,9 @@ interface ProjectCardProps {
   onWantToRemoveProject: VoidFunction;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
-  project,
-  onWantToRemoveProject,
-}) => (
+export const ProjectCard: React.FC<
+  React.PropsWithChildren<ProjectCardProps>
+> = ({ project, onWantToRemoveProject }) => (
   <div className="bg-white shadow rounded-lg p-4 ">
     <div className="flex flex-col h-full">
       <span className="text-xl font-bold text-gray-900 mb-2">

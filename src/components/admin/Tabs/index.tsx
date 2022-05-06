@@ -5,7 +5,10 @@ interface TabsProps {
   defaultLabel: string;
 }
 
-export const Tabs: React.FC<TabsProps> = ({ children, defaultLabel }) => {
+export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
+  children,
+  defaultLabel,
+}) => {
   const [currentTab, setCurrentTab] = useState(defaultLabel);
 
   const onSelectTab = (label: string) => setCurrentTab(label);

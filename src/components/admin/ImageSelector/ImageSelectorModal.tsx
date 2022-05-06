@@ -13,10 +13,9 @@ interface ImageSelectorModalProps {
   onCancel: VoidFunction;
 }
 
-export const ImageSelectorModal: React.FC<ImageSelectorModalProps> = ({
-  onImageSelected,
-  onCancel,
-}) => {
+export const ImageSelectorModal: React.FC<
+  React.PropsWithChildren<ImageSelectorModalProps>
+> = ({ onImageSelected, onCancel }) => {
   const { user } = useAuth();
   const { loading, error, data } = useNetlifyGetFunction<{ images: string[] }>({
     fetchUrlPath: "/admin-images",

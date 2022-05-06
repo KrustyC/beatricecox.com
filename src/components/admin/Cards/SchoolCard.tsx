@@ -6,7 +6,7 @@ interface SchoolCardProps {
   onWantToRemoveSchool: VoidFunction;
 }
 
-export const SchoolCard: React.FC<SchoolCardProps> = ({
+export const SchoolCard: React.FC<React.PropsWithChildren<SchoolCardProps>> = ({
   school,
   onWantToRemoveSchool,
 }) => (

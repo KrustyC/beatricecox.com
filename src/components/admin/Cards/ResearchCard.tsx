@@ -5,10 +5,9 @@ interface ResearchCardProps {
   onWantToRemoveResearch: VoidFunction;
 }
 
-export const ResearchCard: React.FC<ResearchCardProps> = ({
-  research,
-  onWantToRemoveResearch,
-}) => (
+export const ResearchCard: React.FC<
+  React.PropsWithChildren<ResearchCardProps>
+> = ({ research, onWantToRemoveResearch }) => (
   <div className="bg-white shadow rounded-lg p-4 flex flex-col">
     <div className="flex flex-col">
       <span className="text-xl font-bold text-gray-900">{research.title}</span>

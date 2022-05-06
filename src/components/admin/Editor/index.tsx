@@ -12,7 +12,7 @@ interface EditorProps {
   onBlur?: VoidFunction;
 }
 
-export const Editor: React.FC<EditorProps> = ({
+export const Editor: React.FC<React.PropsWithChildren<EditorProps>> = ({
   value,
   error,
   onChange,

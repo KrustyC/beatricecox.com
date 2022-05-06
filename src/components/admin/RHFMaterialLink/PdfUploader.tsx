@@ -14,10 +14,9 @@ export type FileEventTarget = React.ChangeEventHandler<HTMLInputElement> & {
   target: { files: FileList };
 };
 
-export const PdfUploader: React.FC<PdfUploaderProps> = ({
-  value,
-  onConfirm,
-}) => {
+export const PdfUploader: React.FC<
+  React.PropsWithChildren<PdfUploaderProps>
+> = ({ value, onConfirm }) => {
   const { user } = useAuth();
   const [file, setFile] = useState<File | null>(null);
   const [pending, setPending] = useState(false);

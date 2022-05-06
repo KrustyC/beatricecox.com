@@ -3,7 +3,7 @@ interface MarkerIconProps {
   width?: string;
 }
 
-export const MarkerIcon: React.FC<MarkerIconProps> = ({
+export const MarkerIcon: React.FC<React.PropsWithChildren<MarkerIconProps>> = ({
   height = "h-6",
   width = "w-6",
 }) => (

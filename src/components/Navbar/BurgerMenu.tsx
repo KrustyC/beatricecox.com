@@ -4,7 +4,7 @@ interface BurgerMenuProps {
   onClick: VoidFunction;
 }
 
-export const BurgerMenu: React.FC<BurgerMenuProps> = ({
+export const BurgerMenu: React.FC<React.PropsWithChildren<BurgerMenuProps>> = ({
   color,
   isOpen,
   onClick,

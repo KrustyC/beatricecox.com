@@ -25,7 +25,7 @@ interface NavbarProps {
   };
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
+export const Navbar: React.FC<React.PropsWithChildren<NavbarProps>> = ({
   config: { burgerColor = "bg-primary", textColor = "fill-black" },
 }) => {
   const [isOpen, setIsOpen] = useState(false);

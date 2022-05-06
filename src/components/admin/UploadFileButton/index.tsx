@@ -16,7 +16,9 @@ export type FileEventTarget = React.ChangeEventHandler<HTMLInputElement> & {
   target: { files: FileList };
 };
 
-export const UploadFileButton: React.FC<UploadFileButtonProps> = ({
+export const UploadFileButton: React.FC<
+  React.PropsWithChildren<UploadFileButtonProps>
+> = ({
   actionCopy,
   accept,
   className = "btn-admin btn-primary btn-sm",

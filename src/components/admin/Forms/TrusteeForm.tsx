@@ -17,11 +17,9 @@ const DEFAULT_TRUSTEE: Trustee = {
   description: "",
 };
 
-export const TrusteeForm: React.FC<TrusteeFormProps> = ({
-  trustee = DEFAULT_TRUSTEE,
-  pending,
-  onSaveTrustee,
-}) => {
+export const TrusteeForm: React.FC<
+  React.PropsWithChildren<TrusteeFormProps>
+> = ({ trustee = DEFAULT_TRUSTEE, pending, onSaveTrustee }) => {
   const {
     register,
     control,

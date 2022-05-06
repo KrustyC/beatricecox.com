@@ -3,10 +3,9 @@ interface LeftArrowIconProps {
   onClick?: VoidFunction;
 }
 
-export const LeftArrowIcon: React.FC<LeftArrowIconProps> = ({
-  className = "",
-  onClick,
-}) => (
+export const LeftArrowIcon: React.FC<
+  React.PropsWithChildren<LeftArrowIconProps>
+> = ({ className = "", onClick }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={className}

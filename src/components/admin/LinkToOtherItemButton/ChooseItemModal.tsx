@@ -65,15 +65,17 @@ export const ChooseItemModal = <T extends Record<string, unknown>, Response>(
                       : ""
                   }`}
                 >
-                  {item[labelAttribute]}
-                  <button
-                    type="button"
-                    disabled={item._id === currentItem?._id}
-                    className="btn-admin btn-outlined-primary btn-sm disabled:opacity-50"
-                    onClick={() => onChooseItem(index)}
-                  >
-                    Select
-                  </button>
+                  <>
+                    {item[labelAttribute]}
+                    <button
+                      type="button"
+                      disabled={item._id === currentItem?._id}
+                      className="btn-admin btn-outlined-primary btn-sm disabled:opacity-50"
+                      onClick={() => onChooseItem(index)}
+                    >
+                      Select
+                    </button>
+                  </>
                 </div>
               ))}
             </div>

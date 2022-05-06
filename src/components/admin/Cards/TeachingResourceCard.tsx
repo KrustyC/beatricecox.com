@@ -5,10 +5,9 @@ interface TeachingResourceCardProps {
   onWantToRemoveTeachingResource: VoidFunction;
 }
 
-export const TeachingResourceCard: React.FC<TeachingResourceCardProps> = ({
-  teachingResource,
-  onWantToRemoveTeachingResource,
-}) => (
+export const TeachingResourceCard: React.FC<
+  React.PropsWithChildren<TeachingResourceCardProps>
+> = ({ teachingResource, onWantToRemoveTeachingResource }) => (
   <div className="bg-white shadow rounded-lg p-4 flex flex-col">
     <div className="flex flex-col">
       <span className="text-xl font-bold text-gray-900">

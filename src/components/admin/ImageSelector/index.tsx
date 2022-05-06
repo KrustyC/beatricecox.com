@@ -10,12 +10,9 @@ interface ImageSelectorProps {
   onSelectImage: (image: string) => void;
 }
 
-export const ImageSelector: React.FC<ImageSelectorProps> = ({
-  currentImage,
-  error,
-  onBlur,
-  onSelectImage,
-}) => {
+export const ImageSelector: React.FC<
+  React.PropsWithChildren<ImageSelectorProps>
+> = ({ currentImage, error, onBlur, onSelectImage }) => {
   const [showModal, setShowModal] = useState(false);
 
   const onDisplayModal = () => {

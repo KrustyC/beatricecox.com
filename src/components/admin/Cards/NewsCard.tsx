@@ -5,7 +5,7 @@ interface NewsCardProps {
   onWantToRemoveNews: VoidFunction;
 }
 
-export const NewsCard: React.FC<NewsCardProps> = ({
+export const NewsCard: React.FC<React.PropsWithChildren<NewsCardProps>> = ({
   news,
   onWantToRemoveNews,
 }) => (

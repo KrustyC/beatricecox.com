@@ -2,7 +2,9 @@ interface BeatriceCoxLogoIconProps {
   className?: string;
 }
 
-export const BeatriceCoxLogoIcon: React.FC<BeatriceCoxLogoIconProps> = () => (
+export const BeatriceCoxLogoIcon: React.FC<
+  React.PropsWithChildren<BeatriceCoxLogoIconProps>
+> = () => (
   <svg
     width="256"
     height="256"
@@ -54,7 +56,7 @@ export const BeatriceCoxLogoIcon: React.FC<BeatriceCoxLogoIconProps> = () => (
 );
 
 export const BeatriceCoxLogoIconOrange: React.FC<
-  BeatriceCoxLogoIconProps
+  React.PropsWithChildren<BeatriceCoxLogoIconProps>
 > = () => (
   <svg
     width="256"

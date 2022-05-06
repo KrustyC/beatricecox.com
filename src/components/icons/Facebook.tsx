@@ -2,9 +2,9 @@ interface FacebookIconProps {
   className?: string;
 }
 
-export const FacebookIcon: React.FC<FacebookIconProps> = ({
-  className = "h-6 w-6",
-}) => (
+export const FacebookIcon: React.FC<
+  React.PropsWithChildren<FacebookIconProps>
+> = ({ className = "h-6 w-6" }) => (
   <svg
     className={className}
     viewBox="0 0 11 21"

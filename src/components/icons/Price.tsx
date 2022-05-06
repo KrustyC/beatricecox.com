@@ -3,7 +3,7 @@ interface PriceIconProps {
   width?: string;
 }
 
-export const PriceIcon: React.FC<PriceIconProps> = ({
+export const PriceIcon: React.FC<React.PropsWithChildren<PriceIconProps>> = ({
   height = "h-6",
   width = "w-6",
 }) => (

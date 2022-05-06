@@ -9,7 +9,10 @@ interface ImageCardProps {
   onClick: VoidFunction;
 }
 
-export const ImageCard: React.FC<ImageCardProps> = ({ image, onClick }) => (
+export const ImageCard: React.FC<React.PropsWithChildren<ImageCardProps>> = ({
+  image,
+  onClick,
+}) => (
   <div className={styles["img-card"]} onClick={onClick}>
     <div className={styles["img-container"]}>
       {/* // eslint-disable-next-line @next/next/no-img-element */}

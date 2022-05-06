@@ -3,10 +3,9 @@ interface ChevronRightIconProps {
   onClick?: VoidFunction;
 }
 
-export const ChevronRightIcon: React.FC<ChevronRightIconProps> = ({
-  className = "",
-  onClick,
-}) => (
+export const ChevronRightIcon: React.FC<
+  React.PropsWithChildren<ChevronRightIconProps>
+> = ({ className = "", onClick }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={className}

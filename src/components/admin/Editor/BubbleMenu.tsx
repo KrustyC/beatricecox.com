@@ -10,7 +10,7 @@ interface BubbleMenuButtonProps {
   onClick: () => void;
 }
 
-const Button: React.FC<BubbleMenuButtonProps> = ({
+const Button: React.FC<React.PropsWithChildren<BubbleMenuButtonProps>> = ({
   isActive,
   onClick,
   children,
@@ -25,7 +25,9 @@ const Button: React.FC<BubbleMenuButtonProps> = ({
   </button>
 );
 
-export const BubbleMenu: React.FC<BubbleMenuProps> = ({ editor }) => {
+export const BubbleMenu: React.FC<React.PropsWithChildren<BubbleMenuProps>> = ({
+  editor,
+}) => {
   return (
     <TipTapBubbleMenu
       editor={editor}

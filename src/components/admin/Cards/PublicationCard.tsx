@@ -5,10 +5,9 @@ interface PublicationCardProps {
   onWantToRemovePublication: VoidFunction;
 }
 
-export const PublicationCard: React.FC<PublicationCardProps> = ({
-  publication,
-  onWantToRemovePublication,
-}) => (
+export const PublicationCard: React.FC<
+  React.PropsWithChildren<PublicationCardProps>
+> = ({ publication, onWantToRemovePublication }) => (
   <div className="bg-white shadow rounded-lg p-4 flex flex-col">
     <div className="flex flex-col">
       <span className="text-xl font-bold text-gray-900">

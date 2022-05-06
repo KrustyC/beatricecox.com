@@ -15,11 +15,9 @@ interface DeleteFileModalProps {
   onCancel: VoidFunction;
 }
 
-export const DeleteFileModal: React.FC<DeleteFileModalProps> = ({
-  fileToDelete,
-  onSuccess,
-  onCancel,
-}) => {
+export const DeleteFileModal: React.FC<
+  React.PropsWithChildren<DeleteFileModalProps>
+> = ({ fileToDelete, onSuccess, onCancel }) => {
   const { user } = useAuth();
   const { pending, error, onDelete } = useNetlifyDeleteFunction({ user });
   const fileName = getFileName(fileToDelete);

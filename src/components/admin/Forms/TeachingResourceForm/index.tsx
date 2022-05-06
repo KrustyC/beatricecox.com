@@ -26,7 +26,9 @@ const DEFAULT_MATERIAL: TeachingResourceMaterial = {
   link: undefined,
 };
 
-export const TeachingResourceForm: React.FC<TeachingResourceFormProps> = ({
+export const TeachingResourceForm: React.FC<
+  React.PropsWithChildren<TeachingResourceFormProps>
+> = ({
   teachingResource = DEFAULT_TEACHING_RESOURCE,
   pending,
   onSaveTeachingResource,

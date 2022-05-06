@@ -4,7 +4,7 @@ interface NavBarProps {
   onLogout: VoidFunction;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ onLogout }) => (
+export const NavBar: React.FC<React.PropsWithChildren<NavBarProps>> = ({ onLogout }) => (
   <nav className="bg-white border-b border-gray-200 fixed z-30 w-full">
     <div className="px-3 py-3 lg:px-5 lg:pl-3">
       <div className="flex items-center justify-between">

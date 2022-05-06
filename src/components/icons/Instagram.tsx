@@ -2,9 +2,9 @@ interface InstagramIconProps {
   className?: string;
 }
 
-export const InstagramIcon: React.FC<InstagramIconProps> = ({
-  className = "h-6 w-6",
-}) => (
+export const InstagramIcon: React.FC<
+  React.PropsWithChildren<InstagramIconProps>
+> = ({ className = "h-6 w-6" }) => (
   <svg
     className={className}
     viewBox="0 0 30 30"

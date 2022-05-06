@@ -8,11 +8,9 @@ interface ViewImageModalProps {
   onWantToDeleteFile: VoidFunction;
 }
 
-export const ViewImageModal: React.FC<ViewImageModalProps> = ({
-  image,
-  onClose,
-  onWantToDeleteFile,
-}) => {
+export const ViewImageModal: React.FC<
+  React.PropsWithChildren<ViewImageModalProps>
+> = ({ image, onClose, onWantToDeleteFile }) => {
   return (
     <Modal>
       <div className="w-full flex justify-center">

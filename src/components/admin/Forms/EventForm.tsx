@@ -38,7 +38,7 @@ const DEFAULT_EVENT: Event = {
   },
 };
 
-export const EventForm: React.FC<EventFormProps> = ({
+export const EventForm: React.FC<React.PropsWithChildren<EventFormProps>> = ({
   event = DEFAULT_EVENT,
   pending,
   onSaveEvent,

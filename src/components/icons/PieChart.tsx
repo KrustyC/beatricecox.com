@@ -1,4 +1,4 @@
-export const PieChartIcon: React.FC = () => (
+export const PieChartIcon: React.FC<React.PropsWithChildren<unknown>> = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-6 w-6"

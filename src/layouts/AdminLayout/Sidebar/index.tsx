@@ -13,7 +13,7 @@ import { ImageIcon } from "../../../components/icons/Image";
 import { DocumentIcon } from "../../../components/icons/Document";
 import { SidebarLink } from "./SidebarLink";
 
-export const Sidebar: React.FC = () => (
+export const Sidebar: React.FC<React.PropsWithChildren<unknown>> = () => (
   <aside
     id="sidebar"
     className="fixed z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75"

@@ -5,7 +5,7 @@ interface IndexLayoutProps {
   itemName: string;
 }
 
-export const IndexLayout: React.FC<IndexLayoutProps> = ({
+export const IndexLayout: React.FC<React.PropsWithChildren<IndexLayoutProps>> = ({
   title,
   subtitle,
   createItemPath,

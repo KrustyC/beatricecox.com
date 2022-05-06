@@ -12,7 +12,7 @@ interface EventCardProps {
   onWantToRemoveEvent: VoidFunction;
 }
 
-export const EventCard: React.FC<EventCardProps> = ({
+export const EventCard: React.FC<React.PropsWithChildren<EventCardProps>> = ({
   event,
   onWantToRemoveEvent,
 }) => {

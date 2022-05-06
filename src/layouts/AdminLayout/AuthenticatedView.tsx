@@ -5,7 +5,7 @@ interface AuthenticatedViewProps {
   onLogout: VoidFunction;
 }
 
-export const AuthenticatedView: React.FC<AuthenticatedViewProps> = ({
+export const AuthenticatedView: React.FC<React.PropsWithChildren<AuthenticatedViewProps>> = ({
   children,
   onLogout,
 }) => (

@@ -16,12 +16,9 @@ interface DeleteImageModalProps {
   onCancel: VoidFunction;
 }
 
-export const DeleteImageModal: React.FC<DeleteImageModalProps> = ({
-  imageToDelete,
-  path,
-  onSuccess,
-  onCancel,
-}) => {
+export const DeleteImageModal: React.FC<
+  React.PropsWithChildren<DeleteImageModalProps>
+> = ({ imageToDelete, path, onSuccess, onCancel }) => {
   const { user } = useAuth();
   const { pending, error, onDelete } = useNetlifyDeleteFunction({ user });
 

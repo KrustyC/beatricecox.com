@@ -17,7 +17,7 @@ const DEFAULT_SCHOOL: School = {
   type: "primary",
 };
 
-export const SchoolForm: React.FC<SchoolFormProps> = ({
+export const SchoolForm: React.FC<React.PropsWithChildren<SchoolFormProps>> = ({
   school = DEFAULT_SCHOOL,
   pending,
   onSaveSchool,

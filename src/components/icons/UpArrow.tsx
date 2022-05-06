@@ -3,10 +3,9 @@ interface UpArrowIconProps {
   onClick?: VoidFunction;
 }
 
-export const UpArrowIcon: React.FC<UpArrowIconProps> = ({
-  className = "h-6 w-6",
-  onClick,
-}) => (
+export const UpArrowIcon: React.FC<
+  React.PropsWithChildren<UpArrowIconProps>
+> = ({ className = "h-6 w-6", onClick }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={className}

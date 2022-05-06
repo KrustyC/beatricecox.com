@@ -3,10 +3,9 @@ interface RightArrowIconProps {
   onClick?: VoidFunction;
 }
 
-export const RightArrowIcon: React.FC<RightArrowIconProps> = ({
-  className = "",
-  onClick,
-}) => (
+export const RightArrowIcon: React.FC<
+  React.PropsWithChildren<RightArrowIconProps>
+> = ({ className = "", onClick }) => (
   <svg
     className={className}
     onClick={onClick}

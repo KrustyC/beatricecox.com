@@ -9,7 +9,7 @@ interface UseNetlifyFunctionProps {
 
 interface UseNetlifyFunctionReturn<T> {
   pending: boolean;
-  error?: Error | undefined;
+  error?: string | undefined;
   onCreate: (path: string, body: T) => Promise<unknown>;
 }
 
@@ -17,7 +17,7 @@ export function useNetlifyPostFunction<T>({
   user,
 }: UseNetlifyFunctionProps): UseNetlifyFunctionReturn<T> {
   const [pending, setPending] = useState(false);
-  const [error, setError] = useState<Error>();
+  const [error, setError] = useState<string>();
 
   const onCreate = async (path: string, body: T): Promise<unknown> => {
     setPending(true);
@@ -35,7 +35,7 @@ export function useNetlifyPostFunction<T>({
       setPending(false);
       return response;
     } catch (error) {
-      setError(error as Error);
+      setError(error as string);
       setPending(false);
     }
 

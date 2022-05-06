@@ -9,7 +9,7 @@ interface FilesUploadPreviewModalProps {
 }
 
 export const FilesUploadPreviewModal: React.FC<
-  FilesUploadPreviewModalProps
+  React.PropsWithChildren<FilesUploadPreviewModalProps>
 > = ({ file, pending, onConfirm, onCancel }) => {
   return (
     <Modal width="w-5/12">

@@ -22,11 +22,9 @@ const DEFAULT_PRODUCT: Product = {
   etsyLink: "",
 };
 
-export const ProductForm: React.FC<ProductFormProps> = ({
-  product = DEFAULT_PRODUCT,
-  pending,
-  onSaveProduct,
-}) => {
+export const ProductForm: React.FC<
+  React.PropsWithChildren<ProductFormProps>
+> = ({ product = DEFAULT_PRODUCT, pending, onSaveProduct }) => {
   const {
     register,
     control,

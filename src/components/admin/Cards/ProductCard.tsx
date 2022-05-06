@@ -8,10 +8,9 @@ interface ProductCardProps {
   onWantToRemoveProduct: VoidFunction;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
-  product,
-  onWantToRemoveProduct,
-}) => (
+export const ProductCard: React.FC<
+  React.PropsWithChildren<ProductCardProps>
+> = ({ product, onWantToRemoveProduct }) => (
   <div className="bg-white shadow rounded-lg p-4 ">
     <div className="flex flex-col h-full">
       <span className="text-xl font-bold text-gray-900 mb-2">

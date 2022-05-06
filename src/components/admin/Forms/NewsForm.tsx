@@ -21,7 +21,7 @@ const DEFAULT_NEWS: News = {
   expirationDate: "",
 };
 
-export const NewsForm: React.FC<NewsFormProps> = ({
+export const NewsForm: React.FC<React.PropsWithChildren<NewsFormProps>> = ({
   news = DEFAULT_NEWS,
   pending,
   onSaveNews,
