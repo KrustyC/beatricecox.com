@@ -41,12 +41,6 @@ export type FormProject = {
   intro: string;
   description: string;
   images: FormProjectImage[];
-  links: {
-    teacherResources?: ProjectLink<TeachingResource> | null;
-    press?: ProjectLink<Publication> | null;
-    research?: ProjectLink<Research> | null;
-    shop?: ProjectLink<Product> | null;
-  };
 };
 
 export type News = {
@@ -139,10 +133,4 @@ export type Project = {
   intro: string;
   description: string;
   images: string[];
-  links: {
-    teacherResources?: ProjectLink<TeachingResource> | null;
-    press?: ProjectLink<Publication> | null;
-    research?: ProjectLink<Research> | null;
-    shop?: ProjectLink<Product> | null;
-  };
 };

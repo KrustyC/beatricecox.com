@@ -6,7 +6,6 @@ import { isValidDescription } from "@/utils/validators";
 import { LoadingSpinner } from "../../LoadingSpinner";
 import { Input } from "../../Input";
 import { Editor } from "../../Editor";
-import { ProjectLinks } from "./ProjectLinks";
 import { MultipleImagesInput } from "./MultipleImagesInput";
 
 interface ProjectFormProps {
@@ -21,12 +20,6 @@ const DEFAULT_PROJECT: Project = {
   intro: "",
   description: "",
   images: [],
-  links: {
-    teacherResources: undefined,
-    press: undefined,
-    research: undefined,
-    shop: undefined,
-  },
 };
 
 export const ProjectForm: React.FC<
@@ -60,14 +53,6 @@ export const ProjectForm: React.FC<
     onSaveProject({
       ...data,
       images: data.images.map(({ image }) => image),
-      links: {
-        teacherResources: data.links.teacherResources?._id
-          ? data.links.teacherResources
-          : undefined,
-        press: data.links.press?._id ? data.links.press : undefined,
-        research: data.links.research?._id ? data.links.research : undefined,
-        shop: data.links.shop?._id ? data.links.shop : undefined,
-      },
     });
   };
 
@@ -150,10 +135,6 @@ export const ProjectForm: React.FC<
             images={controlledFields}
             onChangeImages={onChangeImages}
           />
-        </div>
-
-        <div>
-          <ProjectLinks control={control} />
         </div>
       </div>
 

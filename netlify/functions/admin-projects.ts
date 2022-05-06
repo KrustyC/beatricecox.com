@@ -1,74 +1,63 @@
-import { Handler, HandlerEvent, HandlerResponse } from "@netlify/functions";
+import { Handler, HandlerEvent } from "@netlify/functions";
 import { MongoClient, ObjectId } from "mongodb";
 import * as yup from "yup";
 import { adminHandler } from "../shared/admin-handler";
 import { jsonResponse } from "../shared/utils";
 import { HTTP_METHODS } from "../shared/variables";
 
-export const publicationSchema = yup.object().shape({
-  title: yup.string().required("please enter a title for the publication"),
-  image: yup.string().required("image is required"),
-  materials: yup.array().of(
-    yup.object().shape({
-      name: yup.string().required("material needs a name"),
-      date: yup.string().required("material needs a date"),
-      type: yup.string(),
-      authorOrInterviewees: yup.string(),
-      link: yup.object().shape({
-        value: yup.string().required(),
-        type: yup.string().oneOf(["website", "pdf"]).required(),
-      }),
-    })
-  ),
+export const projectSchema = yup.object().shape({
+  title: yup.string().required("please enter a name for the project"),
+  intro: yup.string().required("please enter an intro for the project"),
+  description: yup
+    .string()
+    .required("please enter a description for the project"),
+  images: yup
+    .array()
+    .of(yup.string().required("please enter an image for the project")),
 });
 
-const PUBLICATIONS_COLLECTION = "publications";
+const PROJECTS_COLLECTION = "projects";
 
 async function get(client: MongoClient, handlerEvent: HandlerEvent) {
   try {
     const { id } = handlerEvent.queryStringParameters as { id?: string };
 
     if (id) {
-      const publication = await client
+      const project = await client
         .db(process.env.MONGO_DB_NAME)
-        .collection(PUBLICATIONS_COLLECTION)
+        .collection(PROJECTS_COLLECTION)
         .findOne({ _id: new ObjectId(id) });
 
-      if (!publication) {
+      if (!project) {
         return jsonResponse({
           status: 404,
           body: {
-            message: `Publication with id "${id}" could not be found`,
+            message: `Project with id "${id}" could not be found`,
           },
         });
       }
 
       return jsonResponse({
         status: 200,
-        body: {
-          publication,
-        },
+        body: { project },
       });
     }
 
-    const publications = await client
+    const projects = await client
       .db(process.env.MONGO_DB_NAME)
-      .collection(PUBLICATIONS_COLLECTION)
+      .collection(PROJECTS_COLLECTION)
       .find()
       .toArray();
 
     return jsonResponse({
       status: 200,
-      body: {
-        publications,
-      },
+      body: { projects },
     });
   } catch (error) {
-    console.error(error);
     return jsonResponse({
       status: 500,
       body: {
-        message: "Error fetching publication, please try again later on.",
+        message: "Error fetching projects, please try again later on.",
       },
     });
   }
@@ -76,15 +65,16 @@ async function get(client: MongoClient, handlerEvent: HandlerEvent) {
 
 async function post(client: MongoClient, handlerEvent: HandlerEvent) {
   try {
-    const { publication = null } = handlerEvent.body
+    const { project = null } = handlerEvent.body
       ? JSON.parse(handlerEvent.body)
       : {};
 
-    let publicationDocument;
+    let projectDocument;
 
     try {
-      publicationDocument = await publicationSchema.validate(publication);
+      projectDocument = await projectSchema.validate(project);
     } catch (error) {
+      console.error(error);
       return jsonResponse({
         status: 400,
         body: {
@@ -98,26 +88,23 @@ async function post(client: MongoClient, handlerEvent: HandlerEvent) {
 
     const result = await client
       .db(process.env.MONGO_DB_NAME)
-      .collection(PUBLICATIONS_COLLECTION)
+      .collection(PROJECTS_COLLECTION)
       .insertOne({
-        ...publicationDocument,
+        ...projectDocument,
         createdAt: new Date(),
         updatedAt: new Date(),
       });
 
     return jsonResponse({
       status: 200,
-      body: {
-        message: "Teaching resource successfully added",
-        id: result.insertedId,
-      },
+      body: { message: "Project successfully added", id: result.insertedId },
     });
   } catch (error) {
     return jsonResponse({
       status: 500,
       body: {
         message:
-          "Error adding your publication to the database, please try again later on.",
+          "Error adding your project to the database, please try again later on.",
       },
     });
   }
@@ -138,14 +125,14 @@ async function put(client: MongoClient, handlerEvent: HandlerEvent) {
       });
     }
 
-    const { publication = null } = handlerEvent.body
+    const { project = null } = handlerEvent.body
       ? JSON.parse(handlerEvent.body)
       : {};
 
-    let publicationDocument;
+    let projectDocument;
 
     try {
-      publicationDocument = await publicationSchema.validate(publication);
+      projectDocument = await projectSchema.validate(project);
     } catch (error) {
       return jsonResponse({
         status: 400,
@@ -160,16 +147,17 @@ async function put(client: MongoClient, handlerEvent: HandlerEvent) {
 
     await client
       .db(process.env.MONGO_DB_NAME)
-      .collection(PUBLICATIONS_COLLECTION)
+      .collection(PROJECTS_COLLECTION)
       .findOneAndUpdate(
         {
           _id: new ObjectId(id),
         },
         {
           $set: {
-            title: publicationDocument.title,
-            image: publicationDocument.image,
-            materials: publicationDocument.materials,
+            title: projectDocument.title,
+            intro: projectDocument.intro,
+            description: projectDocument.description,
+            images: projectDocument.images,
             updatedAt: new Date(),
           },
         }
@@ -177,22 +165,19 @@ async function put(client: MongoClient, handlerEvent: HandlerEvent) {
 
     return jsonResponse({
       status: 200,
-      body: { message: "Teaching resource successfully updated" },
+      body: { message: "Project successfully updated" },
     });
   } catch (error) {
     return jsonResponse({
       status: 500,
       body: {
-        message: "Error updating your publication, please try again later on.",
+        message: "Error updating your project, please try again later on.",
       },
     });
   }
 }
 
-async function deleteTeachingResource(
-  client: MongoClient,
-  handlerEvent: HandlerEvent
-): Promise<HandlerResponse> {
+async function deleteProject(client: MongoClient, handlerEvent: HandlerEvent) {
   try {
     // Find the query params slug
     const { id } = handlerEvent.queryStringParameters as { id?: string };
@@ -210,31 +195,30 @@ async function deleteTeachingResource(
 
     await client
       .db(process.env.MONGO_DB_NAME)
-      .collection(PUBLICATIONS_COLLECTION)
+      .collection(PROJECTS_COLLECTION)
       .deleteMany({
         _id: new ObjectId(id),
       });
 
     return jsonResponse({
       status: 200,
-      body: { message: "Teaching resource successfully deleted" },
+      body: { message: "Project successfully deleted" },
     });
   } catch (error) {
     return jsonResponse({
       status: 500,
       body: {
-        message: "Error deleting the publication, please try again later on.",
+        message: "Error deleting the project, please try again later on.",
       },
     });
   }
 }
-
 const handler: Handler = async (event, context) => {
   const handlers = [
     { method: HTTP_METHODS.GET, handler: get },
     { method: HTTP_METHODS.POST, handler: post },
     { method: HTTP_METHODS.PUT, handler: put },
-    { method: HTTP_METHODS.DELETE, handler: deleteTeachingResource },
+    { method: HTTP_METHODS.DELETE, handler: deleteProject },
   ];
 
   return adminHandler({
