@@ -42,8 +42,8 @@ module.exports = {
       "admin-primary": "#19323C",
     },
     fontFamily: {
-      montserrat: ["Montserrat", "sans-serif"],
-      cabin: ["Cabin", "sans-serif"],
+      bodoni: ["Libre+Bodoni", "sans-serif"],
+      manrope: ["Manrope", "sans-serif"],
     },
     extend: {
       keyframes: {

@@ -7,12 +7,12 @@
   h2,
   h3,
   h4 {
-    @apply font-cabin font-[800];
+    @apply font-bodoni font-[800];
   }
 
   h5,
   h6 {
-    @apply font-cabin font-[400];
+    @apply font-bodoni font-[400];
   }
 
   #editor > p {
@@ -44,12 +44,12 @@
 
   body {
     @apply bg-white;
-    @apply font-montserrat;
+    @apply font-manrope;
     @apply tracking-wide;
   }
 
   .btn {
-    @apply font-cabin w-auto px-5 py-3 text-lg shadow-sm font-semibold tracking-wider transition-all duration-200 ease-in-out text-center;
+    @apply font-bodoni w-auto px-5 py-3 text-lg shadow-sm font-semibold tracking-wider transition-all duration-200 ease-in-out text-center;
   }
 
   .btn.btn-primary {

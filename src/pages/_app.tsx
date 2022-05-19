@@ -75,6 +75,8 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+
+      <div id="floating-button-root" />
     </AuthContext.Provider>
   );
 }
