@@ -12,6 +12,12 @@ const nextConfig = {
       "beatricecox.s3.amazonaws.com",
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require("./scripts/sitemap-generator.js");
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
