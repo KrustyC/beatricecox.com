@@ -1,12 +1,31 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { animated, config, useSpring } from "@react-spring/web";
 import { BeatriceCoxLogoIconOrange } from "@/components/icons/BeatriceCoxLogo";
+import { Overlay } from "@/components/Home/Overlay";
+import { Hero } from "@/components/Home/Hero";
+import { Filterbar } from "@/components/Home/Filterbar";
 
 const Home: NextPage = () => {
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+      setShow(true);
+    }, 300);
   }, []);
+
+  const overlayAnimationStyle = useSpring({
+    opacity: show ? 1 : 0,
+    // from: { opacity: 1 },
+    // // enter: { opacity: 1 },
+    // leave: { opacity: 0 },
+
+    config: config.molasses,
+  });
 
   return (
     <div>
@@ -16,26 +35,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Navbar
-        config={{
-          burgerColor: "bg-primary",
-          textColor: "fill-white",
-          logoColor: "fill-primary",
-        }}
-      /> */}
+      <Overlay />
 
-      <div className="bg-[#FFB649] text-[#DF8D13] w-screen h-screen bg-white flex flex-col items-center justify-center">
-        <BeatriceCoxLogoIconOrange />
-        <h6 className="mt-8">Website under construction.</h6>
-        <b>STAY TUNED!</b>
-        {/* <GetInTouch /> */}
-      </div>
-
-      <div className="bg-[#FFB649] text-[#DF8D13] w-screen h-screen bg-white flex flex-col items-center justify-center">
-        <BeatriceCoxLogoIconOrange />
-        <h6 className="mt-8">Website under construction.</h6>
-        <b>STAY TUNED!</b>
-      </div>
+      <animated.div style={overlayAnimationStyle} className="flex flex-col">
+        <Hero />
+        <Filterbar />
+        <div className="h-screen w-screen flex flex-col">CIAO OMARi</div>
+      </animated.div>
     </div>
   );
 };

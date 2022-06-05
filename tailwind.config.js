@@ -42,7 +42,7 @@ module.exports = {
       "admin-primary": "#19323C",
     },
     fontFamily: {
-      bodoni: ["Libre+Bodoni", "sans-serif"],
+      bodoni: ["Bodoni Moda", "sans-serif"],
       manrope: ["Manrope", "sans-serif"],
     },
     extend: {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { animated, useTransition } from "react-spring";
+import { animated, useTransition } from "@react-spring/web";
 
 interface SlideFromLeftOnMountProps {
   appearAfterMs?: number;
