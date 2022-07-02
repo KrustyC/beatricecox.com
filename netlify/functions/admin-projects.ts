@@ -7,13 +7,16 @@ import { HTTP_METHODS } from "../shared/variables";
 
 export const projectSchema = yup.object().shape({
   title: yup.string().required("please enter a name for the project"),
+  slug: yup.string().required("please enter a slug for the project"),
   intro: yup.string().required("please enter an intro for the project"),
+  year: yup.number().required("please enter a year"),
   description: yup
     .string()
     .required("please enter a description for the project"),
-  images: yup
-    .array()
-    .of(yup.string().required("please enter an image for the project")),
+  mainImage: yup.string().required("please enter a main image for the project"),
+  listingImage: yup
+    .string()
+    .required("please enter a listing image for the project"),
 });
 
 const PROJECTS_COLLECTION = "projects";
@@ -145,6 +148,9 @@ async function put(client: MongoClient, handlerEvent: HandlerEvent) {
       });
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { _id: _, ...updateFields } = projectDocument;
+
     await client
       .db(process.env.MONGO_DB_NAME)
       .collection(PROJECTS_COLLECTION)
@@ -154,10 +160,7 @@ async function put(client: MongoClient, handlerEvent: HandlerEvent) {
         },
         {
           $set: {
-            title: projectDocument.title,
-            intro: projectDocument.intro,
-            description: projectDocument.description,
-            images: projectDocument.images,
+            ...updateFields,
             updatedAt: new Date(),
           },
         }
@@ -168,6 +171,7 @@ async function put(client: MongoClient, handlerEvent: HandlerEvent) {
       body: { message: "Project successfully updated" },
     });
   } catch (error) {
+    console.error(error);
     return jsonResponse({
       status: 500,
       body: {

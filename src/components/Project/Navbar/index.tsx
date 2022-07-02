@@ -4,10 +4,10 @@ import Link from "next/link";
 // import { OurHutLogoTextIcon } from "@/components/icons/OurHutLogoText";
 // import { InstagramIcon } from "@/components/icons/Instagram";
 // import { TwitterIcon } from "@/components/icons/Twitter";
-import { PAGE_LINKS } from "@/utils/constants";
+import { PROJECT_PAGE_LINKS } from "@/utils/constants";
 // import { BurgerMenu } from "./BurgerMenu";
 
-export const Navbar: React.FC = ({}) => {
+export const ProjectNavbar: React.FC = ({}) => {
   // const [isOpen, setIsOpen] = useState(false);
 
   // const onToggle = () => {
@@ -27,9 +27,9 @@ export const Navbar: React.FC = ({}) => {
       </div>
 
       <div className="hidden lg:flex lg:items-center lg:justify-end lg:w-auto">
-        {PAGE_LINKS.map(({ label, to }) => (
+        {PROJECT_PAGE_LINKS.map(({ label, to }) => (
           <Link href={to} key={label}>
-            <a className="text-black text-xl animated-link mr-4 font-light">
+            <a className="text-black text-xl animated-link mr-12 font-light">
               {label}
             </a>
           </Link>

@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import { useOverlayAnimation } from "@/hooks/useOverlayAnimation";
 import { useFilters } from "@/hooks/useFilters";
 import { Project } from "@/types/global";
+import { GetInTouch } from "@/components/GetInTouch";
 
 interface HomePageProps {
   projects: Project[];
@@ -18,8 +19,6 @@ interface HomePageProps {
 const Home: NextPage<HomePageProps> = ({ projects }) => {
   const overlayAnimationStyle = useOverlayAnimation();
   const { currentFilter, onSelectFilter } = useFilters();
-
-  console.log(projects);
 
   return (
     <div>
@@ -47,6 +46,8 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
 
         <Footer />
       </animated.div>
+
+      <GetInTouch />
     </div>
   );
 };

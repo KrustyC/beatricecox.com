@@ -5,7 +5,7 @@ import { Modal } from "../Modal";
 interface ViewImageModalProps {
   image: string;
   onClose: VoidFunction;
-  onWantToDeleteFile: VoidFunction;
+  onWantToDeleteFile: (file: string) => void;
 }
 
 export const ViewImageModal: React.FC<
@@ -25,7 +25,7 @@ export const ViewImageModal: React.FC<
 
         <button
           className="btn-admin btn-danger ml-4"
-          onClick={onWantToDeleteFile}
+          onClick={() => onWantToDeleteFile(image)}
         >
           Delete Image
         </button>

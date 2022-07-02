@@ -9,3 +9,12 @@ export const PAGE_LINKS = [
   { label: "Teaching", to: "/teaching" },
   { label: "Contact", to: "/get-in-touch" },
 ];
+
+export const PROJECT_PAGE_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "Product", to: "/#product" },
+  { label: "Graphic", to: "/#graphic" },
+  { label: "3D", to: "/#3D" },
+  { label: "Industrial", to: "/#industrial" },
+  { label: "Other", to: "/#other" },
+];

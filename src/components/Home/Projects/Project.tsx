@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { Project as IProject } from "@/types/global";
 
 interface ProjectsProps {
@@ -8,20 +8,22 @@ interface ProjectsProps {
 
 export const Project: React.FC<ProjectsProps> = ({ project }) => {
   return (
-    <div className="mb-12 flex flex-col">
-      <div className="relative">
-        <Image
-          // width="630px"
-          // height="180px"
-          alt={project.title}
+    <div className="mb-40 last:mb-0 flex relative flex-col">
+      {/* <div className="aspect-w-1 aspect-h-1 bg-gray-100">
+         <Image
+          src={project.listingImage}
+          alt="Picture of something nice"
           layout="fill"
           objectFit="contain"
-          src="/images/dynosaur.jpg"
-        />
-      </div>
+        /> 
+        
+      </div> */}
+
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={project.listingImage} alt={project.title} />
 
       <Link href={`/projects/${project.slug}`}>
-        <h3 className="text-3xl font-thin cursor-pointer mt-12">
+        <h3 className="text-3xl font-thin cursor-pointer mt-8">
           {project.title}
         </h3>
       </Link>

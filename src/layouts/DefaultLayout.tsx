@@ -1,4 +1,4 @@
-import { GetInTouch } from "@/components/GetInTouch";
+// import { GetInTouch } from "@/components/GetInTouch";
 
 export const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
   children,
@@ -6,9 +6,8 @@ export const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
   return (
     <>
       <div>
-        {/* <Navbar /> */}
         {children}
-        <GetInTouch />
+        {/* <GetInTouch /> */}
       </div>
     </>
   );

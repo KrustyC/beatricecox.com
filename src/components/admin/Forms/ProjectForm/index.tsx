@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Controller, useForm, useFieldArray } from "react-hook-form";
-import { FormProject, FormProjectImage, Project } from "@/types/global";
+import slugify from "slugify";
+import { Controller, useForm } from "react-hook-form";
+import { Project } from "@/types/global";
 import { isValidDescription } from "@/utils/validators";
 import { LoadingSpinner } from "../../LoadingSpinner";
 import { Input } from "../../Input";
 import { Editor } from "../../Editor";
-import { MultipleImagesInput } from "./MultipleImagesInput";
+import { ImageSelector } from "../../ImageSelector";
+import { ProjectCategory } from "@/types/app";
 
 interface ProjectFormProps {
   className?: string;
@@ -15,14 +17,17 @@ interface ProjectFormProps {
   onSaveProject: (project: Project) => void;
 }
 
-const DEFAULT_PROJECT: FormProject = {
+const DEFAULT_PROJECT: Project = {
   img: "",
   title: "",
-  category: "",
+  slug: "",
+  category: ProjectCategory.UX_UI,
   year: 2020,
   intro: "",
   description: "",
-  images: [],
+  mainImage: "",
+  listingImage: "",
+  blocks: [],
 };
 
 export const ProjectForm: React.FC<
@@ -31,46 +36,46 @@ export const ProjectForm: React.FC<
   const {
     register,
     control,
-    watch,
+    getValues,
+    setValue,
+    // watch,
     handleSubmit,
     formState: { isDirty, errors, isValid },
-  } = useForm<FormProject>({
+  } = useForm<Project>({
     defaultValues: {
       ...project,
-      images:
-        project.images?.map((image) => {
-          return {
-            image,
-          } as FormProjectImage;
-        }) || [],
     },
     mode: "onBlur",
   });
 
-  const { fields, replace } = useFieldArray({
-    control,
-    name: "images",
-  });
+  const onCreateSlugFromTitle = () => {
+    const title = getValues("title");
+    setValue("slug", slugify(title, { lower: true }));
+  };
 
-  const watchFieldArray = watch("images");
+  // const { fields, replace } = useFieldArray({
+  //   control,
+  //   name: "blocks",
+  // });
 
-  const onSubmit = (data: FormProject) => {
+  // const watchFieldArray = watch("blocks");
+
+  const onSubmit = (data: Project) => {
     onSaveProject({
       ...data,
-      images: data.images.map(({ image }) => image),
     });
   };
 
-  const controlledFields = fields.map((field, index) => {
-    return {
-      ...field,
-      ...watchFieldArray[index],
-    };
-  });
+  // const controlledFields = fields.map((field, index) => {
+  //   return {
+  //     ...field,
+  //     ...watchFieldArray[index],
+  //   };
+  // });
 
-  const onChangeImages = (images: FormProjectImage[]) => {
-    replace(images);
-  };
+  // const onChangeBlocks = (blocks: ProejctBlock[]) => {
+  //   replace(blocks);
+  // };
 
   return (
     <form
@@ -88,6 +93,40 @@ export const ProjectForm: React.FC<
             type="text"
             placeholder="Project Name"
           />
+        </div>
+
+        <div className="flex items-end mb-4">
+          <div className="mr-4">
+            <Input
+              register={register}
+              options={{ required: "Please add a year" }}
+              error={errors.year}
+              label="Year"
+              name="year"
+              type="number"
+              placeholder="YYYY"
+            />
+          </div>
+          <div className="flex-1 flex items-end">
+            <Input
+              width="w-full"
+              register={register}
+              options={{ required: "Please add a slug" }}
+              error={errors.slug}
+              label="Slug"
+              name="slug"
+              type="text"
+              placeholder="Project Slug"
+            />
+            <button
+              className="btn-admin btn-primary ml-4 h-[38px] w-[400px]"
+              type="button"
+              onClick={onCreateSlugFromTitle}
+              // disabled={pending || !isValid || !isDirty}
+            >
+              Create from title
+            </button>
+          </div>
         </div>
 
         <div className="mb-4">
@@ -134,11 +173,43 @@ export const ProjectForm: React.FC<
 
         <div className="mb-4">
           <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-            Images
+            Main Image
           </span>
-          <MultipleImagesInput
-            images={controlledFields}
-            onChangeImages={onChangeImages}
+          <Controller
+            name="mainImage"
+            rules={{ required: "Please make sure to add an image" }}
+            render={(props) => (
+              <ImageSelector
+                currentImage={props.field.value}
+                error={errors?.mainImage}
+                onBlur={() => props.field.onBlur()}
+                onSelectImage={(image) => {
+                  props.field.onChange(image);
+                }}
+              />
+            )}
+            control={control}
+          />
+        </div>
+
+        <div className="mb-4">
+          <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
+            Listing Image
+          </span>
+          <Controller
+            name="listingImage"
+            rules={{ required: "Please make sure to add an image" }}
+            render={(props) => (
+              <ImageSelector
+                currentImage={props.field.value}
+                error={errors?.listingImage}
+                onBlur={() => props.field.onBlur()}
+                onSelectImage={(image) => {
+                  props.field.onChange(image);
+                }}
+              />
+            )}
+            control={control}
           />
         </div>
       </div>

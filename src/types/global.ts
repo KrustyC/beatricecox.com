@@ -17,18 +17,9 @@ export type FormProjectImage = {
   image: string;
 };
 
-export type FormProject = {
-  _id?: number;
-  img: string;
-  title: string;
-  slug: string;
-  year: number;
-  category: ProjectCategory;
-
-  description: string;
-  intro: string;
-  images: FormProjectImage[];
-};
+export interface ProjectBlock {
+  id: number;
+}
 
 export interface Project {
   _id?: number;
@@ -38,8 +29,11 @@ export interface Project {
   year: number;
   category: ProjectCategory;
 
-  // @TODO This May need to be removed
   intro: string;
   description: string;
-  images: string[];
+
+  mainImage: string;
+  listingImage: string;
+
+  blocks: ProjectBlock[];
 }

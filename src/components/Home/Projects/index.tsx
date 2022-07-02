@@ -22,8 +22,8 @@ export const Projects: React.FC<ProjectsProps> = ({
 
   return (
     <div className="bg-white">
-      <div className="min-h-[90vh] px-60 py-24 gap-x-40 flex flex-col md:flex-row md:justify-between">
-        <div className="flex-1 flex flex-col">
+      <div className="min-h-[90vh] px-60 py-24 gap-x-20 flex flex-col md:flex-row md:justify-between">
+        <div className="flex-1 flex flex-col mt-12">
           {leftColumnProjects.map((project) => (
             <Project key={project._id} project={project} />
           ))}
