@@ -6,10 +6,17 @@ import { Hero } from "@/components/Home/Hero";
 import { Filterbar } from "@/components/Home/Filterbar";
 import { useOverlayAnimation } from "@/hooks/useOverlayAnimation";
 import { useFilters } from "@/hooks/useFilters";
+import { Project } from "@/types/global";
 
-const Home: NextPage = () => {
+interface HomePageProps {
+  projects: Project[];
+}
+
+const Home: NextPage<HomePageProps> = ({ projects }) => {
   const overlayAnimationStyle = useOverlayAnimation();
   const { currentFilter, onSelectFilter } = useFilters();
+
+  console.log(projects);
 
   return (
     <div>
@@ -32,5 +39,15 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.baseUrl}/.netlify/functions/projects`);
+
+  const { projects } = await res.json();
+
+  return {
+    props: { projects },
+  };
+}
 
 export default Home;

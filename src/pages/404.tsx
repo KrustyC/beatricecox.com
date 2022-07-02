@@ -5,13 +5,7 @@ import { Navbar } from "@/components/Navbar";
 export default function Custom404() {
   return (
     <div className="h-screen w-screen bg-white">
-      <Navbar
-        config={{
-          burgerColor: "bg-primary",
-          textColor: "fill-black",
-          logoColor: "fill-primary",
-        }}
-      />
+      <Navbar />
       <div className="w-full h-5/6 flex flex-col items-center justify-center z-1">
         <Image
           width="630px"

@@ -15,8 +15,11 @@ interface ProjectFormProps {
   onSaveProject: (project: Project) => void;
 }
 
-const DEFAULT_PROJECT: Project = {
+const DEFAULT_PROJECT: FormProject = {
+  img: "",
   title: "",
+  category: "",
+  year: 2020,
   intro: "",
   description: "",
   images: [],
@@ -35,9 +38,11 @@ export const ProjectForm: React.FC<
     defaultValues: {
       ...project,
       images:
-        project.images?.map((image) => ({
-          image,
-        })) || [],
+        project.images?.map((image) => {
+          return {
+            image,
+          } as FormProjectImage;
+        }) || [],
     },
     mode: "onBlur",
   });
