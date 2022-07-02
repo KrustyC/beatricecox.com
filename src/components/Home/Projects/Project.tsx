@@ -20,7 +20,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
         />
       </div>
 
-      <Link href={project.slug}>
+      <Link href={`/projects/${project.slug}`}>
         <h3 className="text-3xl font-thin cursor-pointer mt-12">
           {project.title}
         </h3>

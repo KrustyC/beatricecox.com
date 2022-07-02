@@ -5,6 +5,8 @@ import { Overlay } from "@/components/Home/Overlay";
 import { Hero } from "@/components/Home/Hero";
 import { Filterbar } from "@/components/Home/Filterbar";
 import { Projects } from "@/components/Home/Projects";
+import { Skills } from "@/components/Home/Skills";
+import { Footer } from "@/components/Footer";
 import { useOverlayAnimation } from "@/hooks/useOverlayAnimation";
 import { useFilters } from "@/hooks/useFilters";
 import { Project } from "@/types/global";
@@ -31,11 +33,19 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
 
       <animated.div style={overlayAnimationStyle} className="flex flex-col">
         <Hero />
+
         <Filterbar
           currentFilter={currentFilter}
           onSelectFilter={onSelectFilter}
         />
+
         <Projects projects={projects} currentFilter={currentFilter} />
+
+        <Skills />
+
+        <div className="h-[500px] w-full" />
+
+        <Footer />
       </animated.div>
     </div>
   );

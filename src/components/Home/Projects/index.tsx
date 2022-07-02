@@ -1,5 +1,6 @@
 import { Project as IProject } from "@/types/global";
 import { ProjectCategory } from "@/types/app";
+import Link from "next/link";
 import { useProjectsWithFilter } from "./useProjectsWithFilter";
 import { Project } from "./Project";
 
@@ -20,17 +21,25 @@ export const Projects: React.FC<ProjectsProps> = ({
   });
 
   return (
-    <div className="bg-white min-h-[90vh] px-60 py-24 gap-x-40 flex flex-col md:flex-row md:justify-between">
-      <div className="flex-1 flex flex-col">
-        {leftColumnProjects.map((project) => (
-          <Project key={project._id} project={project} />
-        ))}
+    <div className="bg-white">
+      <div className="min-h-[90vh] px-60 py-24 gap-x-40 flex flex-col md:flex-row md:justify-between">
+        <div className="flex-1 flex flex-col">
+          {leftColumnProjects.map((project) => (
+            <Project key={project._id} project={project} />
+          ))}
+        </div>
+
+        <div className="flex-1 flex flex-col">
+          {rightColumnProjects.map((project) => (
+            <Project key={project._id} project={project} />
+          ))}
+        </div>
       </div>
 
-      <div className="flex-1 flex flex-col">
-        {rightColumnProjects.map((project) => (
-          <Project key={project._id} project={project} />
-        ))}
+      <div className="h-20 flex items-center justify-center">
+        <Link href="/projects">
+          <a className="tracking-wider font-thin text-black text-l">SEE MORE</a>
+        </Link>
       </div>
     </div>
   );
