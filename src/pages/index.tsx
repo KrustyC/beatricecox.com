@@ -4,6 +4,7 @@ import { animated } from "@react-spring/web";
 import { Overlay } from "@/components/Home/Overlay";
 import { Hero } from "@/components/Home/Hero";
 import { Filterbar } from "@/components/Home/Filterbar";
+import { Projects } from "@/components/Home/Projects";
 import { useOverlayAnimation } from "@/hooks/useOverlayAnimation";
 import { useFilters } from "@/hooks/useFilters";
 import { Project } from "@/types/global";
@@ -34,7 +35,7 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
           currentFilter={currentFilter}
           onSelectFilter={onSelectFilter}
         />
-        <div className="h-screen w-screen flex flex-col">CIAO OMARi</div>
+        <Projects projects={projects} currentFilter={currentFilter} />
       </animated.div>
     </div>
   );

@@ -1,3 +1,5 @@
+import type { ProjectCategory } from "./app";
+
 export enum REST_METHOD {
   GET = "GET",
   POST = "POST",
@@ -19,8 +21,9 @@ export type FormProject = {
   _id?: number;
   img: string;
   title: string;
-  category: string;
+  slug: string;
   year: number;
+  category: ProjectCategory;
 
   description: string;
   intro: string;
@@ -31,8 +34,9 @@ export interface Project {
   _id?: number;
   img: string;
   title: string;
-  category: string;
+  slug: string;
   year: number;
+  category: ProjectCategory;
 
   // @TODO This May need to be removed
   intro: string;

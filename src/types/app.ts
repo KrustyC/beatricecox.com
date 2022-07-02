@@ -5,8 +5,7 @@ export type NextPageWithLayout<T> = NextPage<T> & {
   Layout?: FC<React.PropsWithChildren<unknown>>;
 };
 
-export enum Filters {
-  ALL = "ALL",
+export enum ProjectCategory {
   PACKAGING = "PACKAGING",
   UX_UI = "UX/UI",
   INDUSTRIAL = "INDUSTRIAL",

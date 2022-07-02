@@ -3,51 +3,77 @@ import { jsonResponse } from "../shared/utils";
 import { ObjectId } from "mongodb";
 import { connect } from "../shared/mongodb-client";
 import { HTTP_METHODS } from "../shared/variables";
+import { Project } from "../../src/types/global";
+import { ProjectCategory } from "../../src/types/app";
 
 const PROJECTS_COLLECTION = "projects";
 
-const HARDCODED_PROJECTS = [
+const HARDCODED_PROJECTS: Project[] = [
   {
     _id: 1,
     img: "",
+    slug: "babington-blends",
     title: "Babingtons Blends",
-    category: "UI/UX Design",
+    category: ProjectCategory.UX_UI,
     year: 2018,
+    intro: "",
+    description: "",
+    images: [],
   },
   {
     _id: 2,
     img: "",
+    slug: "babington-rome",
     title: "Babingtons Rome",
-    category: "UI/UX Design",
+    category: ProjectCategory.UX_UI,
     year: 2018,
+    intro: "",
+    description: "",
+    images: [],
   },
   {
     _id: 3,
     img: "",
+    slug: "salty-commune",
     title: "Salty Commune",
-    category: "Interior Branding",
+    category: ProjectCategory.UX_UI,
     year: 2018,
+    intro: "",
+    description: "",
+    images: [],
   },
   {
     _id: 4,
     img: "",
+    slug: "castello-di-spessa",
     title: "Castello di Spessa",
-    category: "UI/UX Design",
+    category: ProjectCategory.UX_UI,
     year: 2018,
+    intro: "",
+    description: "",
+    images: [],
   },
   {
     _id: 5,
     img: "",
+    slug: "art-game",
     title: "Art Game",
-    category: "UI/UX Design",
+    category: ProjectCategory.UX_UI,
     year: 2018,
+    intro: "",
+    description: "",
+    images: [],
   },
   {
     _id: 6,
     img: "",
+    slug: "bervini",
     title: "Bervini",
-    category: "UI/UX Design",
+    category: ProjectCategory.UX_UI,
     year: 2018,
+    intro: "",
+    description: "",
+    images: [],
   },
 ];
 

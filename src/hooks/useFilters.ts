@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Filters } from "@/types/app";
+import { ProjectCategory } from "@/types/app";
 
-interface UseFiltersReturn {
-  currentFilter: Filters;
-  onSelectFilter: (filter: Filters) => void;
+interface UseProjectTypeReturn {
+  currentFilter?: ProjectCategory;
+  onSelectFilter: (filter: ProjectCategory) => void;
 }
 
-export function useFilters(): UseFiltersReturn {
-  const [currentFilter, setCurrentFilter] = useState<Filters>(Filters.ALL);
-  const onSelectFilter = (filter: Filters) => setCurrentFilter(filter);
+export function useFilters(): UseProjectTypeReturn {
+  const [currentFilter, setCurrentFilter] = useState<ProjectCategory>();
+  const onSelectFilter = (filter: ProjectCategory) => setCurrentFilter(filter);
 
   return {
     currentFilter,
