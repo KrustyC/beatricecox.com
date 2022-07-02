@@ -1,6 +1,5 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
 import { jsonResponse } from "../shared/utils";
-import { ObjectId } from "mongodb";
 import { connect } from "../shared/mongodb-client";
 import { HTTP_METHODS } from "../shared/variables";
 import { Project } from "../../src/types/global";
@@ -84,13 +83,16 @@ async function get(event: HandlerEvent) {
       throw new Error("Can not connect to DB");
     }
 
-    const { id } = event.queryStringParameters as { id?: string };
+    const { slug } = event.queryStringParameters as { slug?: string };
 
-    if (id) {
-      const project = await client
-        .db(process.env.MONGO_DB_NAME)
-        .collection(PROJECTS_COLLECTION)
-        .findOne({ _id: new ObjectId(id) });
+    if (slug) {
+      const project = HARDCODED_PROJECTS.find((project) => {
+        return project.slug === slug;
+      });
+      // const project = await client
+      //   .db(process.env.MONGO_DB_NAME)
+      //   .collection(PROJECTS_COLLECTION)
+      //   .findOne({ slug });
 
       if (!project) {
         return jsonResponse({
@@ -103,7 +105,7 @@ async function get(event: HandlerEvent) {
 
       return jsonResponse({
         status: 200,
-        body: { project },
+        body: { project, prevSlug: "", nextSlug: "" },
       });
     }
 
