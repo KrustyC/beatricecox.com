@@ -72,6 +72,32 @@
     transform: translate3d(0, 0, 0);
   }
 
+  /* Animated Filters */
+  .animated-filter {
+    @apply text-xl block relative;
+    overflow: hidden;
+  }
+
+  .animated-filter::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: black;
+    transition: opacity 400ms, transform 400ms;
+
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .animated-filter.active::after,
+  .animated-filter:hover::after,
+  .animated-filter:focus::after {
+    transform: translate3d(0, 0, 0);
+  }
+
   .btn {
     @apply font-bodoni w-auto px-5 py-3 text-lg shadow-sm font-semibold tracking-wider transition-all duration-200 ease-in-out text-center;
   }
