@@ -12,7 +12,7 @@ export const FilesUploadPreviewModal: React.FC<
   React.PropsWithChildren<FilesUploadPreviewModalProps>
 > = ({ file, pending, onConfirm, onCancel }) => {
   return (
-    <Modal width="w-5/12">
+    <Modal width="w-5/12 z-50">
       <div>
         <div className="text-left px-5 flex-auto justify-center">
           <h2 className="text-4xl text-admin-primary font-bold py-2 ">

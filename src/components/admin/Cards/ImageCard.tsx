@@ -20,7 +20,7 @@ export const ImageCard: React.FC<React.PropsWithChildren<ImageCardProps>> = ({
     </div>
 
     <div
-      className={`${styles["img-name"]} p-2 flex w-full h-auto bg-white flex justify-center items-center z-50`}
+      className={`${styles["img-name"]} p-2 flex w-full h-auto bg-white flex justify-center items-center z-10`}
     >
       {getFileName(image)}
     </div>
