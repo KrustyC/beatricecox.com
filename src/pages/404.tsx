@@ -1,23 +1,20 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
+import { NotFoundIcon } from "@/components/icons/NotFound";
 
 export default function Custom404() {
   return (
     <div className="h-screen w-screen bg-white">
       <Navbar />
       <div className="w-full h-5/6 flex flex-col items-center justify-center z-1">
-        <Image
-          width="630px"
-          height="180px"
-          alt="dynosaur"
-          src="/images/dynosaur.jpg"
-        />
-        <h1 className="text-6xl text-black font-bold mt-8">
+        <NotFoundIcon className="w-2/5" />
+
+        <h1 className="text-4xl text-black font-bold mt-16">
           Oops, we can not find the page!
         </h1>
+
         <Link href="/" passHref>
-          <a className="text-primary mt-8 underline">Back to the home</a>
+          <a className="text-[#DF8D13] mt-2 underline">Back to home</a>
         </Link>
       </div>
     </div>
