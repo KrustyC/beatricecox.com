@@ -10,8 +10,12 @@ type AuthContextType = {
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
-  login: () => {},
-  logout: () => {},
+  login: () => {
+    return;
+  },
+  logout: () => {
+    return;
+  },
   authReady: false,
 });
 
