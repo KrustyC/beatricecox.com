@@ -152,12 +152,6 @@
   }
 }
 
-.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  display: none; /* for Chrome, Safari, and Opera */
-}
-
 .ProseMirror {
   height: 100% !important;
   outline: none !important;
