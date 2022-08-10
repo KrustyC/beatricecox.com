@@ -11,7 +11,6 @@ export const config = {
 export const middleware = (req: NextRequest) => {
   const basicAuth = req.headers.get("authorization");
 
-  console.log(basicAuth);
   if (basicAuth) {
     const auth = basicAuth.split(" ")[1];
 

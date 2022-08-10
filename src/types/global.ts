@@ -27,7 +27,7 @@ export interface Project {
   title: string;
   slug: string;
   year: number;
-  category: ProjectCategory;
+  category: ProjectCategory | string;
 
   intro: string;
   description: string;

@@ -1,3 +1,4 @@
+import { ProjectCategory } from "@/types/app";
 import { parse, isValid } from "date-fns";
 
 const TIME_REGEX = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -37,6 +38,14 @@ export function isValidDate(date: string): string | true {
 export function isValidDescription(str: string): string | true {
   if (!str.length) {
     return "Make sure to add a description";
+  }
+
+  return true;
+}
+
+export function isValidCategory(str: ProjectCategory | string): string | true {
+  if (!str?.length) {
+    return "Make sure to add a a category";
   }
 
   return true;

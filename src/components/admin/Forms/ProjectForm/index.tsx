@@ -3,12 +3,14 @@
 import slugify from "slugify";
 import { Controller, useForm } from "react-hook-form";
 import { Project } from "@/types/global";
-import { isValidDescription } from "@/utils/validators";
+import { isValidCategory, isValidDescription } from "@/utils/validators";
+import { ProjectCategory } from "@/types/app";
+
 import { LoadingSpinner } from "../../LoadingSpinner";
 import { Input } from "../../Input";
 import { Editor } from "../../Editor";
 import { ImageSelector } from "../../ImageSelector";
-import { ProjectCategory } from "@/types/app";
+import { CategoryPicker } from "./CategoryPicker";
 
 interface ProjectFormProps {
   className?: string;
@@ -52,6 +54,8 @@ export const ProjectForm: React.FC<
     const title = getValues("title");
     setValue("slug", slugify(title, { lower: true }));
   };
+
+  console.log("errors", errors);
 
   // const { fields, replace } = useFieldArray({
   //   control,
@@ -122,10 +126,29 @@ export const ProjectForm: React.FC<
               className="btn-admin btn-primary ml-4 h-[38px] w-[400px]"
               type="button"
               onClick={onCreateSlugFromTitle}
-              // disabled={pending || !isValid || !isDirty}
             >
               Create from title
             </button>
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
+            Category
+          </span>
+          <div>
+            <Controller
+              control={control}
+              name="category"
+              rules={{ validate: isValidCategory }}
+              render={({ field: { value, onChange, onBlur } }) => (
+                <CategoryPicker
+                  currentValue={value}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                />
+              )}
+            />
           </div>
         </div>
 
