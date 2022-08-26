@@ -1,5 +1,8 @@
 {
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
@@ -7,6 +10,7 @@
   ],
   "rules": {
     // I suggest you add those two rules:
+    "react-hooks/exhaustive-deps": 0,
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "prettier/prettier": "error"
@@ -15,14 +19,37 @@
     "import/resolver": {
       "alias": {
         "map": [
-          ["@/components", "src/components"],
-          ["@/hooks/*", "src/hooks/*"],
-          ["@/contexts/*", "src/contexts/*"],
-          ["@/layouts/*", "src/layouts/*"],
-          ["@/types/*", "src/types/*"],
-          ["@/utils/*", "src/utils/*"]
+          [
+            "@/components",
+            "src/components"
+          ],
+          [
+            "@/hooks/*",
+            "src/hooks/*"
+          ],
+          [
+            "@/contexts/*",
+            "src/contexts/*"
+          ],
+          [
+            "@/layouts/*",
+            "src/layouts/*"
+          ],
+          [
+            "@/types/*",
+            "src/types/*"
+          ],
+          [
+            "@/utils/*",
+            "src/utils/*"
+          ]
         ],
-        "extensions": [".ts", ".js", ".jsx", ".json"]
+        "extensions": [
+          ".ts",
+          ".js",
+          ".jsx",
+          ".json"
+        ]
       }
     }
   }
