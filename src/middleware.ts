@@ -9,6 +9,16 @@ export const config = {
 };
 
 export const middleware = (req: NextRequest) => {
+  const { pathname } = req.nextUrl;
+
+  if (
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/.netlify")
+  ) {
+    return NextResponse.next();
+  }
+
   const basicAuth = req.headers.get("authorization");
 
   if (basicAuth) {
