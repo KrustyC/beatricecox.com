@@ -150,6 +150,15 @@
   .home-page-project {
     @apply mt-24;
   }
+
+  /* Project */
+  .project-section {
+    @apply py-24 px-80;
+  }
+
+  .project-container {
+    @apply max-w-[820px] mx-auto;
+  }
 }
 
 .ProseMirror {

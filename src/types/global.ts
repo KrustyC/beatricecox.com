@@ -47,6 +47,7 @@ export type ProjectBlock =
 
 export interface BaseBlock {
   id: string;
+  type: ProjectBlockType;
   order: number;
   backgroundColor: string;
 }
