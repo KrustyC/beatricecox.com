@@ -6,8 +6,10 @@ import {
 } from "@/types/global";
 import { isValidDescription } from "@/utils/validators";
 import { useFormContext, Controller } from "react-hook-form";
+
 import { Input } from "../../../../Input";
 import { Editor } from "../../../../Editor";
+import { MultipleImagesInput } from "../../MultipleImagesInput";
 
 export function blockIsDescriptionAndPicsBlock(
   block: ProjectBlock
@@ -31,9 +33,9 @@ export const FormDescriptionAndPicsBlock: React.FC<
 
   return (
     <div className="flex flex-col items-start justify-start w-full">
-      <span className="w-full">
-        <span className="font-bold uppercase">Block Type:</span>Description And
-        Pics Block
+      <span className="w-full mb-4">
+        <span className="font-bold uppercase mr-1">Block Type:</span>Description
+        And Pics Block
       </span>
 
       <div className="flex-1 flex items-end w-full">
@@ -49,7 +51,7 @@ export const FormDescriptionAndPicsBlock: React.FC<
         />
       </div>
 
-      <div className="mb-4 w-full">
+      <div className="my-4 w-full">
         <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
           Description
         </span>
@@ -64,6 +66,24 @@ export const FormDescriptionAndPicsBlock: React.FC<
                 error={errors?.intro}
                 onChange={onChange}
                 onBlur={onBlur}
+              />
+            )}
+          />
+        </div>
+      </div>
+
+      <div className="mb-4 w-full">
+        <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
+          Description
+        </span>
+        <div>
+          <Controller
+            control={control}
+            name={`blocks.${index}.pictures`}
+            render={({ field: { value, onChange } }) => (
+              <MultipleImagesInput
+                images={value || []}
+                onChangeImages={onChange}
               />
             )}
           />

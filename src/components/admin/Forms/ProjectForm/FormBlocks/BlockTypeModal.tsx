@@ -46,14 +46,14 @@ export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({
             className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
             onClick={() => setType(ProjectBlockType.PROJECT_INFO)}
           >
-            Form Project Info
+            Griglia
           </div>
 
           <div
             className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
             onClick={() => setType(ProjectBlockType.TWO_TITLES_AND_PARAGRAPH)}
           >
-            2 Title And 2 Paragrpahs
+            Titles with Side Paragrpahs
           </div>
 
           <div

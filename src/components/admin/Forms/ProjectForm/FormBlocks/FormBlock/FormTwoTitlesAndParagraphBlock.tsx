@@ -33,13 +33,13 @@ export const FormTwoTitlesAndParagraphBlock: React.FC<
   return (
     <div className="flex flex-col items-start justify-start w-full">
       <span className="w-full mb-4">
-        <span className="font-bold uppercase mr-4">Block Type:</span>2 Titles
-        and Paragraphs
+        <span className="font-bold uppercase mr-4">Block Type:</span> Titles
+        with Side Paragrpahs
       </span>
 
-      <div className="mb-4 w-full border-b-2 border-[black]">
-        <span className="mb-6">First parapgraph</span>
-        <div className="flex w-full my-4">
+      <div className="mb-6 pb-6 w-full border-b-2 border-[black]">
+        <span className="mb-6 font-bold">First parapgraph</span>
+        <div className="flex w-full mt-4">
           <Input
             width="w-full"
             register={register}
@@ -52,9 +52,9 @@ export const FormTwoTitlesAndParagraphBlock: React.FC<
           />
         </div>
 
-        <div className="mb-4 w-full">
+        <div className="my-4 w-full">
           <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-            Description
+            Value
           </span>
           <div>
             <Controller
@@ -75,7 +75,7 @@ export const FormTwoTitlesAndParagraphBlock: React.FC<
       </div>
 
       <div className="mb-4 w-full">
-        <span className="mb-6">Second parapgraph</span>
+        <span className="mb-6 font-bold">Second parapgraph</span>
         <div className="flex w-full my-4">
           <Input
             width="w-full"
@@ -91,7 +91,7 @@ export const FormTwoTitlesAndParagraphBlock: React.FC<
 
         <div className="mb-4 w-full">
           <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-            Description
+            Value
           </span>
           <div>
             <Controller

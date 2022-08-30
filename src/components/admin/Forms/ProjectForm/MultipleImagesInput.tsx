@@ -1,24 +1,25 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
-import { FormProjectImage } from "@/types/global";
+// import { string } from "@/types/global";
 import { MultipleImagesModal } from "./MultipleImagesModal";
 import { ImageFrame } from "../../ImageFrame";
 
 interface MultipleImagesProps {
-  images: FormProjectImage[];
-  onChangeImages: (images: FormProjectImage[]) => void;
+  images: string[];
+  onChangeImages: (images: string[]) => void;
 }
 
-export const MultipleImagesInput: React.FC<
-  React.PropsWithChildren<MultipleImagesProps>
-> = ({ images, onChangeImages }) => {
+export const MultipleImagesInput: React.FC<MultipleImagesProps> = ({
+  images,
+  onChangeImages,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   const onShowModal = () => {
     setShowModal(true);
   };
 
-  const onConfirm = (images: FormProjectImage[]) => {
+  const onConfirm = (images: string[]) => {
     onChangeImages(images);
     setShowModal(false);
   };
@@ -29,7 +30,7 @@ export const MultipleImagesInput: React.FC<
     <div className="flex flex-col items-start justify-start">
       {images.length > 0 ? (
         <div className="grid grid-cols-3 gap-4">
-          {images.map(({ image }) => (
+          {images.map((image) => (
             // eslint-disable-next-line @next/next/no-img-element
             <ImageFrame key={image} image={image} />
           ))}

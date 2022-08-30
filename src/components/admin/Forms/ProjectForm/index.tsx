@@ -57,7 +57,7 @@ export const ProjectForm: React.FC<
 
   console.log("errors", errors);
 
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control: methods.control,
     name: "blocks",
   });
@@ -79,6 +79,10 @@ export const ProjectForm: React.FC<
 
   const onCreateBlock = (newBlock: Partial<BaseBlock>) => {
     append(newBlock);
+  };
+
+  const onRemoveBlock = (index: number) => {
+    remove(index);
   };
 
   return (
@@ -242,6 +246,7 @@ export const ProjectForm: React.FC<
           <FormBlocks
             blocks={blocks as unknown as ProjectBlock[]} // bit of an hack for the time being
             onCreateBlock={onCreateBlock}
+            onRemoveBlock={onRemoveBlock}
           />
         </div>
 

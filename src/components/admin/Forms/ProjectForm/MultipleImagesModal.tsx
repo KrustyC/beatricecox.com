@@ -3,22 +3,23 @@
 import { useState } from "react";
 import { useNetlifyGetFunction } from "@/hooks/useNetlifyGetFunction";
 import { useAuth } from "@/contexts/AuthContext";
-import { FormProjectImage } from "@/types/global";
+// import { FormProjectImage } from "@/types/global";
 import { ImageFrame } from "../../ImageFrame";
 import { Modal } from "../../Modal";
 import { LoadingSpinner } from "../../LoadingSpinner";
 
 interface MultipleImagesModalProps {
-  images: FormProjectImage[];
-  onConfirm: (images: FormProjectImage[]) => void;
+  images: string[];
+  onConfirm: (images: string[]) => void;
   onCancel: VoidFunction;
 }
 
-export const MultipleImagesModal: React.FC<
-  React.PropsWithChildren<MultipleImagesModalProps>
-> = ({ images, onConfirm, onCancel }) => {
-  const [selectedImages, setSelectedImages] =
-    useState<FormProjectImage[]>(images);
+export const MultipleImagesModal: React.FC<MultipleImagesModalProps> = ({
+  images,
+  onConfirm,
+  onCancel,
+}) => {
+  const [selectedImages, setSelectedImages] = useState<string[]>(images);
 
   const { user } = useAuth();
   const { loading, data } = useNetlifyGetFunction<{
@@ -35,7 +36,7 @@ export const MultipleImagesModal: React.FC<
   };
 
   const onChooseImage = (image: string) => {
-    setSelectedImages([...selectedImages, { image }]);
+    setSelectedImages([...selectedImages, image]);
   };
 
   return (
@@ -65,7 +66,7 @@ export const MultipleImagesModal: React.FC<
             <div className="grid grid-cols-3 gap-4 mt-4 px-5 max-h-[500px] overflow-scroll">
               {allImages.map((image, index) => {
                 const isImageSelected = selectedImages.some(
-                  (selectedImage) => image === selectedImage.image
+                  (selectedImage) => image === selectedImage
                 );
                 return (
                   <div key={index} className="relative">

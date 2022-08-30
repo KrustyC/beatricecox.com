@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { ProjectBlock, BaseBlock } from "@/types/global";
+
 import { FormBlock } from "./FormBlock";
 import { BlockTypeModal } from "./BlockTypeModal";
 
 interface MultipleImagesProps {
   blocks: ProjectBlock[];
   onCreateBlock: (newBlock: Partial<BaseBlock>) => void;
+  onRemoveBlock: (index: number) => void;
 }
 
 export const FormBlocks: React.FC<MultipleImagesProps> = ({
   blocks,
   onCreateBlock,
+  onRemoveBlock,
 }) => {
   const [showBlockModal, setShowBlockModal] = useState(false);
 
@@ -39,7 +42,12 @@ export const FormBlocks: React.FC<MultipleImagesProps> = ({
           Add Block
         </button>
         {blocks.map((block, i) => (
-          <FormBlock key={block.id} block={block} index={i} />
+          <FormBlock
+            key={block.id}
+            block={block}
+            index={i}
+            onRemoveBlock={onRemoveBlock}
+          />
         ))}
       </div>
     </>
