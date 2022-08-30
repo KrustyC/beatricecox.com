@@ -17,10 +17,6 @@ export type FormProjectImage = {
   image: string;
 };
 
-export interface ProjectBlock {
-  id: number;
-}
-
 export interface Project {
   _id?: number;
   img: string;
@@ -35,5 +31,48 @@ export interface Project {
   mainImage: string;
   listingImage: string;
 
-  blocks: ProjectBlock[];
+  blocks: (Partial<BaseBlock> | ProjectBlock)[];
+}
+
+export enum ProjectBlockType {
+  PROJECT_INFO = "project-info",
+  TWO_TITLES_AND_PARAGRAPH = "two-title-and-paragraph",
+  DESCRIPTION_AND_PICS = "description-and-pics-block",
+}
+
+export type ProjectBlock =
+  | ProjectInfoBlock
+  | TwoTitlesAndParagraphBlock
+  | DescriptionAndPicsBlock;
+
+export interface BaseBlock {
+  id: string;
+  order: number;
+  backgroundColor: string;
+}
+
+export interface ProjectInfoItem {
+  name: string;
+  value: string;
+}
+
+export interface ProjectInfoBlock extends BaseBlock {
+  type: ProjectBlockType.PROJECT_INFO;
+  title: string;
+  subtitle: string;
+  description: string;
+  items: ProjectInfoItem[];
+}
+
+export interface TwoTitlesAndParagraphBlock extends BaseBlock {
+  type: ProjectBlockType.TWO_TITLES_AND_PARAGRAPH;
+  firstItem: { title: string; paragraph: string };
+  secondItem: { title: string; paragraph: string };
+}
+
+export interface DescriptionAndPicsBlock extends BaseBlock {
+  type: ProjectBlockType.DESCRIPTION_AND_PICS;
+  title: string;
+  description: string;
+  pictures: string[];
 }

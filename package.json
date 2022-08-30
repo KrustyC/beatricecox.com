@@ -32,6 +32,7 @@
     "sharp": "^0.30.7",
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.5",
+    "uuidv4": "^6.2.13",
     "yup": "^0.32.11"
   },
   "devDependencies": {
