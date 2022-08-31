@@ -2,7 +2,7 @@ import {
   Project,
   ProjectBlock,
   ProjectBlockType,
-  DescriptionAndPicsBlock,
+  CarouselBlock,
 } from "@/types/global";
 import { isValidDescription } from "@/utils/validators";
 import { useFormContext, Controller } from "react-hook-form";
@@ -12,19 +12,19 @@ import { Editor } from "../../../../Editor";
 import { MultipleImagesInput } from "../../MultipleImagesInput";
 import { ColorPicker } from "../ColorPicker";
 
-export function blockIsDescriptionAndPicsBlock(
+export function blockIsCarouselBlock(
   block: ProjectBlock
-): block is DescriptionAndPicsBlock {
-  return block.type === ProjectBlockType.DESCRIPTION_AND_PICS;
+): block is CarouselBlock {
+  return block.type === ProjectBlockType.CAROUSEL;
 }
 
-interface FormDescriptionAndPicsBlockProps {
+interface FormCarouselBlockProps {
   index: number;
 }
 
-export const FormDescriptionAndPicsBlock: React.FC<
-  FormDescriptionAndPicsBlockProps
-> = ({ index }) => {
+export const FormCarouselBlock: React.FC<FormCarouselBlockProps> = ({
+  index,
+}) => {
   const {
     register,
     control,
@@ -34,8 +34,7 @@ export const FormDescriptionAndPicsBlock: React.FC<
   return (
     <div className="flex flex-col items-start justify-start w-full">
       <span className="w-full mb-4">
-        <span className="font-bold uppercase mr-1">Block Type:</span>Description
-        And Pics Block
+        <span className="font-bold uppercase mr-1">Block Type:</span>Carousel
         <div className="flex items-center my-2">
           <span className="font-bold mr-4">Background Color</span>
           <Controller
@@ -84,7 +83,7 @@ export const FormDescriptionAndPicsBlock: React.FC<
 
       <div className="mb-4 w-full">
         <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-          Images
+          Images on carousel
         </span>
         <div>
           <Controller

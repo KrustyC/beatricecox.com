@@ -18,6 +18,7 @@ import {
   blockIsFourImagesWithTextBlock,
   FormFourImagesWithTextBlock,
 } from "./FormFourImagesWithTextBlock";
+import { blockIsCarouselBlock, FormCarouselBlock } from "./FormCarouselBlock";
 import { useState } from "react";
 
 interface BlockProps {
@@ -56,6 +57,10 @@ export const FormBlock: React.FC<BlockProps> = ({
 
     if (blockIsFourImagesWithTextBlock(currentBlock)) {
       return <FormFourImagesWithTextBlock index={index} />;
+    }
+
+    if (blockIsCarouselBlock(currentBlock)) {
+      return <FormCarouselBlock index={index} />;
     }
 
     return null;

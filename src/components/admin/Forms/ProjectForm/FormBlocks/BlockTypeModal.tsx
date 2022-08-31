@@ -69,6 +69,13 @@ export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({
           >
             4 Images with Text
           </div>
+
+          <div
+            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
+            onClick={() => setType(ProjectBlockType.CAROUSEL)}
+          >
+            Carousel
+          </div>
         </div>
       </div>
 

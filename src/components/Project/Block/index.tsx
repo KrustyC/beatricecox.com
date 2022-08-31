@@ -13,12 +13,14 @@ import {
   blockIsFourImagesWithTextBlock,
   FourImagesWithTextBlock,
 } from "./FourImagesWithTextBlock";
+import { blockIsCarouselBlock, CarouselBlock } from "./CarouselBlock";
 
 interface BlockProps {
   block: Partial<BaseBlock> | ProjectBlock;
 }
 
 export const Block: React.FC<BlockProps> = ({ block }) => {
+  console.log("BLOCK", block);
   if (blockIsProjectInfoBlock(block)) {
     return <ProjectInfoBlock block={block} />;
   }
@@ -33,6 +35,10 @@ export const Block: React.FC<BlockProps> = ({ block }) => {
 
   if (blockIsFourImagesWithTextBlock(block)) {
     return <FourImagesWithTextBlock block={block} />;
+  }
+
+  if (blockIsCarouselBlock(block)) {
+    return <CarouselBlock block={block} />;
   }
 
   return null;
