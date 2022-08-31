@@ -67,6 +67,10 @@
     transform: translate3d(-100%, 0, 0);
   }
 
+  .animated-link-pink::after {
+    background-color: #edb8b8;
+  }
+
   .animated-link:hover::after,
   .animated-link:focus::after {
     transform: translate3d(0, 0, 0);
@@ -157,7 +161,7 @@
   }
 
   .project-container {
-    @apply max-w-[820px] mx-auto;
+    @apply w-[820px] max-w-[820px] mx-auto;
   }
 }
 

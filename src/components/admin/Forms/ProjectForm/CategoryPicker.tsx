@@ -44,9 +44,6 @@ export const CategoryPicker: React.FC<
     onChange(e.target.value);
   };
 
-  console.log("defaultValue", defaultValue);
-  console.log("currentValue", currentValue);
-
   return (
     <div className="w-full flex justify-start items-center">
       <select

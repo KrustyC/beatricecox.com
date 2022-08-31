@@ -47,11 +47,19 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
         </div>
 
         <div className="flex flex-col">
-          <Line title="Team" value="Marcello Minale (Creative Director)" />
-          <Line title="Client" value="Babingtons Blend" />
-          <Line title="Date" value="2021" />
-          <Line title="Role" value="Creative Content designer and manager" />
-          <Line title="Skills" value="Creative Content designer and manager" />
+          {block.info.team && <Line title="Team" value={block.info.team} />}
+
+          {block.info.client && (
+            <Line title="Client" value={block.info.client} />
+          )}
+
+          {block.info.date && <Line title="Date" value={block.info.date} />}
+
+          {block.info.role && <Line title="role" value={block.info.role} />}
+
+          {block.info.skills && (
+            <Line title="skills" value={block.info.skills} />
+          )}
         </div>
       </div>
     </div>

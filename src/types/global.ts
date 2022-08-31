@@ -32,6 +32,9 @@ export interface Project {
   listingImage: string;
 
   blocks: (Partial<BaseBlock> | ProjectBlock)[];
+
+  nextProject?: Pick<Project, "title" | "slug" | "category">;
+  prevProject?: Pick<Project, "title" | "slug" | "category">;
 }
 
 export enum ProjectBlockType {
@@ -52,17 +55,18 @@ export interface BaseBlock {
   backgroundColor: string;
 }
 
-export interface ProjectInfoItem {
-  name: string;
-  value: string;
-}
-
 export interface ProjectInfoBlock extends BaseBlock {
   type: ProjectBlockType.PROJECT_INFO;
   title: string;
   subtitle: string;
   description: string;
-  items: ProjectInfoItem[];
+  info: {
+    team?: string;
+    client?: string;
+    date?: string;
+    role?: string;
+    skills?: string;
+  };
 }
 
 export interface TwoTitlesAndParagraphBlock extends BaseBlock {

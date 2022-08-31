@@ -83,6 +83,64 @@ export const FormProjectInfoBlock: React.FC<FormProjectInfoBlockProps> = ({
           />
         </div>
       </div>
+
+      <div className="flex flex-col w-full mb-4">
+        <div className="flex-1 flex gap-6 justify-between w-full mb-4">
+          <Input
+            width="w-full"
+            register={register}
+            options={{ required: false }}
+            label="team"
+            name={`blocks.${index}.info.team`}
+            type="text"
+            placeholder="Team name"
+          />
+
+          <Input
+            width="w-full"
+            register={register}
+            options={{ required: false }}
+            label="Client"
+            name={`blocks.${index}.info.client`}
+            type="text"
+            placeholder="Client name"
+          />
+        </div>
+
+        <div className="flex-1 flex gap-6 justify-between w-full mb-4">
+          <Input
+            width="w-full"
+            register={register}
+            options={{ required: false }}
+            label="date"
+            name={`blocks.${index}.info.date`}
+            type="text"
+            placeholder="Date"
+          />
+
+          <Input
+            width="w-full"
+            register={register}
+            options={{ required: false }}
+            label="role"
+            name={`blocks.${index}.info.role`}
+            type="text"
+            placeholder="Role"
+          />
+        </div>
+
+        <div className="flex-1 flex gap-6 justify-between w-full mb-4">
+          <Input
+            width="w-full"
+            register={register}
+            options={{ required: false }}
+            label="skills"
+            name={`blocks.${index}.info.skills`}
+            type="text"
+            placeholder="Skills"
+          />
+        </div>
+      </div>
     </div>
   );
 };

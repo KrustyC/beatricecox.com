@@ -19,7 +19,7 @@ export function useNetlifyPostFunction<T>({
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string>();
 
-  const onCreate = async (path: string, body: T): Promise<unknown> => {
+  const onCreate = async (path: string, body?: T): Promise<unknown> => {
     setPending(true);
     setError(undefined);
 

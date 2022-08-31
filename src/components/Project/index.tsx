@@ -3,6 +3,7 @@ import { Project as IProject } from "@/types/global";
 
 import { Block } from "./Block";
 import { ProjectNavbar } from "./Navbar";
+import { ProjectsScroller } from "./ProjectsScroller";
 
 interface ProjectProps {
   project: IProject;
@@ -36,17 +37,12 @@ export const Project: React.FC<ProjectProps> = ({
         ))}
       </div>
 
-      {/* <div className="flex flex-col justify-center px-40 py-40">
-        <div className="flex flex-col w-1/2 mx-auto">
-          <h1 className="text-3xl font-thin">{project.title}</h1>
-
-          <span className="text-l text-[#8C8C8C] font-thin mt-2">
-            {project.category}
-          </span>
-
-          <div className="text-l mt-8">{parse(project.intro)}</div>
-        </div>
-      </div> */}
+      {project.prevProject && project.nextProject && (
+        <ProjectsScroller
+          prevProject={project.prevProject}
+          nextProject={project.nextProject}
+        />
+      )}
     </div>
   );
 };
