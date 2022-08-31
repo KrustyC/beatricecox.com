@@ -1,30 +1,29 @@
 import {
-  Project,
   ProjectBlock,
   ProjectBlockType,
-  CarouselBlock,
+  TitleAndTextBlock,
+  Project,
 } from "@/types/global";
+import { Controller, useFormContext } from "react-hook-form";
 import { isValidDescription } from "@/utils/validators";
-import { useFormContext, Controller } from "react-hook-form";
 
 import { Input } from "../../../../Input";
 import { Editor } from "../../../../Editor";
-import { MultipleImagesInput } from "../../MultipleImagesInput";
 import { ColorPicker } from "../ColorPicker";
 
-export function blockIsCarouselBlock(
+export function blockIsTitleAndTextBlock(
   block: ProjectBlock
-): block is CarouselBlock {
-  return block.type === ProjectBlockType.CAROUSEL;
+): block is TitleAndTextBlock {
+  return block.type === ProjectBlockType.TITLE_AND_TEXT;
 }
 
-interface FormCarouselBlockProps {
+interface FormTitleAndTextBlockProps {
   index: number;
   showAllBlock: boolean;
   onColorChange: (color: string) => void;
 }
 
-export const FormCarouselBlock: React.FC<FormCarouselBlockProps> = ({
+export const FormTitleAndTextBlock: React.FC<FormTitleAndTextBlockProps> = ({
   index,
   showAllBlock,
   onColorChange,
@@ -44,7 +43,8 @@ export const FormCarouselBlock: React.FC<FormCarouselBlockProps> = ({
   return (
     <div className="flex flex-col items-start justify-start w-full">
       <span className="w-full mb-4 z-10">
-        <span className="font-bold uppercase mr-1">Block Type:</span>Carousel
+        <span className="font-bold uppercase mr-1">Block Type:</span>
+        Title and Text
         <div className="flex items-center my-2">
           <span className="font-bold mr-4">Background Color</span>
           <Controller
@@ -62,7 +62,7 @@ export const FormCarouselBlock: React.FC<FormCarouselBlockProps> = ({
 
       {showAllBlock && (
         <>
-          <div className="flex-1 flex items-end w-full">
+          <div className="flex-1 flex items-end w-full mb-4">
             <Input
               width="w-full"
               register={register}
@@ -75,39 +75,21 @@ export const FormCarouselBlock: React.FC<FormCarouselBlockProps> = ({
             />
           </div>
 
-          <div className="my-4 w-full">
+          <div className="mb-4 w-full">
             <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-              Description
+              Text
             </span>
             <div>
               <Controller
                 control={control}
-                name={`blocks.${index}.description`}
-                rules={{ validate: isValidDescription }}
+                name={`blocks.${index}.text`}
+                rules={{ validate: isValidDescription }} // @TODO CHECK THIS SHIT"S FAILING
                 render={({ field: { value, onChange, onBlur } }) => (
                   <Editor
                     value={value}
                     error={errors?.intro}
                     onChange={onChange}
                     onBlur={onBlur}
-                  />
-                )}
-              />
-            </div>
-          </div>
-
-          <div className="mb-4 w-full">
-            <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-              Images on carousel
-            </span>
-            <div>
-              <Controller
-                control={control}
-                name={`blocks.${index}.pictures`}
-                render={({ field: { value, onChange } }) => (
-                  <MultipleImagesInput
-                    images={value || []}
-                    onChangeImages={onChange}
                   />
                 )}
               />

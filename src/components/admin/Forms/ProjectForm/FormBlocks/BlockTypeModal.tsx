@@ -8,6 +8,33 @@ interface MultipleImagesModalProps {
   onCancel: VoidFunction;
 }
 
+const BLOCKS = [
+  {
+    label: "Griglia",
+    type: ProjectBlockType.PROJECT_INFO,
+  },
+  {
+    label: "Titles with Side Paragrpahs",
+    type: ProjectBlockType.TWO_TITLES_AND_PARAGRAPH,
+  },
+  {
+    label: "Images and description",
+    type: ProjectBlockType.DESCRIPTION_AND_PICS,
+  },
+  {
+    label: "4 Images with Text",
+    type: ProjectBlockType.FOUR_IMAGES_WITH_TEXT,
+  },
+  {
+    label: "Carousel",
+    type: ProjectBlockType.CAROUSEL,
+  },
+  {
+    label: "Title And Text",
+    type: ProjectBlockType.TITLE_AND_TEXT,
+  },
+];
+
 export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({
   onCreateBlock,
   onCancel,
@@ -41,47 +68,23 @@ export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({
           </p>
         </div>
 
-        <div className="p-10 flex gap-6 bg-red">
-          <div
-            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
-            onClick={() => setType(ProjectBlockType.PROJECT_INFO)}
-          >
-            Griglia
-          </div>
-
-          <div
-            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
-            onClick={() => setType(ProjectBlockType.TWO_TITLES_AND_PARAGRAPH)}
-          >
-            Titles with Side Paragrpahs
-          </div>
-
-          <div
-            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
-            onClick={() => setType(ProjectBlockType.DESCRIPTION_AND_PICS)}
-          >
-            Images and description
-          </div>
-
-          <div
-            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
-            onClick={() => setType(ProjectBlockType.FOUR_IMAGES_WITH_TEXT)}
-          >
-            4 Images with Text
-          </div>
-
-          <div
-            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
-            onClick={() => setType(ProjectBlockType.CAROUSEL)}
-          >
-            Carousel
-          </div>
+        <div className="p-10 flex flex-wrap gap-6 bg-red">
+          {BLOCKS.map(({ label, type: currentType }, i) => (
+            <div
+              key={i}
+              className={`h-12 rounded-lg border-2 font-bold border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary hover:text-white ${
+                currentType === type ? "bg-primary text-white" : ""
+              }`}
+              onClick={() => setType(currentType)}
+            >
+              {label}
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="flex justify-end mt-4">
         <button className="btn-admin" onClick={onCancel}>
-          {" "}
           Close{" "}
         </button>
 

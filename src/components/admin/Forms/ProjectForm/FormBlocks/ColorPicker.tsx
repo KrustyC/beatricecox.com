@@ -24,7 +24,7 @@ export const ColorPicker: React.FC<CategoryPickerProps> = ({
     <div className="relative">
       <div className="flex">
         <div
-          className="flex items-center justify-center border-2 border-black h-10 w-10 cursor-pointer"
+          className="flex items-center justify-center border-2 bg-white border-black h-10 w-10 cursor-pointer"
           onClick={() => setDisplayColorPicker(true)}
         >
           <span

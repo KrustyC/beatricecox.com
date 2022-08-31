@@ -73,16 +73,24 @@ const ImageWithTextInput: React.FC<ImageWithTextInputProps> = ({
 
 interface FourImagesWithTextBlockProps {
   index: number;
+  showAllBlock: boolean;
+  onColorChange: (color: string) => void;
 }
 
 export const FormFourImagesWithTextBlock: React.FC<
   FourImagesWithTextBlockProps
-> = ({ index }) => {
+> = ({ index, showAllBlock, onColorChange }) => {
   const { control } = useFormContext<Project>();
+
+  const handleBackgroundChange =
+    (onChange: (color: string) => void) => (color: string) => {
+      onChange(color);
+      onColorChange(color);
+    };
 
   return (
     <div className="flex flex-col items-start justify-start w-full">
-      <span className="w-full mb-4">
+      <span className="w-full mb-4 z-10">
         <span className="font-bold uppercase mr-1">Block Type:</span>4 Images
         with Text
         <div className="flex items-center my-2">
@@ -91,18 +99,23 @@ export const FormFourImagesWithTextBlock: React.FC<
             control={control}
             name={`blocks.${index}.backgroundColor`}
             render={({ field: { value, onChange } }) => (
-              <ColorPicker currentValue={value} onChange={onChange} />
+              <ColorPicker
+                currentValue={value}
+                onChange={handleBackgroundChange(onChange)}
+              />
             )}
           />
         </div>
       </span>
 
-      <div className="flex flex-col gap-8 w-full">
-        <ImageWithTextInput index={index} imageKey="image1" />
-        <ImageWithTextInput index={index} imageKey="image2" />
-        <ImageWithTextInput index={index} imageKey="image3" />
-        <ImageWithTextInput index={index} imageKey="image4" />
-      </div>
+      {showAllBlock && (
+        <div className="flex flex-col gap-8 w-full">
+          <ImageWithTextInput index={index} imageKey="image1" />
+          <ImageWithTextInput index={index} imageKey="image2" />
+          <ImageWithTextInput index={index} imageKey="image3" />
+          <ImageWithTextInput index={index} imageKey="image4" />
+        </div>
+      )}
     </div>
   );
 };

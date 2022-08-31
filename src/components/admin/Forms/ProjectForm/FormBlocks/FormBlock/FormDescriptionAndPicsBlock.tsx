@@ -20,20 +20,28 @@ export function blockIsDescriptionAndPicsBlock(
 
 interface FormDescriptionAndPicsBlockProps {
   index: number;
+  showAllBlock: boolean;
+  onColorChange: (color: string) => void;
 }
 
 export const FormDescriptionAndPicsBlock: React.FC<
   FormDescriptionAndPicsBlockProps
-> = ({ index }) => {
+> = ({ index, showAllBlock, onColorChange }) => {
   const {
     register,
     control,
     formState: { errors },
   } = useFormContext<Project>();
 
+  const handleBackgroundChange =
+    (onChange: (color: string) => void) => (color: string) => {
+      onChange(color);
+      onColorChange(color);
+    };
+
   return (
     <div className="flex flex-col items-start justify-start w-full">
-      <span className="w-full mb-4">
+      <span className="w-full mb-4 z-10">
         <span className="font-bold uppercase mr-1">Block Type:</span>Description
         And Pics Block
         <div className="flex items-center my-2">
@@ -42,63 +50,70 @@ export const FormDescriptionAndPicsBlock: React.FC<
             control={control}
             name={`blocks.${index}.backgroundColor`}
             render={({ field: { value, onChange } }) => (
-              <ColorPicker currentValue={value} onChange={onChange} />
+              <ColorPicker
+                currentValue={value}
+                onChange={handleBackgroundChange(onChange)}
+              />
             )}
           />
         </div>
       </span>
 
-      <div className="flex-1 flex items-end w-full">
-        <Input
-          width="w-full"
-          register={register}
-          options={{ required: "Please add a title" }}
-          error={errors.slug}
-          label="Title"
-          name={`blocks.${index}.title`}
-          type="text"
-          placeholder="Title"
-        />
-      </div>
+      {showAllBlock && (
+        <>
+          <div className="flex-1 flex items-end w-full">
+            <Input
+              width="w-full"
+              register={register}
+              options={{ required: "Please add a title" }}
+              error={errors.slug}
+              label="Title"
+              name={`blocks.${index}.title`}
+              type="text"
+              placeholder="Title"
+            />
+          </div>
 
-      <div className="my-4 w-full">
-        <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-          Description
-        </span>
-        <div>
-          <Controller
-            control={control}
-            name={`blocks.${index}.description`}
-            rules={{ validate: isValidDescription }}
-            render={({ field: { value, onChange, onBlur } }) => (
-              <Editor
-                value={value}
-                error={errors?.intro}
-                onChange={onChange}
-                onBlur={onBlur}
+          <div className="my-4 w-full">
+            <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
+              Description
+            </span>
+            <div>
+              <Controller
+                control={control}
+                name={`blocks.${index}.description`}
+                rules={{ validate: isValidDescription }}
+                render={({ field: { value, onChange, onBlur } }) => (
+                  <Editor
+                    value={value}
+                    error={errors?.intro}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                  />
+                )}
               />
-            )}
-          />
-        </div>
-      </div>
+            </div>
+          </div>
 
-      <div className="mb-4 w-full">
-        <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-          Images
-        </span>
-        <div>
-          <Controller
-            control={control}
-            name={`blocks.${index}.pictures`}
-            render={({ field: { value, onChange } }) => (
-              <MultipleImagesInput
-                images={value || []}
-                onChangeImages={onChange}
+          <div className="mb-4 w-full">
+            <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
+              Images
+            </span>
+            <div>
+              <Controller
+                control={control}
+                name={`blocks.${index}.pictures`}
+                render={({ field: { value, onChange } }) => (
+                  <MultipleImagesInput
+                    images={value || []}
+                    onChangeImages={onChange}
+                  />
+                )}
               />
-            )}
-          />
-        </div>
-      </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -34,13 +34,7 @@ export const FormBlocks: React.FC<MultipleImagesProps> = ({
         <span className="uppercase block text-gray-700 font-bold text-lg mb-2">
           Blocks
         </span>
-        <button
-          className="btn-admin btn-dark btn-sm"
-          type="button"
-          onClick={() => setShowBlockModal(true)}
-        >
-          Add Block
-        </button>
+
         {blocks.map((block, i) => (
           <FormBlock
             key={block.id}
@@ -49,6 +43,14 @@ export const FormBlocks: React.FC<MultipleImagesProps> = ({
             onRemoveBlock={onRemoveBlock}
           />
         ))}
+
+        <button
+          className="btn-admin btn-dark mt-8"
+          type="button"
+          onClick={() => setShowBlockModal(true)}
+        >
+          Add Block
+        </button>
       </div>
     </>
   );
