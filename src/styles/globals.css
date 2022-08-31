@@ -48,6 +48,10 @@
     @apply tracking-wide;
   }
 
+  .image-background {
+    @apply absolute h-full w-full animate-pulse bg-slate-200;
+  }
+
   .animated-link {
     @apply text-xl block relative;
     overflow: hidden;
