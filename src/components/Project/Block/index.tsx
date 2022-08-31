@@ -18,13 +18,13 @@ import {
   blockIsTitleAndTextBlock,
   TitleAndTextBlock,
 } from "./TitleAndTextBlock";
+import { blockIsFullScreenBlock, FullScreenBlock } from "./FullScreenBlock";
 
 interface BlockProps {
   block: Partial<BaseBlock> | ProjectBlock;
 }
 
 export const Block: React.FC<BlockProps> = ({ block }) => {
-  console.log(block.type);
   if (blockIsProjectInfoBlock(block)) {
     return <ProjectInfoBlock block={block} />;
   }
@@ -47,6 +47,10 @@ export const Block: React.FC<BlockProps> = ({ block }) => {
 
   if (blockIsTitleAndTextBlock(block)) {
     return <TitleAndTextBlock block={block} />;
+  }
+
+  if (blockIsFullScreenBlock(block)) {
+    return <FullScreenBlock block={block} />;
   }
 
   return null;

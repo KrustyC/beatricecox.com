@@ -55,8 +55,6 @@ export const ProjectForm: React.FC<
     methods.setValue("slug", slugify(title, { lower: true }));
   };
 
-  console.log("errors", errors);
-
   const { fields, append, remove } = useFieldArray({
     control: methods.control,
     name: "blocks",

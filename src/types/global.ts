@@ -44,6 +44,7 @@ export enum ProjectBlockType {
   FOUR_IMAGES_WITH_TEXT = "four-pictures-with-text",
   CAROUSEL = "carousel",
   TITLE_AND_TEXT = "title-and-text",
+  FULL_SCREEN = "full-screen",
 }
 
 export type ProjectBlock =
@@ -52,6 +53,7 @@ export type ProjectBlock =
   | DescriptionAndPicsBlock
   | FourImagesWithTextBlock
   | CarouselBlock
+  | FullScreenBlock
   | TitleAndTextBlock;
 
 export interface BaseBlock {
@@ -112,4 +114,10 @@ export interface TitleAndTextBlock extends BaseBlock {
   type: ProjectBlockType.TITLE_AND_TEXT;
   title: string;
   text: string;
+}
+
+export interface FullScreenBlock extends BaseBlock {
+  type: ProjectBlockType.FULL_SCREEN;
+  title: string;
+  image: string;
 }

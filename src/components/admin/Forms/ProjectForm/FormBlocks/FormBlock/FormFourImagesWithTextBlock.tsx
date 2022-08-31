@@ -42,7 +42,7 @@ const ImageWithTextInput: React.FC<ImageWithTextInputProps> = ({
             <ImageSelector
               size="h-[250px] w-[300px]"
               currentImage={props.field.value}
-              error={errors?.mainImage}
+              // error={errors?.mainImage}
               onBlur={() => props.field.onBlur()}
               onSelectImage={(image) => {
                 props.field.onChange(image);
@@ -52,7 +52,7 @@ const ImageWithTextInput: React.FC<ImageWithTextInputProps> = ({
           control={control}
         />
       </div>
-      <div className="w-full bg-red">
+      <div className="w-full">
         <Controller
           control={control}
           name={`blocks.${index}.${imageKey}.text`}

@@ -33,6 +33,10 @@ const BLOCKS = [
     label: "Title And Text",
     type: ProjectBlockType.TITLE_AND_TEXT,
   },
+  {
+    label: "Full Screen",
+    type: ProjectBlockType.FULL_SCREEN,
+  },
 ];
 
 export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({

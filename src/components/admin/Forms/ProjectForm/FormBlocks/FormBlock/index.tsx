@@ -23,6 +23,10 @@ import {
   blockIsTitleAndTextBlock,
   FormTitleAndTextBlock,
 } from "./FormTitleAndTextBlock";
+import {
+  blockIsFullScreenBlock,
+  FormFullScreenBlock,
+} from "./FormFullScreenBlock";
 
 interface BlockProps {
   block: ProjectBlock;
@@ -35,7 +39,7 @@ export const FormBlock: React.FC<BlockProps> = ({
   block,
   onRemoveBlock,
 }) => {
-  const [showAllBlock, setShowAllBlock] = useState(true);
+  const [showAllBlock, setShowAllBlock] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(
     block.backgroundColor || "#FFFFFF"
   );
@@ -45,42 +49,6 @@ export const FormBlock: React.FC<BlockProps> = ({
   useOnClickOutside(ref, () => {
     setWantToRemove(false);
   });
-
-  // const renderBlock = ({
-  //   block: currentBlock,
-  //   index,
-  // }: Omit<BlockProps, "onRemoveBlock">) => {
-  //   if (blockIsProjectInfoBlock(currentBlock)) {
-  //     return (
-  //       <FormProjectInfoBlock
-  //         index={index}
-  //         onColorChange={setBackgroundColor}
-  //       />
-  //     );
-  //   }
-
-  //   if (blockIsTwoTitlesAndParagraphBlock(currentBlock)) {
-  //     return <FormTwoTitlesAndParagraphBlock index={index} />;
-  //   }
-
-  //   if (blockIsDescriptionAndPicsBlock(currentBlock)) {
-  //     return <FormDescriptionAndPicsBlock index={index} />;
-  //   }
-
-  //   if (blockIsFourImagesWithTextBlock(currentBlock)) {
-  //     return <FormFourImagesWithTextBlock index={index} />;
-  //   }
-
-  //   if (blockIsCarouselBlock(currentBlock)) {
-  //     return <FormCarouselBlock index={index} />;
-  //   }
-
-  //   if (blockIsTitleAndTextBlock(currentBlock)) {
-  //     return <FormTitleAndTextBlock index={index} />;
-  //   }
-
-  //   return null;
-  // };
 
   const onToggleShowAllBlock = () => setShowAllBlock((current) => !current);
 
@@ -94,7 +62,7 @@ export const FormBlock: React.FC<BlockProps> = ({
   };
 
   return (
-    <div className="flex p-3 w-full flex-col items-start justify-start border-2 rounded mt-6 relative">
+    <div className="flex p-3 w-full flex-col items-start justify-start border-2 rounded mb-6 relative">
       <div className="flex absolute top-6 right-6 z-40">
         <button
           type="button"
@@ -169,14 +137,13 @@ export const FormBlock: React.FC<BlockProps> = ({
         />
       )}
 
-      {/*     
-    
-
-   
-
-    if (blockIsTitleAndTextBlock(currentBlock)) {
-      return <FormTitleAndTextBlock index={index} />;
-    } */}
+      {blockIsFullScreenBlock(block) && (
+        <FormFullScreenBlock
+          index={index}
+          showAllBlock={showAllBlock}
+          onColorChange={setBackgroundColor}
+        />
+      )}
     </div>
   );
 };
