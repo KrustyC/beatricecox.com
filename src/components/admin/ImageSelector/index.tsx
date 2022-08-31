@@ -5,6 +5,7 @@ import { ImageSelectorModal } from "./ImageSelectorModal";
 
 interface ImageSelectorProps {
   currentImage?: string;
+  size?: string;
   error?: FieldError;
   onBlur?: VoidFunction;
   onSelectImage: (image: string) => void;
@@ -12,7 +13,7 @@ interface ImageSelectorProps {
 
 export const ImageSelector: React.FC<
   React.PropsWithChildren<ImageSelectorProps>
-> = ({ currentImage, error, onBlur, onSelectImage }) => {
+> = ({ currentImage, size = "h-96 w-96", error, onBlur, onSelectImage }) => {
   const [showModal, setShowModal] = useState(false);
 
   const onDisplayModal = () => {
@@ -38,11 +39,11 @@ export const ImageSelector: React.FC<
           <img
             src={currentImage}
             alt="Selected image"
-            className="h-96 w-96 object-contain border-2 border-slate-300"
+            className={`${size} object-contain border-2 border-slate-300`}
           />
         ) : (
           <div
-            className={`h-96 w-96 flex justify-center items-center border border-slate-300 ${
+            className={`${size} flex justify-center items-center border border-slate-300 ${
               error ? "border-red-500" : ""
             } bg-gray-200`}
           >

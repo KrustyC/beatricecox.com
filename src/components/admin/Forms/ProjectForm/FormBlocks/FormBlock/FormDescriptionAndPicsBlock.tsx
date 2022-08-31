@@ -19,7 +19,6 @@ export function blockIsDescriptionAndPicsBlock(
 }
 
 interface FormDescriptionAndPicsBlockProps {
-  block: DescriptionAndPicsBlock;
   index: number;
 }
 

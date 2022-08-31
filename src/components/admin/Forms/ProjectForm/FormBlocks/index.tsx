@@ -16,7 +16,7 @@ export const FormBlocks: React.FC<MultipleImagesProps> = ({
   onRemoveBlock,
 }) => {
   const [showBlockModal, setShowBlockModal] = useState(false);
-
+  console.log(blocks);
   const onConfirmCreateBLock = (newBlock: Partial<BaseBlock>) => {
     onCreateBlock(newBlock);
     setShowBlockModal(false);
@@ -30,7 +30,7 @@ export const FormBlocks: React.FC<MultipleImagesProps> = ({
           onCancel={() => setShowBlockModal(false)}
         />
       )}
-      <div className="flex flex-col items-start justify-start mb-8">
+      <div className="flex flex-col items-start justify-start mb-8 w-full">
         <span className="uppercase block text-gray-700 font-bold text-lg mb-2">
           Blocks
         </span>

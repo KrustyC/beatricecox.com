@@ -14,6 +14,10 @@ import {
   blockIsTwoTitlesAndParagraphBlock,
   FormTwoTitlesAndParagraphBlock,
 } from "./FormTwoTitlesAndParagraphBlock";
+import {
+  blockIsFourImagesWithTextBlock,
+  FormFourImagesWithTextBlock,
+} from "./FormFourImagesWithTextBlock";
 import { useState } from "react";
 
 interface BlockProps {
@@ -36,18 +40,22 @@ export const FormBlock: React.FC<BlockProps> = ({
 
   const renderBlock = ({
     block: currentBlock,
-    ...rest
+    index,
   }: Omit<BlockProps, "onRemoveBlock">) => {
     if (blockIsProjectInfoBlock(currentBlock)) {
-      return <FormProjectInfoBlock block={currentBlock} {...rest} />;
+      return <FormProjectInfoBlock index={index} />;
     }
 
     if (blockIsTwoTitlesAndParagraphBlock(currentBlock)) {
-      return <FormTwoTitlesAndParagraphBlock block={currentBlock} {...rest} />;
+      return <FormTwoTitlesAndParagraphBlock index={index} />;
     }
 
     if (blockIsDescriptionAndPicsBlock(currentBlock)) {
-      return <FormDescriptionAndPicsBlock block={currentBlock} {...rest} />;
+      return <FormDescriptionAndPicsBlock index={index} />;
+    }
+
+    if (blockIsFourImagesWithTextBlock(currentBlock)) {
+      return <FormFourImagesWithTextBlock index={index} />;
     }
 
     return null;

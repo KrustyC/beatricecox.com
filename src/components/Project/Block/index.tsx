@@ -9,6 +9,10 @@ import {
   blockIsDescriptionAndPicsBlock,
   DescriptionAndPicsBlock,
 } from "./DescriptionAndPicsBlock";
+import {
+  blockIsFourImagesWithTextBlock,
+  FourImagesWithTextBlock,
+} from "./FourImagesWithTextBlock";
 
 interface BlockProps {
   block: Partial<BaseBlock> | ProjectBlock;
@@ -25,6 +29,10 @@ export const Block: React.FC<BlockProps> = ({ block }) => {
 
   if (blockIsDescriptionAndPicsBlock(block)) {
     return <DescriptionAndPicsBlock block={block} />;
+  }
+
+  if (blockIsFourImagesWithTextBlock(block)) {
+    return <FourImagesWithTextBlock block={block} />;
   }
 
   return null;

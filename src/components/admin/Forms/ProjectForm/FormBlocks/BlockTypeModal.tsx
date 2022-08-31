@@ -62,6 +62,13 @@ export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({
           >
             Images and description
           </div>
+
+          <div
+            className="h-12 rounded-lg border-2 border-primary flex items-center jusitfy-center px-4 cursor-pointer hover:bg-primary"
+            onClick={() => setType(ProjectBlockType.FOUR_IMAGES_WITH_TEXT)}
+          >
+            4 Images with Text
+          </div>
         </div>
       </div>
 

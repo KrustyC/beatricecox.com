@@ -161,7 +161,7 @@
 
   /* Project */
   .project-section {
-    @apply py-24 px-80;
+    @apply py-24;
   }
 
   .project-container {

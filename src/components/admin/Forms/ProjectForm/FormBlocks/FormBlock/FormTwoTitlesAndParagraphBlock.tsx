@@ -18,7 +18,6 @@ export function blockIsTwoTitlesAndParagraphBlock(
 }
 
 interface FormTwoTitlesAndParagraphBlockProps {
-  block: TwoTitlesAndParagraphBlock;
   index: number;
 }
 

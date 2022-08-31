@@ -41,12 +41,14 @@ export enum ProjectBlockType {
   PROJECT_INFO = "project-info",
   TWO_TITLES_AND_PARAGRAPH = "two-title-and-paragraph",
   DESCRIPTION_AND_PICS = "description-and-pics-block",
+  FOUR_IMAGES_WITH_TEXT = "four-pictures-with-text",
 }
 
 export type ProjectBlock =
   | ProjectInfoBlock
   | TwoTitlesAndParagraphBlock
-  | DescriptionAndPicsBlock;
+  | DescriptionAndPicsBlock
+  | FourImagesWithTextBlock;
 
 export interface BaseBlock {
   id: string;
@@ -80,4 +82,17 @@ export interface DescriptionAndPicsBlock extends BaseBlock {
   title: string;
   description: string;
   pictures: string[];
+}
+
+export interface ImageWithText {
+  text: string;
+  img: string;
+}
+
+export interface FourImagesWithTextBlock extends BaseBlock {
+  type: ProjectBlockType.FOUR_IMAGES_WITH_TEXT;
+  image1: ImageWithText;
+  image2: ImageWithText;
+  image3: ImageWithText;
+  image4: ImageWithText;
 }

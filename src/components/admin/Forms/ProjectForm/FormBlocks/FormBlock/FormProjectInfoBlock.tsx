@@ -18,7 +18,6 @@ export function blockIsProjectInfoBlock(
 }
 
 interface FormProjectInfoBlockProps {
-  block: ProjectInfoBlock;
   index: number;
 }
 
