@@ -39,7 +39,7 @@ export const TwoTitlesAndParagraphBlock: React.FC<
   return (
     <div
       className="project-section"
-      style={{ background: block.backgroundColor || "#EDB8B8" }} // @TODO Implement in B
+      style={{ background: block.backgroundColor || "white" }} // @TODO Implement in B
     >
       <div className="project-container flex flex-col">
         {block.firstItem && (

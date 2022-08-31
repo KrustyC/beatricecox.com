@@ -9,6 +9,7 @@ import { isValidDescription } from "@/utils/validators";
 
 import { Input } from "../../../../Input";
 import { Editor } from "../../../../Editor";
+import { ColorPicker } from "../ColorPicker";
 
 export function blockIsTwoTitlesAndParagraphBlock(
   block: ProjectBlock
@@ -35,6 +36,16 @@ export const FormTwoTitlesAndParagraphBlock: React.FC<
       <span className="w-full mb-4">
         <span className="font-bold uppercase mr-4">Block Type:</span> Titles
         with Side Paragrpahs
+        <div className="flex items-center my-2">
+          <span className="font-bold mr-4">Background Color</span>
+          <Controller
+            control={control}
+            name={`blocks.${index}.backgroundColor`}
+            render={({ field: { value, onChange } }) => (
+              <ColorPicker currentValue={value} onChange={onChange} />
+            )}
+          />
+        </div>
       </span>
 
       <div className="mb-6 pb-6 w-full border-b-2 border-[black]">

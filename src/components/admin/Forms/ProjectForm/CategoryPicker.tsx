@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ProjectCategory } from "@/types/app";
 import { useMemo, useState } from "react";
 
@@ -8,9 +7,11 @@ interface CategoryPickerProps {
   onBlur: VoidFunction;
 }
 
-export const CategoryPicker: React.FC<
-  React.PropsWithChildren<CategoryPickerProps>
-> = ({ currentValue, onChange, onBlur }) => {
+export const CategoryPicker: React.FC<CategoryPickerProps> = ({
+  currentValue,
+  onChange,
+  onBlur,
+}) => {
   const defaultValue = useMemo(() => {
     const isCustomCategory = !Object.values(ProjectCategory).includes(
       currentValue as unknown as ProjectCategory

@@ -11,6 +11,10 @@ function getCatgeoryText(category: string) {
     return "UX/UI Design";
   }
 
+  if (category === "PACKAGING") {
+    return "Packaging";
+  }
+
   return category;
 }
 

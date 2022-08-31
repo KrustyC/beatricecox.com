@@ -10,6 +10,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import { Input } from "../../../../Input";
 import { Editor } from "../../../../Editor";
 import { MultipleImagesInput } from "../../MultipleImagesInput";
+import { ColorPicker } from "../ColorPicker";
 
 export function blockIsDescriptionAndPicsBlock(
   block: ProjectBlock
@@ -36,6 +37,16 @@ export const FormDescriptionAndPicsBlock: React.FC<
       <span className="w-full mb-4">
         <span className="font-bold uppercase mr-1">Block Type:</span>Description
         And Pics Block
+        <div className="flex items-center my-2">
+          <span className="font-bold mr-4">Background Color</span>
+          <Controller
+            control={control}
+            name={`blocks.${index}.backgroundColor`}
+            render={({ field: { value, onChange } }) => (
+              <ColorPicker currentValue={value} onChange={onChange} />
+            )}
+          />
+        </div>
       </span>
 
       <div className="flex-1 flex items-end w-full">

@@ -9,6 +9,7 @@ import { isValidDescription } from "@/utils/validators";
 
 import { Input } from "../../../../Input";
 import { Editor } from "../../../../Editor";
+import { ColorPicker } from "../ColorPicker";
 
 export function blockIsProjectInfoBlock(
   block: ProjectBlock
@@ -35,6 +36,16 @@ export const FormProjectInfoBlock: React.FC<FormProjectInfoBlockProps> = ({
       <span className="w-full mb-4">
         <span className="font-bold uppercase mr-1">Block Type:</span>
         Griglia
+        <div className="flex items-center my-2">
+          <span className="font-bold mr-4">Background Color</span>
+          <Controller
+            control={control}
+            name={`blocks.${index}.backgroundColor`}
+            render={({ field: { value, onChange } }) => (
+              <ColorPicker currentValue={value} onChange={onChange} />
+            )}
+          />
+        </div>
       </span>
 
       <div className="flex-1 flex items-end w-full mb-4">
