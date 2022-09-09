@@ -38,11 +38,10 @@ const Edit: React.FC<React.PropsWithChildren<EditProps>> = ({ id }) => {
 
     if (res !== undefined) {
       toast.success("Project successfully updated!");
-      setTimeout(() => {
-        router.push("/admin/projects");
-      }, 800);
     }
   };
+
+  const onGoBack = () => router.push("/admin/projects");
 
   useEffect(() => {
     if (error) {
@@ -58,6 +57,9 @@ const Edit: React.FC<React.PropsWithChildren<EditProps>> = ({ id }) => {
     <div className="p-4">
       <div className="flex justify-between items-center">
         <h2 className="text-gray-600 font-bold">Edit Project</h2>
+        <button className="ml-4 btn-dark btn-admin btn-sm" onClick={onGoBack}>
+          Go back
+        </button>
       </div>
 
       <div className="flex justify-between mt-4">
