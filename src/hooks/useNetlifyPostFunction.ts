@@ -10,7 +10,7 @@ interface UseNetlifyFunctionProps {
 interface UseNetlifyFunctionReturn<T> {
   pending: boolean;
   error?: string | undefined;
-  onCreate: (path: string, body: T) => Promise<unknown>;
+  onCreate: (path: string, body?: T) => Promise<unknown>;
 }
 
 export function useNetlifyPostFunction<T>({
