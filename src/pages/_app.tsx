@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import { Bodoni_Moda } from "@next/font/google";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import type { NextPageWithLayout } from "@/types/app";
@@ -11,6 +12,9 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout<Readonly<unknown>>;
   pageProps: { protected: boolean };
 };
+
+// If loading a variable font, you don't need to specify the font weight
+const bodoni = Bodoni_Moda({ subsets: ["latin"], variable: "--font-bodoni" });
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || DefaultLayout;
@@ -72,12 +76,14 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   };
 
   return (
-    <AuthContext.Provider value={context}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+    <main className={`${bodoni.variable} font-sans`}>
+      <AuthContext.Provider value={context}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
 
-      <div id="floating-button-root" />
-    </AuthContext.Provider>
+        <div id="floating-button-root" />
+      </AuthContext.Provider>
+    </main>
   );
 }

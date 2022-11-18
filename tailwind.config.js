@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const colors = require("tailwindcss/colors");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const newColors = {
   ...colors,
@@ -42,7 +44,8 @@ module.exports = {
       "admin-primary": "#19323C",
     },
     fontFamily: {
-      bodoni: ["Bodoni Moda", "sans-serif"],
+      // bodoni: ["Bodoni Moda", "sans-serif"],
+      bodoni: ["var(--font-bodoni)", ...fontFamily.sans],
       manrope: ["Manrope", "sans-serif"],
     },
     extend: {

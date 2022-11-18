@@ -30,6 +30,8 @@ export const Project: React.FC<ProjectProps> = ({
           sizes="100vw"
           style={{
             objectFit: "cover",
+            maxWidth: "100%",
+            height: "auto",
           }}
         />
       </div>

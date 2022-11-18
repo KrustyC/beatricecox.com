@@ -13,7 +13,6 @@ async function get(event: HandlerEvent) {
     }
 
     const { slug } = event.queryStringParameters as { slug?: string };
-
     if (slug) {
       const project = await client
         .db(process.env.MONGO_DB_NAME)
