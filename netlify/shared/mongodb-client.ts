@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ServerApiVersion } from "mongodb";
 
 let cachedDb: MongoClient | undefined = undefined;
 
@@ -9,7 +9,9 @@ export async function connect() {
     throw new Error("Missing MONGO_URI environment variable");
   }
 
-  const client = new MongoClient(uri);
+  const client = new MongoClient(uri, {
+    serverApi: ServerApiVersion.v1,
+  });
 
   if (cachedDb) {
     return cachedDb;
