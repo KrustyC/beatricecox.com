@@ -6,7 +6,7 @@ import {
   ProjectBlockType,
 } from "@/types/global";
 import parse from "html-react-parser";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export function blockIsFourImagesWithTextBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -22,7 +22,15 @@ const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
   <div className="flex flex-col flex-1">
     <div className="h-[427px] relative w-full mb-4">
       <div className="image-background" />
-      <Image alt="" layout="fill" objectFit="cover" src={image.img} />
+      <Image
+        alt=""
+        src={image.img}
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover",
+        }}
+      />
     </div>
     <div className="px-1 text-center font-thin text-xl">
       {parse(image.text)}

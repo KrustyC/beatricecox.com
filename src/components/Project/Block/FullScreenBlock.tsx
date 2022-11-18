@@ -4,7 +4,7 @@ import {
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export function blockIsFullScreenBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -18,6 +18,14 @@ interface FullScreenBlockProps {
 
 export const FullScreenBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
   <div className="h-[900px] w-screen relative">
-    <Image alt="" layout="fill" objectFit="cover" src={block.image} />
+    <Image
+      alt=""
+      src={block.image}
+      fill
+      sizes="100vw"
+      style={{
+        objectFit: "cover",
+      }}
+    />
   </div>
 );

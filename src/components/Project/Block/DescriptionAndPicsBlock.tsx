@@ -5,7 +5,7 @@ import {
   ProjectBlockType,
 } from "@/types/global";
 import parse from "html-react-parser";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export function blockIsDescriptionAndPicsBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -22,7 +22,15 @@ const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
     {images.map((image, i) => (
       <div key={i} className="relative h-[516px] w-full">
         <div className="image-background" />
-        <Image alt="" layout="fill" objectFit="cover" src={image} />
+        <Image
+          alt=""
+          src={image}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </div>
     ))}
   </div>
@@ -33,7 +41,15 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
     {images.map((image, i) => (
       <div key={i} className="h-[230px] w-full bg-[red] relative">
         <div className="image-background" />
-        <Image alt="" layout="fill" objectFit="cover" src={image} />
+        <Image
+          alt=""
+          src={image}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </div>
     ))}
   </div>
@@ -44,7 +60,15 @@ const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
     {images.map((image, i) => (
       <div key={i} className="h-[370px] w-full relative">
         <div className="image-background" />
-        <Image alt="" layout="fill" objectFit="cover" src={image} />
+        <Image
+          alt=""
+          src={image}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </div>
     ))}
   </div>

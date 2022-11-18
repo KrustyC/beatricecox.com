@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/legacy/image";
+import Image, { ImageProps } from "next/image";
 import { Project as IProject } from "@/types/global";
 
 import { Block } from "./Block";
@@ -22,12 +22,15 @@ export const Project: React.FC<ProjectProps> = ({
         </div>
         <Image
           className="z-1"
-          layout="fill"
-          objectFit="cover"
           alt="dynosaur"
           src={project.mainImage}
           placeholder="blur"
           blurDataURL={mainImageProps.blurDataURL}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
         />
       </div>
 
