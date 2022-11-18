@@ -14,7 +14,7 @@ export default function Custom404() {
         </h1>
 
         <Link href="/" passHref>
-          <a className="text-[#DF8D13] mt-2 underline">Back to home</a>
+          <span className="text-[#DF8D13] mt-2 underline">Back to home</span>
         </Link>
       </div>
     </div>

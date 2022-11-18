@@ -15,7 +15,7 @@ export const SidebarLink: React.FC<SidebarLinkProps> = ({
 
   return (
     <NextLink href={href}>
-      <a
+      <span
         className={`text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group ${
           isActive ? "bg-gray-100" : ""
         }`}
@@ -23,7 +23,7 @@ export const SidebarLink: React.FC<SidebarLinkProps> = ({
         {icon}
 
         <span className="ml-3">{label}</span>
-      </a>
+      </span>
     </NextLink>
   );
 };

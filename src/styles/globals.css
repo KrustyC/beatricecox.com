@@ -52,12 +52,12 @@
     @apply absolute h-full w-full animate-pulse bg-slate-200;
   }
 
-  .animated-link {
+  .animated-underline {
     @apply text-xl block relative;
     overflow: hidden;
   }
 
-  .animated-link::after {
+  .animated-underline::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -71,12 +71,12 @@
     transform: translate3d(-100%, 0, 0);
   }
 
-  .animated-link-pink::after {
+  .animated-underline-pink::after {
     background-color: #edb8b8;
   }
 
-  .animated-link:hover::after,
-  .animated-link:focus::after {
+  .animated-underline:hover::after,
+  .animated-underline:focus::after {
     transform: translate3d(0, 0, 0);
   }
 

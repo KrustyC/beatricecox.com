@@ -26,9 +26,9 @@ export const ProjectsScroller: React.FC<ProjectProps> = ({
     <div className="project-container flex">
       <div className="flex flex-col border-r-2 border-[#EDB8B8] flex-1">
         <Link href={`/projects/${prevProject.slug}`}>
-          <a className="w-16 tracking-[0.30rem] text-[#EDB8B8] text-base uppercase mb-1 animated-link animated-link-pink">
+          <span className="w-16 tracking-[0.30rem] text-[#EDB8B8] text-base uppercase mb-1 animated-underline animated-underline-pink">
             /prev
-          </a>
+          </span>
         </Link>
 
         <span className="tracking-[0.20rem] text-white mb-4">
@@ -40,9 +40,9 @@ export const ProjectsScroller: React.FC<ProjectProps> = ({
 
       <div className="flex flex-col items-end flex-1">
         <Link href={`/projects/${nextProject.slug}`}>
-          <a className="w-16 tracking-[0.30rem] text-[#EDB8B8] text-base uppercase mb-1 animated-link animated-link-pink">
+          <span className="w-16 tracking-[0.30rem] text-[#EDB8B8] text-base uppercase mb-1 animated-underline animated-underline-pink">
             /next
-          </a>
+          </span>
         </Link>
 
         <span className="tracking-[0.20rem] text-white mb-4">

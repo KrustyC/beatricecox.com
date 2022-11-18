@@ -22,16 +22,18 @@ export const ProjectNavbar: React.FC = ({}) => {
     <div className="w-screen h-32 flex bg-transparent justify-between items-center px-6 md:px-24 z-50">
       <div className="flex items-center">
         <Link href="/">
-          <a className="text-black text-4xl font-bodoni">Beatrice Duguid Cox</a>
+          <span className="text-black text-4xl font-bodoni">
+            Beatrice Duguid Cox
+          </span>
         </Link>
       </div>
 
       <div className="hidden lg:flex lg:items-center lg:justify-end lg:w-auto">
         {PROJECT_PAGE_LINKS.map(({ label, to }) => (
           <Link href={to} key={label}>
-            <a className="text-black text-xl animated-link mr-12 font-light">
+            <span className="text-black text-xl animated-underline mr-12 font-light">
               {label}
-            </a>
+            </span>
           </Link>
         ))}
       </div>
