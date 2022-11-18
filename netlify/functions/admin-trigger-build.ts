@@ -4,12 +4,11 @@ import axios from "axios";
 import { jsonResponse } from "../shared/utils";
 import { HTTP_METHODS } from "../shared/variables";
 
-const NETLIFY_BUILD_HOOK_URL = `https://api.netlify.com/build_hooks/${process.env.NETLIFY_HOOK_KEY}`;
+const NETLIFY_BUILD_HOOK_URL = `https://api.netlify.com/build_hooks/${process.env.DEPLOY_HOOK_KEY}`;
 
 async function post() {
   try {
-    // This call returns only when the build is completed, but we only care about triggering it for the moment
-    axios.post(NETLIFY_BUILD_HOOK_URL);
+    await axios.post(NETLIFY_BUILD_HOOK_URL);
 
     return jsonResponse({
       status: 200,
