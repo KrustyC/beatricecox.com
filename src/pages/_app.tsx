@@ -9,6 +9,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout<Readonly<unknown>>;
+  pageProps: { protected: boolean };
 };
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
