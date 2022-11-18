@@ -6,7 +6,7 @@ import {
   ProjectBlockType,
 } from "@/types/global";
 import parse from "html-react-parser";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export function blockIsFourImagesWithTextBlock(
   block: Partial<BaseBlock> | ProjectBlock

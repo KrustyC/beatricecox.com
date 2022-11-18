@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps } from "next/legacy/image";
 import { Project as IProject } from "@/types/global";
 
 import { Block } from "./Block";

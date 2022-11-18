@@ -5,7 +5,7 @@ import {
   ProjectBlockType,
 } from "@/types/global";
 import parse from "html-react-parser";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export function blockIsDescriptionAndPicsBlock(
   block: Partial<BaseBlock> | ProjectBlock
