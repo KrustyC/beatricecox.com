@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import { getPlaiceholder } from "plaiceholder";
 import { Project as IProject } from "@/types/global";
 import { Footer } from "@/components/Footer";
 import { Project } from "@/components/Project";
+import { ReloadButton } from "@/components/ReloadButton";
 
 interface FetchProjectsResponse {
   project: IProject;
@@ -27,8 +29,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   const res = await fetch(
     `${process.env.baseUrl}/.netlify/functions/projects?slug=${params.slug}`
   );
-  const { project, prevSlug, nextSlug } =
-    (await res.json()) as FetchProjectsResponse;
+  const { project } = (await res.json()) as FetchProjectsResponse;
 
   const { base64, img } = await getPlaiceholder(project.mainImage, {
     size: 10,
@@ -37,8 +38,6 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   return {
     props: {
       project,
-      prevSlug,
-      nextSlug,
       mainImageProps: { ...img, blurDataURL: base64 },
     },
   };
@@ -48,10 +47,23 @@ type ProjectPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const ProjectPage: NextPage<ProjectPageProps> = ({
   project,
-  // prevSlug,
-  // nextSlug,
   mainImageProps,
 }) => {
+  const [projectToUse, setProjectToUse] = useState(project);
+
+  const onRefetchFetchProject = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.baseUrl}/.netlify/functions/projects?slug=${project.slug}`
+      );
+      const json = (await res.json()) as FetchProjectsResponse;
+
+      setProjectToUse(json.project);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -64,7 +76,9 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
       </Head>
 
       <div>
-        <Project project={project} mainImageProps={mainImageProps} />
+        <Project project={projectToUse} mainImageProps={mainImageProps} />
+
+        <ReloadButton onReload={onRefetchFetchProject} />
 
         <Footer />
       </div>

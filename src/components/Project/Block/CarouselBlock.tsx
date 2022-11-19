@@ -79,7 +79,6 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
               </div>
             ))}
           </Carousel>
-          {/* {renderImages(block.pictures.slice(0, 4))} */}
         </div>
       </div>
     </div>

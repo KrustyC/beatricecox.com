@@ -11,6 +11,8 @@ import { useOverlayAnimation } from "@/hooks/useOverlayAnimation";
 import { useFilters } from "@/hooks/useFilters";
 import { Project } from "@/types/global";
 import { GetInTouch } from "@/components/GetInTouch";
+import { ReloadButton } from "@/components/ReloadButton";
+import { useState } from "react";
 
 interface HomePageProps {
   projects: Project[];
@@ -18,7 +20,22 @@ interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ projects }) => {
   const overlayAnimationStyle = useOverlayAnimation();
+  const [projectsToUse, setProjectsToUse] = useState(projects);
   const { currentFilter, onSelectFilter } = useFilters();
+
+  const onRefetchFetchShit = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.baseUrl}/.netlify/functions/projects`
+      );
+
+      const json = await res.json();
+
+      setProjectsToUse(json.projects);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -33,12 +50,14 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
       <animated.div style={overlayAnimationStyle} className="flex flex-col">
         <Hero />
 
+        <ReloadButton onReload={onRefetchFetchShit} />
+
         <Filterbar
           currentFilter={currentFilter}
           onSelectFilter={onSelectFilter}
         />
 
-        <Projects projects={projects} currentFilter={currentFilter} />
+        <Projects projects={projectsToUse} currentFilter={currentFilter} />
 
         <Skills />
 

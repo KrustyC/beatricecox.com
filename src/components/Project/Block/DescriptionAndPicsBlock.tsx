@@ -29,8 +29,6 @@ const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
           sizes="100vw"
           style={{
             objectFit: "cover",
-            maxWidth: "100%",
-            height: "auto",
           }}
         />
       </div>
@@ -50,8 +48,6 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
           sizes="100vw"
           style={{
             objectFit: "cover",
-            maxWidth: "100%",
-            height: "auto",
           }}
         />
       </div>
@@ -71,8 +67,6 @@ const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
           sizes="100vw"
           style={{
             objectFit: "cover",
-            maxWidth: "100%",
-            height: "auto",
           }}
         />
       </div>

@@ -25,8 +25,6 @@ export const FullScreenBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
       sizes="100vw"
       style={{
         objectFit: "cover",
-        maxWidth: "100%",
-        height: "auto",
       }}
     />
   </div>

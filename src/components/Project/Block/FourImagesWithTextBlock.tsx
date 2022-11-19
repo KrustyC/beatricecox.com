@@ -29,8 +29,6 @@ const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
         sizes="100vw"
         style={{
           objectFit: "cover",
-          maxWidth: "100%",
-          height: "auto",
         }}
       />
     </div>

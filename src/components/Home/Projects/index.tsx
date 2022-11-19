@@ -37,7 +37,9 @@ export const Projects: React.FC<ProjectsProps> = ({
       </div>
 
       <div className="h-20 flex items-center justify-center">
-        <Link href="/projects">SEE MORE</Link>
+        <Link href="/projects" className="text-black">
+          SEE MORE
+        </Link>
       </div>
     </div>
   );

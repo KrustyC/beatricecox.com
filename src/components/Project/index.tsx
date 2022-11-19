@@ -1,13 +1,12 @@
 import Image, { ImageProps } from "next/image";
 import { Project as IProject } from "@/types/global";
-
 import { Block } from "./Block";
 import { ProjectNavbar } from "./Navbar";
 import { ProjectsScroller } from "./ProjectsScroller";
 
 interface ProjectProps {
   project: IProject;
-  mainImageProps: ImageProps;
+  mainImageProps: Omit<ImageProps, "alt">;
 }
 
 export const Project: React.FC<ProjectProps> = ({
@@ -22,7 +21,7 @@ export const Project: React.FC<ProjectProps> = ({
         </div>
         <Image
           className="z-1"
-          alt="dynosaur"
+          alt={project.title}
           src={project.mainImage}
           placeholder="blur"
           blurDataURL={mainImageProps.blurDataURL}
@@ -30,8 +29,6 @@ export const Project: React.FC<ProjectProps> = ({
           sizes="100vw"
           style={{
             objectFit: "cover",
-            maxWidth: "100%",
-            height: "auto",
           }}
         />
       </div>
