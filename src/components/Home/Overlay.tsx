@@ -1,13 +1,19 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { animated, config, useSpring } from "@react-spring/web";
-import { BeatriceCoxLogoIconOrange } from "@/components/icons/BeatriceCoxLogo";
+import { CirclesLogo } from "@/components/icons/CirclesLogo";
 
 const Portal = dynamic(() => import("@/components/Portal"), {
   ssr: false,
 });
 
-export const Overlay = () => {
+interface OverlayProps {
+  onHideOverlay: VoidFunction;
+}
+
+export const Overlay: React.FC<OverlayProps> = ({
+  onHideOverlay: onHideOverlayCb,
+}) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [isOverlayActuallyVisible, setIsOverlayActuallyVisible] =
     useState(true);
@@ -40,6 +46,7 @@ export const Overlay = () => {
 
   const onHideOverlay = () => {
     setShowOverlay(false);
+    onHideOverlayCb();
     document.body.style.overflow = "scroll";
   };
 
@@ -50,9 +57,7 @@ export const Overlay = () => {
         style={overlayAnimationStyle}
         onClick={onHideOverlay}
       >
-        <BeatriceCoxLogoIconOrange />
-        <h6 className="mt-8">Website under construction.</h6>
-        <b>STAY TUNED!</b>
+        <CirclesLogo />
       </animated.div>
     </Portal>
   );

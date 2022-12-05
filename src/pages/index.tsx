@@ -20,8 +20,11 @@ interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ projects }) => {
   const overlayAnimationStyle = useOverlayAnimation();
+  const [isOverlayHidden, setIsOverlayHidden] = useState(false);
   const [projectsToUse, setProjectsToUse] = useState(projects);
   const { currentFilter, onSelectFilter } = useFilters();
+
+  const onHideOverlay = () => setIsOverlayHidden(true);
 
   const onRefetchFetchShit = async () => {
     try {
@@ -45,28 +48,30 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Overlay />
+      <Overlay onHideOverlay={onHideOverlay} />
 
       <animated.div style={overlayAnimationStyle} className="flex flex-col">
         <Hero />
 
         <ReloadButton onReload={onRefetchFetchShit} />
 
-        <Filterbar
-          currentFilter={currentFilter}
-          onSelectFilter={onSelectFilter}
-        />
+        <div>
+          <Filterbar
+            currentFilter={currentFilter}
+            onSelectFilter={onSelectFilter}
+          />
 
-        <Projects projects={projectsToUse} currentFilter={currentFilter} />
+          <Projects projects={projectsToUse} currentFilter={currentFilter} />
+        </div>
 
         <Skills />
 
-        <div className="h-[500px] w-full" />
+        <div className="bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[600px] w-full" />
 
         <Footer />
       </animated.div>
 
-      <GetInTouch />
+      {isOverlayHidden && <GetInTouch />}
     </div>
   );
 };

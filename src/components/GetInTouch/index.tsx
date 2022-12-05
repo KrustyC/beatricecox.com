@@ -43,9 +43,9 @@ export const GetInTouch: React.FC = ({}) => {
     <Portal wrapperId="get-in-touch-portal">
       <div
         ref={containerRef}
-        className={`z-50 fixed flex items-center bottom-0 h-[150px] w-[190px]`}
+        className="z-50 fixed flex items-center bottom-0 h-[120px] w-[140px]"
       >
-        <SlideFromLeftOnMount appearAfterMs={1000}>
+        <SlideFromLeftOnMount appearAfterMs={250}>
           <Arrow />
         </SlideFromLeftOnMount>
       </div>

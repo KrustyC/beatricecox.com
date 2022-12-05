@@ -49,6 +49,9 @@ module.exports = {
       manrope: ["Manrope", "sans-serif"],
     },
     extend: {
+      backgroundImage: {
+        "home-pattern": "url('/something.jpeg')",
+      },
       keyframes: {
         wiggle: {
           "0%, 100%": { transform: "translateX(-8deg)" },

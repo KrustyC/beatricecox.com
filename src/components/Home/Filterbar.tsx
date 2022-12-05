@@ -13,7 +13,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
     <div className="sticky top-0 h-28 bg-[#E5E4E2] z-50">
       <div className="h-full px-60 flex font-light items-center justify-between text-bodoni tracking-wide uppercase">
         <div
-          className="cursor-pointer tracking-wide text-white text-xl bg-black px-6 py-2"
+          className="cursor-pointer tracking-[0.35em] text-white text-xl bg-black px-6 py-4"
           onClick={() => onSelectFilter(undefined)}
         >
           All Projects
@@ -23,7 +23,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
           .map(([key, value]) => (
             <div
               key={key}
-              className="text-black tracking-wide text-xl cursor-pointer"
+              className="text-black tracking-[0.35em] text-xl cursor-pointer"
               onClick={() => onSelectFilter(value)}
             >
               <p
