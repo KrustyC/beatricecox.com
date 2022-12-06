@@ -39,12 +39,12 @@ export const Project: React.FC<ProjectProps> = ({
         ))}
       </div>
 
-      {/* {project.prevProject && project.nextProject && (
+      {project.prevProject && project.nextProject && (
         <ProjectsScroller
           prevProject={project.prevProject}
           nextProject={project.nextProject}
         />
-      )} */}
+      )}
     </div>
   );
 };
