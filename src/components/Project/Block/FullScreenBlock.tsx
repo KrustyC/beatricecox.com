@@ -17,7 +17,7 @@ interface FullScreenBlockProps {
 }
 
 export const FullScreenBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
-  <div className="h-[900px] w-screen relative">
+  <div className="h-[350px] lg:h-[900px] w-screen relative">
     <Image
       alt=""
       src={block.image}

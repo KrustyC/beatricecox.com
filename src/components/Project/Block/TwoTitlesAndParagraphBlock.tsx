@@ -15,11 +15,13 @@ interface ParagraphProps {
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ paragraph, mb = "" }) => (
-  <div className={`flex ${mb}`}>
-    <h3 className="w-1/3 font-light text-3xl text-right mr-24">
+  <div className={`flex ${mb} flex-col lg:flex-row`}>
+    <h3 className="lg:w-1/3 font-light text-3xl lg:text-right lg:mr-24">
       {paragraph.title}
     </h3>
-    <span className="w-2/3 max-w-2/3">{parse(paragraph.paragraph)}</span>
+    <div className="lg:w-2/3 lg:max-w-2/3 text-lg mt-4 lg:mt-0">
+      {parse(paragraph.paragraph)}
+    </div>
   </div>
 );
 

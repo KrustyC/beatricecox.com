@@ -15,7 +15,7 @@ export const Project: React.FC<ProjectProps> = ({
 }) => {
   return (
     <div>
-      <div className="w-screen h-screen relative">
+      <div className="w-screen h-[309px] lg:h-screen relative">
         <div className="absolute top-0 left-0 w-screen z-50 h-[50px]">
           <ProjectNavbar />
         </div>
@@ -39,12 +39,12 @@ export const Project: React.FC<ProjectProps> = ({
         ))}
       </div>
 
-      {project.prevProject && project.nextProject && (
+      {/* {project.prevProject && project.nextProject && (
         <ProjectsScroller
           prevProject={project.prevProject}
           nextProject={project.nextProject}
         />
-      )}
+      )} */}
     </div>
   );
 };

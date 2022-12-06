@@ -24,11 +24,13 @@ export const TitleAndTextBlock: React.FC<TitleAndTextBlockProps> = ({
       className="project-section"
       style={{ background: block.backgroundColor || "white" }}
     >
-      <div className="project-container flex">
-        <h3 className="w-1/3 font-light text-3xl text-right mr-24">
+      <div className="project-container flex flex-col lg:flex-row">
+        <h3 className="lg:w-1/3 font-light text-3xl lg:text-right lg:mr-24">
           {block.title}
         </h3>
-        <span className="w-2/3 max-w-2/3">{parse(block.text)}</span>
+        <span className="lg:w-2/3 lg:max-w-2/3 mt-8 lg:mt-0 text-lg">
+          {parse(block.text)}
+        </span>
       </div>
     </div>
   );

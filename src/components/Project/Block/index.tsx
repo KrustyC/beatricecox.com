@@ -41,9 +41,9 @@ export const Block: React.FC<BlockProps> = ({ block }) => {
     return <FourImagesWithTextBlock block={block} />;
   }
 
-  if (blockIsCarouselBlock(block)) {
-    return <CarouselBlock block={block} />;
-  }
+  // if (blockIsCarouselBlock(block)) {
+  //   return <CarouselBlock block={block} />;
+  // }
 
   if (blockIsTitleAndTextBlock(block)) {
     return <TitleAndTextBlock block={block} />;

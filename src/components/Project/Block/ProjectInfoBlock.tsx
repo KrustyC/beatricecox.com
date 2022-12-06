@@ -18,9 +18,9 @@ interface LineProps {
 }
 
 const Line: React.FC<LineProps> = ({ title, value }) => (
-  <div className="flex justify-between items-center border-t-2 border-black py-4">
+  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center border-t-2 border-black py-4">
     <span className="uppercase tracking-[.30rem]">{title}</span>
-    <span>{value}</span>
+    <span className="mt-3 lg:mt-0">{value}</span>
   </div>
 );
 
@@ -37,12 +37,12 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
       style={{ background: block.backgroundColor || "white" }}
     >
       <div className="project-container flex flex-col">
-        <h1 className="text-4xl font-medium mb-1">{block.title}</h1>
-        <span className="text-xl font-light text-[#8C8C8C] mb-6">
+        <h1 className="text-3xl lg:text-4xl font-medium mb-1">{block.title}</h1>
+        <span className="text-lg lg:text-xl font-light text-[#8C8C8C] mb-6">
           {block.subtitle}
         </span>
 
-        <div className="text-xl font-light mb-4 mb-10">
+        <div className="text-lg lg:text-xl font-light mb-4 mb-10">
           {parse(block.description)}
         </div>
 

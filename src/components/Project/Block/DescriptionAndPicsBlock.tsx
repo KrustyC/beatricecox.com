@@ -20,7 +20,7 @@ interface DescriptionAndPicsBlockProps {
 const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
   <div className="grid grid-cols-2 gap-6">
     {images.map((image, i) => (
-      <div key={i} className="relative h-[516px] w-full">
+      <div key={i} className="relative h-[450px] lg:h-[516px] w-full">
         <div className="image-background" />
         <Image
           alt=""
@@ -39,7 +39,7 @@ const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
 const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
   <div className="flex flex-col gap-y-8">
     {images.map((image, i) => (
-      <div key={i} className="h-[230px] w-full bg-[red] relative">
+      <div key={i} className="h-[230px] w-full relative">
         <div className="image-background" />
         <Image
           alt=""
@@ -56,7 +56,7 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
 );
 
 const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
-  <div className="grid grid-cols-2 gap-6">
+  <div className="grid lg:grid-cols-2 gap-6">
     {images.map((image, i) => (
       <div key={i} className="h-[370px] w-full relative">
         <div className="image-background" />
@@ -101,7 +101,7 @@ export const DescriptionAndPicsBlock: React.FC<
       style={{ background: block.backgroundColor || "white" }}
     >
       <div className="project-container flex flex-col">
-        <h1 className="text-3xl font-medium mb-2">{block.title}</h1>
+        <h1 className="text-3xl font-medium mb-4">{block.title}</h1>
 
         <div className="text-lg font-light mb-16">
           {parse(block.description)}

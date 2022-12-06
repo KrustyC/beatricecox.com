@@ -78,7 +78,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
       <div>
         <Project project={projectToUse} mainImageProps={mainImageProps} />
 
-        <ReloadButton onReload={onRefetchFetchProject} />
+        {/* <ReloadButton onReload={onRefetchFetchProject} /> */}
 
         <Footer />
       </div>
