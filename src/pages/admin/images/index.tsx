@@ -38,7 +38,7 @@ const AdminImages: NextPageWithLayout<undefined> = () => {
       <div className="flex justify-between items-center">
         <h2 className="text-gray-600 font-bold">Images</h2>
         <UploadFileButton
-          accept=".jpg, .jpeg, .png"
+          accept=".jpg, .jpeg, .png, .gif"
           actionCopy="Upload Image"
           folder="images"
           onConfirm={onConfirmFileUpload}

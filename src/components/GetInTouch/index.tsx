@@ -14,7 +14,6 @@ export const GetInTouch: React.FC = ({}) => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
-    console.log(isSmallScreen);
     if (!containerRef.current || isSmallScreen) {
       return;
     }

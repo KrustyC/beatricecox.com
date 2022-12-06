@@ -4,7 +4,6 @@ export const useIsSmallScreen = ({ defaultValue = true }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(defaultValue);
 
   const checkIfMobile = () => {
-    console.log("SONO CRISTO MORTO?");
     setIsSmallScreen(window.innerWidth < 1180);
   };
 
