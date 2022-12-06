@@ -18,10 +18,10 @@ export const Navbar: React.FC = ({}) => {
   // };
 
   return (
-    <div className="w-screen h-32 flex bg-transparent justify-between items-center px-6 md:px-24 z-50">
+    <div className="w-screen h-24 lg:h-32 flex bg-transparent justify-between items-center px-6 md:px-16 lg:px-24 z-50">
       <div className="flex items-center">
         <Link href="/">
-          <span className="text-black text-4xl font-bodoni">
+          <span className="text-black text-2xl lg:text-4xl font-bodoni">
             Beatrice Duguid Cox
           </span>
         </Link>

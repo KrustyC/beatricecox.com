@@ -23,5 +23,5 @@ export const SKILLS = [
 export const LANGUAGES = [
   "Italian Native Speaker",
   "English Native Speaker",
-  "Spanuih (Elementary)",
+  "Spanish (Elementary)",
 ];

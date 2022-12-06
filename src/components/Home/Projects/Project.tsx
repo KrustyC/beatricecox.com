@@ -8,7 +8,7 @@ interface ProjectsProps {
 
 export const Project: React.FC<ProjectsProps> = ({ project }) => {
   return (
-    <div className="mb-40 last:mb-0 flex relative flex-col">
+    <div className="mb-20 lg:mb-40 last:mb-0 flex relative flex-col">
       <div className="aspect-w-1 aspect-h-1 bg-gray-100"></div>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={project.listingImage} alt={project.title} />

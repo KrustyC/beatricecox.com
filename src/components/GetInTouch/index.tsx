@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
+import { useIsSmallScreen } from "@/hooks/useIsSmallScreen";
 import { SlideFromLeftOnMount } from "../animations/SlideFromLeftOnMount";
 import { Arrow } from "./Arrow";
 
@@ -8,11 +9,13 @@ const Portal = dynamic(() => import("@/components/Portal"), {
 });
 
 export const GetInTouch: React.FC = ({}) => {
+  const isSmallScreen = useIsSmallScreen({ defaultValue: true });
   const containerRef = useRef<HTMLDivElement>(null);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
-    if (!containerRef.current) {
+    console.log(isSmallScreen);
+    if (!containerRef.current || isSmallScreen) {
       return;
     }
 
@@ -37,7 +40,11 @@ export const GetInTouch: React.FC = ({}) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isSmallScreen]);
+
+  if (isSmallScreen) {
+    return null;
+  }
 
   return (
     <Portal wrapperId="get-in-touch-portal">

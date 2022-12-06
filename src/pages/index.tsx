@@ -66,7 +66,7 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
 
         <Skills />
 
-        <div className="bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[600px] w-full" />
+        <div className="bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[400px] lg:h-[600px] w-full" />
 
         <Footer />
       </animated.div>
