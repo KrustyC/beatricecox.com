@@ -26,6 +26,7 @@ const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
         alt=""
         src={image.img}
         fill
+        loading="lazy"
         sizes="100vw"
         style={{
           objectFit: "cover",

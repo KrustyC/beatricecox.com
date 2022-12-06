@@ -24,7 +24,7 @@ interface BlockProps {
   block: Partial<BaseBlock> | ProjectBlock;
 }
 
-export const Block: React.FC<BlockProps> = ({ block }) => {
+const Block: React.FC<BlockProps> = ({ block }) => {
   if (blockIsProjectInfoBlock(block)) {
     return <ProjectInfoBlock block={block} />;
   }
@@ -55,3 +55,5 @@ export const Block: React.FC<BlockProps> = ({ block }) => {
 
   return null;
 };
+
+export default Block;

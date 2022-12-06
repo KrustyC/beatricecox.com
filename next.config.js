@@ -14,6 +14,7 @@ const nextConfig = {
       "beatricecox-dev.s3.amazonaws.com",
       "beatricecox.s3.amazonaws.com",
     ],
+    minimumCacheTTL: 60,
   },
   webpack: (config, { isServer }) => {
     if (isServer) {

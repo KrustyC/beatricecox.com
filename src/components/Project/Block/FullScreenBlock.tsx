@@ -22,6 +22,7 @@ export const FullScreenBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
       alt=""
       src={block.image}
       fill
+      loading="lazy"
       sizes="100vw"
       style={{
         objectFit: "cover",

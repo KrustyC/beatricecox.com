@@ -1,8 +1,10 @@
 import Image, { ImageProps } from "next/image";
+import dynamic from "next/dynamic";
 import { Project as IProject } from "@/types/global";
-import { Block } from "./Block";
 import { ProjectNavbar } from "./Navbar";
 import { ProjectsScroller } from "./ProjectsScroller";
+
+const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
   project: IProject;
@@ -26,6 +28,7 @@ export const Project: React.FC<ProjectProps> = ({
           placeholder="blur"
           blurDataURL={mainImageProps.blurDataURL}
           fill
+          loading="eager"
           sizes="100vw"
           style={{
             objectFit: "cover",
@@ -35,7 +38,7 @@ export const Project: React.FC<ProjectProps> = ({
 
       <div className="flex flex-col">
         {project.blocks.map((block, i) => (
-          <Block key={i} block={block} />
+          <DynamicBlock key={i} block={block} />
         ))}
       </div>
 

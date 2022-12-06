@@ -25,6 +25,7 @@ const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
         <Image
           alt=""
           src={image}
+          loading="lazy"
           fill
           sizes="100vw"
           style={{
@@ -44,6 +45,7 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
         <Image
           alt=""
           src={image}
+          loading="lazy"
           fill
           sizes="100vw"
           style={{
@@ -64,6 +66,7 @@ const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
           alt=""
           src={image}
           fill
+          loading="lazy"
           sizes="100vw"
           style={{
             objectFit: "cover",

@@ -10,6 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { ChevronLeftIcon } from "@/components/icons/ChevronLeft";
 import { ChevronRightIcon } from "@/components/icons/ChevronRight";
+import Image from "next/image";
 
 export function blockIsCarouselBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -61,11 +62,20 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
             )}
           >
             {block.pictures.map((img, i) => (
-              <div key={i}>
-                <img
-                  className="h-[320px] lg:h-[488px] lg:max-h-[488px] w-full lg:max-w-[599px] object-contain"
-                  src={img}
+              <div
+                key={i}
+                className="relative h-[320px] lg:h-[520px] lg:max-h-[520px]"
+              >
+                <Image
+                  className="z-1"
                   alt={`Carousel image number ${i + 1}`}
+                  src={img}
+                  fill
+                  loading="lazy"
+                  sizes="100vw"
+                  style={{
+                    objectFit: "contain",
+                  }}
                 />
               </div>
             ))}
