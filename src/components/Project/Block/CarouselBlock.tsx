@@ -21,17 +21,6 @@ interface CarouselBlockProps {
   block: ICarouselBlock;
 }
 
-// const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
-//   <div className="grid grid-cols-2 gap-6">
-//     {images.map((image, i) => (
-//       <div key={i} className="h-[370px] w-full relative">
-//         <div className="image-background" />
-//         <Image alt="" layout="fill" objectFit="cover" src={image} />
-//       </div>
-//     ))}
-//   </div>
-// );
-
 export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
   return (
     <div
@@ -39,17 +28,19 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
       style={{ background: block.backgroundColor || "white" }}
     >
       <div className="flex flex-col">
-        <div className="project-container flex w-full mb-14">
-          <h1 className="text-3xl font-medium w-1/3">{block.title}</h1>
-          <div className="text-lg font-light w-2/3">
+        <div className="project-container flex flex-col lg:flex-row w-full mb-14">
+          <h1 className="text-3xl font-medium lg:w-1/3">{block.title}</h1>
+          <div className="text-lg font-light lg:w-2/3 mt-8 lg:mt-0">
             {parse(block.description)}
           </div>
         </div>
 
-        <div className="relative w-[1025px] mx-auto">
+        <div className="relative w-screen lg:w-[1025px] mx-auto">
           <Carousel
             infiniteLoop
             dynamicHeight
+            swipeable
+            showStatus={false}
             showThumbs={false}
             showIndicators={false}
             renderArrowPrev={(clickHandler) => (
@@ -57,7 +48,7 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
                 className="z-50 my-auto absolute left-0 top-0 bottom-0 h-5 cursor-pointer"
                 onClick={clickHandler}
               >
-                <ChevronLeftIcon className="h-16 w-16" />
+                <ChevronLeftIcon className="h-8 w-8 lg:h-16 lg:w-16" />
               </div>
             )}
             renderArrowNext={(clickHandler) => (
@@ -65,14 +56,14 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
                 className="z-50 my-auto absolute right-0 top-0 bottom-0 h-5 cursor-pointer"
                 onClick={clickHandler}
               >
-                <ChevronRightIcon className="h-16 w-16" />
+                <ChevronRightIcon className="h-8 w-8 lg:h-16 lg:w-16" />
               </div>
             )}
           >
             {block.pictures.map((img, i) => (
               <div key={i}>
                 <img
-                  className="h-[488px] max-h-[488px] max-w-[599px] object-contain"
+                  className="h-[320px] lg:h-[488px] lg:max-h-[488px] w-full lg:max-w-[599px] object-contain"
                   src={img}
                   alt={`Carousel image number ${i + 1}`}
                 />

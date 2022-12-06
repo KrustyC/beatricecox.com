@@ -18,9 +18,9 @@ interface DescriptionAndPicsBlockProps {
 }
 
 const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
-  <div className="grid grid-cols-2 gap-6">
+  <div className="grid grid-cols-2 gap-2 lg:gap-6">
     {images.map((image, i) => (
-      <div key={i} className="relative h-[450px] lg:h-[516px] w-full">
+      <div key={i} className="relative h-[400px] lg:h-[516px] w-full">
         <div className="image-background" />
         <Image
           alt=""
@@ -58,7 +58,7 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
 const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
   <div className="grid lg:grid-cols-2 gap-6">
     {images.map((image, i) => (
-      <div key={i} className="h-[370px] w-full relative">
+      <div key={i} className="h-3[370px] w-full relative">
         <div className="image-background" />
         <Image
           alt=""
