@@ -17,6 +17,24 @@ interface DescriptionAndPicsBlockProps {
   block: IDescriptionAndPicsBlock;
 }
 
+const SingleImage: React.FC<{ image: string }> = ({ image }) => (
+  <div className="flex grid-cols-2 gap-6 lg:gap-6">
+    <div className="relative h-[330px] lg:h-[516px] w-full">
+      <div className="image-background" />
+      <Image
+        alt=""
+        src={image}
+        loading="lazy"
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover",
+        }}
+      />
+    </div>
+  </div>
+);
+
 const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
   <div className="grid grid-cols-2 gap-6 lg:gap-6">
     {images.map((image, i) => (
@@ -82,6 +100,10 @@ export const DescriptionAndPicsBlock: React.FC<
 > = ({ block }) => {
   const renderImages = (pictures: string[]) => {
     const nOfImages = pictures.length;
+
+    if (nOfImages === 1) {
+      return <SingleImage image={pictures[0]} />;
+    }
 
     if (nOfImages === 2) {
       return <TwoImages images={pictures} />;

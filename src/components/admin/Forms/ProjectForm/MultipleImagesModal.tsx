@@ -39,6 +39,17 @@ export const MultipleImagesModal: React.FC<MultipleImagesModalProps> = ({
     setSelectedImages([...selectedImages, image]);
   };
 
+  const onRemoveImage = (image: string) => {
+    const imageIndex = selectedImages.findIndex(
+      (findImage) => findImage === image
+    );
+
+    setSelectedImages([
+      ...selectedImages.slice(0, imageIndex),
+      ...selectedImages.slice(imageIndex + 1),
+    ]);
+  };
+
   return (
     <Modal>
       <div className="w-full flex justify-center">
@@ -74,7 +85,11 @@ export const MultipleImagesModal: React.FC<MultipleImagesModalProps> = ({
                     <button
                       type="button"
                       className="btn-admin btn-outlined-primary btn-sm absolute bottom-2 right-2"
-                      onClick={() => onChooseImage(image)}
+                      onClick={() =>
+                        isImageSelected
+                          ? onRemoveImage(image)
+                          : onChooseImage(image)
+                      }
                     >
                       {isImageSelected ? "Remove" : "Choose"}
                     </button>
