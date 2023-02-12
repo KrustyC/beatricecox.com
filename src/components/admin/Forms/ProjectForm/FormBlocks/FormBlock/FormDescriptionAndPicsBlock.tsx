@@ -65,7 +65,7 @@ export const FormDescriptionAndPicsBlock: React.FC<
             <Input
               width="w-full"
               register={register}
-              error={errors.slug}
+              error={errors.title}
               label="Title"
               name={`blocks.${index}.title`}
               type="text"
