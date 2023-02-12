@@ -4,7 +4,6 @@ import {
   ProjectBlockType,
   DescriptionAndPicsBlock,
 } from "@/types/global";
-import { isValidDescription } from "@/utils/validators";
 import { useFormContext, Controller } from "react-hook-form";
 
 import { Input } from "../../../../Input";
