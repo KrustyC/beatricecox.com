@@ -28,7 +28,7 @@ const SingleImage: React.FC<{ image: string }> = ({ image }) => (
         fill
         sizes="100vw"
         style={{
-          objectFit: "cover",
+          objectFit: "contain",
         }}
       />
     </div>
@@ -47,7 +47,7 @@ const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
           fill
           sizes="100vw"
           style={{
-            objectFit: "cover",
+            objectFit: "contain",
           }}
         />
       </div>
@@ -67,7 +67,7 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
           fill
           sizes="100vw"
           style={{
-            objectFit: "cover",
+            objectFit: "contain",
           }}
         />
       </div>
@@ -87,7 +87,7 @@ const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
           loading="lazy"
           sizes="100vw"
           style={{
-            objectFit: "cover",
+            objectFit: "contain",
           }}
         />
       </div>
@@ -126,13 +126,15 @@ export const DescriptionAndPicsBlock: React.FC<
       style={{ background: block.backgroundColor || "white" }}
     >
       <div className="project-container flex flex-col">
-        {block.title && <h1 className="text-3xl font-medium mb-2">{block.title}</h1>}
+        {block.title && (
+          <h1 className="text-3xl font-medium mb-2">{block.title}</h1>
+        )}
 
         {block.description && (
           <div className="text-lg font-light mb-8">
             {parse(block.description)}
-          </div>)
-        }
+          </div>
+        )}
 
         {renderImages(block.pictures.slice(0, 4))}
       </div>
