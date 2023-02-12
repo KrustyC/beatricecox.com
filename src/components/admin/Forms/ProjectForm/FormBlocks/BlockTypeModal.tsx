@@ -67,8 +67,8 @@ export const BlockTypeModal: React.FC<MultipleImagesModalProps> = ({
           </h2>
           <p className="text-left text-sm text-gray-500">
             Select the type of block that you{"'"}d like to create. Please
-            rememebr to always go in order if possible, because supporting the
-            re-order is pain :)
+            rememebr to always go in order if possible, <b>because supporting the
+            re-order is a pain :)</b>
           </p>
         </div>
 

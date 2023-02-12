@@ -126,11 +126,13 @@ export const DescriptionAndPicsBlock: React.FC<
       style={{ background: block.backgroundColor || "white" }}
     >
       <div className="project-container flex flex-col">
-        <h1 className="text-3xl font-medium mb-2">{block.title}</h1>
+        {block.title && <h1 className="text-3xl font-medium mb-2">{block.title}</h1>}
 
-        <div className="text-lg font-light mb-8">
-          {parse(block.description)}
-        </div>
+        {block.description && (
+          <div className="text-lg font-light mb-8">
+            {parse(block.description)}
+          </div>)
+        }
 
         {renderImages(block.pictures.slice(0, 4))}
       </div>
