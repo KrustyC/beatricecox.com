@@ -65,7 +65,6 @@ export const FormDescriptionAndPicsBlock: React.FC<
             <Input
               width="w-full"
               register={register}
-              options={{ required: "Please add a title" }}
               error={errors.slug}
               label="Title"
               name={`blocks.${index}.title`}
@@ -82,11 +81,10 @@ export const FormDescriptionAndPicsBlock: React.FC<
               <Controller
                 control={control}
                 name={`blocks.${index}.description`}
-                rules={{ validate: isValidDescription }}
                 render={({ field: { value, onChange, onBlur } }) => (
                   <Editor
                     value={value}
-                    error={errors?.intro}
+                    error={errors?.description}
                     onChange={onChange}
                     onBlur={onBlur}
                   />
