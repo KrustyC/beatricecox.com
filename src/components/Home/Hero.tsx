@@ -14,6 +14,7 @@ export const Hero = () => (
             fill
             loading="lazy"
             sizes="100vw"
+            unoptimized
             style={{
               objectFit: "contain",
             }}
