@@ -6,9 +6,9 @@ export type NextPageWithLayout<T> = NextPage<T> & {
 };
 
 export enum ProjectCategory {
-  PACKAGING = "PACKAGING",
+  PACKAGING = "Packaging",
   UX_UI = "UX/UI",
-  INDUSTRIAL = "INDUSTRIAL",
+  INDUSTRIAL = "Industrial",
   THREED = "3D",
   OTHER = "OTHER",
 }
