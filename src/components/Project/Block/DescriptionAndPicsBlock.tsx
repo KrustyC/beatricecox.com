@@ -17,10 +17,11 @@ interface DescriptionAndPicsBlockProps {
   block: IDescriptionAndPicsBlock;
 }
 
-const SingleImage: React.FC<{ image: string }> = ({ image }) => (
+const SingleImage: React.FC<{
+  image: string;
+}> = ({ image }) => (
   <div className="flex grid-cols-2 gap-6 lg:gap-6">
     <div className="relative h-[330px] lg:h-[516px] w-full">
-      <div className="image-background" />
       <Image
         alt=""
         src={image}
@@ -35,11 +36,17 @@ const SingleImage: React.FC<{ image: string }> = ({ image }) => (
   </div>
 );
 
-const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
-  <div className="grid grid-cols-2 gap-6 lg:gap-6">
+const TwoImages: React.FC<{
+  images: string[];
+  showVertical: boolean;
+}> = ({ images, showVertical }) => (
+  <div
+    className={`grid ${
+      showVertical ? "grid-cols-1" : "grid-cols-2"
+    } gap-6 lg:gap-6`}
+  >
     {images.map((image, i) => (
       <div key={i} className="relative h-[330px] lg:h-[516px] w-full">
-        <div className="image-background" />
         <Image
           alt=""
           src={image}
@@ -55,11 +62,17 @@ const TwoImages: React.FC<{ images: string[] }> = ({ images }) => (
   </div>
 );
 
-const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
-  <div className="flex flex-col gap-y-8">
+const ThreeImages: React.FC<{
+  images: string[];
+  showVertical: boolean;
+}> = ({ images, showVertical }) => (
+  <div
+    className={`${
+      showVertical ? "flex flex-col gap-y-8" : "grid grid-cols-3 gap-8"
+    }`}
+  >
     {images.map((image, i) => (
       <div key={i} className="h-[230px] w-full relative">
-        <div className="image-background" />
         <Image
           alt=""
           src={image}
@@ -75,11 +88,13 @@ const ThreeImages: React.FC<{ images: string[] }> = ({ images }) => (
   </div>
 );
 
-const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
+const FourImages: React.FC<{
+  images: string[];
+  showVertical: boolean;
+}> = ({ images, showVertical }) => (
   <div className="grid lg:grid-cols-2 gap-6">
     {images.map((image, i) => (
       <div key={i} className="h-[370px] w-full relative">
-        <div className="image-background" />
         <Image
           alt=""
           src={image}
@@ -98,23 +113,23 @@ const FourImages: React.FC<{ images: string[] }> = ({ images }) => (
 export const DescriptionAndPicsBlock: React.FC<
   DescriptionAndPicsBlockProps
 > = ({ block }) => {
-  const renderImages = (pictures: string[]) => {
+  const renderImages = (pictures: string[], showVertical: boolean) => {
     const nOfImages = pictures.length;
-
+    console.log(nOfImages, showVertical);
     if (nOfImages === 1) {
       return <SingleImage image={pictures[0]} />;
     }
 
     if (nOfImages === 2) {
-      return <TwoImages images={pictures} />;
+      return <TwoImages images={pictures} showVertical={showVertical} />;
     }
 
     if (nOfImages === 3) {
-      return <ThreeImages images={pictures} />;
+      return <ThreeImages images={pictures} showVertical={showVertical} />;
     }
 
     if (nOfImages === 4) {
-      return <FourImages images={pictures} />;
+      return <FourImages images={pictures} showVertical={showVertical} />;
     }
 
     return null;
@@ -136,7 +151,7 @@ export const DescriptionAndPicsBlock: React.FC<
           </div>
         )}
 
-        {renderImages(block.pictures.slice(0, 4))}
+        {renderImages(block.pictures.slice(0, 4), block.showVertical || false)}
       </div>
     </div>
   );

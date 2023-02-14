@@ -108,6 +108,16 @@ export const FormDescriptionAndPicsBlock: React.FC<
                 )}
               />
             </div>
+
+            <div className="my-4 w-full flex items-center">
+              <input
+                type="checkbox"
+                {...register(`blocks.${index}.showVertical`)}
+              />
+              <span className="uppercase block text-gray-700 text-sm font-bold ml-2">
+                Show images in a vertical fashion
+              </span>
+            </div>
           </div>
         </>
       )}
