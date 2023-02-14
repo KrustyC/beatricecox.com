@@ -66,7 +66,23 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
 
         <Skills />
 
-        <div className="bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[400px] lg:h-[600px] w-full" />
+        <div className="flex justify-end bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[400px] lg:h-[600px] w-full">
+          <div className="flex flex-col justify-center w-1/2">
+            <h1>Blog</h1>
+            <p className="my-3 pr-24">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
+              leo vel libero mattis dictum. Sed aliquam dolor ut tellus iaculis
+              hendrerit sed molestie velit. Maecenas sit amet nisi ut nunc
+              pharetra laoreet. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Suspendisse porta non augue ac fermentum. Aenean
+              placerat nisl vitae augue gravida, id convallis ipsum lobortis.
+              Nullam nunc nulla, gravida a mauris vel, consequat porttitor nibh.
+              Mauris finibus lacus a scelerisque fringilla. Cras vel ipsum
+              tincidunt, fringilla diam nec, varius nulla.
+            </p>
+            <span>COMING SOON...</span>
+          </div>
+        </div>
 
         <Footer />
       </animated.div>
