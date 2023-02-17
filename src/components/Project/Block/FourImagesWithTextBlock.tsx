@@ -21,7 +21,6 @@ interface ImageWithTextProps {
 const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
   <div className="flex flex-col flex-1 px-8 lg:px-0">
     <div className="h-[320px] lg:h-[427px] relative w-full mb-4">
-      <div className="image-background" />
       <Image
         alt=""
         src={image.img}
