@@ -3,7 +3,7 @@ const { withPlaiceholder } = require("@plaiceholder/next");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   env: {
     baseUrl: process.env.BASE_URL || "http://localhost:8888",
     s3BucketUrl: `https://${process.env.S3_BEATRICECOX_BUCKET}.s3.amazonaws.com`,

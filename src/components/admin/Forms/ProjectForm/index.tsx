@@ -55,7 +55,7 @@ export const ProjectForm: React.FC<
     methods.setValue("slug", slugify(title, { lower: true }));
   };
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     control: methods.control,
     name: "blocks",
   });
@@ -81,6 +81,10 @@ export const ProjectForm: React.FC<
 
   const onRemoveBlock = (index: number) => {
     remove(index);
+  };
+
+  const onReplaceBlocks = (updateBlocks: Array<Partial<BaseBlock>>) => {
+    replace(updateBlocks);
   };
 
   return (
@@ -245,6 +249,7 @@ export const ProjectForm: React.FC<
             blocks={blocks as unknown as ProjectBlock[]} // bit of an hack for the time being
             onCreateBlock={onCreateBlock}
             onRemoveBlock={onRemoveBlock}
+            onReplaceBlocks={onReplaceBlocks}
           />
         </div>
 

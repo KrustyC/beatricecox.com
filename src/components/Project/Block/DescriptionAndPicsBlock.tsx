@@ -92,7 +92,11 @@ const FourImages: React.FC<{
   images: string[];
   showVertical: boolean;
 }> = ({ images, showVertical }) => (
-  <div className="grid lg:grid-cols-2 gap-6">
+  <div
+    className={`${
+      showVertical ? "flex flex-col gap-y-8" : "grid lg:grid-cols-2 gap-6"
+    }`}
+  >
     {images.map((image, i) => (
       <div key={i} className="h-[370px] w-full relative">
         <Image
