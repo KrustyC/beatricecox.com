@@ -40,6 +40,8 @@ async function get(event: HandlerEvent) {
       .find()
       .toArray();
 
+    projects.sort((a, b) => a.order - b.order);
+
     return jsonResponse({
       status: 200,
       body: { projects },

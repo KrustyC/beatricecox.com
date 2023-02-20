@@ -20,7 +20,10 @@ interface ImageWithTextProps {
 
 const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
   <div className="flex flex-col flex-1 px-8 lg:px-0">
-    <div className="h-[320px] lg:h-[427px] relative w-full mb-4">
+    <div className="px-1 text-center font-thin text-xl">
+      {parse(image.text)}
+    </div>
+    <div className="h-[320px] lg:h-[427px] relative w-full mt-8">
       <Image
         alt=""
         src={image.img}
@@ -31,9 +34,6 @@ const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
           objectFit: "cover",
         }}
       />
-    </div>
-    <div className="px-1 text-center font-thin text-xl">
-      {parse(image.text)}
     </div>
   </div>
 );

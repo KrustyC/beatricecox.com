@@ -35,6 +35,7 @@ const DEFAULT_PROJECT: Project = {
   description: "",
   mainImage: "",
   listingImage: "",
+  order: 1000,
   blocks: [],
 };
 

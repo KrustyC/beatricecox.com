@@ -94,7 +94,9 @@ const FourImages: React.FC<{
 }> = ({ images, showVertical }) => (
   <div
     className={`${
-      showVertical ? "flex flex-col gap-y-8" : "grid lg:grid-cols-2 gap-6"
+      showVertical
+        ? "flex flex-col gap-y-8"
+        : "grid lg:grid-cols-2 gap-x-8 gap-y-12"
     }`}
   >
     {images.map((image, i) => (
@@ -119,7 +121,7 @@ export const DescriptionAndPicsBlock: React.FC<
 > = ({ block }) => {
   const renderImages = (pictures: string[], showVertical: boolean) => {
     const nOfImages = pictures.length;
-    console.log(nOfImages, showVertical);
+
     if (nOfImages === 1) {
       return <SingleImage image={pictures[0]} />;
     }

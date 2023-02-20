@@ -1,12 +1,7 @@
-// import { useState } from "react";
 import Link from "next/link";
-// import { Transition } from "@tailwindui/react";
-// import { InstagramIcon } from "@/components/icons/Instagram";
-// import { TwitterIcon } from "@/components/icons/Twitter";
 import { PAGE_LINKS } from "@/utils/constants";
-// import { BurgerMenu } from "./BurgerMenu";
 
-export const Navbar: React.FC = ({}) => {
+export const Navbar: React.FC = () => {
   // const [isOpen, setIsOpen] = useState(false);
 
   // const onToggle = () => {
