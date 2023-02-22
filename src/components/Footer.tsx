@@ -14,12 +14,12 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
         <div className="text-right">
           <div className="flex items-center justify-end">
             <a
-              className="h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full"
+              className="bg-[#EDB8B8] h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full"
               href={TWITTER_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <TwitterIcon className="hover:animate-wiggle h-24 w-24 text-[#EDB8B8] fill-[#EDB8B8]" />
+              <TwitterIcon className="hover:animate-wiggle h-24 w-24 text-[#C89191] fill-[#C89191]" />
             </a>
             <a
               className="bg-[#C89191] h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
@@ -31,12 +31,12 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
             </a>
 
             <a
-              className="h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full"
+              className="bg-[#EDB8B8] h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full"
               href={LINKEDIN_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedInIcon className="hover:animate-wiggle h-24 w-24 text-[#EDB8B8] fill-[#EDB8B8]" />
+              <LinkedInIcon className="hover:animate-wiggle h-24 w-24 text-[#C89191] fill-[#C89191]" />
             </a>
           </div>
         </div>
