@@ -35,6 +35,7 @@ const DEFAULT_PROJECT: Project = {
   description: "",
   mainImage: "",
   listingImage: "",
+  comingSoon: false,
   order: 1000,
   blocks: [],
 };
@@ -95,6 +96,13 @@ export const ProjectForm: React.FC<
         onSubmit={methods.handleSubmit((data) => onSubmit(data))}
       >
         <div className="flex  flex-col w-full mb-8">
+          <div className="my-4 mb-4 w-full flex items-center">
+            <input type="checkbox" {...methods.register(`comingSoon`)} />
+            <span className="block text-gray-700 text-sm font-bold ml-2">
+              Coming Soon
+            </span>
+          </div>
+
           <div className="mb-4">
             <Input
               register={methods.register}

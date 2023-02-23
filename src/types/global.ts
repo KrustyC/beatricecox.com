@@ -25,6 +25,7 @@ export interface Project {
   year: number;
   category: ProjectCategory | string;
   order: number;
+  comingSoon?: boolean;
 
   intro: string;
   description: string;

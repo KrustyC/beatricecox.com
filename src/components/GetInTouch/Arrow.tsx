@@ -71,9 +71,10 @@ export const Arrow: React.FC = () => {
 
             <div className="flex items-center w-1/2">
               <p className="text-white text-sm w-full mr-2">
-                Welcome to my personal website, I'm an Anglo-Italian who moved
-                to London a couple of years ago having graduated as a Product
-                Designer from Bologna University with a First Class Degree.
+                Welcome to my personal website, I{"'"}m an Anglo-Italian who
+                moved to London a couple of years ago having graduated as a
+                Product Designer from Bologna University with a First Class
+                Degree.
               </p>
               <div
                 className="h-0 w-0 border-y-[55px] border-y-transparent border-r-[40px] border-red cursor-pointer"
