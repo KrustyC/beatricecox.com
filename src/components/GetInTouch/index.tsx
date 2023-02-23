@@ -24,8 +24,12 @@ export const GetInTouch: React.FC = ({}) => {
     if (st > lastScrollTop) {
       // downscroll code
       const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect || rect.top < window.innerHeight / 2 - 100) {
-        // If we are in the top third of the page, stop the animation
+      if (!rect || rect.top < 1) {
+        return;
+      }
+
+      if (rect.top < 5) {
+        containerRef.current.style.top = `-5px`;
         return;
       }
 

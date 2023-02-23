@@ -70,7 +70,7 @@ export const Arrow: React.FC = () => {
             </div>
 
             <div className="flex items-center w-1/2">
-              <p className="text-white w-full mr-2">
+              <p className="text-white text-sm w-full mr-2">
                 Welcome to my personal website, I'm an Anglo-Italian who moved
                 to London a couple of years ago having graduated as a Product
                 Designer from Bologna University with a First Class Degree.
