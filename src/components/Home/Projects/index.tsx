@@ -1,6 +1,5 @@
 import { Project as IProject } from "@/types/global";
 import { ProjectCategory } from "@/types/app";
-import Link from "next/link";
 import { useProjectsWithFilter } from "./useProjectsWithFilter";
 import { Project } from "./Project";
 
@@ -34,12 +33,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             <Project key={project._id} project={project} />
           ))}
         </div>
-      </div>
-
-      <div className="h-20 flex items-center justify-center">
-        <Link href="/projects" className="text-black">
-          SEE MORE
-        </Link>
       </div>
     </div>
   );
