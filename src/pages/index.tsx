@@ -13,18 +13,19 @@ import { Project } from "@/types/global";
 import { GetInTouch } from "@/components/GetInTouch";
 import { ReloadButton } from "@/components/ReloadButton";
 import { useState } from "react";
+import { useHomePageOverlay } from "@/contexts/HomePageOverlayContext";
 
 interface HomePageProps {
   projects: Project[];
 }
 
 const Home: NextPage<HomePageProps> = ({ projects }) => {
-  const overlayAnimationStyle = useOverlayAnimation();
-  const [isOverlayHidden, setIsOverlayHidden] = useState(false);
+  const { isVisible: isOverlayVisible, hide: onHideOverlay } =
+    useHomePageOverlay();
+  const overlayAnimationStyle = useOverlayAnimation(isOverlayVisible);
+
   const [projectsToUse, setProjectsToUse] = useState(projects);
   const { currentFilter, onSelectFilter } = useFilters();
-
-  const onHideOverlay = () => setIsOverlayHidden(true);
 
   const onRefetchFetchShit = async () => {
     try {
@@ -48,7 +49,10 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Overlay onHideOverlay={onHideOverlay} />
+      <Overlay
+        initiallyVisible={isOverlayVisible}
+        onHideOverlay={onHideOverlay}
+      />
 
       <animated.div style={overlayAnimationStyle} className="flex flex-col">
         <Hero />
@@ -87,7 +91,7 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
         <Footer />
       </animated.div>
 
-      {isOverlayHidden && <GetInTouch />}
+      {!isOverlayVisible && <GetInTouch />}
     </div>
   );
 };

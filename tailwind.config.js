@@ -50,7 +50,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "home-pattern": "url('/sicily.jpg')",
+        "home-pattern": "url('/homepage-portrait.png')",
       },
       keyframes: {
         wiggle: {

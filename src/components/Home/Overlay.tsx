@@ -8,31 +8,32 @@ const Portal = dynamic(() => import("@/components/Portal"), {
 });
 
 interface OverlayProps {
+  initiallyVisible: boolean;
   onHideOverlay: VoidFunction;
 }
 
 export const Overlay: React.FC<OverlayProps> = ({
+  initiallyVisible,
   onHideOverlay: onHideOverlayCb,
 }) => {
-  const [showOverlay, setShowOverlay] = useState(true);
+  const [showOverlay, setShowOverlay] = useState(initiallyVisible);
   const [isOverlayActuallyVisible, setIsOverlayActuallyVisible] =
-    useState(true);
+    useState(initiallyVisible);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.body.style.overflow = "hidden";
+    if (showOverlay) {
+      document.body.style.overflow = "hidden";
+    }
   }, []);
 
   const overlayAnimationStyle = useSpring({
     opacity: showOverlay ? 1 : 0,
-    // from: { opacity: 1 },
-    // // enter: { opacity: 1 },
-    // leave: { opacity: 0 },
-
     config: config.molasses,
   });
 
   useEffect(() => {
+    console;
     setTimeout(() => {
       if (!showOverlay) {
         setIsOverlayActuallyVisible(false);

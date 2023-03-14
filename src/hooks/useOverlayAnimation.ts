@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { config, useSpring } from "@react-spring/web";
 
-export function useOverlayAnimation() {
-  const [show, setShow] = useState(false);
+export function useOverlayAnimation(isOverlayInitiallyVisible: boolean) {
+  const [show, setShow] = useState(isOverlayInitiallyVisible ? false : true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.body.style.overflow = "hidden";
-    setTimeout(() => {
-      setShow(true);
-    }, 300);
+
+    if (isOverlayInitiallyVisible) {
+      document.body.style.overflow = "hidden";
+      setTimeout(() => {
+        setShow(true);
+      }, 300);
+    }
   }, []);
 
   const overlayAnimationStyle = useSpring({

@@ -70,6 +70,7 @@ const AdminProjectsLayout: React.FC<React.PropsWithChildren<unknown>> = ({
       subtitle="Here you can manage your projects."
       itemName="Projects"
       createItemPath="/admin/projects/new"
+      includeProjectsReIndexingButton
     >
       {children}
     </IndexLayout>

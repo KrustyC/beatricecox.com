@@ -23,24 +23,21 @@ export const Hero = () => (
       </div>
 
       <div className="flex-1 text-lg px-4 mt-8 lg:mt-0 lg:pl-12 leading-7 items-center">
-        <p className="mb-8">
-          Welcome to my personal website, I{"'"}m an Anglo-Italian who studied
-          at Bologna University and moved to London where I worked for almost 6
-          years. I have recently decided to take the plunge and freelance whilst
-          travelling.
-        </p>
+        {/* <span className="text-black text-2xl lg:text-4xl font-bodoni">
+          Beatrice Duguid Cox
+        </span> */}
 
         <p className="mb-8">
-          It{"'"}s been great working in multidisciplinary environments and
-          gaining a broad range of experience in different design areas
-          including: 2D/3D graphics, 3D interiors and UX/UI strategy. I{"'"}m a
-          true believer in working ways around things to try and make them
-          environmentally less impactful, more ethical and always try to be
-          aware of the bigger picture.
+          I studied at Bologna University and worked in London for 6 years. I'm
+          currently freelancing and travelling the globe.
         </p>
 
         <p>
-          I hope you enjoy looking at the projects I{"'"}ve worked on so far.
+          I’ve been working in multidisciplinary environments and different
+          design areas including: 2D/3D graphics, 3D interiors and UX/UI
+          strategy. I'm a true believer in working ways around things to try and
+          make them environmentally less impactful, more ethical and always try
+          to be aware of the bigger picture.
         </p>
       </div>
     </div>

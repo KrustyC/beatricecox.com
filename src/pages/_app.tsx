@@ -7,6 +7,7 @@ import { DefaultLayout } from "@/layouts/DefaultLayout";
 import netlifyIdentity from "netlify-identity-widget";
 import { useState, useEffect } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
+import { HomePageOverlayContext } from "@/contexts/HomePageOverlayContext";
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout<Readonly<unknown>>;
@@ -20,6 +21,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || DefaultLayout;
 
   const router = useRouter();
+
+  const [isHomepageOverlayVisible, setisHomepageOverlayVisible] = useState(
+    router.pathname === "/"
+  );
+
   const [user, setUser] = useState<netlifyIdentity.User | null>(null);
 
   useEffect(() => {
@@ -52,6 +58,8 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     netlifyIdentity.logout();
   };
 
+  const onHideHomepageOverlayVisible = () => setisHomepageOverlayVisible(false);
+
   if (pageProps.protected && !user) {
     return (
       <div className="h-screen flex flex-col items-center justify-center bg-admin-grey text-gray-700">
@@ -68,21 +76,28 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     );
   }
 
-  const context = {
+  const authContext = {
     login,
     logout,
     user,
     authReady: !!user,
   };
 
+  const homePageOverlayContext = {
+    isVisible: isHomepageOverlayVisible,
+    hide: onHideHomepageOverlayVisible,
+  };
+
   return (
     <main className={`${bodoni.variable} font-sans`}>
-      <AuthContext.Provider value={context}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+      <AuthContext.Provider value={authContext}>
+        <HomePageOverlayContext.Provider value={homePageOverlayContext}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
 
-        <div id="floating-button-root" />
+          <div id="floating-button-root" />
+        </HomePageOverlayContext.Provider>
       </AuthContext.Provider>
     </main>
   );
