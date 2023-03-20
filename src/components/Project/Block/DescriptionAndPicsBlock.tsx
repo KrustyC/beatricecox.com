@@ -20,19 +20,16 @@ interface DescriptionAndPicsBlockProps {
 const SingleImage: React.FC<{
   image: string;
 }> = ({ image }) => (
-  <div className="flex grid-cols-2 gap-6 lg:gap-6">
-    <div className="relative h-[330px] lg:h-[516px] w-full">
-      <Image
-        alt=""
-        src={image}
-        loading="lazy"
-        fill
-        sizes="100vw"
-        style={{
-          objectFit: "contain",
-        }}
-      />
-    </div>
+  <div className="relative">
+    <img
+      alt=""
+      src={image}
+      loading="lazy"
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+    />
   </div>
 );
 
@@ -43,18 +40,18 @@ const TwoImages: React.FC<{
   <div
     className={`grid ${
       showVertical ? "grid-cols-1" : "grid-cols-2"
-    } gap-6 lg:gap-6`}
+    } gap-6 lg:gap-12`}
   >
     {images.map((image, i) => (
-      <div key={i} className="relative h-[330px] lg:h-[516px] w-full">
-        <Image
+      <div key={i}>
+        <img
           alt=""
           src={image}
           loading="lazy"
-          fill
           sizes="100vw"
           style={{
-            objectFit: "contain",
+            height: "100%",
+            width: "100%",
           }}
         />
       </div>

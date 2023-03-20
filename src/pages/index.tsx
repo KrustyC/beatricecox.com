@@ -70,21 +70,16 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
 
         <Skills />
 
-        <div className="flex justify-end bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[400px] lg:h-[600px] w-full">
-          <div className="flex flex-col justify-center w-1/2">
-            <h1>Blog</h1>
-            <p className="my-3 pr-24">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
-              leo vel libero mattis dictum. Sed aliquam dolor ut tellus iaculis
-              hendrerit sed molestie velit. Maecenas sit amet nisi ut nunc
-              pharetra laoreet. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Suspendisse porta non augue ac fermentum. Aenean
-              placerat nisl vitae augue gravida, id convallis ipsum lobortis.
-              Nullam nunc nulla, gravida a mauris vel, consequat porttitor nibh.
-              Mauris finibus lacus a scelerisque fringilla. Cras vel ipsum
-              tincidunt, fringilla diam nec, varius nulla.
-            </p>
-            <span>COMING SOON...</span>
+        <div className="flex justify-start bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[400px] lg:h-[600px] w-full">
+          <div className="flex items-center justify-center w-1/2 text-white bg-gradient-to-r from-black">
+            <div className="w-2/3">
+              <h1>Blog</h1>
+              <p className="my-3 w-4/6">
+                Currently travelling the globe and writing a few stories on my
+                whereabouts and experiences, please feel free to visit the blog.
+              </p>
+              <span>COMING SOON...</span>
+            </div>
           </div>
         </div>
 
