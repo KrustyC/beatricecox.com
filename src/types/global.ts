@@ -91,6 +91,7 @@ export interface DescriptionAndPicsBlock extends BaseBlock {
   description: string;
   pictures: string[];
   showVertical?: boolean;
+  noVerticalPadding?: boolean;
 }
 
 export interface ImageWithText {

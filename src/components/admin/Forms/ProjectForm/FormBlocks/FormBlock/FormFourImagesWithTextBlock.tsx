@@ -21,11 +21,13 @@ export function blockIsFourImagesWithTextBlock(
 interface ImageWithTextInputProps {
   index: number;
   imageKey: "image1" | "image2" | "image3" | "image4";
+  required?: boolean;
 }
 
 const ImageWithTextInput: React.FC<ImageWithTextInputProps> = ({
   index,
   imageKey,
+  required = true,
 }) => {
   const {
     control,
@@ -37,7 +39,9 @@ const ImageWithTextInput: React.FC<ImageWithTextInputProps> = ({
       <div>
         <Controller
           name={`blocks.${index}.${imageKey}.img`}
-          rules={{ required: "Please make sure to add an image" }}
+          rules={{
+            required: required ? "Please make sure to add an image" : false,
+          }}
           render={(props) => (
             <ImageSelector
               size="h-[250px] w-[300px]"
@@ -56,7 +60,7 @@ const ImageWithTextInput: React.FC<ImageWithTextInputProps> = ({
         <Controller
           control={control}
           name={`blocks.${index}.${imageKey}.text`}
-          rules={{ validate: isValidDescription }}
+          rules={{ validate: required ? isValidDescription : () => true }}
           render={({ field: { value, onChange, onBlur } }) => (
             <Editor
               value={value}
@@ -112,8 +116,16 @@ export const FormFourImagesWithTextBlock: React.FC<
         <div className="flex flex-col gap-8 w-full">
           <ImageWithTextInput index={index} imageKey="image1" />
           <ImageWithTextInput index={index} imageKey="image2" />
-          <ImageWithTextInput index={index} imageKey="image3" />
-          <ImageWithTextInput index={index} imageKey="image4" />
+          <ImageWithTextInput
+            index={index}
+            imageKey="image3"
+            required={false}
+          />
+          <ImageWithTextInput
+            index={index}
+            imageKey="image4"
+            required={false}
+          />
         </div>
       )}
     </div>

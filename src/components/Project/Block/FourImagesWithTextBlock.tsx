@@ -6,7 +6,6 @@ import {
   ProjectBlockType,
 } from "@/types/global";
 import parse from "html-react-parser";
-import Image from "next/image";
 
 export function blockIsFourImagesWithTextBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -23,18 +22,15 @@ const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
     <div className="px-1 text-center font-thin text-xl">
       {parse(image.text)}
     </div>
-    <div className="h-[320px] lg:h-[427px] relative w-full mt-8">
-      <Image
-        alt=""
-        src={image.img}
-        fill
-        loading="lazy"
-        sizes="100vw"
-        style={{
-          objectFit: "cover",
-        }}
-      />
-    </div>
+    <img
+      alt={image.text}
+      src={image.img}
+      loading="lazy"
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+    />
   </div>
 );
 
@@ -52,8 +48,8 @@ export const FourImagesWithTextBlock: React.FC<
     <div className="lg:w-[1040px] lg:max-w-[1040px] mx-auto flex flex-col lg:flex-row gap-8">
       <ImageWithText image={block.image1} />
       <ImageWithText image={block.image2} />
-      <ImageWithText image={block.image3} />
-      <ImageWithText image={block.image4} />
+      {block.image3 && <ImageWithText image={block.image3} />}
+      {block.image4 && <ImageWithText image={block.image4} />}
     </div>
   </div>
 );

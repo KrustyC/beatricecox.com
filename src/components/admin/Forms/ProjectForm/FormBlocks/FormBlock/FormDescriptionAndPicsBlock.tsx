@@ -118,6 +118,16 @@ export const FormDescriptionAndPicsBlock: React.FC<
                 Show images in a vertical fashion
               </span>
             </div>
+
+            <div className="my-4 w-full flex items-center">
+              <input
+                type="checkbox"
+                {...register(`blocks.${index}.noVerticalPadding`)}
+              />
+              <span className="uppercase block text-gray-700 text-sm font-bold ml-2">
+                No vertical padding
+              </span>
+            </div>
           </div>
         </>
       )}

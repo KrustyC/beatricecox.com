@@ -140,7 +140,9 @@ export const DescriptionAndPicsBlock: React.FC<
 
   return (
     <div
-      className="project-section"
+      className={`project-section ${
+        block.noVerticalPadding ? "no-vertical-padding" : ""
+      }`}
       style={{ background: block.backgroundColor || "white" }}
     >
       <div className="project-container flex flex-col">
@@ -149,7 +151,7 @@ export const DescriptionAndPicsBlock: React.FC<
         )}
 
         {block.description && (
-          <div className="text-lg font-light mb-8">
+          <div className="text-lg font-light mb-16">
             {parse(block.description)}
           </div>
         )}
