@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { Bodoni_Moda } from "@next/font/google";
 import type { AppProps } from "next/app";
+import Script from "next/script";
 import { useRouter } from "next/router";
 import type { NextPageWithLayout } from "@/types/app";
 import { DefaultLayout } from "@/layouts/DefaultLayout";
@@ -89,16 +90,36 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   };
 
   return (
-    <main className={`${bodoni.variable} font-sans`}>
-      <AuthContext.Provider value={authContext}>
-        <HomePageOverlayContext.Provider value={homePageOverlayContext}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+    <>
+      <main className={`${bodoni.variable} font-sans`}>
+        <AuthContext.Provider value={authContext}>
+          <HomePageOverlayContext.Provider value={homePageOverlayContext}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
 
-          <div id="floating-button-root" />
-        </HomePageOverlayContext.Provider>
-      </AuthContext.Provider>
-    </main>
+            <div id="floating-button-root" />
+          </HomePageOverlayContext.Provider>
+        </AuthContext.Provider>
+      </main>
+      {process.env.environment === "production" && (
+        <>
+          <Script
+            async
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}
+          />
+          <Script id="ga-script" strategy="afterInteractive">
+            {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                
+                gtag('config', '${process.env.googleAnalyticsId}');
+                `}
+          </Script>
+        </>
+      )}
+    </>
   );
 }
