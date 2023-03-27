@@ -11,7 +11,7 @@ async function post(client: MongoClient) {
     const projects = await client
       .db(process.env.MONGO_DB_NAME)
       .collection(PROJECTS_COLLECTION)
-      .find()
+      .find({ draft: false })
       .toArray();
 
     const promises = projects.map(async (project, i) => {

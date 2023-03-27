@@ -5,6 +5,8 @@ import { getPlaiceholder } from "plaiceholder";
 import { Project as IProject } from "@/types/global";
 import { Footer } from "@/components/Footer";
 import { Project } from "@/components/Project";
+import { PasswordProtectionScreen } from "@/components/PasswordProtectionScreen";
+import { useProjectReveal } from "@/hooks/useProjectReveal";
 
 interface FetchProjectsResponse {
   project: IProject;
@@ -49,8 +51,14 @@ export async function getServerSideProps({
 
   return {
     props: {
-      project,
+      project: !project.isPasswordProtected
+        ? project
+        : {
+            title: project.title,
+            slug: project.slug,
+          },
       mainImageProps: { ...img, blurDataURL: base64 },
+      isPasswordProtected: project.isPasswordProtected,
     },
   };
 }
@@ -61,8 +69,19 @@ type ProjectPageProps = InferGetStaticPropsType<typeof getServerSideProps>;
 const ProjectPage: NextPage<ProjectPageProps> = ({
   project,
   mainImageProps,
+  isPasswordProtected,
 }) => {
   const pageTitle = `Beatrice Duguid Cox | ${project.title}`;
+
+  const {
+    project: revealedProject,
+    loading,
+    error: fetchError,
+    onFetchProject,
+  } = useProjectReveal();
+
+  const onPasswordProtectedFetchProject = (password: string) =>
+    onFetchProject(project.slug, password);
 
   return (
     <div>
@@ -71,14 +90,34 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
 
         <meta
           name="description"
-          content="Here you can find a list of porjects I have been working on"
+          content="Here you can find a list of projects I have been working on"
         />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Project project={project} mainImageProps={mainImageProps} />
+        {isPasswordProtected ? (
+          <>
+            {!revealedProject ? (
+              <PasswordProtectionScreen
+                loading={loading}
+                fetchError={fetchError}
+                onFetchProject={onPasswordProtectedFetchProject}
+              />
+            ) : (
+              <Project
+                project={revealedProject}
+                mainImageProps={mainImageProps}
+              />
+            )}
+          </>
+        ) : (
+          <Project
+            project={project as IProject}
+            mainImageProps={mainImageProps}
+          />
+        )}
       </main>
 
       <Footer />

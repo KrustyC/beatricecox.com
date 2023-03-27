@@ -12,12 +12,14 @@ async function get(event: HandlerEvent) {
       throw new Error("Can not connect to DB");
     }
 
-    const { slug } = event.queryStringParameters as { slug?: string };
-    if (slug) {
+    const { slug: searchSlug } = event.queryStringParameters as {
+      slug?: string;
+    };
+    if (searchSlug) {
       const project = await client
         .db(process.env.MONGO_DB_NAME)
         .collection(PROJECTS_COLLECTION)
-        .findOne({ slug });
+        .findOne({ slug: searchSlug, draft: false });
 
       if (!project) {
         return jsonResponse({
@@ -28,23 +30,49 @@ async function get(event: HandlerEvent) {
         });
       }
 
+      const {
+        passwordForProtection,
+        isPasswordProtected,
+        slug,
+        title,
+        mainImage,
+        ...rest
+      } = project;
+
       return jsonResponse({
         status: 200,
-        body: { project, prevSlug: "", nextSlug: "" },
+        body: {
+          project: {
+            slug,
+            title,
+            mainImage,
+            isPasswordProtected,
+            ...(!isPasswordProtected ? rest : {}),
+          },
+          prevSlug: "",
+          nextSlug: "",
+        },
       });
     }
 
     const projects = await client
       .db(process.env.MONGO_DB_NAME)
       .collection(PROJECTS_COLLECTION)
-      .find()
+      .find({ draft: false })
       .toArray();
 
     projects.sort((a, b) => a.order - b.order);
 
     return jsonResponse({
       status: 200,
-      body: { projects },
+      body: {
+        projects: projects.map((project) => {
+          // Filter out the password to avoid exposing it to the client
+          const { passwordForProtection, ...rest } = project;
+
+          return rest;
+        }),
+      },
     });
   } catch (error) {
     return jsonResponse({

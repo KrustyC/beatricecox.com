@@ -19,12 +19,15 @@ export type FormProjectImage = {
 
 export interface Project {
   _id?: number;
+  draft: boolean;
   img: string;
   title: string;
   slug: string;
   year: number;
   category: ProjectCategory | string;
   order: number;
+  isPasswordProtected?: boolean;
+  passwordForProtection?: string;
   comingSoon?: boolean;
 
   intro: string;
