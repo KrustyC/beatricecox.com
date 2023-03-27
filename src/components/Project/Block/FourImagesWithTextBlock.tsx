@@ -48,8 +48,12 @@ export const FourImagesWithTextBlock: React.FC<
     <div className="lg:w-[1040px] lg:max-w-[1040px] mx-auto flex flex-col lg:flex-row gap-8">
       <ImageWithText image={block.image1} />
       <ImageWithText image={block.image2} />
-      {block.image3 && <ImageWithText image={block.image3} />}
-      {block.image4 && <ImageWithText image={block.image4} />}
+      {block.image3 && Object.keys(block.image3).length > 0 && (
+        <ImageWithText image={block.image3} />
+      )}
+      {block.image4 && Object.keys(block.image4).length > 0 && (
+        <ImageWithText image={block.image4} />
+      )}
     </div>
   </div>
 );
