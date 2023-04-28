@@ -18,12 +18,6 @@ const nextConfig = {
     ],
     minimumCacheTTL: 60,
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require("./scripts/sitemap-generator.js");
-    }
-    return config;
-  },
 };
 
 module.exports = withPlaiceholder(nextConfig);

@@ -7,8 +7,44 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>beatricecox.com/projects/[slug]</loc>
-    <lastmod>2023-04-28T08:20:03.027Z</lastmod>
+    <loc>beatricecox.com/projects/babingtons-blends</loc>
+    <lastmod>2023-04-01T08:20:03.027Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>beatricecox.com/projects/bervini-brand-development</loc>
+    <lastmod>2023-04-01T08:00:00.007Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>beatricecox.com/projects/salty-commune</loc>
+    <lastmod>2023-03-12T08:00:00.007Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>beatricecox.com/projects/vasco-and-pieros-anniversary-book</loc>
+    <lastmod>2023-04-12T08:00:00.007Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>beatricecox.com/projects/wine-label-illustration</loc>
+    <lastmod>2023-04-22T08:00:00.007Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>beatricecox.com/projects/babingtons-porcelain-design</loc>
+    <lastmod>2023-03-29T08:00:00.007Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>beatricecox.com/projects/babingtons-books</loc>
+    <lastmod>2023-04-20T08:00:00.007Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
