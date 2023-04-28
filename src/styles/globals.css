@@ -7,12 +7,12 @@
   h2,
   h3,
   h4 {
-    @apply font-bodoni font-[800];
+    @apply font-bodoni font-[800] text-black;
   }
 
   h5,
   h6 {
-    @apply font-bodoni font-[400];
+    @apply font-bodoni font-[400] text-black;
   }
 
   #editor > p {

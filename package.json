@@ -8,8 +8,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@netlify/functions": "^1.2.0",
-    "@next/font": "^13.0.4",
+    "@netlify/functions": "^1.4.0",
+    "@netlify/next": "^1.4.5",
     "@plaiceholder/next": "^2.5.0",
     "@react-spring/web": "^9.5.5",
     "@tailwindui/react": "^0.1.1",
@@ -23,7 +23,7 @@
     "mongodb": "^4.12.0",
     "mongodb-client-encryption": "^2.3.0",
     "netlify-identity-widget": "^1.9.2",
-    "next": "^13.0.4",
+    "next": "13.2",
     "plaiceholder": "^2.5.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -35,12 +35,12 @@
     "react-toastify": "^9.1.1",
     "sharp": "^0.31.2",
     "slick-carousel": "^1.8.1",
-    "slugify": "^1.6.5",
+    "slugify": "^1.6.6",
     "uuidv4": "^6.2.13",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.29.1",
+    "@netlify/plugin-nextjs": "^4.36.0",
     "@types/netlify-identity-widget": "^1.9.3",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
@@ -56,7 +56,7 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-prettier": "^4.2.1",
     "globby": "^11.1.0",
-    "next-sitemap": "^3.1.32",
+    "next-sitemap": "^4.0.7",
     "postcss": "^8.4.19",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.2.4",

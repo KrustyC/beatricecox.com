@@ -14,7 +14,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
       {project.comingSoon ? (
         <div className="flex flex-col">
           <div className="relative">
-            <div className="tracking-[0.35em] absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 uppercase bg-black text-white px-4 py-3">
+            <div className="tracking-[0.35em] absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 uppercase bg-black text-white text-lg py-3 w-[230px] text-center">
               coming soon
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}

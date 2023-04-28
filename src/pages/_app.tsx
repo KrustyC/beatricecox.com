@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { Bodoni_Moda } from "@next/font/google";
+import { Bodoni_Moda } from "next/font/google";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useRouter } from "next/router";

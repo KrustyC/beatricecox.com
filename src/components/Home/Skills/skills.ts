@@ -10,10 +10,10 @@ export const SOFTWARES = [
 ];
 
 export const SKILLS = [
-  "Illustrations",
+  "Illustration",
   "UX/UI Design",
   "Graphic Design",
-  "3d modelling",
+  "3D modelling",
   "Interior Design",
   "Etching & Linocuts",
   "Sculpture",

@@ -13,7 +13,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
     <div className="sticky top-0 h-28 bg-[#E5E4E2] z-50">
       <div className="h-full px-4 md:px-16 lg:px-32 xl:px-60 flex font-light items-center justify-between text-bodoni tracking-wide uppercase overflow-x-auto">
         <div
-          className="whitespace-nowrap cursor-pointer tracking-[0.35em] text-white text-lg xl:text-xl bg-black px-6 py-4"
+          className="whitespace-nowrap cursor-pointer tracking-[0.35em] text-white text-lg xl:text-xl bg-black px-6 py-3"
           onClick={() => onSelectFilter(undefined)}
         >
           All Projects

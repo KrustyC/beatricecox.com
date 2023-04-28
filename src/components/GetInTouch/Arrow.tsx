@@ -86,7 +86,7 @@ export const Arrow: React.FC = () => {
       </div>
       {!showFullWidthContainers && (
         <div
-          className="h-0 w-0 border-y-[55px] border-y-transparent border-l-[40px] border-[#000000] cursor-pointer"
+          className="h-0 w-0 border-y-[55px] border-y-transparent border-l-[40px] border-black cursor-pointer"
           onClick={onShowFullWidth}
         />
       )}

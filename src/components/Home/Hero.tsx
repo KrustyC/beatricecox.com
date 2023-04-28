@@ -4,9 +4,9 @@ import { Navbar } from "../Navbar";
 export const Hero = () => (
   <div className="bg-[#EDB8B8] flex flex-col">
     <Navbar />
-    <div className="w-full flex flex-col items-center lg:flex-row px-8 md:px-16 lg:px-32 lg:pt-12 pb-24 max-w-[1280px] mx-auto">
+    <div className="w-full flex flex-col items-center lg:flex-row px-8 md:px-16 lg:px-32 lg:pt-12 pb-12 max-w-[1280px] mx-auto">
       <div className="flex-1 flex items-start justify-center">
-        <div className="relative h-[350px] w-[350px] lg:h-[400px] lg:w-[400px] rounded-full">
+        <div className="relative h-[300px] w-[300px] lg:h-[400px] lg:w-[400px] rounded-full">
           <Image
             className="z-1 rounded-full"
             alt="me"
