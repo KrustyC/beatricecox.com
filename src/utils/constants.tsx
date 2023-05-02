@@ -1,5 +1,4 @@
-export const INSTAGRAM_LINK =
-  "https://www.instagram.com/ourhutarchitecture/?hl=en";
+export const INSTAGRAM_LINK = "https://www.instagram.com/beets_and_roots";
 export const TWITTER_LINK = "https://twitter.com/beatricecox16";
 export const LINKEDIN_LINK =
   "https://www.linkedin.com/in/beatrice-duguid-cox-b96419b9";
