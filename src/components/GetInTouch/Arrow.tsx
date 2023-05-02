@@ -1,8 +1,14 @@
 import { useState } from "react";
-import { INSTAGRAM_LINK, TWITTER_LINK, LINKEDIN_LINK } from "@/utils/constants";
+import {
+  INSTAGRAM_LINK,
+  LINKEDIN_LINK,
+  DRIBBLE_LINK,
+  FLICKR_LINK,
+} from "@/utils/constants";
 import { InstagramIcon } from "@/components/icons/Instagram";
-import { TwitterIcon } from "@/components/icons/Twitter";
 import { LinkedInIcon } from "@/components/icons/LinkedIn";
+import { DribbleIcon } from "@/components/icons/Dribble";
+import { FlickrIcon } from "@/components/icons/Flickr";
 
 export const Arrow: React.FC = () => {
   const [showFullWidth, setShowFullWidth] = useState(false);
@@ -43,29 +49,39 @@ export const Arrow: React.FC = () => {
           <div className="flex items-center justify-between pl-8 w-full">
             <div className="flex items-center gap-8">
               <a
-                className="h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full bg-black"
-                href={TWITTER_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon className="hover:animate-wiggle h-24 w-24 text-black text-white" />
-              </a>
-              <a
-                className="bg-white h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
+                className="bg-black h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
                 href={INSTAGRAM_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <InstagramIcon className="hover:animate-wiggle h-10 w-10 fill-transparent stroke-1 stroke-black" />
+                <InstagramIcon className="hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white" />
               </a>
 
               <a
-                className="h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full bg-black"
+                className="bg-black h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
+                href={DRIBBLE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DribbleIcon className="hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white" />
+              </a>
+
+              <a
+                className="bg-black h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
+                href={FLICKR_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FlickrIcon className="hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white" />
+              </a>
+
+              <a
+                className="bg-black h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
                 href={LINKEDIN_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <LinkedInIcon className="hover:animate-wiggle h-24 w-24 text-white" />
+                <LinkedInIcon className="hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white" />
               </a>
             </div>
 

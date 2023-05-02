@@ -1,7 +1,13 @@
 import { InstagramIcon } from "@/components/icons/Instagram";
-import { TwitterIcon } from "@/components/icons/Twitter";
 import { LinkedInIcon } from "@/components/icons/LinkedIn";
-import { INSTAGRAM_LINK, TWITTER_LINK, LINKEDIN_LINK } from "@/utils/constants";
+import {
+  INSTAGRAM_LINK,
+  LINKEDIN_LINK,
+  DRIBBLE_LINK,
+  FLICKR_LINK,
+} from "@/utils/constants";
+import { DribbleIcon } from "./icons/Dribble";
+import { FlickrIcon } from "./icons/Flickr";
 
 export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
@@ -14,29 +20,39 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
         <div className="text-right">
           <div className="flex items-center justify-end">
             <a
-              className="bg-[#EDB8B8] h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full"
-              href={TWITTER_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterIcon className="hover:animate-wiggle h-24 w-24 text-[#C89191] fill-[#C89191]" />
-            </a>
-            <a
-              className="bg-[#C89191] h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
+              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
               href={INSTAGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <InstagramIcon className="hover:animate-wiggle h-10 w-10 fill-transparent stroke-1 stroke-[#EDB8B8]" />
+              <InstagramIcon className="hover:animate-wiggle h-10 w-10 lg:h-14 lg:w-14 text-[#C89191]" />
             </a>
 
             <a
-              className="bg-[#EDB8B8] h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full"
+              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
+              href={DRIBBLE_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DribbleIcon className="hover:animate-wiggle h-10 w-10 lg:h-14 lg:w-14 text-[#C89191]" />
+            </a>
+
+            <a
+              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
+              href={FLICKR_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FlickrIcon className="hover:animate-wiggle h-10 w-10 lg:h-14 lg:w-14 text-[#C89191]" />
+            </a>
+
+            <a
+              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
               href={LINKEDIN_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedInIcon className="hover:animate-wiggle h-24 w-24 text-[#C89191] fill-[#C89191]" />
+              <LinkedInIcon className="hover:animate-wiggle h-10 w-10 lg:h-14 lg:w-14 text-[#C89191]" />
             </a>
           </div>
         </div>

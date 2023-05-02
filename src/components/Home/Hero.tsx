@@ -8,7 +8,7 @@ export const Hero = () => (
       <div className="flex-1 flex items-start justify-center">
         <div className="relative h-[300px] w-[300px] lg:h-[400px] lg:w-[400px] rounded-full">
           <Image
-            className="z-1 rounded-full"
+            className="z-1 rounded-full shadow-2xl"
             alt="me"
             src="/homepage-face.gif"
             fill
@@ -23,6 +23,9 @@ export const Hero = () => (
       </div>
 
       <div className="flex-1 text-lg px-4 mt-8 lg:mt-0 lg:pl-12 leading-7 items-center">
+        <p className="italic font-bold mb-8">
+          Have no fear of perfection—you’ll never reach it. –Salvador Dali
+        </p>
         <p className="mb-8">
           I studied at Bologna University and worked in London for 6 years. I
           {"'"}m currently freelancing and travelling the globe.

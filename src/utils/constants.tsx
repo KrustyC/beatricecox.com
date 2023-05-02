@@ -3,6 +3,9 @@ export const TWITTER_LINK = "https://twitter.com/beatricecox16";
 export const LINKEDIN_LINK =
   "https://www.linkedin.com/in/beatrice-duguid-cox-b96419b9";
 
+export const DRIBBLE_LINK = "https://dribbble.com/beattie";
+export const FLICKR_LINK = "https://www.flickr.com/photos/147991560@N07";
+
 export const PAGE_LINKS = [];
 
 export const PROJECT_PAGE_LINKS = [
