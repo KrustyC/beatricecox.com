@@ -6,7 +6,7 @@ import { Filterbar } from "@/components/Home/Filterbar";
 import { Projects } from "@/components/Home/Projects";
 import { Skills } from "@/components/Home/Skills";
 import { Footer } from "@/components/Footer";
-import { useFilters } from "@/hooks/useFilters";
+import { useCategoriesFilters } from "@/hooks/useCategoriesFilters";
 import { Project } from "@/types/global";
 import { GetInTouch } from "@/components/GetInTouch";
 import { ReloadButton } from "@/components/ReloadButton";
@@ -18,7 +18,7 @@ interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ projects }) => {
   const [projectsToUse, setProjectsToUse] = useState(projects);
-  const { currentFilter, onSelectFilter } = useFilters();
+  const { currentFilter, onSelectFilter } = useCategoriesFilters();
 
   const onRefetchFetchShit = async () => {
     try {

@@ -35,6 +35,7 @@ const DEFAULT_PROJECT: Project = {
   isPasswordProtected: false,
   passwordForProtection: "",
   category: ProjectCategory.UX_UI,
+  categoryText: "",
   year: 2020,
   intro: "",
   description: "",
@@ -197,24 +198,34 @@ export const ProjectForm: React.FC<
             </div>
           </div>
 
-          <div className="mb-4">
-            <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
-              Category
-            </span>
-            <div>
-              <Controller
-                control={methods.control}
-                name="category"
-                rules={{ validate: isValidCategory }}
-                render={({ field: { value, onChange, onBlur } }) => (
-                  <CategoryPicker
-                    currentValue={value}
-                    onChange={onChange}
-                    onBlur={onBlur}
-                  />
-                )}
-              />
+          <div className="flex gap-x-4 mb-4">
+            <div className="">
+              <span className="uppercase block text-gray-700 text-sm font-bold mb-2">
+                Category
+              </span>
+
+              <select
+                {...methods.register("category", {
+                  required: "Please add a year",
+                })}
+                className="bg-gray-20 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2"
+              >
+                {Object.entries(ProjectCategory).map(([key, value]) => (
+                  <option key={key}>{value}</option>
+                ))}
+              </select>
             </div>
+
+            <Input
+              width="w-[320px]"
+              register={methods.register}
+              options={{ required: "Please add a category text" }}
+              error={errors.slug}
+              label="Category Text"
+              name="categoryText"
+              type="text"
+              placeholder="Add a custom category text"
+            />
           </div>
 
           <div className="mb-4">

@@ -5,6 +5,8 @@ interface FilterbarProps {
   onSelectFilter: (filter?: ProjectCategory) => void;
 }
 
+const EXCLUDED_CATEGORIES = ["ALL", "PACKAGING_AND_UI"];
+
 export const Filterbar: React.FC<FilterbarProps> = ({
   currentFilter,
   onSelectFilter,
@@ -19,7 +21,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
           All Projects
         </div>
         {Object.entries(ProjectCategory)
-          .filter(([key]) => key !== "ALL")
+          .filter(([key]) => !EXCLUDED_CATEGORIES.includes(key))
           .map(([key, value]) => (
             <div
               key={key}

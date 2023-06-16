@@ -24,7 +24,8 @@ export interface Project {
   title: string;
   slug: string;
   year: number;
-  category: ProjectCategory | string;
+  category: ProjectCategory;
+  categoryText: string;
   order: number;
   isPasswordProtected?: boolean;
   passwordForProtection?: string;

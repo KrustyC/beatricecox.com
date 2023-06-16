@@ -34,11 +34,13 @@ async function post(client: MongoClient) {
                 slug: prevProject.slug,
                 title: prevProject.title,
                 category: projects[prevId].category,
+                categoryText: projects[prevId].categoryText,
               } as unknown as undefined, // This is some bullshit with the type of $set
               nextProject: {
                 slug: nextProject.slug,
                 title: nextProject.title,
                 category: nextProject.category,
+                categoryText: nextProject.categoryText,
               } as unknown as undefined, // This is some bullshit with the type of $set,
             },
           }

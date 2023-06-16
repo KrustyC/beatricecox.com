@@ -9,5 +9,6 @@ export enum ProjectCategory {
   PACKAGING = "Packaging",
   UX_UI = "UX/UI",
   INDUSTRIAL = "Industrial",
+  PACKAGING_AND_UI = "Packaging & UI",
   OTHER = "OTHER",
 }

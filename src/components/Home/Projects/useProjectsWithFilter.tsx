@@ -8,6 +8,13 @@ interface UseProjectArgs {
 
 type ProjectsColumn = [Project[], Project[]];
 
+const MULTI_CATEGORIES_MAP: Record<string, string[]> = {
+  [ProjectCategory.PACKAGING_AND_UI]: [
+    ProjectCategory.PACKAGING,
+    ProjectCategory.UX_UI,
+  ],
+};
+
 export function useProjectsWithFilter({
   projects,
   currentFilter,
@@ -16,6 +23,10 @@ export function useProjectsWithFilter({
     .filter(({ category }) => {
       if (!currentFilter) {
         return true;
+      }
+
+      if (category in MULTI_CATEGORIES_MAP) {
+        return MULTI_CATEGORIES_MAP[category as any].includes(currentFilter);
       }
 
       return category === currentFilter;

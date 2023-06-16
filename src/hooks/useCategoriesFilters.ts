@@ -6,9 +6,14 @@ interface UseProjectTypeReturn {
   onSelectFilter: (filter?: ProjectCategory) => void;
 }
 
-export function useFilters(): UseProjectTypeReturn {
+export function useCategoriesFilters(): UseProjectTypeReturn {
   const [currentFilter, setCurrentFilter] = useState<ProjectCategory>();
-  const onSelectFilter = (filter?: ProjectCategory) => setCurrentFilter(filter);
+  const onSelectFilter = (filter?: ProjectCategory) => {
+    setCurrentFilter(filter);
+    document
+      .getElementById("projects-container")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return {
     currentFilter,

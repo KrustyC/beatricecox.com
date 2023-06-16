@@ -39,7 +39,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
       )}
 
       <span className="text-xl text-[#8C8C8C] mt-1">
-        {project.category} - {project.year}
+        {project.categoryText} - {project.year}
       </span>
       <div className="mt-4">{parse(project.intro)}</div>
     </div>
