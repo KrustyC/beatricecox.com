@@ -26,7 +26,7 @@ export function useProjectsWithFilter({
       }
 
       if (category in MULTI_CATEGORIES_MAP) {
-        return MULTI_CATEGORIES_MAP[category as any].includes(currentFilter);
+        return MULTI_CATEGORIES_MAP[category].includes(currentFilter);
       }
 
       return category === currentFilter;

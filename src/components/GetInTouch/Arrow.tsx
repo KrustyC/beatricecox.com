@@ -34,12 +34,12 @@ export const Arrow: React.FC = () => {
   return (
     <div className="flex">
       <div
-        className={`flex items-center justify-center h-[110px] ${
+        className={`flex items-center justify-center h-[90px] ${
           showFullWidth ? "w-screen" : "w-[129px]"
         } bg-black transition-all ease duration-500`}
       >
         <span
-          className="justify-self-start text-lg tracking-[0.35rem] w-[129px] ml-6 font-normal text-white uppercase align-right leading-6  cursor-pointer"
+          className="justify-self-start text-sm tracking-[0.30rem] w-[129px] ml-6 font-normal text-white uppercase align-right leading-5  cursor-pointer"
           onClick={onToggle}
         >
           Get in touch
@@ -102,7 +102,7 @@ export const Arrow: React.FC = () => {
       </div>
       {!showFullWidthContainers && (
         <div
-          className="h-0 w-0 border-y-[55px] border-y-transparent border-l-[40px] border-black cursor-pointer"
+          className="h-0 w-0 border-y-[45px] border-y-transparent border-l-[40px] border-black cursor-pointer"
           onClick={onShowFullWidth}
         />
       )}

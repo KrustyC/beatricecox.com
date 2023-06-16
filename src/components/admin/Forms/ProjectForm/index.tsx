@@ -9,14 +9,13 @@ import {
 } from "react-hook-form";
 import { DangerIcon } from "@/components/icons/Danger";
 import { BaseBlock, Project, ProjectBlock } from "@/types/global";
-import { isValidCategory, isValidDescription } from "@/utils/validators";
+import { isValidDescription } from "@/utils/validators";
 import { ProjectCategory } from "@/types/app";
 
 import { LoadingSpinner } from "../../LoadingSpinner";
 import { Input } from "../../Input";
 import { Editor } from "../../Editor";
 import { ImageSelector } from "../../ImageSelector";
-import { CategoryPicker } from "./CategoryPicker";
 import { FormBlocks } from "./FormBlocks";
 import { RandomPasswordGeneratorButton } from "../../RandomPasswordGeneratorButton";
 
