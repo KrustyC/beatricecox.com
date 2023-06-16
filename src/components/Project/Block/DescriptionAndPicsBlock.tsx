@@ -4,6 +4,7 @@ import {
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
+import { isDescriptionEmpty } from "@/utils/content";
 import parse from "html-react-parser";
 import Image from "next/image";
 
@@ -93,11 +94,11 @@ const FourImages: React.FC<{
     className={`${
       showVertical
         ? "flex flex-col gap-y-8"
-        : "grid lg:grid-cols-2 gap-x-8 gap-y-12"
+        : "grid lg:grid-cols-2 gap-x-8 gap-y-8 lg:gap-y-12"
     }`}
   >
     {images.map((image, i) => (
-      <div key={i} className="h-[370px] w-full relative">
+      <div key={i} className="w-full aspect-square w-full relative">
         <Image
           alt=""
           src={image}
@@ -138,6 +139,8 @@ export const DescriptionAndPicsBlock: React.FC<
     return null;
   };
 
+  console.log(block);
+
   return (
     <div
       className={`project-section ${
@@ -150,8 +153,8 @@ export const DescriptionAndPicsBlock: React.FC<
           <h1 className="text-3xl font-medium mb-2">{block.title}</h1>
         )}
 
-        {block.description && (
-          <div className="text-lg font-light mb-16">
+        {!isDescriptionEmpty(block.description) && (
+          <div className="text-lg font-light mb-8 lg:mb-16">
             {parse(block.description)}
           </div>
         )}

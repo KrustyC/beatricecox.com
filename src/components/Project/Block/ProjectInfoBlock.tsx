@@ -42,7 +42,7 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
           {block.subtitle}
         </span>
 
-        <div className="text-lg lg:text-xl font-light mb-4 mb-10">
+        <div className="text-lg lg:text-xl font-light mb-8">
           {parse(block.description)}
         </div>
 

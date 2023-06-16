@@ -17,16 +17,18 @@ interface FullScreenBlockProps {
 }
 
 export const FullScreenBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
-  <div className="h-[350px] lg:h-[900px] w-screen relative">
-    <Image
-      alt=""
-      src={block.image}
-      fill
-      loading="lazy"
-      sizes="100vw"
-      style={{
-        objectFit: "cover",
-      }}
-    />
+  <div className="project-section ">
+    <div className="w-screen aspect-square lg:aspect-auto lg:h-[900px]  relative">
+      <Image
+        alt=""
+        src={block.image}
+        fill
+        loading="lazy"
+        sizes="100vw"
+        style={{
+          objectFit: "cover",
+        }}
+      />
+    </div>
   </div>
 );

@@ -11,6 +11,7 @@ import { Carousel } from "react-responsive-carousel";
 import { ChevronLeftIcon } from "@/components/icons/ChevronLeft";
 import { ChevronRightIcon } from "@/components/icons/ChevronRight";
 import Image from "next/image";
+import { isDescriptionEmpty } from "@/utils/content";
 
 export function blockIsCarouselBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -30,9 +31,13 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
     >
       <div className="flex flex-col">
         <div className="project-container flex flex-col lg:flex-row w-full">
-          <h1 className="text-3xl font-medium lg:w-1/3 mb-12">{block.title}</h1>
-          {block.description && (
-            <div className="text-lg font-light lg:w-2/3 mt-8 mb-8 lg:mt-0">
+          {block.title && (
+            <h1 className="text-3xl font-medium lg:w-1/3 mb-4 lg:mb-12">
+              {block.title}
+            </h1>
+          )}
+          {!isDescriptionEmpty(block.description) && (
+            <div className="text-lg font-light lg:w-2/3 mb-8 lg:mt-0">
               {parse(block.description)}
             </div>
           )}
@@ -66,18 +71,16 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
             {block.pictures.map((img, i) => (
               <div
                 key={i}
-                className="relative h-[320px] lg:h-[620px] lg:max-h-[620px]"
+                className="relative w-screen lg:w-auto aspect-[4/3] lg:aspect-auto lg:h-[620px] lg:max-h-[620px]"
+                // className="relative h-[320px] lg:h-[620px] lg:max-h-[620px]"
               >
                 <Image
-                  className="z-1"
+                  className="z-1 object-cover lg:object-contain"
                   alt={`Carousel image number ${i + 1}`}
                   src={img}
                   fill
                   loading="lazy"
                   sizes="100vw"
-                  style={{
-                    objectFit: "contain",
-                  }}
                 />
               </div>
             ))}
