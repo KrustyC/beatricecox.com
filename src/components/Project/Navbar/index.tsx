@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { PROJECT_PAGE_LINKS } from "@/utils/constants";
+import { YUNO_JUNO_LINK } from "@/utils/constants";
 import { useRouter } from "next/router";
 
-const WHITE_TEXT_SLUGS = ["buiese-distillery", "bervini-brand-development"];
+const WHITE_TEXT_SLUGS = [
+  "buiese-distillery",
+  "bervini-brand-development",
+  "vasco-and-pieros-anniversary-book",
+];
 
 export const ProjectNavbar: React.FC = ({}) => {
   const router = useRouter();
@@ -12,7 +16,7 @@ export const ProjectNavbar: React.FC = ({}) => {
   );
 
   return (
-    <div className="w-screen h-16 lg:h-32 flex bg-transparent justify-between items-center px-6 md:px-16 lg:px-24 z-50">
+    <div className="w-screen h-16 lg:h-32 flex bg-gradient-to-b from-black/100 via-black/30 to-white/0 justify-between items-center px-6 md:px-16 lg:px-24 z-50">
       <div className="flex items-center">
         <Link href="/">
           <span
@@ -25,18 +29,15 @@ export const ProjectNavbar: React.FC = ({}) => {
         </Link>
       </div>
 
-      <div className="hidden lg:flex lg:items-center lg:justify-end lg:w-auto">
-        {PROJECT_PAGE_LINKS.map(({ label, to }) => (
-          <Link href={to} key={label}>
-            <span
-              className={`${
-                shouldDisplayTextInWhite ? "text-white" : "text-black"
-              } text-xl animated-underline mr-12 font-light`}
-            >
-              {label}
-            </span>
-          </Link>
-        ))}
+      <div className="hidden md:flex items-center">
+        <a
+          href={YUNO_JUNO_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="uppercase whitespace-nowrap cursor-pointer tracking-[0.35em] text-white text-sm bg-black px-6 py-3"
+        >
+          hire me on yuno juno
+        </a>
       </div>
     </div>
   );

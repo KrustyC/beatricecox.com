@@ -17,7 +17,7 @@ export const Project: React.FC<ProjectProps> = ({
 }) => {
   return (
     <div>
-      <div className="w-screen h-[309px] lg:h-screen relative">
+      <div className="w-screen h-[309px] lg:h-[85vh] relative">
         <div className="absolute top-0 left-0 w-screen z-50 h-[50px]">
           <ProjectNavbar />
         </div>
