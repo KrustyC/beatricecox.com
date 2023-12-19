@@ -8,6 +8,8 @@ export const FLICKR_LINK = "https://www.flickr.com/photos/147991560@N07";
 export const YUNO_JUNO_LINK =
   "https://app.yunojuno.com/p/beatrice-cox-designer";
 
+export const CONTRA_LINK = "https://beatricecox.contra.com";
+
 export const PROJECT_PAGE_LINKS = [
   { label: "Home", to: "/" },
   { label: "Product", to: "/#product" },

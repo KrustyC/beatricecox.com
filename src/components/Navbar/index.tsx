@@ -1,4 +1,4 @@
-import { YUNO_JUNO_LINK } from "@/utils/constants";
+import { CONTRA_LINK } from "@/utils/constants";
 import Link from "next/link";
 
 export const Navbar: React.FC = () => {
@@ -14,12 +14,12 @@ export const Navbar: React.FC = () => {
 
       <div className="hidden md:flex items-center">
         <a
-          href={YUNO_JUNO_LINK}
+          href={CONTRA_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="uppercase whitespace-nowrap cursor-pointer tracking-[0.35em] text-white text-sm bg-black px-6 py-3"
         >
-          hire me on yuno juno
+          view services
         </a>
       </div>
     </div>
