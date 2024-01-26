@@ -5,8 +5,8 @@ export const Blog = () => (
         <h1 className="mb-4 text-white font-semibold text-5xl">Blog</h1>
         <p className="my-3 w-full lg:w-4/6 mb-8">
           Currently travelling the globe and writing a few stories on my
-          whereabouts and experiences, please feel free to come and see what
-          it's about.
+          whereabouts and experiences, please feel free to come and see what it
+          {"'"}s about.
         </p>
         <a
           href="http://thescrapbookers.blog"

@@ -139,8 +139,6 @@ export const DescriptionAndPicsBlock: React.FC<
     return null;
   };
 
-  console.log(block);
-
   return (
     <div
       className={`project-section ${

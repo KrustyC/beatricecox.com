@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { CONTRA_LINK } from "@/utils/constants";
-import { useRouter } from "next/router";
 
 export const ProjectNavbar: React.FC = ({}) => {
-  const router = useRouter();
-
   return (
     <div className="w-screen h-16 lg:h-32 flex justify-between items-center px-6 md:px-16 lg:px-24 z-50">
       <div className="flex items-center">

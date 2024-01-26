@@ -20,7 +20,7 @@ export const Project: React.FC<ProjectProps> = ({
       <ProjectNavbar />
 
       <div className="px-6 md:px-16 lg:px-24">
-        <div className="relative w-full aspect-video rounded-xl">
+        <div className="relative w-full aspect-square md:aspect-video rounded-xl">
           <Image
             className="z-1 rounded-3xl"
             alt={project.title}
