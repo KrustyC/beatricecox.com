@@ -17,23 +17,24 @@ export const Project: React.FC<ProjectProps> = ({
 }) => {
   return (
     <div>
-      <div className="w-screen h-[309px] lg:h-[85vh] relative">
-        <div className="absolute top-0 left-0 w-screen z-50 h-[50px]">
-          <ProjectNavbar />
+      <ProjectNavbar />
+
+      <div className="px-6 md:px-16 lg:px-24">
+        <div className="relative w-full aspect-video rounded-xl">
+          <Image
+            className="z-1 rounded-3xl"
+            alt={project.title}
+            src={project.mainImage}
+            placeholder="blur"
+            blurDataURL={mainImageProps.blurDataURL}
+            fill
+            loading="eager"
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </div>
-        <Image
-          className="z-1"
-          alt={project.title}
-          src={project.mainImage}
-          placeholder="blur"
-          blurDataURL={mainImageProps.blurDataURL}
-          fill
-          loading="eager"
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-        />
       </div>
 
       <div className="flex flex-col">
