@@ -1,5 +1,5 @@
-import { Project } from "@/types/global";
 import { ProjectCategory } from "@/types/app";
+import { Project } from "@/types/global";
 
 interface UseProjectArgs {
   projects: Project[];

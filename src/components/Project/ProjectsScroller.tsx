@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { Project as IProject } from "@/types/global";
 
 interface ProjectProps {

@@ -1,5 +1,6 @@
-import Link from "next/link";
 import parse from "html-react-parser";
+import Link from "next/link";
+
 import { Project as IProject } from "@/types/global";
 
 interface ProjectsProps {

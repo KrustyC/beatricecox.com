@@ -1,3 +1,6 @@
+import parse from "html-react-parser";
+import Image from "next/image";
+
 import {
   BaseBlock,
   DescriptionAndPicsBlock as IDescriptionAndPicsBlock,
@@ -5,8 +8,6 @@ import {
   ProjectBlockType,
 } from "@/types/global";
 import { isDescriptionEmpty } from "@/utils/content";
-import parse from "html-react-parser";
-import Image from "next/image";
 
 export function blockIsDescriptionAndPicsBlock(
   block: Partial<BaseBlock> | ProjectBlock

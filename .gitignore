@@ -34,8 +34,8 @@ yarn-error.log*
 .vercel
 
 # env files
-.env
 .env.local
+.env.old
 
 # netlify
 /.netlify/

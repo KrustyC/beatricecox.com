@@ -1,3 +1,5 @@
+"use-clinet";
+
 import { useForm } from "react-hook-form";
 
 interface PasswordProtectionScreenProps {

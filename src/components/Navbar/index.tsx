@@ -1,5 +1,6 @@
-import { CONTRA_LINK } from "@/utils/constants";
 import Link from "next/link";
+
+import { CONTRA_LINK } from "@/utils/constants";
 
 export const Navbar: React.FC = () => {
   return (

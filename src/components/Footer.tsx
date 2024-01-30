@@ -1,11 +1,12 @@
 import { InstagramIcon } from "@/components/icons/Instagram";
 import { LinkedInIcon } from "@/components/icons/LinkedIn";
 import {
-  INSTAGRAM_LINK,
-  LINKEDIN_LINK,
   DRIBBLE_LINK,
   FLICKR_LINK,
+  INSTAGRAM_LINK,
+  LINKEDIN_LINK,
 } from "@/utils/constants";
+
 import { DribbleIcon } from "./icons/Dribble";
 import { FlickrIcon } from "./icons/Flickr";
 

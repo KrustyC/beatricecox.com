@@ -1,3 +1,5 @@
+import parse from "html-react-parser";
+
 import {
   BaseBlock,
   FourImagesWithTextBlock as IFourImagesWithTextBlock,
@@ -5,7 +7,6 @@ import {
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
-import parse from "html-react-parser";
 
 export function blockIsFourImagesWithTextBlock(
   block: Partial<BaseBlock> | ProjectBlock

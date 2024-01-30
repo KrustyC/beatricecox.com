@@ -1,17 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
+import { Carousel } from "react-responsive-carousel";
+import parse from "html-react-parser";
+import Image from "next/image";
+
+import { ChevronLeftIcon } from "@/components/icons/ChevronLeft";
+import { ChevronRightIcon } from "@/components/icons/ChevronRight";
 import {
   BaseBlock,
   CarouselBlock as ICarouselBlock,
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
-import parse from "html-react-parser";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import { ChevronLeftIcon } from "@/components/icons/ChevronLeft";
-import { ChevronRightIcon } from "@/components/icons/ChevronRight";
-import Image from "next/image";
 import { isDescriptionEmpty } from "@/utils/content";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 export function blockIsCarouselBlock(
   block: Partial<BaseBlock> | ProjectBlock

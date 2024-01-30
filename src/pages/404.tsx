@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Navbar } from "@/components/Navbar";
+
 import { NotFoundIcon } from "@/components/icons/NotFound";
+import { Navbar } from "@/components/Navbar";
 
 export default function Custom404() {
   return (

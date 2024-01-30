@@ -1,10 +1,11 @@
+import Image from "next/image";
+
 import {
   BaseBlock,
   FullScreenBlock as IFullScreenBlock,
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
-import Image from "next/image";
 
 export function blockIsFullScreenBlock(
   block: Partial<BaseBlock> | ProjectBlock

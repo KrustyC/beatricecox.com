@@ -1,10 +1,11 @@
+import parse from "html-react-parser";
+
 import {
   BaseBlock,
-  TwoTitlesAndParagraphBlock as ITwoTitlesAndParagraphBlock,
   ProjectBlock,
   ProjectBlockType,
+  TwoTitlesAndParagraphBlock as ITwoTitlesAndParagraphBlock,
 } from "@/types/global";
-import parse from "html-react-parser";
 
 interface ParagraphProps {
   mb?: string;

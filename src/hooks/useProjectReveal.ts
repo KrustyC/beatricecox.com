@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { fetchJson } from "../utils/fetch-json";
+
 import { Project, REST_METHOD } from "@/types/global";
+
+import { fetchJson } from "../utils/fetch-json";
 
 interface UseProjectRevealReturn {
   loading: boolean;

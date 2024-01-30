@@ -2,11 +2,12 @@ import type { NextPage } from "next";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { getPlaiceholder } from "plaiceholder";
-import { Project as IProject } from "@/types/global";
+
 import { Footer } from "@/components/Footer";
-import { Project } from "@/components/Project";
 import { PasswordProtectionScreen } from "@/components/PasswordProtectionScreen";
+import { Project } from "@/components/Project";
 import { useProjectReveal } from "@/hooks/useProjectReveal";
+import { Project as IProject } from "@/types/global";
 
 interface FetchProjectsResponse {
   project: IProject;

@@ -1,10 +1,11 @@
+import parse from "html-react-parser";
+
 import {
   BaseBlock,
   ProjectBlock,
   ProjectBlockType,
   ProjectInfoBlock as IProjectInfoBlock,
 } from "@/types/global";
-import parse from "html-react-parser";
 
 export function blockIsProjectInfoBlock(
   block: Partial<BaseBlock> | ProjectBlock

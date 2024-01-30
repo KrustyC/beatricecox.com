@@ -1,7 +1,8 @@
-import { Project as IProject } from "@/types/global";
 import { ProjectCategory } from "@/types/app";
-import { useProjectsWithFilter } from "./useProjectsWithFilter";
+import { Project as IProject } from "@/types/global";
+
 import { Project } from "./Project";
+import { useProjectsWithFilter } from "./useProjectsWithFilter";
 
 interface ProjectsProps {
   projects: IProject[];

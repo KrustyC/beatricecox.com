@@ -1,6 +1,8 @@
-import Image, { ImageProps } from "next/image";
 import dynamic from "next/dynamic";
+import Image, { ImageProps } from "next/image";
+
 import { Project as IProject } from "@/types/global";
+
 import { ProjectNavbar } from "./Navbar";
 import { ProjectsScroller } from "./ProjectsScroller";
 

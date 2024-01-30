@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /api
+
+Sitemap: https://beatricecox.com/sitemap.xml

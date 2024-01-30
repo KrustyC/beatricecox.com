@@ -1,10 +1,11 @@
+import parse from "html-react-parser";
+
 import {
   BaseBlock,
-  TitleAndTextBlock as ITitleAndTextBlock,
   ProjectBlock,
   ProjectBlockType,
+  TitleAndTextBlock as ITitleAndTextBlock,
 } from "@/types/global";
-import parse from "html-react-parser";
 
 export function blockIsTitleAndTextBlock(
   block: Partial<BaseBlock> | ProjectBlock
