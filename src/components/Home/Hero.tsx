@@ -14,11 +14,6 @@ export const Hero = () => (
           {"–"} Salvador Dali
         </p>
         <div className="w-full md:w-3/4 leading-[1.9rem] md:leading-[2.5rem] text-xl md:text-3xl font-[500] lg:font-[400]">
-          {/* <p className="mb-4">
-            I studied at Bologna University and worked in London for 6 years. I
-            {"'"}m currently freelancing and travelling the globe.
-          </p> */}
-
           <p>
             Working in multidisciplinary environments and different design areas
             including: 2D/3D graphics, 3D interiors and UX/UI strategy. I{"'"}m

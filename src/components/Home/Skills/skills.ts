@@ -10,14 +10,15 @@ export const SOFTWARES = [
 ];
 
 export const SKILLS = [
-  "Illustration",
-  "UX/UI Design",
+  "Branded Assets",
+  "UX Design",
+  "UI Design",
   "Graphic Design",
-  "3D modelling",
-  "Interior Design",
-  "Etching & Linocuts",
-  "Sculpture",
-  "Pottery",
+  "3D Modelling",
+  "Interior Branding",
+  "Visualisation",
+  "Printing Process",
+  "Illustration",
 ];
 
 export const LANGUAGES = [

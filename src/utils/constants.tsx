@@ -1,3 +1,4 @@
+export const MAIL_TO_LINK = "mailto:beatriceduguidcox@gmail.com";
 export const INSTAGRAM_LINK = "https://www.instagram.com/beets_and_roots";
 export const TWITTER_LINK = "https://twitter.com/beatricecox16";
 export const LINKEDIN_LINK =

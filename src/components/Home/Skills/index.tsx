@@ -5,7 +5,7 @@ export const Skills = () => (
   <div className="bg-[#FFB649] flex flex-col px-8 md:px-16 lg:px-32 xl:px-60 py-12 lg:py-24 relative">
     <div className="flex items-center justify-between overflow-hidden">
       <div className="flex flex-col">
-        <h1 className="font-semibold text-5xl">Skills</h1>
+        <h1 className="font-semibold text-5xl">Expertise</h1>
 
         <div className="mt-8 w-screen overflow-x-scroll lg:w-auto">
           <div className="flex">

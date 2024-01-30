@@ -44,8 +44,6 @@ const Home: NextPage<HomePageProps> = ({ projects }) => {
 
       <Hero />
 
-      <ReloadButton onReload={onRefetchFetchShit} />
-
       <div>
         <Filterbar
           currentFilter={currentFilter}

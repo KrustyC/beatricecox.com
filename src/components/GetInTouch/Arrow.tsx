@@ -4,11 +4,13 @@ import {
   LINKEDIN_LINK,
   DRIBBLE_LINK,
   FLICKR_LINK,
+  MAIL_TO_LINK,
 } from "@/utils/constants";
 import { InstagramIcon } from "@/components/icons/Instagram";
 import { LinkedInIcon } from "@/components/icons/LinkedIn";
 import { DribbleIcon } from "@/components/icons/Dribble";
 import { FlickrIcon } from "@/components/icons/Flickr";
+import { MailIcon } from "@/components/icons/Mail";
 
 export const Arrow: React.FC = () => {
   const [showFullWidth, setShowFullWidth] = useState(false);
@@ -82,6 +84,15 @@ export const Arrow: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <LinkedInIcon className="hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white" />
+              </a>
+
+              <a
+                className="bg-black h-8 w-8 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
+                href={MAIL_TO_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MailIcon className="hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white" />
               </a>
             </div>
 
