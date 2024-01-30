@@ -1,46 +1,63 @@
-import type { ProjectCategory } from "./app";
-
-export enum REST_METHOD {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  DELETE = "DELETE",
-}
-
-// @TODO All of these needs to properly aligned once I know what a project looks like
-
 export type ProjectLink<T> = Partial<T> & {
   _id: string;
 };
 
-export type FormProjectImage = {
-  image: string;
-};
+export enum ProjectCategory {
+  PACKAGING = "Packaging",
+  UX_UI = "UX/UI",
+  INDUSTRIAL = "Industrial",
+  PACKAGING_AND_UI = "Packaging & UI",
+  OTHER = "OTHER",
+}
 
+export interface RichTextAsset {
+  id: string;
+  title?: string;
+  description?: string;
+  contentType?: string;
+  width?: number;
+  height?: number;
+  url?: string;
+}
+
+export interface RichText {
+  json?: Document;
+  assets?: Array<RichTextAsset | undefined>;
+}
+
+export interface Image {
+  url?: string;
+  title?: string;
+  description?: string;
+  details: {
+    height?: number;
+    width?: number;
+  };
+}
 export interface Project {
-  _id?: number;
-  draft: boolean;
-  img: string;
-  title: string;
-  slug: string;
-  year: number;
-  category: ProjectCategory;
-  categoryText: string;
-  order: number;
+  title?: string;
+  slug?: string;
+  mainImage?: Image;
+  thumbnailImage?: Image;
+  order?: number;
+  category?: string;
+  categoryText?: string;
+  intro?: string;
+  description?: RichText;
+  team?: string;
+  year?: number;
+  role?: string;
+  skills?: string;
+  client?: string;
   isPasswordProtected?: boolean;
-  passwordForProtection?: string;
+  protectionPassword?: string;
   comingSoon?: boolean;
 
-  intro: string;
-  description: string;
+  // @TODO: figure this shit out
+  // blocks: (Partial<BaseBlock> | ProjectBlock)[];
 
-  mainImage: string;
-  listingImage: string;
-
-  blocks: (Partial<BaseBlock> | ProjectBlock)[];
-
-  nextProject?: Pick<Project, "title" | "slug" | "category">;
-  prevProject?: Pick<Project, "title" | "slug" | "category">;
+  // nextProject?: Pick<Project, "title" | "slug" | "category">;
+  // prevProject?: Pick<Project, "title" | "slug" | "category">;
 }
 
 export enum ProjectBlockType {

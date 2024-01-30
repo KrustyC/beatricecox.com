@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { DribbleIcon } from "@/components/icons/Dribble";
-import { FlickrIcon } from "@/components/icons/Flickr";
-import { InstagramIcon } from "@/components/icons/Instagram";
-import { LinkedInIcon } from "@/components/icons/LinkedIn";
-import { MailIcon } from "@/components/icons/Mail";
+import { DribbleIcon } from "@/icons/Dribble";
+import { FlickrIcon } from "@/icons/Flickr";
+import { InstagramIcon } from "@/icons/Instagram";
+import { LinkedInIcon } from "@/icons/LinkedIn";
+import { MailIcon } from "@/icons/Mail";
 import {
   DRIBBLE_LINK,
   FLICKR_LINK,

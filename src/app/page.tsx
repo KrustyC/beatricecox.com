@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 
-import { Footer } from "@/components/Footer";
 import { Blog } from "@/components/Home/Blog";
-import { Filterbar } from "@/components/Home/Filterbar";
+import { Filterbar } from "@/components/Home/Projects/Filterbar";
 import { GetInTouch } from "@/components/Home/GetInTouch";
 import { Hero } from "@/components/Home/Hero";
+import ProjectsListSection from "@/components/Home/Projects";
+import { ProjectsListLoading } from "@/components/Home/Projects/ProjectsListLoading";
 import { Skills } from "@/components/Home/Skills";
+import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext";
 
 export default function Home() {
   return (
@@ -13,23 +15,18 @@ export default function Home() {
       <div className="flex flex-col">
         <Hero />
 
-        <div>
+        <ProjectsFilterContextProvider>
           {/* @TODO Use a filter context to keep track of this and make Filterbar a client component */}
-          {/* <Filterbar
-            currentFilter={currentFilter}
-            onSelectFilter={onSelectFilter}
-          /> */}
+          <Filterbar />
 
-          {/* <Suspense fallback={<ProjectsLoading />}>
-            <Projects projects={projectsToUse} currentFilter={currentFilter} />
-          </Suspense> */}
-        </div>
+          <Suspense fallback={<ProjectsListLoading />}>
+            <ProjectsListSection />
+          </Suspense>
+        </ProjectsFilterContextProvider>
 
         <Skills />
 
         <Blog />
-
-        <Footer />
 
         <GetInTouch />
       </div>

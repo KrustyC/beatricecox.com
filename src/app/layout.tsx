@@ -7,6 +7,7 @@ import { draftMode } from "next/headers";
 import Script from "next/script";
 import { Organization, WithContext } from "schema-dts";
 
+import { Footer } from "@/components/Footer";
 import { PreviewBadge } from "@/components/PreviewBadge";
 import { bodoni, manrope } from "@/utils/fonts";
 
@@ -80,6 +81,8 @@ export default function RootLayout({ children }: Props) {
 
       <body className={`${bodoni.variable} ${manrope.variable}`}>
         {children}
+
+        <Footer />
       </body>
 
       {isPreviewEnabled && <PreviewBadge />}

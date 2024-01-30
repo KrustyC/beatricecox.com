@@ -1,4 +1,3 @@
-// @TODO Fix background shitty here with next/image new version
 export const Blog = () => (
   <div className="flex justify-start bg-home-pattern bg-fixed bg-no-repeat bg-cover bg-center h-[400px] lg:h-[600px] w-full">
     <div className="flex items-center text-white bg-gradient-to-r from-black px-8 md:px-16 lg:px-32 xl:px-60">

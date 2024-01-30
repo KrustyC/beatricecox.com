@@ -3,8 +3,8 @@ import { Carousel } from "react-responsive-carousel";
 import parse from "html-react-parser";
 import Image from "next/image";
 
-import { ChevronLeftIcon } from "@/components/icons/ChevronLeft";
-import { ChevronRightIcon } from "@/components/icons/ChevronRight";
+import { ChevronLeftIcon } from "@/icons/ChevronLeft";
+import { ChevronRightIcon } from "@/icons/ChevronRight";
 import {
   BaseBlock,
   CarouselBlock as ICarouselBlock,

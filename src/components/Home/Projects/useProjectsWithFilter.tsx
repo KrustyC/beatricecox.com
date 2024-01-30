@@ -1,4 +1,4 @@
-import { ProjectCategory } from "@/types/app";
+import { ProjectCategory } from "@/types/global";
 import { Project } from "@/types/global";
 
 interface UseProjectArgs {
@@ -23,6 +23,10 @@ export function useProjectsWithFilter({
     .filter(({ category }) => {
       if (!currentFilter) {
         return true;
+      }
+
+      if (!category) {
+        return false;
       }
 
       if (category in MULTI_CATEGORIES_MAP) {

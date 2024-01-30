@@ -34,7 +34,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "home-pattern": "url('/homepage-portrait.png')",
+        "home-pattern": "url('/images/the_scrapbookers.png')",
       },
       keyframes: {
         wiggle: {

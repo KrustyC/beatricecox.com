@@ -1,14 +1,13 @@
-import { InstagramIcon } from "@/components/icons/Instagram";
-import { LinkedInIcon } from "@/components/icons/LinkedIn";
+import { DribbleIcon } from "@/icons/Dribble";
+import { FlickrIcon } from "@/icons/Flickr";
+import { InstagramIcon } from "@/icons/Instagram";
+import { LinkedInIcon } from "@/icons/LinkedIn";
 import {
   DRIBBLE_LINK,
   FLICKR_LINK,
   INSTAGRAM_LINK,
   LINKEDIN_LINK,
 } from "@/utils/constants";
-
-import { DribbleIcon } from "./icons/Dribble";
-import { FlickrIcon } from "./icons/Flickr";
 
 export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
