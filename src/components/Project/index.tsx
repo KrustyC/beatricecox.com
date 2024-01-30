@@ -10,12 +10,12 @@ const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
   project: IProject;
-  mainImageProps: Omit<ImageProps, "alt">;
+  // mainImageProps: Omit<ImageProps, "alt">;
 }
 
 export const Project: React.FC<ProjectProps> = ({
   project,
-  mainImageProps,
+  // mainImageProps,
 }) => {
   return (
     <div>
@@ -28,7 +28,7 @@ export const Project: React.FC<ProjectProps> = ({
             alt={project.title}
             src={project.mainImage}
             placeholder="blur"
-            blurDataURL={mainImageProps.blurDataURL}
+            // blurDataURL={mainImageProps.blurDataURL}
             fill
             loading="eager"
             sizes="100vw"

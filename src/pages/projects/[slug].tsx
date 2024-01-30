@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { getPlaiceholder } from "plaiceholder";
 
 import { Footer } from "@/components/Footer";
 import { PasswordProtectionScreen } from "@/components/PasswordProtectionScreen";
@@ -46,10 +45,6 @@ export async function getServerSideProps({
 
   const { project } = (await res.json()) as FetchProjectsResponse;
 
-  const { base64, img } = await getPlaiceholder(project.mainImage, {
-    size: 10,
-  });
-
   return {
     props: {
       project: !project.isPasswordProtected
@@ -58,7 +53,7 @@ export async function getServerSideProps({
             title: project.title,
             slug: project.slug,
           },
-      mainImageProps: { ...img, blurDataURL: base64 },
+      // mainImageProps: { ...img, blurDataURL: base64 },
       isPasswordProtected: project.isPasswordProtected,
     },
   };
@@ -69,7 +64,7 @@ type ProjectPageProps = InferGetStaticPropsType<typeof getServerSideProps>;
 
 const ProjectPage: NextPage<ProjectPageProps> = ({
   project,
-  mainImageProps,
+  // mainImageProps,
   isPasswordProtected,
 }) => {
   const pageTitle = `Beatrice Duguid Cox | ${project.title}`;
@@ -109,14 +104,14 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
             ) : (
               <Project
                 project={revealedProject}
-                mainImageProps={mainImageProps}
+                // mainImageProps={mainImageProps}
               />
             )}
           </>
         ) : (
           <Project
             project={project as IProject}
-            mainImageProps={mainImageProps}
+            // mainImageProps={mainImageProps}
           />
         )}
       </main>
