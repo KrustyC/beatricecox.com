@@ -53,8 +53,6 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
             <Line title="Client" value={block.info.client} />
           )}
 
-          {block.info.date && <Line title="Date" value={block.info.date} />}
-
           {block.info.role && <Line title="role" value={block.info.role} />}
 
           {block.info.skills && (
