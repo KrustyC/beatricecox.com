@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 
 import { Blog } from "@/components/Home/Blog";
-import { Filterbar } from "@/components/Home/Projects/Filterbar";
 import { GetInTouch } from "@/components/Home/GetInTouch";
 import { Hero } from "@/components/Home/Hero";
 import ProjectsListSection from "@/components/Home/Projects";
+import { Filterbar } from "@/components/Home/Projects/Filterbar";
 import { ProjectsListLoading } from "@/components/Home/Projects/ProjectsListLoading";
 import { Skills } from "@/components/Home/Skills";
 import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext";

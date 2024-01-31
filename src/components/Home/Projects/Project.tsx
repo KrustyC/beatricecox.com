@@ -1,8 +1,7 @@
-import parse from "html-react-parser";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Project as IProject } from "@/types/global";
-import Image from "next/image";
 
 interface ProjectsProps {
   project: IProject;
@@ -53,7 +52,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
       <span className="text-xl text-[#8C8C8C] mt-1">
         {project.categoryText}
       </span>
-      {project.intro && <div className="mt-4">{parse(project.intro)}</div>}
+      {project.intro && <div className="mt-4">{project.intro}</div>}
     </div>
   );
 };

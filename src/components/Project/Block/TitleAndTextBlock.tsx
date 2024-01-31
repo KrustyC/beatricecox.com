@@ -1,5 +1,4 @@
-import parse from "html-react-parser";
-
+import { RichText } from "@/components/Richtext";
 import {
   BaseBlock,
   ProjectBlock,
@@ -30,7 +29,7 @@ export const TitleAndTextBlock: React.FC<TitleAndTextBlockProps> = ({
           {block.title}
         </h3>
         <span className="lg:w-2/3 lg:max-w-2/3 mt-8 lg:mt-0 text-lg">
-          {parse(block.text)}
+          <RichText richtext={block.text} />
         </span>
       </div>
     </div>

@@ -109,10 +109,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
             )}
           </>
         ) : (
-          <Project
-            project={project as IProject}
-            // mainImageProps={mainImageProps}
-          />
+          <div>culo</div>
         )}
       </main>
 

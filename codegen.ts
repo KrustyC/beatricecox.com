@@ -4,7 +4,7 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: "./schema.graphql",
   generates: {
-    "src/types/generated/": {
+    "src/types/new-generated/": {
       preset: "client",
       plugins: [],
     },

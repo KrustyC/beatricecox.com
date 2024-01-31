@@ -1,5 +1,4 @@
-import parse from "html-react-parser";
-
+import { RichText } from "@/components/Richtext";
 import {
   BaseBlock,
   ProjectBlock,
@@ -33,10 +32,7 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
   block,
 }) => {
   return (
-    <div
-      className="project-section"
-      style={{ background: block.backgroundColor || "white" }}
-    >
+    <div className="project-section bg-white">
       <div className="project-container flex flex-col">
         <h1 className="text-3xl lg:text-4xl font-medium mb-1">{block.title}</h1>
         <span className="text-lg lg:text-xl font-light text-[#8C8C8C] mb-6">
@@ -44,7 +40,7 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
         </span>
 
         <div className="text-lg lg:text-xl font-light mb-8">
-          {parse(block.description)}
+          <RichText richtext={block.description} />
         </div>
 
         <div className="flex flex-col">

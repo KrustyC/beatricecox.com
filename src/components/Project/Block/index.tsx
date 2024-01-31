@@ -33,21 +33,21 @@ const Block: React.FC<BlockProps> = ({ block }) => {
     return <TwoTitlesAndParagraphBlock block={block} />;
   }
 
-  if (blockIsDescriptionAndPicsBlock(block)) {
-    return <DescriptionAndPicsBlock block={block} />;
-  }
-
-  if (blockIsFourImagesWithTextBlock(block)) {
-    return <FourImagesWithTextBlock block={block} />;
-  }
-
-  if (blockIsCarouselBlock(block)) {
-    return <CarouselBlock block={block} />;
-  }
-
   if (blockIsTitleAndTextBlock(block)) {
     return <TitleAndTextBlock block={block} />;
   }
+
+  // if (blockIsDescriptionAndPicsBlock(block)) {
+  //   return <DescriptionAndPicsBlock block={block} />;
+  // }
+
+  // if (blockIsFourImagesWithTextBlock(block)) {
+  //   return <FourImagesWithTextBlock block={block} />;
+  // }
+
+  // if (blockIsCarouselBlock(block)) {
+  //   return <CarouselBlock block={block} />;
+  // }
 
   if (blockIsFullScreenBlock(block)) {
     return <FullScreenBlock block={block} />;

@@ -1,3 +1,5 @@
+import { Document } from "@contentful/rich-text-types";
+
 export type ProjectLink<T> = Partial<T> & {
   _id: string;
 };
@@ -43,6 +45,7 @@ export interface Project {
   category?: string;
   categoryText?: string;
   intro?: string;
+  metaDescription?: string;
   description?: RichText;
   team?: string;
   year?: number;
@@ -53,8 +56,7 @@ export interface Project {
   protectionPassword?: string;
   comingSoon?: boolean;
 
-  // @TODO: figure this shit out
-  // blocks: (Partial<BaseBlock> | ProjectBlock)[];
+  blocks: (Partial<BaseBlock> | ProjectBlock)[];
 
   // nextProject?: Pick<Project, "title" | "slug" | "category">;
   // prevProject?: Pick<Project, "title" | "slug" | "category">;
@@ -68,6 +70,10 @@ export enum ProjectBlockType {
   CAROUSEL = "carousel",
   TITLE_AND_TEXT = "title-and-text",
   FULL_SCREEN = "full-screen",
+}
+
+export interface RichText {
+  json?: Document;
 }
 
 export type ProjectBlock =
@@ -90,11 +96,11 @@ export interface ProjectInfoBlock extends BaseBlock {
   type: ProjectBlockType.PROJECT_INFO;
   title: string;
   subtitle: string;
-  description: string;
+  description: RichText;
   info: {
     team?: string;
     client?: string;
-    date?: string;
+    // date?: string;
     role?: string;
     skills?: string;
   };
@@ -102,8 +108,8 @@ export interface ProjectInfoBlock extends BaseBlock {
 
 export interface TwoTitlesAndParagraphBlock extends BaseBlock {
   type: ProjectBlockType.TWO_TITLES_AND_PARAGRAPH;
-  firstItem: { title: string; paragraph: string };
-  secondItem: { title: string; paragraph: string };
+  firstItem: Partial<{ title: string; paragraph: string }>;
+  secondItem: Partial<{ title: string; paragraph: string }>;
 }
 
 export interface DescriptionAndPicsBlock extends BaseBlock {
@@ -138,11 +144,11 @@ export interface CarouselBlock extends BaseBlock {
 export interface TitleAndTextBlock extends BaseBlock {
   type: ProjectBlockType.TITLE_AND_TEXT;
   title: string;
-  text: string;
+  text: RichText;
 }
 
 export interface FullScreenBlock extends BaseBlock {
   type: ProjectBlockType.FULL_SCREEN;
   title: string;
-  image: string;
+  image: Image;
 }

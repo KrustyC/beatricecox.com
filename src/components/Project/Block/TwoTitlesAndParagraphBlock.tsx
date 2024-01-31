@@ -1,5 +1,3 @@
-import parse from "html-react-parser";
-
 import {
   BaseBlock,
   ProjectBlock,
@@ -9,10 +7,10 @@ import {
 
 interface ParagraphProps {
   mb?: string;
-  paragraph: {
+  paragraph: Partial<{
     title: string;
     paragraph: string;
-  };
+  }>;
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ paragraph, mb = "" }) => (
@@ -21,7 +19,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ paragraph, mb = "" }) => (
       {paragraph.title}
     </h3>
     <div className="lg:w-2/3 lg:max-w-2/3 text-lg mt-4 lg:mt-0">
-      {parse(paragraph.paragraph)}
+      {paragraph.paragraph}
     </div>
   </div>
 );

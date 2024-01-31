@@ -2,8 +2,8 @@ import { gql } from "@apollo/client";
 import { getApolloServerClient } from "src/graphql/apollo-server-client";
 
 import { Project as ProjectGraphQL } from "@/types/generated/graphql";
-import { Project } from "@/types/global";
-import { extractImageDataFromContentfulAsset } from "@/utils/images";
+
+import { ParsedProject, parseGraphQLProject } from "../parsers/project";
 
 interface GetProjectParams {
   slug: string;
@@ -15,42 +15,93 @@ interface ProjectQueryResposne {
     items: Array<
       Pick<
         ProjectGraphQL,
-        "title" | "slug" | "intro" | "categoryText" | "thumbnailImage"
+        | "title"
+        | "slug"
+        | "metaDescription"
+        | "isPasswordProtected"
+        | "protectionPassword"
+        | "comingSoon"
+        | "mainImage"
       >
     >;
   };
 }
 
 interface GetProjectResponse {
-  projects: Array<
-    Pick<
-      Project,
-      "title" | "slug" | "intro" | "categoryText" | "thumbnailImage"
-    >
-  >;
+  project: ParsedProject;
 }
 
 const GET_PROJECT_QUERY = gql`
-  query ($slug: String!, $locale: String!, $preview: Boolean!) {
-    projectCollection(where: { slug: $slug }, limit: 1) {
+  query ($slug: String!, $preview: Boolean!) {
+    projectCollection(where: { slug: $slug }, preview: $preview, limit: 1) {
       items {
         title
         slug
-        intro
+        metaDescription
         categoryText
-        thumbnailImage {
+        isPasswordProtected
+        protectionPassword
+        comingSoon
+        mainImage {
           title
           description
           width
           height
           url
         }
+        blocksCollection {
+          items {
+            ... on CarouselBlock {
+              imagesCollection {
+                items {
+                  title
+                  description
+                  width
+                  height
+                  url
+                }
+              }
+            }
+            ... on ProjectInfoBlock {
+              title
+              subtitle
+              description {
+                json
+              }
+              team
+              client
+              role
+              skills
+            }
+            ... on TitleTextBlock {
+              title
+              colorCode
+              description {
+                json
+              }
+            }
+            ... on TitlesWithSideParagraphsBlock {
+              title1
+              description1
+              title2
+              description2
+              colorCode
+            }
+            ... on FullScreenBlock {
+              image {
+                description
+                url
+              }
+            }
+          }
+        }
       }
     }
   }
 `;
 
-export async function getProjects({
+export async function getProject({
+  slug,
   isPreview = false,
 }: GetProjectParams): Promise<GetProjectResponse> {
   try {
@@ -58,7 +109,7 @@ export async function getProjects({
       isPreview,
     }).query<ProjectQueryResposne>({
       query: GET_PROJECT_QUERY,
-      variables: { preview: isPreview },
+      variables: { slug, preview: isPreview },
       context: {
         fetchOptions: {
           next: {
@@ -69,17 +120,9 @@ export async function getProjects({
       },
     });
 
-    const projects = data.data.projectCollection.items.map((project) => ({
-      title: project.title,
-      slug: project.slug,
-      thumbnailImage: extractImageDataFromContentfulAsset(
-        project.thumbnailImage
-      ),
-      intro: project.intro,
-      categoryText: project.categoryText,
-    }));
+    const project = data.data.projectCollection.items[0];
 
-    return { projects };
+    return { project: parseGraphQLProject(project) };
   } catch (error) {
     console.error(error);
     throw new Error(`Failed to fetch project with slug: ${slug}`);

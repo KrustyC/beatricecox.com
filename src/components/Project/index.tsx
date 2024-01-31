@@ -1,22 +1,18 @@
 import dynamic from "next/dynamic";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 
 import { Project as IProject } from "@/types/global";
 
 import { ProjectNavbar } from "./Navbar";
-import { ProjectsScroller } from "./ProjectsScroller";
+// import { ProjectsScroller } from "./ProjectsScroller";
 
 const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
-  project: IProject;
-  // mainImageProps: Omit<ImageProps, "alt">;
+  project: Partial<IProject>;
 }
 
-export const Project: React.FC<ProjectProps> = ({
-  project,
-  // mainImageProps,
-}) => {
+export const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
     <div>
       <ProjectNavbar />
@@ -24,12 +20,11 @@ export const Project: React.FC<ProjectProps> = ({
       <div className="px-6 md:px-16 lg:px-24">
         <div className="relative w-full aspect-square md:aspect-video rounded-xl">
           <Image
-            className="z-1 rounded-3xl"
-            alt={project.title}
-            src={project.mainImage}
-            placeholder="blur"
-            // blurDataURL={mainImageProps.blurDataURL}
             fill
+            className="z-1 rounded-3xl"
+            alt={project.mainImage?.description || ""}
+            src={project.mainImage?.url || ""}
+            // placeholder="blur"
             loading="eager"
             sizes="100vw"
             style={{
@@ -39,18 +34,20 @@ export const Project: React.FC<ProjectProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-col">
-        {project.blocks.map((block, i) => (
-          <DynamicBlock key={i} block={block} />
-        ))}
-      </div>
+      {project.blocks && (
+        <div className="flex flex-col">
+          {project.blocks.map((block, i) => (
+            <DynamicBlock key={i} block={block} />
+          ))}
+        </div>
+      )}
 
-      {project.prevProject && project.nextProject && (
+      {/* {project.prevProject && project.nextProject && (
         <ProjectsScroller
           prevProject={project.prevProject}
           nextProject={project.nextProject}
         />
-      )}
+      )} */}
     </div>
   );
 };

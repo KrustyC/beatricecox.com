@@ -52,6 +52,10 @@
     @apply absolute h-full w-full animate-pulse bg-slate-200;
   }
 
+  .rich-text-copy {
+    @apply w-full text-lg leading-[1.9rem];
+  }
+
   .animated-underline {
     @apply text-xl block relative;
     overflow: hidden;

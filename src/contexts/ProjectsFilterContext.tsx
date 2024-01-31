@@ -1,13 +1,14 @@
 "use client";
 
-import { ProjectCategory } from "@/types/global";
 import {
-  PropsWithChildren,
   createContext,
+  PropsWithChildren,
   useCallback,
   useContext,
   useState,
 } from "react";
+
+import { ProjectCategory } from "@/types/global";
 
 interface IProjectsFilterContext {
   currentFilter?: ProjectCategory;

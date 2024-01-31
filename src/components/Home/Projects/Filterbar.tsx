@@ -1,8 +1,9 @@
 "use client";
 
+import { useContext } from "react";
+
 import { ProjectsFilterContext } from "@/contexts/ProjectsFilterContext";
 import { ProjectCategory } from "@/types/global";
-import { useContext } from "react";
 
 const EXCLUDED_CATEGORIES = ["ALL", "PACKAGING_AND_UI"];
 

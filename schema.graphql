@@ -38,6 +38,13 @@ type Asset {
   height: Int
 }
 
+type AssetCollection {
+  total: Int!
+  skip: Int!
+  limit: Int!
+  items: [Asset]!
+}
+
 type Richtext {
   json: JSON!
   links: RichtextLinks!
@@ -60,20 +67,62 @@ type Project implements Entry {
   contentfulMetadata: ContentfulMetadata!
   title: String
   slug: String
+  metaDescription: String
   mainImage: Asset
   thumbnailImage: Asset
   order: Int
   category: String
   categoryText: String
   intro: String
-  description: Richtext
-  team: String
-  year: Int
-  role: String
-  skills: String
-  client: String
   isPasswordProtected: Boolean
   protectionPassword: String
   comingSoon: Boolean
-  # blocksCollection: ProjectBlocksCollection
+  blocksCollection: ProjectBlocksCollection
+}
+
+type ProjectBlocksCollection {
+  total: Int!
+  skip: Int!
+  limit: Int!
+  items: [ProjectBlocksItem]!
+}
+
+union ProjectBlocksItem =
+  | CarouselBlock
+  | FullScreenBlock
+  | ProjectInfoBlock
+  | TitleTextBlock
+  | TitlesWithSideParagraphsBlock
+
+type CarouselBlock {
+  title: String
+  imagesCollection: AssetCollection
+}
+
+type FullScreenBlock {
+  image: Asset
+}
+
+type ProjectInfoBlock {
+  title: String
+  subtitle: String
+  description: Richtext
+  team: String
+  client: String
+  role: String
+  skills: String
+}
+
+type TitleTextBlock {
+  title: String
+  colorCode: String
+  description: Richtext
+}
+
+type TitlesWithSideParagraphsBlock {
+  title1: String
+  description1: String
+  title2: String
+  description2: String
+  colorCode: String
 }

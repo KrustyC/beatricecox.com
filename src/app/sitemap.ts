@@ -13,7 +13,7 @@ async function fetchProjectsRoutes() {
 
   return [
     {
-      url: "https://beatricecox.com/project/bervini-1955",
+      url: "https://beatricecox.com/projects/babingtons-blend",
       lastModified: "2020-10-30T15:00:00.000Z",
     },
   ];

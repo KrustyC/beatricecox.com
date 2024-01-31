@@ -1,11 +1,12 @@
 "use client";
 
+import { useContext } from "react";
+
+import { ProjectsFilterContext } from "@/contexts/ProjectsFilterContext";
 import { Project as IProject } from "@/types/global";
 
 import { Project } from "./Project";
 import { useProjectsWithFilter } from "./useProjectsWithFilter";
-import { ProjectsFilterContext } from "@/contexts/ProjectsFilterContext";
-import { useContext } from "react";
 
 // @TODO Check if it's possible to put a nice transition on appearing/disappearing items
 

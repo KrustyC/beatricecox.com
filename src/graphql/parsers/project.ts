@@ -1,57 +1,137 @@
-import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
-import { Document } from "@contentful/rich-text-types";
-
 import {
-  // Asset as AssetGraphQL,
+  FullScreenBlock as FullScreenBlockGraphQL,
   Project as ProjectGraphQL,
+  ProjectBlocksItem as ProjectBlocksItemGraphQL,
+  ProjectInfoBlock as ProjectInfoBlockGraphQL,
+  TitlesWithSideParagraphsBlock as TitlesWithSideParagraphsBlockGraphQL,
+  TitleTextBlock as TitleTextBlockGraphQL,
 } from "@/types/generated/graphql";
-import { Project, RichTextAsset } from "@/types/global";
+import {
+  FullScreenBlock,
+  Project,
+  ProjectBlock,
+  ProjectBlockType,
+  ProjectInfoBlock,
+  TitleAndTextBlock,
+  TwoTitlesAndParagraphBlock,
+} from "@/types/global";
 import { extractImageDataFromContentfulAsset } from "@/utils/images";
 
-export function parseGraphQLProject(graphQLProject: ProjectGraphQL): Project {
+export type ParsedProject = Partial<
+  Pick<
+    Project,
+    | "title"
+    | "slug"
+    | "categoryText"
+    | "metaDescription"
+    | "isPasswordProtected"
+    | "protectionPassword"
+    | "comingSoon"
+    | "mainImage"
+    | "blocks"
+  >
+>;
+
+function blockIs<T extends ProjectBlocksItemGraphQL>(
+  block: ProjectBlocksItemGraphQL,
+  typename: T["__typename"]
+): block is T {
+  return block.__typename === typename;
+}
+
+function parseProjectInfoBlock(
+  block: ProjectInfoBlockGraphQL
+): Partial<ProjectInfoBlock> {
+  return {
+    type: ProjectBlockType.PROJECT_INFO,
+    title: block.title,
+    subtitle: block.subtitle,
+    description: block.description,
+    info: {
+      team: block.team,
+      role: block.role,
+      skills: block.skills,
+      client: block.client,
+    },
+  };
+}
+
+function parseTwoTitlesAndParagraphBlock(
+  block: TitlesWithSideParagraphsBlockGraphQL
+): Partial<TwoTitlesAndParagraphBlock> {
+  return {
+    type: ProjectBlockType.TWO_TITLES_AND_PARAGRAPH,
+    firstItem: { title: block.title1, paragraph: block.description1 },
+    secondItem: { title: block.title2, paragraph: block.description2 },
+    backgroundColor: block.colorCode,
+  };
+}
+
+function parseTitleTextBlock(
+  block: TitleTextBlockGraphQL
+): Partial<TitleAndTextBlock> {
+  return {
+    type: ProjectBlockType.TITLE_AND_TEXT,
+    title: block.title,
+    text: block.description,
+    backgroundColor: block.colorCode,
+  };
+}
+
+function parseFullScreenBlock(
+  block: FullScreenBlockGraphQL
+): Partial<FullScreenBlock> {
+  return {
+    type: ProjectBlockType.FULL_SCREEN,
+    image: extractImageDataFromContentfulAsset(block.image as any),
+  };
+}
+
+function parseBlock(
+  block?: ProjectBlocksItemGraphQL
+): Partial<ProjectBlock> | null {
+  if (!block) return null;
+
+  if (blockIs<ProjectInfoBlockGraphQL>(block, "ProjectInfoBlock")) {
+    return parseProjectInfoBlock(block);
+  }
+
+  if (
+    blockIs<TitlesWithSideParagraphsBlockGraphQL>(
+      block,
+      "TitlesWithSideParagraphsBlock"
+    )
+  ) {
+    return parseTwoTitlesAndParagraphBlock(block);
+  }
+
+  if (blockIs<TitleTextBlockGraphQL>(block, "TitleTextBlock")) {
+    return parseTitleTextBlock(block);
+  }
+
+  if (blockIs<FullScreenBlockGraphQL>(block, "FullScreenBlock")) {
+    return parseFullScreenBlock(block);
+  }
+
+  return null;
+}
+
+function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
+  return value !== null && value !== undefined;
+}
+
+export function parseGraphQLProject(
+  graphQLProject: Partial<ProjectGraphQL>
+): ParsedProject {
   const mainImage = graphQLProject.mainImage
     ? extractImageDataFromContentfulAsset(graphQLProject.mainImage as any) // Contentful new types are fucking awful, so I had to hack around a bit
     : undefined;
 
-  const thumbnailImage = graphQLProject.thumbnailImage
-    ? extractImageDataFromContentfulAsset(graphQLProject.thumbnailImage as any) // Contentful new types are fucking awful, so I had to hack around a bit
-    : undefined;
-
-  // const plainTextString = graphQLProject.richtext
-  //   ? documentToPlainTextString(graphQLProject.richtext.json)
-  //   : "";
+  const parsedBlocks = graphQLProject.blocksCollection?.items.map(parseBlock);
 
   return {
     ...graphQLProject,
-    // richtext: {
-    //   json: graphQLProject.richtext?.json as unknown as Document,
-    // },
-    // href: graphQLProject.slug
-    //   ? generateProjectHref(graphQLProject.slug, graphQLProject.country)
-    //   : undefined,
-    mainImage: mainImage,
-    thumbnailImage: thumbnailImage,
+    mainImage,
+    blocks: (parsedBlocks || []).filter(notEmpty),
   };
 }
-
-// interface NextProject
-//   extends Pick<
-//     Project,
-//     "title" | "slug" | "mainImage" | "date" | "smallIntro" | "href"
-//   > {}
-
-// export function parseGraphQLNextProject(
-//   nextProject: ProjectGraphQL
-// ): NextProject {
-//   const mainImage = nextProject.mainImage
-//     ? extractImageDataFromContentfulAsset(nextProject.mainImage)
-//     : undefined;
-
-//   return {
-//     title: nextProject.title,
-//     slug: nextProject.slug,
-//     smallIntro: nextProject.smallIntro,
-//     date: nextProject.date,
-//     mainImage,
-//   };
-// }
