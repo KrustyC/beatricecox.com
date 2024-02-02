@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
-import { notFound,redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { Project } from "@/components/Project";
 import { getProject } from "@/graphql/queries/get-project.query";

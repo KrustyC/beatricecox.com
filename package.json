@@ -7,6 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "format:check": "next prettier --check src",
+    "format:write": "next prettier --write src",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "codegen": "graphql-codegen --config codegen.ts"
   },
