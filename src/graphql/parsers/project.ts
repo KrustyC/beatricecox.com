@@ -1,11 +1,11 @@
 import {
+  CarouselBlock as CarouselBlockGraphQL,
   FullScreenBlock as FullScreenBlockGraphQL,
   Project as ProjectGraphQL,
   ProjectBlocksItem as ProjectBlocksItemGraphQL,
   ProjectInfoBlock as ProjectInfoBlockGraphQL,
   TitlesWithSideParagraphsBlock as TitlesWithSideParagraphsBlockGraphQL,
   TitleTextBlock as TitleTextBlockGraphQL,
-  CarouselBlock as CarouselBlockGraphQL,
 } from "@/types/generated/graphql";
 import {
   CarouselBlock,

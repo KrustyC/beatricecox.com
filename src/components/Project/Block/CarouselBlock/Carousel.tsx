@@ -1,12 +1,11 @@
 "use client";
 
-import { Image as IImage } from "@/types/global";
-import Image from "next/image";
-
 import { Carousel as ResponsiveCarousel } from "react-responsive-carousel";
+import Image from "next/image";
 
 import { ChevronLeftIcon } from "@/icons/ChevronLeft";
 import { ChevronRightIcon } from "@/icons/ChevronRight";
+import { Image as IImage } from "@/types/global";
 
 interface CarouselProps {
   images: IImage[];

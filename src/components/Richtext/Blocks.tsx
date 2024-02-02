@@ -58,3 +58,23 @@ export const Heading: React.FC<PropsWithChildren<HeadingProps>> = ({
       return <h6 className="rich-text-heading text-lg">{children}</h6>;
   }
 };
+
+interface HyperlinkProps {
+  uri: string;
+}
+
+export const Hyperlink: React.FC<PropsWithChildren<HyperlinkProps>> = ({
+  uri,
+  children,
+}) => {
+  return (
+    <a
+      className="text-primary hover:underline"
+      href={uri}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {children}
+    </a>
+  );
+};
