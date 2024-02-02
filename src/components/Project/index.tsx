@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import { Project as IProject } from "@/types/global";
 
-import { ProjectNavbar } from "./Navbar";
 // import { ProjectsScroller } from "./ProjectsScroller";
 
 const DynamicBlock = dynamic(() => import("./Block"));
@@ -15,8 +14,6 @@ interface ProjectProps {
 export const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
     <div>
-      <ProjectNavbar />
-
       <div className="px-6 md:px-16 lg:px-24">
         <div className="relative w-full aspect-square md:aspect-video rounded-xl">
           <Image

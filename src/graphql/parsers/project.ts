@@ -5,8 +5,10 @@ import {
   ProjectInfoBlock as ProjectInfoBlockGraphQL,
   TitlesWithSideParagraphsBlock as TitlesWithSideParagraphsBlockGraphQL,
   TitleTextBlock as TitleTextBlockGraphQL,
+  CarouselBlock as CarouselBlockGraphQL,
 } from "@/types/generated/graphql";
 import {
+  CarouselBlock,
   FullScreenBlock,
   Project,
   ProjectBlock,
@@ -31,6 +33,10 @@ export type ParsedProject = Partial<
     | "blocks"
   >
 >;
+
+function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
+  return value !== null && value !== undefined;
+}
 
 function blockIs<T extends ProjectBlocksItemGraphQL>(
   block: ProjectBlocksItemGraphQL,
@@ -87,6 +93,21 @@ function parseFullScreenBlock(
   };
 }
 
+function parseCarouselBlock(
+  block: CarouselBlockGraphQL
+): Partial<CarouselBlock> {
+  return {
+    type: ProjectBlockType.CAROUSEL,
+    backgroundColor: block.colorCode,
+    title: block.title,
+    description: block.carouselDescription,
+    pictures:
+      block.imagesCollection?.items
+        .map((image) => extractImageDataFromContentfulAsset(image as any))
+        .filter(notEmpty) || [],
+  };
+}
+
 function parseBlock(
   block?: ProjectBlocksItemGraphQL
 ): Partial<ProjectBlock> | null {
@@ -113,11 +134,11 @@ function parseBlock(
     return parseFullScreenBlock(block);
   }
 
-  return null;
-}
+  if (blockIs<CarouselBlockGraphQL>(block, "CarouselBlock")) {
+    return parseCarouselBlock(block);
+  }
 
-function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
-  return value !== null && value !== undefined;
+  return null;
 }
 
 export function parseGraphQLProject(

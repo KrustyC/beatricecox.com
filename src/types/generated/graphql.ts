@@ -114,10 +114,11 @@ export type AssetCollection = {
 
 export type CarouselBlock = {
   __typename?: "CarouselBlock";
+  colorCode?: Maybe<Scalars["String"]["output"]>;
+  carouselDescription?: Maybe<Scalars["String"]["output"]>;
   imagesCollection?: Maybe<AssetCollection>;
   title?: Maybe<Scalars["String"]["output"]>;
 };
-
 export type FullScreenBlock = {
   __typename?: "FullScreenBlock";
   image?: Maybe<Asset>;

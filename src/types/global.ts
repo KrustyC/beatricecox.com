@@ -138,7 +138,7 @@ export interface CarouselBlock extends BaseBlock {
   type: ProjectBlockType.CAROUSEL;
   title: string;
   description: string;
-  pictures: string[];
+  pictures: Image[];
 }
 
 export interface TitleAndTextBlock extends BaseBlock {

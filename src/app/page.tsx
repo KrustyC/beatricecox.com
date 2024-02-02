@@ -8,6 +8,7 @@ import { Filterbar } from "@/components/Home/Projects/Filterbar";
 import { ProjectsListLoading } from "@/components/Home/Projects/ProjectsListLoading";
 import { Skills } from "@/components/Home/Skills";
 import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -29,6 +30,8 @@ export default function Home() {
         <Blog />
 
         <GetInTouch />
+
+        <Footer />
       </div>
     </>
   );

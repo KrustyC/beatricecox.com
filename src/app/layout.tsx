@@ -81,8 +81,6 @@ export default function RootLayout({ children }: Props) {
 
       <body className={`${bodoni.variable} ${manrope.variable}`}>
         {children}
-
-        <Footer />
       </body>
 
       {isPreviewEnabled && <PreviewBadge />}

@@ -5,7 +5,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const newColors = {
   ...colors,
-  primary: "#F47E21",
+  primary: "#EDB8B8",
   accent: "#80ED99",
   link: "#80ED99",
   black: "#1E1E1E",

@@ -45,9 +45,9 @@ const Block: React.FC<BlockProps> = ({ block }) => {
   //   return <FourImagesWithTextBlock block={block} />;
   // }
 
-  // if (blockIsCarouselBlock(block)) {
-  //   return <CarouselBlock block={block} />;
-  // }
+  if (blockIsCarouselBlock(block)) {
+    return <CarouselBlock block={block} />;
+  }
 
   if (blockIsFullScreenBlock(block)) {
     return <FullScreenBlock block={block} />;

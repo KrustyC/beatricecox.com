@@ -40,7 +40,6 @@ const GET_PROJECT_QUERY = gql`
         metaDescription
         categoryText
         isPasswordProtected
-        protectionPassword
         comingSoon
         mainImage {
           title
@@ -52,6 +51,9 @@ const GET_PROJECT_QUERY = gql`
         blocksCollection {
           items {
             ... on CarouselBlock {
+              title
+              carouselDescription
+              colorCode
               imagesCollection {
                 items {
                   title
@@ -124,7 +126,7 @@ export async function getProject({
 
     return { project: parseGraphQLProject(project) };
   } catch (error) {
-    console.error(error);
+    console.error((error as any).networkError?.result?.errors);
     throw new Error(`Failed to fetch project with slug: ${slug}`);
   }
 }

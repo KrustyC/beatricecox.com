@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 import { Footer } from "@/components/Footer";
-import { PasswordProtectionScreen } from "@/components/PasswordProtectionScreen";
+import { PasswordProtectionScreen } from "@/components/PaaswordProtecionScreen";
 import { Project } from "@/components/Project";
 import { useProjectReveal } from "@/hooks/useProjectReveal";
 import { Project as IProject } from "@/types/global";

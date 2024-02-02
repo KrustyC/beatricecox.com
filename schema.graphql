@@ -96,6 +96,8 @@ union ProjectBlocksItem =
 
 type CarouselBlock {
   title: String
+  carouselDescription: String
+  colorCode: String
   imagesCollection: AssetCollection
 }
 
