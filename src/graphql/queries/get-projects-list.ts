@@ -14,7 +14,12 @@ interface ProjectQueryResposne {
     items: Array<
       Pick<
         ProjectGraphQL,
-        "title" | "slug" | "intro" | "categoryText" | "thumbnailImage"
+        | "title"
+        | "slug"
+        | "intro"
+        | "category"
+        | "categoryText"
+        | "thumbnailImage"
       >
     >;
   };
@@ -24,7 +29,12 @@ interface GetProjectResponse {
   projects: Array<
     Pick<
       Project,
-      "title" | "slug" | "intro" | "categoryText" | "thumbnailImage"
+      | "title"
+      | "slug"
+      | "intro"
+      | "category"
+      | "categoryText"
+      | "thumbnailImage"
     >
   >;
 }
@@ -37,6 +47,7 @@ const GET_PROJECTS_QUERY = gql`
         slug
         intro
         categoryText
+        category
         thumbnailImage {
           title
           description
@@ -69,13 +80,10 @@ export async function getProjects({
     });
 
     const projects = data.data.projectCollection.items.map((project) => ({
-      title: project.title,
-      slug: project.slug,
+      ...project,
       thumbnailImage: extractImageDataFromContentfulAsset(
         project.thumbnailImage
       ),
-      intro: project.intro,
-      categoryText: project.categoryText,
     }));
 
     return { projects };

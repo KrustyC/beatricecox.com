@@ -2,7 +2,7 @@ import { ProjectCategory } from "@/types/global";
 import { Project } from "@/types/global";
 
 interface UseProjectArgs {
-  projects: Project[];
+  projects: Partial<Project>[];
   currentFilter?: ProjectCategory;
 }
 
@@ -19,6 +19,8 @@ export function useProjectsWithFilter({
   projects,
   currentFilter,
 }: UseProjectArgs): ProjectsColumn {
+  console.log(projects, currentFilter);
+
   return projects
     .filter(({ category }) => {
       if (!currentFilter) {

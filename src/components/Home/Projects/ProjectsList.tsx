@@ -14,7 +14,12 @@ interface ProjectsListProps {
   projects: Array<
     Pick<
       IProject,
-      "title" | "slug" | "intro" | "categoryText" | "thumbnailImage" | "blocks"
+      | "title"
+      | "slug"
+      | "intro"
+      | "category"
+      | "categoryText"
+      | "thumbnailImage"
     >
   >;
 }
