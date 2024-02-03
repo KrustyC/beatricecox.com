@@ -20,7 +20,6 @@ interface CarouselBlockProps {
 }
 
 export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
-  console.log("HEREERERE", block.pictures);
   return (
     <div
       className="project-section lg:pb-16 lg:pt-28"

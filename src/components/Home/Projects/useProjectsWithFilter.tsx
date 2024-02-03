@@ -19,8 +19,6 @@ export function useProjectsWithFilter({
   projects,
   currentFilter,
 }: UseProjectArgs): ProjectsColumn {
-  console.log(projects, currentFilter);
-
   return projects
     .filter(({ category }) => {
       if (!currentFilter) {
