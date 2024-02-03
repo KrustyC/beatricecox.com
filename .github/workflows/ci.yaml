@@ -19,6 +19,7 @@ jobs:
         run: npm install
       - name: Run typecheck
         run: npm run typecheck
+
   lint:
     runs-on: ubuntu-latest
     needs: typecheck
@@ -32,6 +33,7 @@ jobs:
         run: npm install
       - name: Run lint
         run: npm run lint
+
   format:
     runs-on: ubuntu-latest
     needs: lint
