@@ -3,12 +3,12 @@ import Image from "next/image";
 
 import { Project as IProject } from "@/types/global";
 
-// import { ProjectsScroller } from "./ProjectsScroller";
+import { ProjectsScroller } from "./ProjectsScroller";
 
 const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
-  project: Partial<IProject>;
+  project: Partial<IProject> & { contentfulId: string };
 }
 
 export const Project: React.FC<ProjectProps> = ({ project }) => {
@@ -21,7 +21,6 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
             className="z-1 rounded-3xl"
             alt={project.mainImage?.description || ""}
             src={project.mainImage?.url || ""}
-            // placeholder="blur"
             loading="eager"
             sizes="100vw"
             style={{
@@ -39,12 +38,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         </div>
       )}
 
-      {/* {project.prevProject && project.nextProject && (
-        <ProjectsScroller
-          prevProject={project.prevProject}
-          nextProject={project.nextProject}
-        />
-      )} */}
+      <ProjectsScroller projectContentfulId={project.contentfulId} />
     </div>
   );
 };

@@ -148,3 +148,6 @@ export interface FullScreenBlock extends BaseBlock {
   title: string;
   image: Image;
 }
+
+export interface NextOrPrevProject
+  extends Pick<Project, "title" | "slug" | "category" | "categoryText"> {}
