@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
+import { getProjects } from "@/graphql/queries/get-projects-list";
 import { Project as IProject } from "@/types/global";
 
 import { ProjectsScroller } from "./ProjectsScroller";
@@ -9,6 +10,14 @@ const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
   project: Partial<IProject> & { contentfulId: string };
+}
+
+export async function generateStaticParams() {
+  const { projects } = await getProjects({ isPreview: false });
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 export const Project: React.FC<ProjectProps> = ({ project }) => {
