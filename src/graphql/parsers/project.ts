@@ -22,6 +22,7 @@ import { extractImageDataFromContentfulAsset } from "@/utils/images";
 export type ParsedProject = Partial<
   Pick<
     Project,
+    | "contentfulId"
     | "title"
     | "slug"
     | "categoryText"
@@ -152,6 +153,7 @@ export function parseGraphQLProject(
 
   return {
     ...graphQLProject,
+    contentfulId: graphQLProject.sys?.id,
     mainImage,
     blocks: (parsedBlocks || []).filter(notEmpty),
   };

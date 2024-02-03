@@ -73,6 +73,7 @@ export type Project = Entry & {
   order?: Maybe<Scalars["Int"]["output"]>;
   protectionPassword?: Maybe<Scalars["String"]["output"]>;
   slug?: Maybe<Scalars["String"]["output"]>;
+  sys: Sys;
   thumbnailImage?: Maybe<Asset>;
   title?: Maybe<Scalars["String"]["output"]>;
 };

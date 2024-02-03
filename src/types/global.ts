@@ -37,6 +37,7 @@ export interface Image {
   };
 }
 export interface Project {
+  contentfulId: string;
   title?: string;
   slug?: string;
   mainImage?: Image;
@@ -55,11 +56,7 @@ export interface Project {
   isPasswordProtected?: boolean;
   protectionPassword?: string;
   comingSoon?: boolean;
-
   blocks: (Partial<BaseBlock> | ProjectBlock)[];
-
-  // nextProject?: Pick<Project, "title" | "slug" | "category">;
-  // prevProject?: Pick<Project, "title" | "slug" | "category">;
 }
 
 export enum ProjectBlockType {
@@ -100,7 +97,6 @@ export interface ProjectInfoBlock extends BaseBlock {
   info: {
     team?: string;
     client?: string;
-    // date?: string;
     role?: string;
     skills?: string;
   };

@@ -64,6 +64,7 @@ type ProjectRichtextEntries {
 }
 
 type Project implements Entry {
+  sys: Sys!
   contentfulMetadata: ContentfulMetadata!
   title: String
   slug: String

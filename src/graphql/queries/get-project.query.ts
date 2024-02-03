@@ -35,6 +35,9 @@ const GET_PROJECT_QUERY = gql`
   query ($slug: String!, $preview: Boolean!) {
     projectCollection(where: { slug: $slug }, preview: $preview, limit: 1) {
       items {
+        sys {
+          id
+        }
         title
         slug
         metaDescription

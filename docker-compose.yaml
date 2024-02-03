@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  beatrice-cox-pg-db:
+    image: postgres:16.1-alpine3.19
+    ports:
+      - 54320:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=an_amazing_password
+      - POSTGRES_USER=beatrice
+      - POSTGRES_DB=beatricedb
