@@ -1,12 +1,11 @@
+import Image from "next/image";
+
 import {
   BaseBlock,
   DescriptionAndPicsBlock as IDescriptionAndPicsBlock,
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
-import { isDescriptionEmpty } from "@/utils/content";
-import parse from "html-react-parser";
-import Image from "next/image";
 
 export function blockIsDescriptionAndPicsBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -98,7 +97,7 @@ const FourImages: React.FC<{
     }`}
   >
     {images.map((image, i) => (
-      <div key={i} className="w-full aspect-square w-full relative">
+      <div key={i} className="w-full aspect-square relative">
         <Image
           alt=""
           src={image}
@@ -151,11 +150,11 @@ export const DescriptionAndPicsBlock: React.FC<
           <h1 className="text-3xl font-medium mb-2">{block.title}</h1>
         )}
 
-        {!isDescriptionEmpty(block.description) && (
+        {/* {!isDescriptionEmpty(block.description) && (
           <div className="text-lg font-light mb-8 lg:mb-16">
             {parse(block.description)}
           </div>
-        )}
+        )} */}
 
         {renderImages(block.pictures.slice(0, 4), block.showVertical || false)}
       </div>

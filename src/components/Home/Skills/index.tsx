@@ -1,5 +1,6 @@
-import { CirclesLogo } from "@/components/icons/CirclesLogo";
-import { SOFTWARES, SKILLS } from "./skills";
+import { CirclesLogo } from "@/icons/CirclesLogo";
+
+import { SKILLS, SOFTWARES } from "./skills";
 
 export const Skills = () => (
   <div className="bg-[#FFB649] flex flex-col px-8 md:px-16 lg:px-32 xl:px-60 py-12 lg:py-24 relative">

@@ -2,27 +2,17 @@
 
 This is the website for https://beatricecox.com a Web Designer based in London.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c26bf3d2-7ba8-48a8-975a-d7916a8a021f/deploy-status)](https://app.netlify.com/sites/beatricecox/deploys)
-
 ## Prerequisites
 
-- [NodeJs](https://nodejs.org/en/) - v16+
-- [Docker](https://nodejs.org/en/) / this is only used if you want to pull up the local mongo using docker-compose, otherwise you can install mongo directly into your machin
+- [NodeJs](https://nodejs.org/en/) - v20+
+- [Docker](https://docs.docker.com/) / this is only used if you want to pull up the local postgres using docker-compose, otherwise you can install postgres directly into your machin
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-netlify dev
-```
+First of all make sur eyou have copied `.env` into `.env.local`, and updtated all the values according to your local values. Once that is done, make sure to run the postgres database with `docker-compose up`. On a different terminal now simply run `npm run dev` and the app will start on port 3000.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## API
+### Deploy on Vercel
 
-This project is making use of Netlify Functions to expose its API. All functions are kept inside `./netlify/functions`. Netlify automatically provision Lambda functions for each file inside the aforementioned folder.
-
-### Deploy on Netlify
-
-This website is deployed and served through netlify, any push on `master` will automatically trigger a deployment to the production website.
+This website is deployed and served through Vercel, any push on `master` will automatically trigger a deployment to the production website.

@@ -1,8 +1,8 @@
+import { ProjectCategory } from "@/types/global";
 import { Project } from "@/types/global";
-import { ProjectCategory } from "@/types/app";
 
 interface UseProjectArgs {
-  projects: Project[];
+  projects: Partial<Project>[];
   currentFilter?: ProjectCategory;
 }
 
@@ -23,6 +23,10 @@ export function useProjectsWithFilter({
     .filter(({ category }) => {
       if (!currentFilter) {
         return true;
+      }
+
+      if (!category) {
+        return false;
       }
 
       if (category in MULTI_CATEGORIES_MAP) {

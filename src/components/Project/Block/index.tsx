@@ -1,10 +1,6 @@
 import { BaseBlock, ProjectBlock } from "@/types/global";
 
-import { blockIsProjectInfoBlock, ProjectInfoBlock } from "./ProjectInfoBlock";
-import {
-  blockIsTwoTitlesAndParagraphBlock,
-  TwoTitlesAndParagraphBlock,
-} from "./TwoTitlesAndParagraphBlock";
+import { blockIsCarouselBlock, CarouselBlock } from "./CarouselBlock";
 import {
   blockIsDescriptionAndPicsBlock,
   DescriptionAndPicsBlock,
@@ -13,12 +9,16 @@ import {
   blockIsFourImagesWithTextBlock,
   FourImagesWithTextBlock,
 } from "./FourImagesWithTextBlock";
-import { blockIsCarouselBlock, CarouselBlock } from "./CarouselBlock";
+import { blockIsFullScreenBlock, FullScreenBlock } from "./FullScreenBlock";
+import { blockIsProjectInfoBlock, ProjectInfoBlock } from "./ProjectInfoBlock";
 import {
   blockIsTitleAndTextBlock,
   TitleAndTextBlock,
 } from "./TitleAndTextBlock";
-import { blockIsFullScreenBlock, FullScreenBlock } from "./FullScreenBlock";
+import {
+  blockIsTwoTitlesAndParagraphBlock,
+  TwoTitlesAndParagraphBlock,
+} from "./TwoTitlesAndParagraphBlock";
 
 interface BlockProps {
   block: Partial<BaseBlock> | ProjectBlock;
@@ -33,20 +33,20 @@ const Block: React.FC<BlockProps> = ({ block }) => {
     return <TwoTitlesAndParagraphBlock block={block} />;
   }
 
-  if (blockIsDescriptionAndPicsBlock(block)) {
-    return <DescriptionAndPicsBlock block={block} />;
+  if (blockIsTitleAndTextBlock(block)) {
+    return <TitleAndTextBlock block={block} />;
   }
 
-  if (blockIsFourImagesWithTextBlock(block)) {
-    return <FourImagesWithTextBlock block={block} />;
-  }
+  // if (blockIsDescriptionAndPicsBlock(block)) {
+  //   return <DescriptionAndPicsBlock block={block} />;
+  // }
+
+  // if (blockIsFourImagesWithTextBlock(block)) {
+  //   return <FourImagesWithTextBlock block={block} />;
+  // }
 
   if (blockIsCarouselBlock(block)) {
     return <CarouselBlock block={block} />;
-  }
-
-  if (blockIsTitleAndTextBlock(block)) {
-    return <TitleAndTextBlock block={block} />;
   }
 
   if (blockIsFullScreenBlock(block)) {

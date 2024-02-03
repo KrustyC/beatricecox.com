@@ -1,17 +1,16 @@
 import {
   BaseBlock,
-  TwoTitlesAndParagraphBlock as ITwoTitlesAndParagraphBlock,
   ProjectBlock,
   ProjectBlockType,
+  TwoTitlesAndParagraphBlock as ITwoTitlesAndParagraphBlock,
 } from "@/types/global";
-import parse from "html-react-parser";
 
 interface ParagraphProps {
   mb?: string;
-  paragraph: {
+  paragraph: Partial<{
     title: string;
     paragraph: string;
-  };
+  }>;
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ paragraph, mb = "" }) => (
@@ -20,7 +19,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ paragraph, mb = "" }) => (
       {paragraph.title}
     </h3>
     <div className="lg:w-2/3 lg:max-w-2/3 text-lg mt-4 lg:mt-0">
-      {parse(paragraph.paragraph)}
+      {paragraph.paragraph}
     </div>
   </div>
 );

@@ -18,3 +18,6 @@ export const PROJECT_PAGE_LINKS = [
   { label: "Industrial", to: "/#industrial" },
   { label: "Other", to: "/#other" },
 ];
+
+export const reveleadProjectCookie = (slug: string) =>
+  `revealed-project_${slug}`;

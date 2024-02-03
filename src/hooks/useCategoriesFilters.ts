@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ProjectCategory } from "@/types/app";
+
+import { ProjectCategory } from "@/types/global";
 
 interface UseProjectTypeReturn {
   currentFilter?: ProjectCategory;

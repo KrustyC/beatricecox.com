@@ -5,7 +5,6 @@ import {
   ProjectBlock,
   ProjectBlockType,
 } from "@/types/global";
-import parse from "html-react-parser";
 
 export function blockIsFourImagesWithTextBlock(
   block: Partial<BaseBlock> | ProjectBlock
@@ -19,9 +18,9 @@ interface ImageWithTextProps {
 
 const ImageWithText: React.FC<ImageWithTextProps> = ({ image }) => (
   <div className="flex flex-col flex-1 px-8 lg:px-0">
-    <div className="px-1 text-center font-thin text-xl">
+    {/* <div className="px-1 text-center font-thin text-xl">
       {parse(image.text)}
-    </div>
+    </div> */}
     <img
       alt={image.text}
       src={image.img}

@@ -1,56 +1,28 @@
 {
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["simple-import-sort"],
   "rules": {
-    // I suggest you add those two rules:
-    "react-hooks/exhaustive-deps": 0,
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "prettier/prettier": "error"
-  },
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [
-          [
-            "@/components",
-            "src/components"
-          ],
-          [
-            "@/hooks/*",
-            "src/hooks/*"
-          ],
-          [
-            "@/contexts/*",
-            "src/contexts/*"
-          ],
-          [
-            "@/layouts/*",
-            "src/layouts/*"
-          ],
-          [
-            "@/types/*",
-            "src/types/*"
-          ],
-          [
-            "@/utils/*",
-            "src/utils/*"
-          ]
-        ],
-        "extensions": [
-          ".ts",
-          ".js",
-          ".jsx",
-          ".json"
+    "import/newline-after-import": ["error", { "count": 1 }],
+    // increase the severity of rules so they are auto-fixable
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Packages `react` related packages come first.
+          ["^react", "^@?\\w"],
+          // Internal packages.
+          ["^(@)(/.*|$)"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Parent imports. Put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.?(css)$"]
         ]
       }
-    }
+    ],
+    "simple-import-sort/exports": "error"
   }
 }
