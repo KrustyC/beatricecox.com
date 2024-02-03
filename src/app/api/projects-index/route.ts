@@ -1,5 +1,7 @@
 import { headers } from "next/headers";
+
 import { getProjectsListForIndex } from "@/graphql/queries/get-projects-list-for-index";
+
 import { insertProjects, insertProjectsRelations } from "./utils";
 
 export async function POST() {

@@ -15,6 +15,7 @@ interface ProjectQueryResposne {
     items: Array<
       Pick<
         ProjectGraphQL,
+        | "sys"
         | "title"
         | "slug"
         | "metaDescription"

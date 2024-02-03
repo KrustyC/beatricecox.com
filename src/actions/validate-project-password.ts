@@ -2,11 +2,11 @@
 
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 import { getProjectPassword } from "@/graphql/queries/get-project-with-password.query";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { signCookie } from "@/utils/cookies";
-import { redirect } from "next/navigation";
 
 const ONE_DAY_EXPIRATION_TIMESTAMP = 24 * 60 * 60 * 1000;
 

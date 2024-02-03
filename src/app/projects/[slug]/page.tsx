@@ -6,6 +6,7 @@ import { Project } from "@/components/Project";
 import { getProject } from "@/graphql/queries/get-project.query";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { validateSignedCookie } from "@/utils/cookies";
+
 interface ProjectPageProps {
   params: {
     slug: string;

@@ -4,6 +4,7 @@ import {
   Project as ProjectGraphQL,
   ProjectBlocksItem as ProjectBlocksItemGraphQL,
   ProjectInfoBlock as ProjectInfoBlockGraphQL,
+  Sys,
   TitlesWithSideParagraphsBlock as TitlesWithSideParagraphsBlockGraphQL,
   TitleTextBlock as TitleTextBlockGraphQL,
 } from "@/types/generated/graphql";
@@ -33,7 +34,7 @@ export type ParsedProject = Partial<
     | "mainImage"
     | "blocks"
   >
->;
+> & { contentfulId: string };
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
   return value !== null && value !== undefined;
@@ -143,7 +144,7 @@ function parseBlock(
 }
 
 export function parseGraphQLProject(
-  graphQLProject: Partial<ProjectGraphQL>
+  graphQLProject: Partial<ProjectGraphQL> & { sys: Sys }
 ): ParsedProject {
   const mainImage = graphQLProject.mainImage
     ? extractImageDataFromContentfulAsset(graphQLProject.mainImage as any) // Contentful new types are fucking awful, so I had to hack around a bit
@@ -153,7 +154,7 @@ export function parseGraphQLProject(
 
   return {
     ...graphQLProject,
-    contentfulId: graphQLProject.sys?.id,
+    contentfulId: graphQLProject.sys.id,
     mainImage,
     blocks: (parsedBlocks || []).filter(notEmpty),
   };

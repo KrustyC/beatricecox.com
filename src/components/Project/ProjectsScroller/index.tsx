@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { getPrevAndNextProjects } from "@/graphql/queries/get-prev-and-next-projects";
+
 import { getProjectSuccessorAndPredecessorIds } from "./utils";
 
 function getCatgeoryText(category: string | undefined) {
