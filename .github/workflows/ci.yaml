@@ -45,3 +45,12 @@ jobs:
         run: npm install
       - name: Run prettier
         run: npm run format:check
+
+  deploy-main:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: [typecheck, lint, format]
+    steps:
+      - name: Deploy main
+        run: |
+          curl -X POST https://api.vercel.com/v1/integrations/deploy/${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}/${{ secrets.VERCEL_PROJECT_ID }}
