@@ -11,5 +11,7 @@ export default async function ProjectsListSection() {
     isPreview: isPreviewEnabled,
   });
 
+  projects.sort((a, b) => (a.order || 0) - (b.order || 0));
+
   return <ProjectsList projects={projects} />;
 }

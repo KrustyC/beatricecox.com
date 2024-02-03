@@ -32,7 +32,7 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
   block,
 }) => {
   return (
-    <div className="project-section bg-white">
+    <div className="project-section bg-white animate-pulse">
       <div className="project-container flex flex-col">
         <h1 className="text-3xl lg:text-4xl font-medium mb-1">{block.title}</h1>
         <span className="text-lg lg:text-xl font-light text-[#8C8C8C] mb-6">

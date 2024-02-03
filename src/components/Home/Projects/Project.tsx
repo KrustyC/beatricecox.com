@@ -11,7 +11,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
   const thumbnailImage = project.thumbnailImage;
 
   return (
-    <div className="mb-20 lg:mb-40 last:mb-0 flex relative flex-col">
+    <div className="mb-20 lg:mb-24 last:mb-0 flex relative flex-col">
       <div className="aspect-w-1 aspect-h-1 bg-gray-100"></div>
 
       {project.comingSoon ? (

@@ -20,6 +20,7 @@ interface ProjectQueryResposne {
         | "category"
         | "categoryText"
         | "thumbnailImage"
+        | "order"
       >
     >;
   };
@@ -35,6 +36,7 @@ interface GetProjectResponse {
       | "category"
       | "categoryText"
       | "thumbnailImage"
+      | "order"
     >
   >;
 }
@@ -48,6 +50,7 @@ const GET_PROJECTS_QUERY = gql`
         intro
         categoryText
         category
+        order
         thumbnailImage {
           title
           description
