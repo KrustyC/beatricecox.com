@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { getProjectPassword } from "@/graphql/queries/get-project-with-password.query";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { signCookie } from "@/utils/cookies";
+import { redirect } from "next/navigation";
 
 const ONE_DAY_EXPIRATION_TIMESTAMP = 24 * 60 * 60 * 1000;
 
@@ -43,10 +44,6 @@ export async function validateProjectPassword(
     secure: process.env.NODE_ENV === "production",
   });
 
-  revalidatePath(`/projects/${slug}/password`);
-
-  return {
-    ...prevState,
-    error: false,
-  };
+  revalidatePath(`/projects/${slug}`);
+  redirect(`/projects/${slug}`);
 }

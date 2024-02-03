@@ -10,7 +10,7 @@ export default function ProjectsLayout({
     <>
       <ProjectNavbar />
 
-      {children}
+      <div className="min-h-[90vh]">{children}</div>
 
       <Footer />
     </>

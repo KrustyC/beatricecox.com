@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import { draftMode } from "next/headers";
+import { cookies, draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
 import { Project } from "@/components/Project";
 import { getProject } from "@/graphql/queries/get-project.query";
-
+import { reveleadProjectCookie } from "@/utils/constants";
+import { validateSignedCookie } from "@/utils/cookies";
 interface ProjectPageProps {
   params: {
     slug: string;
@@ -76,7 +77,13 @@ export default async function ProjectPage({
   }
 
   if (project.isPasswordProtected) {
-    return redirect(`/projects/${project.slug}/password`);
+    const cookie = cookies().get(reveleadProjectCookie(slug));
+    const isValidCookie = validateSignedCookie({
+      signedCookie: cookie?.value || "",
+      secretKey: process.env.PROJECT_PASSWORD_COOKIE_SECRET as string,
+    });
+
+    if (!isValidCookie) return redirect(`/projects/${project.slug}/password`);
   }
 
   return <Project project={project} />;
