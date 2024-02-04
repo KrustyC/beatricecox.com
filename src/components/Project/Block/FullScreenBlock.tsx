@@ -1,17 +1,6 @@
 import Image from "next/image";
 
-import {
-  BaseBlock,
-  FullScreenBlock as IFullScreenBlock,
-  ProjectBlock,
-  ProjectBlockType,
-} from "@/types/global";
-
-export function blockIsFullScreenBlock(
-  block: Partial<BaseBlock> | ProjectBlock
-): block is IFullScreenBlock {
-  return block.type === ProjectBlockType.FULL_SCREEN;
-}
+import { FullScreenBlock as IFullScreenBlock } from "@/types/global";
 
 interface FullScreenBlockProps {
   block: IFullScreenBlock;

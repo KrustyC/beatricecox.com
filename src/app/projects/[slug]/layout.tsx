@@ -1,5 +1,5 @@
 import { Footer } from "@/components/Footer";
-import { ProjectNavbar } from "@/components/Project/Navbar";
+import { Navbar } from "@/components/Navbar";
 
 export default function ProjectsLayout({
   children,
@@ -8,7 +8,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <>
-      <ProjectNavbar />
+      <Navbar />
 
       <div className="min-h-[90vh]">{children}</div>
 

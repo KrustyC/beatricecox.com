@@ -1,16 +1,30 @@
-import { RichText } from "@/components/Richtext";
-import {
-  BaseBlock,
-  ProjectBlock,
-  ProjectBlockType,
-  ProjectInfoBlock as IProjectInfoBlock,
-} from "@/types/global";
+"use client";
 
-export function blockIsProjectInfoBlock(
-  block: Partial<BaseBlock> | ProjectBlock
-): block is IProjectInfoBlock {
-  return block.type === ProjectBlockType.PROJECT_INFO;
-}
+import { motion, Variants } from "framer-motion";
+
+import { RichText } from "@/components/Richtext";
+import { ProjectInfoBlock as IProjectInfoBlock } from "@/types/global";
+
+const variants: Variants = {
+  offscreen: {
+    y: 50,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 3.3,
+      y: {
+        type: "spring",
+        duration: 1.3,
+      },
+      opacity: {
+        duration: 0.3,
+      },
+    },
+  },
+};
 
 interface LineProps {
   title: string;
@@ -18,10 +32,13 @@ interface LineProps {
 }
 
 const Line: React.FC<LineProps> = ({ title, value }) => (
-  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center border-t-2 border-black py-4">
+  <motion.div
+    className="flex flex-col lg:flex-row lg:justify-between lg:items-center border-t-2 border-black py-4"
+    variants={variants}
+  >
     <span className="uppercase tracking-[.30rem]">{title}</span>
     <span className="mt-3 lg:mt-0">{value}</span>
-  </div>
+  </motion.div>
 );
 
 interface ProjectInfoBlockProps {
@@ -33,26 +50,34 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
 }) => {
   return (
     <div className="project-section bg-white">
-      <div className="project-container flex flex-col">
-        <h1 className="text-3xl lg:text-4xl font-medium mb-1">{block.title}</h1>
-        <span className="text-lg lg:text-xl font-light text-[#8C8C8C] mb-6 leading-snug">
+      <motion.div
+        className="project-container flex flex-col"
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ staggerChildren: 0.3 }}
+      >
+        <motion.h1
+          className="text-3xl lg:text-4xl font-medium mb-1"
+          variants={variants}
+        >
+          {block.title}
+        </motion.h1>
+        <motion.span
+          className="text-lg lg:text-xl font-light text-[#8C8C8C] mb-6 leading-snug"
+          variants={variants}
+        >
           <RichText richtext={block.description} />
-        </span>
+        </motion.span>
 
-        <div className="flex flex-col">
-          {block.info.team && <Line title="Team" value={block.info.team} />}
+        {block.info.team && <Line title="Team" value={block.info.team} />}
 
-          {block.info.client && (
-            <Line title="Client" value={block.info.client} />
-          )}
+        {block.info.client && <Line title="Client" value={block.info.client} />}
 
-          {block.info.role && <Line title="role" value={block.info.role} />}
+        {block.info.role && <Line title="role" value={block.info.role} />}
 
-          {block.info.skills && (
-            <Line title="skills" value={block.info.skills} />
-          )}
-        </div>
-      </div>
+        {block.info.skills && <Line title="skills" value={block.info.skills} />}
+      </motion.div>
     </div>
   );
 };

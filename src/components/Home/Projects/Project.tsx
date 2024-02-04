@@ -43,7 +43,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
       className="mb-20 lg:mb-24 last:mb-0 flex flex-col"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ staggerChildren: 0.3 }}
     >
       {project.comingSoon ? (

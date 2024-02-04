@@ -1,19 +1,7 @@
 import classnames from "classnames";
 import Image from "next/image";
 
-import {
-  BaseBlock,
-  GridBlock as IGridBlock,
-  GridBlockSpacing,
-  ProjectBlock,
-  ProjectBlockType,
-} from "@/types/global";
-
-export function blockIsGridBlock(
-  block: Partial<BaseBlock> | ProjectBlock
-): block is IGridBlock {
-  return block.type === ProjectBlockType.GRID_BLOCK;
-}
+import { GridBlock as IGridBlock, GridBlockSpacing } from "@/types/global";
 
 interface FullScreenBlockProps {
   block: IGridBlock;

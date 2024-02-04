@@ -1,16 +1,5 @@
 import { RichText } from "@/components/Richtext";
-import {
-  BaseBlock,
-  ProjectBlock,
-  ProjectBlockType,
-  TitleAndTextBlock as ITitleAndTextBlock,
-} from "@/types/global";
-
-export function blockIsTitleAndTextBlock(
-  block: Partial<BaseBlock> | ProjectBlock
-): block is ITitleAndTextBlock {
-  return block.type === ProjectBlockType.TITLE_AND_TEXT;
-}
+import { TitleAndTextBlock as ITitleAndTextBlock } from "@/types/global";
 
 interface TitleAndTextBlockProps {
   block: ITitleAndTextBlock;

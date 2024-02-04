@@ -1,19 +1,8 @@
-import {
-  BaseBlock,
-  CarouselBlock as ICarouselBlock,
-  ProjectBlock,
-  ProjectBlockType,
-} from "@/types/global";
+import { CarouselBlock as ICarouselBlock } from "@/types/global";
 
 import { Carousel } from "./Carousel";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
-export function blockIsCarouselBlock(
-  block: Partial<BaseBlock> | ProjectBlock
-): block is ICarouselBlock {
-  return block.type === ProjectBlockType.CAROUSEL;
-}
 
 interface CarouselBlockProps {
   block: ICarouselBlock;

@@ -1,9 +1,4 @@
-import {
-  BaseBlock,
-  ProjectBlock,
-  ProjectBlockType,
-  TwoTitlesAndParagraphBlock as ITwoTitlesAndParagraphBlock,
-} from "@/types/global";
+import { TwoTitlesAndParagraphBlock as ITwoTitlesAndParagraphBlock } from "@/types/global";
 
 interface ParagraphProps {
   mb?: string;
@@ -23,12 +18,6 @@ const Paragraph: React.FC<ParagraphProps> = ({ paragraph, mb = "" }) => (
     </div>
   </div>
 );
-
-export function blockIsTwoTitlesAndParagraphBlock(
-  block: Partial<BaseBlock> | ProjectBlock
-): block is ITwoTitlesAndParagraphBlock {
-  return block.type === ProjectBlockType.TWO_TITLES_AND_PARAGRAPH;
-}
 
 interface TwoTitlesAndParagraphBlockProps {
   block: ITwoTitlesAndParagraphBlock;
