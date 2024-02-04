@@ -73,7 +73,7 @@ export const RichText: React.FC<{ richtext: RichTextType }> = ({
   };
 
   return (
-    <article className="flex flex-col gap-y-2 text-2xl break-words font-manrope">
+    <article className="flex flex-col gap-y-2 break-words font-manrope">
       {documentToReactComponents(richtext.json, options)}
     </article>
   );

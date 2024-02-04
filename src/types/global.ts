@@ -12,6 +12,14 @@ export enum ProjectCategory {
   OTHER = "OTHER",
 }
 
+export enum GridBlockSpacing {
+  EXTRA_SMALL = "xs",
+  SMALL = "sm",
+  MEDIUM = "md",
+  LARGE = "lg",
+  EXTRA_LARGE = "xl",
+  EXTRA_EXTRA_LARGE = "2xl",
+}
 export interface RichTextAsset {
   id: string;
   title?: string;
@@ -67,6 +75,7 @@ export enum ProjectBlockType {
   CAROUSEL = "carousel",
   TITLE_AND_TEXT = "title-and-text",
   FULL_SCREEN = "full-screen",
+  GRID_BLOCK = "grid-block",
 }
 
 export interface RichText {
@@ -80,6 +89,7 @@ export type ProjectBlock =
   | FourImagesWithTextBlock
   | CarouselBlock
   | FullScreenBlock
+  | GridBlock
   | TitleAndTextBlock;
 
 export interface BaseBlock {
@@ -147,6 +157,16 @@ export interface FullScreenBlock extends BaseBlock {
   type: ProjectBlockType.FULL_SCREEN;
   title: string;
   image: Image;
+}
+
+export interface GridBlock extends BaseBlock {
+  type: ProjectBlockType.GRID_BLOCK;
+  spacing: GridBlockSpacing;
+  gridImages: GridImages[];
+}
+
+export interface GridImages {
+  images: Image[];
 }
 
 export interface NextOrPrevProject

@@ -17,7 +17,6 @@ export default function Home() {
         <Hero />
 
         <ProjectsFilterContextProvider>
-          {/* @TODO Use a filter context to keep track of this and make Filterbar a client component */}
           <Filterbar />
 
           <Suspense fallback={<ProjectsListLoading />}>

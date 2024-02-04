@@ -52,13 +52,13 @@ const GET_PROJECT_QUERY = gql`
           height
           url
         }
-        blocksCollection {
+        blocksCollection(limit: 15) {
           items {
             ... on CarouselBlock {
               title
               carouselDescription
               colorCode
-              imagesCollection {
+              imagesCollection(limit: 6) {
                 items {
                   title
                   description
@@ -97,6 +97,22 @@ const GET_PROJECT_QUERY = gql`
               image {
                 description
                 url
+              }
+            }
+            ... on GridBlock {
+              spacing
+              imagesCollection(limit: 20) {
+                items {
+                  imagesCollection(limit: 2) {
+                    items {
+                      title
+                      description
+                      width
+                      height
+                      url
+                    }
+                  }
+                }
               }
             }
           }

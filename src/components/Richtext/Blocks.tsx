@@ -11,17 +11,17 @@ export const Text: React.FC<PropsWithChildren> = ({ children }) => {
     return null;
   }
 
-  return <p className="rich-text-copy mb-2">{children}</p>;
+  return <p className="mb-1">{children}</p>;
 };
 
 export const UnorderedList: React.FC<PropsWithChildren> = ({ children }) => (
-  <div className="rich-text-copy">
+  <div>
     <ul className="list-disc ml-6 pl-3">{children}</ul>
   </div>
 );
 
 export const OrderedList: React.FC<PropsWithChildren> = ({ children }) => (
-  <div className="rich-text-copy">
+  <div>
     <ol className="list-decimal ml-6 pl-3">{children}</ol>
   </div>
 );

@@ -1,15 +1,8 @@
 import { BaseBlock, ProjectBlock } from "@/types/global";
 
 import { blockIsCarouselBlock, CarouselBlock } from "./CarouselBlock";
-import {
-  blockIsDescriptionAndPicsBlock,
-  DescriptionAndPicsBlock,
-} from "./DescriptionAndPicsBlock";
-import {
-  blockIsFourImagesWithTextBlock,
-  FourImagesWithTextBlock,
-} from "./FourImagesWithTextBlock";
 import { blockIsFullScreenBlock, FullScreenBlock } from "./FullScreenBlock";
+import { blockIsGridBlock, GridBlock } from "./GridBlock";
 import { blockIsProjectInfoBlock, ProjectInfoBlock } from "./ProjectInfoBlock";
 import {
   blockIsTitleAndTextBlock,
@@ -37,13 +30,9 @@ const Block: React.FC<BlockProps> = ({ block }) => {
     return <TitleAndTextBlock block={block} />;
   }
 
-  // if (blockIsDescriptionAndPicsBlock(block)) {
-  //   return <DescriptionAndPicsBlock block={block} />;
-  // }
-
-  // if (blockIsFourImagesWithTextBlock(block)) {
-  //   return <FourImagesWithTextBlock block={block} />;
-  // }
+  if (blockIsGridBlock(block)) {
+    return <GridBlock block={block} />;
+  }
 
   if (blockIsCarouselBlock(block)) {
     return <CarouselBlock block={block} />;

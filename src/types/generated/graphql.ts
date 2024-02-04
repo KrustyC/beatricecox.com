@@ -44,6 +44,22 @@ export type Asset = {
   width?: Maybe<Scalars["Int"]["output"]>;
 };
 
+export type AssetCollection = {
+  __typename?: "AssetCollection";
+  items: Array<Maybe<Asset>>;
+  limit: Scalars["Int"]["output"];
+  skip: Scalars["Int"]["output"];
+  total: Scalars["Int"]["output"];
+};
+
+export type CarouselBlock = Entry & {
+  __typename?: "CarouselBlock";
+  carouselDescription?: Maybe<Scalars["String"]["output"]>;
+  colorCode?: Maybe<Scalars["String"]["output"]>;
+  imagesCollection?: Maybe<AssetCollection>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
 export type ContentfulMetadata = {
   __typename?: "ContentfulMetadata";
   tags: Array<Maybe<ContentfulTag>>;
@@ -59,13 +75,37 @@ export type Entry = {
   contentfulMetadata: ContentfulMetadata;
 };
 
+export type FullScreenBlock = {
+  __typename?: "FullScreenBlock";
+  image?: Maybe<Asset>;
+};
+
+export type GridBlock = Entry & {
+  __typename?: "GridBlock";
+  imagesCollection?: Maybe<GridBlockImagesCollection>;
+  spacing?: Maybe<Scalars["String"]["output"]>;
+  sys: Sys;
+};
+
+export type GridBlockImagesCollection = {
+  __typename?: "GridBlockImagesCollection";
+  items: Array<Maybe<GridImages>>;
+  limit: Scalars["Int"]["output"];
+  skip: Scalars["Int"]["output"];
+  total: Scalars["Int"]["output"];
+};
+
+export type GridImages = Entry & {
+  __typename?: "GridImages";
+  imagesCollection?: Maybe<AssetCollection>;
+};
+
 export type Project = Entry & {
   __typename?: "Project";
   blocksCollection?: Maybe<ProjectBlocksCollection>;
   category?: Maybe<Scalars["String"]["output"]>;
   categoryText?: Maybe<Scalars["String"]["output"]>;
   comingSoon?: Maybe<Scalars["Boolean"]["output"]>;
-  contentfulMetadata: ContentfulMetadata;
   intro?: Maybe<Scalars["String"]["output"]>;
   isPasswordProtected?: Maybe<Scalars["Boolean"]["output"]>;
   mainImage?: Maybe<Asset>;
@@ -75,6 +115,33 @@ export type Project = Entry & {
   slug?: Maybe<Scalars["String"]["output"]>;
   sys: Sys;
   thumbnailImage?: Maybe<Asset>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type ProjectBlocksCollection = {
+  __typename?: "ProjectBlocksCollection";
+  items: Array<Maybe<ProjectBlocksItem>>;
+  limit: Scalars["Int"]["output"];
+  skip: Scalars["Int"]["output"];
+  total: Scalars["Int"]["output"];
+};
+
+export type ProjectBlocksItem =
+  | CarouselBlock
+  | FullScreenBlock
+  | ProjectInfoBlock
+  | TitleTextBlock
+  | GridBlock
+  | TitlesWithSideParagraphsBlock;
+
+export type ProjectInfoBlock = Entry & {
+  __typename?: "ProjectInfoBlock";
+  client?: Maybe<Scalars["String"]["output"]>;
+  description?: Maybe<Richtext>;
+  role?: Maybe<Scalars["String"]["output"]>;
+  skills?: Maybe<Scalars["String"]["output"]>;
+  subtitle?: Maybe<Scalars["String"]["output"]>;
+  team?: Maybe<Scalars["String"]["output"]>;
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -105,53 +172,14 @@ export type Sys = {
   id: Scalars["String"]["output"];
 };
 
-export type AssetCollection = {
-  __typename?: "AssetCollection";
-  items: Array<Maybe<Asset>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export type CarouselBlock = {
-  __typename?: "CarouselBlock";
-  colorCode?: Maybe<Scalars["String"]["output"]>;
-  carouselDescription?: Maybe<Scalars["String"]["output"]>;
-  imagesCollection?: Maybe<AssetCollection>;
-  title?: Maybe<Scalars["String"]["output"]>;
-};
-export type FullScreenBlock = {
-  __typename?: "FullScreenBlock";
-  image?: Maybe<Asset>;
-};
-
-export type ProjectBlocksCollection = {
-  __typename?: "ProjectBlocksCollection";
-  items: Array<Maybe<ProjectBlocksItem>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export type ProjectInfoBlock = {
-  __typename?: "ProjectInfoBlock";
-  client?: Maybe<Scalars["String"]["output"]>;
-  description?: Maybe<Richtext>;
-  role?: Maybe<Scalars["String"]["output"]>;
-  skills?: Maybe<Scalars["String"]["output"]>;
-  subtitle?: Maybe<Scalars["String"]["output"]>;
-  team?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-};
-
-export type TitleTextBlock = {
+export type TitleTextBlock = Entry & {
   __typename?: "TitleTextBlock";
   colorCode?: Maybe<Scalars["String"]["output"]>;
   description?: Maybe<Richtext>;
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
-export type TitlesWithSideParagraphsBlock = {
+export type TitlesWithSideParagraphsBlock = Entry & {
   __typename?: "TitlesWithSideParagraphsBlock";
   colorCode?: Maybe<Scalars["String"]["output"]>;
   description1?: Maybe<Scalars["String"]["output"]>;
@@ -159,10 +187,3 @@ export type TitlesWithSideParagraphsBlock = {
   title1?: Maybe<Scalars["String"]["output"]>;
   title2?: Maybe<Scalars["String"]["output"]>;
 };
-
-export type ProjectBlocksItem =
-  | CarouselBlock
-  | FullScreenBlock
-  | ProjectInfoBlock
-  | TitleTextBlock
-  | TitlesWithSideParagraphsBlock;

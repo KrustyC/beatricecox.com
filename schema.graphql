@@ -65,7 +65,6 @@ type ProjectRichtextEntries {
 
 type Project implements Entry {
   sys: Sys!
-  contentfulMetadata: ContentfulMetadata!
   title: String
   slug: String
   metaDescription: String
@@ -93,9 +92,10 @@ union ProjectBlocksItem =
   | FullScreenBlock
   | ProjectInfoBlock
   | TitleTextBlock
+  | GridBlock
   | TitlesWithSideParagraphsBlock
 
-type CarouselBlock {
+type CarouselBlock implements Entry {
   title: String
   carouselDescription: String
   colorCode: String
@@ -106,7 +106,7 @@ type FullScreenBlock {
   image: Asset
 }
 
-type ProjectInfoBlock {
+type ProjectInfoBlock implements Entry {
   title: String
   subtitle: String
   description: Richtext
@@ -116,16 +116,33 @@ type ProjectInfoBlock {
   skills: String
 }
 
-type TitleTextBlock {
+type TitleTextBlock implements Entry {
   title: String
   colorCode: String
   description: Richtext
 }
 
-type TitlesWithSideParagraphsBlock {
+type TitlesWithSideParagraphsBlock implements Entry {
   title1: String
   description1: String
   title2: String
   description2: String
   colorCode: String
+}
+
+type GridBlock implements Entry {
+  sys: Sys!
+  spacing: String
+  imagesCollection: GridBlockImagesCollection
+}
+
+type GridBlockImagesCollection {
+  total: Int!
+  skip: Int!
+  limit: Int!
+  items: [GridImages]!
+}
+
+type GridImages implements Entry {
+  imagesCollection: AssetCollection
 }
