@@ -8,8 +8,6 @@ import { Project as IProject } from "@/types/global";
 import { Project } from "./Project";
 import { useProjectsWithFilter } from "./useProjectsWithFilter";
 
-// @TODO Check if it's possible to put a nice transition on appearing/disappearing items
-
 interface ProjectsListProps {
   projects: Array<
     Pick<

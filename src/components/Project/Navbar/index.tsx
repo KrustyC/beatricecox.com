@@ -4,7 +4,7 @@ import { CONTRA_LINK } from "@/utils/constants";
 
 export const ProjectNavbar: React.FC = ({}) => {
   return (
-    <div className="w-screen h-16 lg:h-32 flex justify-between items-center px-6 md:px-16 lg:px-24 z-50">
+    <div className="w-screen flex justify-between items-center py-8 px-8 md:px-16 lg:px-32 xl:px-48 z-50">
       <div className="flex items-center">
         <Link href="/">
           <span className="text-black text-xl lg:text-4xl font-bodoni">
