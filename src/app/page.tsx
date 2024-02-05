@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 
-import { Footer } from "@/components/Footer";
 import { Blog } from "@/components/Home/Blog";
 import { GetInTouch } from "@/components/Home/GetInTouch";
 import { Hero } from "@/components/Home/Hero";
@@ -30,8 +29,6 @@ export default function Home() {
       <Blog />
 
       <GetInTouch />
-
-      {/* <Footer /> */}
     </div>
   );
 }

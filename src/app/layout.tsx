@@ -81,9 +81,7 @@ export default function RootLayout({ children }: Props) {
 
       <body className={`${bodoni.variable} ${manrope.variable}`}>
         <Navbar />
-
         {children}
-
         <Footer />
 
         {isPreviewEnabled && <PreviewBadge />}
@@ -93,9 +91,7 @@ export default function RootLayout({ children }: Props) {
             <GoogleAnalytics
               gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
             />
-
             <Analytics />
-
             <SpeedInsights />
           </>
         )}
