@@ -41,7 +41,7 @@ export async function validateProjectPassword(
   cookies().set(reveleadProjectCookie(slug), signedCookie, {
     expires: Date.now() + ONE_DAY_EXPIRATION_TIMESTAMP,
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NEXT_PUBLIC_ENVIRONMENT === "production",
   });
 
   revalidatePath(`/projects/${slug}`);
