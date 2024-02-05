@@ -67,8 +67,15 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
           className="text-lg lg:text-xl font-light text-[#8C8C8C] mb-6 leading-snug"
           variants={variants}
         >
-          <RichText richtext={block.description} />
+          {block.subtitle}
         </motion.span>
+
+        <motion.div
+          className="text-lg lg:text-xl font-light mb-8"
+          variants={variants}
+        >
+          <RichText richtext={block.description} />
+        </motion.div>
 
         {block.info.team && <Line title="Team" value={block.info.team} />}
 
