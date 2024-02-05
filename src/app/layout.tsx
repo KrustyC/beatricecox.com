@@ -87,17 +87,19 @@ export default function RootLayout({ children }: Props) {
         <Footer />
 
         {isPreviewEnabled && <PreviewBadge />}
-      </body>
 
-      {process.env.NEXT_PUBLIC_ENVIRONMENT === "production" && (
-        <>
-          <GoogleAnalytics
-            gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
-          />
-          <Analytics />
-          <SpeedInsights />
-        </>
-      )}
+        {process.env.NEXT_PUBLIC_ENVIRONMENT === "production" && (
+          <>
+            <GoogleAnalytics
+              gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
+            />
+
+            <Analytics />
+
+            <SpeedInsights />
+          </>
+        )}
+      </body>
     </html>
   );
 }
