@@ -28,14 +28,17 @@ const variants: Variants = {
 
 export const GridBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
   <div
-    className={classnames("flex flex-col items-center px-4 py-24", {
-      "gap-y-0.5": block.spacing === GridBlockSpacing.EXTRA_SMALL,
-      "gap-y-1": block.spacing === GridBlockSpacing.SMALL,
-      "gap-y-2": block.spacing === GridBlockSpacing.MEDIUM,
-      "gap-y-4": block.spacing === GridBlockSpacing.LARGE,
-      "gap-y-8": block.spacing === GridBlockSpacing.EXTRA_LARGE,
-      "gap-y-16": block.spacing === GridBlockSpacing.EXTRA_EXTRA_LARGE,
-    })}
+    className={classnames(
+      "flex flex-col items-center px-4 lg:px-12 xl:px-20 2xl:px-32 py-24",
+      {
+        "gap-y-0.5": block.spacing === GridBlockSpacing.EXTRA_SMALL,
+        "gap-y-1": block.spacing === GridBlockSpacing.SMALL,
+        "gap-y-2": block.spacing === GridBlockSpacing.MEDIUM,
+        "gap-y-4": block.spacing === GridBlockSpacing.LARGE,
+        "gap-y-8": block.spacing === GridBlockSpacing.EXTRA_LARGE,
+        "gap-y-16": block.spacing === GridBlockSpacing.EXTRA_EXTRA_LARGE,
+      }
+    )}
   >
     {block.gridImages.map((gridImage, index) => (
       <motion.div
