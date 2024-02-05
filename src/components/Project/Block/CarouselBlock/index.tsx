@@ -2,8 +2,6 @@ import { CarouselBlock as ICarouselBlock } from "@/types/global";
 
 import { Carousel } from "./Carousel";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
 interface CarouselBlockProps {
   block: ICarouselBlock;
 }
@@ -29,7 +27,9 @@ export const CarouselBlock: React.FC<CarouselBlockProps> = ({ block }) => {
           )}
         </div>
 
-        <Carousel images={block.pictures} />
+        <div className="flex justify-center items-center">
+          <Carousel images={block.pictures} />
+        </div>
       </div>
     </div>
   );

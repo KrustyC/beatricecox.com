@@ -17,8 +17,8 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
     "baseUrl": ".",
     "paths": {
@@ -30,15 +30,15 @@
       "@/icons/*": ["./src/icons/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/types/*": ["./src/types/*"],
-      "@/utils/*": ["./src/utils/*"],
-    },
+      "@/utils/*": ["./src/utils/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
-    // "swiper.d.ts",
+    "src/types/swiper.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

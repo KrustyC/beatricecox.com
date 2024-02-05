@@ -7,6 +7,8 @@ import { ChevronLeftIcon } from "@/icons/ChevronLeft";
 import { ChevronRightIcon } from "@/icons/ChevronRight";
 import { Image as IImage } from "@/types/global";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 interface CarouselProps {
   images: IImage[];
 }
@@ -49,7 +51,6 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
               src={img.url || ""}
               width={img.details.width || 0}
               height={img.details.height || 0}
-              //   fill
               loading="lazy"
               style={{ objectFit: "contain" }}
             />

@@ -27,6 +27,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         <div className="relative w-full aspect-square md:aspect-video rounded-3xl bg-slate-300">
           <Image
             fill
+            priority
             className="z-1 rounded-3xl"
             alt={project.mainImage?.description || ""}
             src={project.mainImage?.url || ""}

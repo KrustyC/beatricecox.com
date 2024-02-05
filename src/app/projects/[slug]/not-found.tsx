@@ -1,12 +1,10 @@
 import Link from "next/link";
 
-import { Navbar } from "@/components/Navbar";
 import { NotFoundIcon } from "@/icons/NotFound";
 
 export default function NotFound() {
   return (
     <div className="h-screen w-screen bg-white">
-      <Navbar />
       <div className="w-full h-5/6 flex flex-col items-center justify-center z-1">
         <NotFoundIcon className="w-2/5" />
 

@@ -4,9 +4,9 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
-
 import Script from "next/script";
 import { Organization, WithContext } from "schema-dts";
+
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { PreviewBadge } from "@/components/PreviewBadge";
@@ -75,7 +75,6 @@ export default function RootLayout({ children }: Props) {
         <Script
           id="website-json-ld"
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
@@ -86,9 +85,9 @@ export default function RootLayout({ children }: Props) {
         {children}
 
         <Footer />
-      </body>
 
-      {isPreviewEnabled && <PreviewBadge />}
+        {isPreviewEnabled && <PreviewBadge />}
+      </body>
 
       {process.env.NEXT_PUBLIC_ENVIRONMENT === "production" && (
         <>

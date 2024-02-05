@@ -29,7 +29,7 @@ interface ProjectQueryResposne {
 }
 
 interface GetProjectResponse {
-  project: ParsedProject;
+  project: ParsedProject | null;
 }
 
 const GET_PROJECT_QUERY = gql`
@@ -143,8 +143,7 @@ export async function getProject({
     });
 
     const project = data.data.projectCollection.items[0];
-
-    return { project: parseGraphQLProject(project) };
+    return { project: project ? parseGraphQLProject(project) : null };
   } catch (error) {
     console.error((error as any).networkError?.result?.errors);
     throw new Error(`Failed to fetch project with slug: ${slug}`);
