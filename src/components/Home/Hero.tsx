@@ -2,8 +2,6 @@
 
 import { motion, Variants } from "framer-motion";
 
-import { Navbar } from "../Navbar";
-
 const variants: Variants = {
   offscreen: {
     y: 10,

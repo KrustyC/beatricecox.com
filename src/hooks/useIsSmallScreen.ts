@@ -4,7 +4,7 @@ export const useIsSmallScreen = ({ defaultValue = true }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(defaultValue);
 
   const checkIfMobile = () => {
-    setIsSmallScreen(window.innerWidth < 1180);
+    setIsSmallScreen(window.innerWidth < 720);
   };
 
   useEffect(() => {

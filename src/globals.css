@@ -154,6 +154,14 @@
   .project-container {
     @apply w-screen px-8 lg:px-0 lg:w-[820px] lg:max-w-[820px] mx-auto;
   }
+
+  .contacts-link {
+    @apply bg-black h-8 w-8 lg:h-10 lg:w-10 flex justify-center items-center rounded-full px-1 md:px-0;
+  }
+
+  .contacts-link-icon {
+    @apply hover:animate-wiggle h-8 w-8 lg:h-14 lg:w-14 text-white;
+  }
 }
 
 .ProseMirror {

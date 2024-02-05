@@ -16,11 +16,13 @@ export default function Home() {
       <Hero />
 
       <ProjectsFilterContextProvider>
-        <Filterbar />
+        <div>
+          <Filterbar />
 
-        <Suspense fallback={<ProjectsListLoading />}>
-          <ProjectsListSection />
-        </Suspense>
+          <Suspense fallback={<ProjectsListLoading />}>
+            <ProjectsListSection />
+          </Suspense>
+        </div>
       </ProjectsFilterContextProvider>
 
       <Skills />
