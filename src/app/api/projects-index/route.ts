@@ -2,7 +2,11 @@ import { headers } from "next/headers";
 
 import { getProjectsListForIndex } from "@/graphql/queries/get-projects-list-for-index";
 
-import { insertProjects, insertProjectsRelations } from "./utils";
+import {
+  deleteAllProjects,
+  insertProjects,
+  insertProjectsRelations,
+} from "./utils";
 
 export async function POST() {
   const apiKey = headers().get("x-api-key");
@@ -15,6 +19,7 @@ export async function POST() {
 
   const { projects } = await getProjectsListForIndex();
 
+  await deleteAllProjects();
   await insertProjects(projects);
   await insertProjectsRelations(projects);
 

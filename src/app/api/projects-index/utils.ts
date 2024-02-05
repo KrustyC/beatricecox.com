@@ -38,3 +38,7 @@ export async function insertProjectsRelations(projects: ProjectForPrisma[]) {
 
   await prisma.$transaction(writeProjectsRelations);
 }
+
+export async function deleteAllProjects() {
+  await prisma.project.deleteMany();
+}
