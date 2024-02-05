@@ -24,7 +24,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
     <div>
       <div className="px-6 md:px-16 lg:px-24">
-        <div className="relative w-full aspect-square md:aspect-video rounded-xl bg-slate-300">
+        <div className="relative w-full aspect-square md:aspect-video rounded-3xl bg-slate-300">
           <Image
             fill
             className="z-1 rounded-3xl"

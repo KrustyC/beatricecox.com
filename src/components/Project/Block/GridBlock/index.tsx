@@ -1,4 +1,7 @@
+"use client";
+
 import classnames from "classnames";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
 import { GridBlock as IGridBlock, GridBlockSpacing } from "@/types/global";
@@ -7,9 +10,25 @@ interface FullScreenBlockProps {
   block: IGridBlock;
 }
 
+const variants: Variants = {
+  offscreen: {
+    y: 100,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "tween",
+      bounce: 0.2,
+      duration: 0.4,
+    },
+  },
+};
+
 export const GridBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
   <div
-    className={classnames("flex flex-col px-4 lg:px-24 mb-24", {
+    className={classnames("flex flex-col items-center px-4 py-24", {
       "gap-y-0.5": block.spacing === GridBlockSpacing.EXTRA_SMALL,
       "gap-y-1": block.spacing === GridBlockSpacing.SMALL,
       "gap-y-2": block.spacing === GridBlockSpacing.MEDIUM,
@@ -19,9 +38,13 @@ export const GridBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
     })}
   >
     {block.gridImages.map((gridImage, index) => (
-      <div
+      <motion.div
         key={index}
-        className={classnames("flex flex-col lg:flex-row", {
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ staggerChildren: 0.3 }}
+        className={classnames("flex flex-col lg:flex-row justify-around", {
           "gap-0.5": block.spacing === GridBlockSpacing.EXTRA_SMALL,
           "gap-1": block.spacing === GridBlockSpacing.SMALL,
           "gap-2": block.spacing === GridBlockSpacing.MEDIUM,
@@ -31,7 +54,7 @@ export const GridBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
         })}
       >
         {gridImage.images.map((image, index) => (
-          <div key={index} className="relative w-full flex-1">
+          <motion.div key={index} className="relative" variants={variants}>
             <Image
               alt={image.description || ""}
               src={image.url || ""}
@@ -42,9 +65,9 @@ export const GridBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
                 objectFit: "cover",
               }}
             />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     ))}
   </div>
 );
