@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { Project } from "@/components/Project";
 import { getProject } from "@/graphql/queries/get-project.query";
+import { getProjects } from "@/graphql/queries/get-projects-list";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { validateSignedCookie } from "@/utils/cookies";
 
@@ -11,6 +12,14 @@ interface ProjectPageProps {
   params: {
     slug: string;
   };
+}
+
+export async function generateStaticParams() {
+  const { projects } = await getProjects({ isPreview: false });
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 export async function generateMetadata({
