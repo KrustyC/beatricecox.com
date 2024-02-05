@@ -4,10 +4,11 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
-import Script from "next/script";
-import { Organization, WithContext } from "schema-dts";
 
+// import Script from "next/script";
+// import { Organization, WithContext } from "schema-dts";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 import { PreviewBadge } from "@/components/PreviewBadge";
 import { bodoni, manrope } from "@/utils/fonts";
 
@@ -60,27 +61,31 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   const { isEnabled: isPreviewEnabled } = draftMode();
 
-  const jsonLd: WithContext<Organization> = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    url: process.env.NEXT_PUBLIC_BASE_URL,
-    name: "Beatrice Duguid Cox",
-    logo: "/icons/favicon-48x48.png",
-  };
+  // const jsonLd: WithContext<Organization> = {
+  //   "@context": "https://schema.org",
+  //   "@type": "Organization",
+  //   url: process.env.NEXT_PUBLIC_BASE_URL,
+  //   name: "Beatrice Duguid Cox",
+  //   logo: "/icons/favicon-48x48.png",
+  // };
 
   return (
     <html lang="en">
       <head>
-        <Script
+        {/* <Script
           id="website-json-ld"
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        /> */}
       </head>
 
       <body className={`${bodoni.variable} ${manrope.variable}`}>
+        <Navbar />
+
         {children}
+
+        <Footer />
       </body>
 
       {isPreviewEnabled && <PreviewBadge />}

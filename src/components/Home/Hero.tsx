@@ -21,7 +21,6 @@ const variants: Variants = {
 
 export const Hero = () => (
   <div className="bg-[#EDB8B8] flex flex-col">
-    <Navbar />
     <div className="w-full flex px-8 md:px-16 lg:px-32 xl:px-60 pt-12 lg:pt-28 pb-12 lg:pb-24 mx-auto">
       <motion.div
         className="flex flex-col mx-auto text-left text-black"

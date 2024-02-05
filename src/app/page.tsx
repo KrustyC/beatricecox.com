@@ -12,26 +12,24 @@ import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext"
 
 export default function Home() {
   return (
-    <>
-      <div className="flex flex-col">
-        <Hero />
+    <div className="flex flex-col">
+      <Hero />
 
-        <ProjectsFilterContextProvider>
-          <Filterbar />
+      <ProjectsFilterContextProvider>
+        <Filterbar />
 
-          <Suspense fallback={<ProjectsListLoading />}>
-            <ProjectsListSection />
-          </Suspense>
-        </ProjectsFilterContextProvider>
+        <Suspense fallback={<ProjectsListLoading />}>
+          <ProjectsListSection />
+        </Suspense>
+      </ProjectsFilterContextProvider>
 
-        <Skills />
+      <Skills />
 
-        <Blog />
+      <Blog />
 
-        <GetInTouch />
+      <GetInTouch />
 
-        <Footer />
-      </div>
-    </>
+      {/* <Footer /> */}
+    </div>
   );
 }
