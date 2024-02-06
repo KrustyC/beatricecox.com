@@ -32,7 +32,7 @@ export const Skills = () => (
         className="flex flex-col"
       >
         <motion.h1 variants={variants} className="font-semibold text-5xl">
-          Expertise
+          Skills
         </motion.h1>
 
         <div className="mt-8 w-screen overflow-x-scroll lg:w-auto">
@@ -73,7 +73,7 @@ export const Skills = () => (
                 className="tracking-wider font-thin"
                 variants={variants}
               >
-                SKILLS
+                EXPERTISE
               </motion.span>
 
               {SKILLS.map((skill, i) => (

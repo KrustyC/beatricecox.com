@@ -45,8 +45,6 @@ export async function getHomepageCopy({
       },
     });
 
-    console.log("DIO CANE", data);
-
     if (!data.homepage.quote || !data.homepage.mainText) {
       return undefined;
     }
