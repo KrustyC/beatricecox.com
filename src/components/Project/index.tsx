@@ -14,7 +14,7 @@ interface ProjectProps {
 export const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
     <div>
-      <div className="px-6 md:px-16 lg:px-24">
+      <div className="px-6 md:px-16 lg:px-24 max-w-[1600px] mx-auto">
         <div className="relative w-full aspect-square md:aspect-video rounded-3xl bg-slate-300">
           <Image
             fill

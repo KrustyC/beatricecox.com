@@ -29,7 +29,7 @@ const variants: Variants = {
 export const GridBlock: React.FC<FullScreenBlockProps> = ({ block }) => (
   <div
     className={classnames(
-      "flex flex-col items-center px-4 lg:px-12 xl:px-20 2xl:px-32 py-24",
+      "flex flex-col items-center px-4 lg:px-12 xl:px-20 2xl:px-32 py-24 max-w-[1600px] mx-auto",
       {
         "gap-y-0.5": block.spacing === GridBlockSpacing.EXTRA_SMALL,
         "gap-y-1": block.spacing === GridBlockSpacing.SMALL,

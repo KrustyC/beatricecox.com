@@ -7,17 +7,16 @@ import { ProjectInfoBlock as IProjectInfoBlock } from "@/types/global";
 
 const variants: Variants = {
   offscreen: {
-    y: 50,
+    y: 80,
     opacity: 0,
   },
   onscreen: {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 3.3,
       y: {
-        type: "spring",
-        duration: 1.3,
+        type: "tween",
+        duration: 1,
       },
       opacity: {
         duration: 0.3,
@@ -54,8 +53,8 @@ export const ProjectInfoBlock: React.FC<ProjectInfoBlockProps> = ({
         className="project-container flex flex-col"
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ staggerChildren: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ staggerChildren: 0.15 }}
       >
         <motion.h1
           className="text-3xl lg:text-4xl font-medium mb-1"
