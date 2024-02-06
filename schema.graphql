@@ -146,3 +146,8 @@ type GridBlockImagesCollection {
 type GridImages implements Entry {
   imagesCollection: AssetCollection
 }
+
+type Homepage implements Entry {
+  quote: String
+  mainText: String
+}

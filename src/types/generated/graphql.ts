@@ -187,3 +187,8 @@ export type TitlesWithSideParagraphsBlock = Entry & {
   title1?: Maybe<Scalars["String"]["output"]>;
   title2?: Maybe<Scalars["String"]["output"]>;
 };
+
+export type Homepage = Entry & {
+  quote: Maybe<Richtext>;
+  mainText: Maybe<Richtext>;
+};

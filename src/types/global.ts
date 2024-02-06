@@ -171,3 +171,8 @@ export interface GridImages {
 
 export interface NextOrPrevProject
   extends Pick<Project, "title" | "slug" | "category" | "categoryText"> {}
+
+export interface HomepageCopy {
+  quote: RichText;
+  mainText: RichText;
+}

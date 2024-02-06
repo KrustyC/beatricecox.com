@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { draftMode } from "next/headers";
 
 import { Blog } from "@/components/Home/Blog";
 import { GetInTouch } from "@/components/Home/GetInTouch";
@@ -8,11 +9,15 @@ import { Filterbar } from "@/components/Home/Projects/Filterbar";
 import { ProjectsListLoading } from "@/components/Home/Projects/ProjectsListLoading";
 import { Skills } from "@/components/Home/Skills";
 import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext";
+import { getHomepageCopy } from "@/graphql/queries/get-homepage-copy";
 
-export default function Home() {
+export default async function Home() {
+  const { isEnabled: isPreviewEnabled } = draftMode();
+  const homepageCopy = await getHomepageCopy({ isPreview: isPreviewEnabled });
+
   return (
     <div className="flex flex-col">
-      <Hero />
+      {homepageCopy && <Hero homepageCopy={homepageCopy} />}
 
       <ProjectsFilterContextProvider>
         <div>
