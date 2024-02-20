@@ -21,6 +21,7 @@ interface ProjectQueryResposne {
         | "categoryText"
         | "thumbnailImage"
         | "order"
+        | "isPasswordProtected"
       >
     >;
   };
@@ -37,6 +38,7 @@ interface GetProjectResponse {
       | "categoryText"
       | "thumbnailImage"
       | "order"
+      | "isPasswordProtected"
     >
   >;
 }
@@ -51,6 +53,7 @@ const GET_PROJECTS_QUERY = gql`
         categoryText
         category
         order
+        isPasswordProtected
         thumbnailImage {
           title
           description

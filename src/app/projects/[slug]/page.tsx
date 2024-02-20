@@ -13,13 +13,15 @@ interface ProjectPageProps {
     slug: string;
   };
 }
-
+export const dynamicParams = true;
 export async function generateStaticParams() {
   const { projects } = await getProjects({ isPreview: false });
 
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects
+    .filter(({ isPasswordProtected }) => !isPasswordProtected)
+    .map((project) => ({
+      slug: project.slug,
+    }));
 }
 
 export async function generateMetadata({
@@ -86,14 +88,14 @@ export default async function ProjectPage({
     return notFound();
   }
 
-  if (project.isPasswordProtected) {
-    const cookie = cookies().get(reveleadProjectCookie(slug));
-    const isValidCookie = validateSignedCookie({
-      signedCookie: cookie?.value || "",
-      secretKey: process.env.PROJECT_PASSWORD_COOKIE_SECRET as string,
-    });
+  const cookie = cookies().get(reveleadProjectCookie(slug));
+  const isValidCookie = validateSignedCookie({
+    signedCookie: cookie?.value || "",
+    secretKey: process.env.PROJECT_PASSWORD_COOKIE_SECRET as string,
+  });
 
-    if (!isValidCookie) return redirect(`/projects/${project.slug}/password`);
+  if (project.isPasswordProtected && !isValidCookie) {
+    return redirect(`/projects/${project.slug}/password`);
   }
 
   return <Project project={project} />;
