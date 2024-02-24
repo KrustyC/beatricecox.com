@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { cookies, draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
+import { Footer } from "@/components/Footer";
 import { Project } from "@/components/Project";
 import { getProject } from "@/graphql/queries/get-project.query";
 import { getProjects } from "@/graphql/queries/get-projects-list";
@@ -98,5 +99,10 @@ export default async function ProjectPage({
     return redirect(`/projects/${project.slug}/password`);
   }
 
-  return <Project project={project} />;
+  return (
+    <div className="pt-32 flex flex-col">
+      <Project project={project} />
+      <Footer />
+    </div>
+  );
 }

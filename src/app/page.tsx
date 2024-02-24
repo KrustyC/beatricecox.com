@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { draftMode } from "next/headers";
 
+import { Footer } from "@/components/Footer";
 import { Blog } from "@/components/Home/Blog";
 import { GetInTouch } from "@/components/Home/GetInTouch";
 import { Hero } from "@/components/Home/Hero";
@@ -32,6 +33,8 @@ export default async function Home() {
       <Skills />
 
       <Blog />
+
+      <Footer />
 
       <GetInTouch />
     </div>

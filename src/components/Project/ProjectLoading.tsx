@@ -8,7 +8,7 @@ const Line: React.FC = () => (
 
 export const ProjectLoading: React.FC = () => {
   return (
-    <div className="flex flex-col animate-pulse">
+    <div className="flex flex-col animate-pulse pt-32">
       <div className="px-6 md:px-16 lg:px-24">
         <div className="relative w-full aspect-square md:aspect-video rounded-xl bg-slate-300" />
       </div>

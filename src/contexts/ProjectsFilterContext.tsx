@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  PropsWithChildren,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 import { ProjectCategory } from "@/types/global";
 

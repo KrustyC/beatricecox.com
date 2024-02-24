@@ -114,23 +114,7 @@
   }
 
   .btn {
-    @apply font-bodoni w-auto px-5 py-3 text-lg shadow-sm font-semibold tracking-wider transition-all duration-200 ease-in-out text-center;
-  }
-
-  .btn.btn-primary {
-    @apply text-white border-white border-2 bg-primary hover:bg-white hover:text-primary;
-  }
-
-  .btn.btn-transparent-outlined {
-    @apply text-black border-black border-2 bg-transparent hover:bg-black hover:text-white disabled:bg-[#F5F5F5] disabled:hover:bg-[#F5F5F5] disabled:text-gray-400 disabled:border-gray-200 disabled:shadow-none  disabled:cursor-not-allowed;
-  }
-
-  .btn.btn-transparent-outlined.active {
-    @apply text-black border-black border-2 bg-black text-white;
-  }
-
-  .btn.btn-transparent-outlined-white {
-    @apply text-white border-white border-2 bg-transparent hover:bg-white hover:text-primary;
+    @apply uppercase whitespace-nowrap cursor-pointer tracking-[0.35em] text-white text-sm bg-black px-6 py-3;
   }
 
   /* Home Page */

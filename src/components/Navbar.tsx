@@ -1,9 +1,7 @@
 "use client";
 
-import classnames from "classnames";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { CONTRA_LINK } from "@/utils/constants";
 
@@ -23,25 +21,9 @@ const titleVariants: Variants = {
   },
 };
 
-interface NavbarProps {
-  variant?: "white" | "primary" | "secondary" | "accent";
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ variant }) => {
-  const pathname = usePathname();
-
+export const Navbar: React.FC = () => {
   return (
-    <div
-      className={classnames(
-        "w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-32 xl:px-48 z-50",
-        {
-          "bg-primary": variant === "primary",
-          "bg-white": variant === "white",
-          "bg-secondary": variant === "secondary",
-          "bg-accent": variant === "accent",
-        }
-      )}
-    >
+    <div className="absolute top-0 right-0 left-0 w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-32 xl:px-48 z-50 bg-transparent">
       <div className="flex items-center">
         <Link href="/">
           <span className="sr-only">Beatrice Duguid Cox</span>

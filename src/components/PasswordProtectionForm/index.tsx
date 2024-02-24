@@ -5,8 +5,8 @@ import { useFormState } from "react-dom";
 
 import { validateProjectPassword } from "@/actions/validate-project-password";
 
-import { Copy } from "./Copy";
-import { Submit } from "./Submit";
+import { Buttons } from "./Buttons";
+import { ErrorNotification } from "./ErrorNotification";
 
 interface PasswordProtectionFormProps {
   slug: string;
@@ -33,29 +33,22 @@ export function PasswordProtectionForm({
 
   return (
     <form
-      className="w-[100vw] h-[90vh] flex flex-col justify-center items-center bg-primary"
+      className="flex flex-col justify-center items-center gap-4"
       action={formAction}
     >
-      <Copy />
+      <input
+        type="password"
+        name="password"
+        autoComplete="new-password"
+        className="border-2 border-black h-14 px-5 rounded-lg text-lg w-full bg-secondary text-black font-manrope font-medium tracking-widest placeholder-black"
+        placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"
+      />
 
-      <div className="flex gap-x-4 h-14">
-        <input
-          type="password"
-          name="password"
-          autoComplete="new-password"
-          className="px-5 block border-gray-200 rounded-lg text-lg w-96 focus:border-red-500 focus:ring-red-500"
-          placeholder="Password"
-        />
-        <Submit />
-      </div>
+      <Buttons />
 
-      {state.error && (
-        <div className="h-36 mt-12 w-full flex justify-center items-center">
-          <span className="text-lg w-auto text-center bg-red-500 rounded-xl px-8 py-6 font-bold text-white">
-            Wrong password, please make sure to use the right one
-          </span>
-        </div>
-      )}
+      <ErrorNotification showError={state.error}>
+        Wrong password, please make sure to use the right one
+      </ErrorNotification>
     </form>
   );
 }
