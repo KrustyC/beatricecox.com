@@ -54,14 +54,17 @@ export const Navbar: React.FC = () => {
       </div>
 
       <div className="hidden md:flex items-center">
-        <a
+        <motion.a
           href={CONTRA_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="uppercase whitespace-nowrap cursor-pointer tracking-[0.35em] text-white text-sm bg-black px-6 py-3"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
         >
           view services
-        </a>
+        </motion.a>
       </div>
     </div>
   );
