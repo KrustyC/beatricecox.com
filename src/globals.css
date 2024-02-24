@@ -38,10 +38,6 @@
     @apply text-3xl;
   }
 
-  a {
-    @apply text-accent;
-  }
-
   body {
     @apply bg-white;
     @apply font-manrope;

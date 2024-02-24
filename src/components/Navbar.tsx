@@ -23,7 +23,11 @@ const titleVariants: Variants = {
   },
 };
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  variant?: "white" | "primary" | "secondary" | "accent";
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ variant }) => {
   const pathname = usePathname();
 
   return (
@@ -31,8 +35,10 @@ export const Navbar: React.FC = () => {
       className={classnames(
         "w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-32 xl:px-48 z-50",
         {
-          "bg-primary": pathname === "/",
-          "bg-white": pathname !== "/",
+          "bg-primary": variant === "primary",
+          "bg-white": variant === "white",
+          "bg-secondary": variant === "secondary",
+          "bg-accent": variant === "accent",
         }
       )}
     >

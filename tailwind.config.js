@@ -1,12 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const colors = require("tailwindcss/colors");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const newColors = {
   ...colors,
   primary: "#EDB8B8",
   accent: "#80ED99",
+  secondary: "#B8CDED",
   link: "#80ED99",
   black: "#1E1E1E",
   "light-gray": "#F5F5F5",
