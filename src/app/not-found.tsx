@@ -1,7 +1,8 @@
 import Link from "next/link";
+
+import { AimatedButton } from "@/components/AnimatedButton";
 import { Navbar } from "@/components/Navbar";
 import { NotFoundIcon } from "@/icons/NotFound";
-import { AimatedButton } from "@/components/AnimatedButton";
 
 export default function NotFound() {
   return (
