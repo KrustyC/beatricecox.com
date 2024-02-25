@@ -1,6 +1,5 @@
 import { draftMode } from "next/headers";
 
-// import { ChickenImage } from "@/components/ChickenImage";
 import { PasswordProtectionForm } from "@/components/PasswordProtectionForm";
 
 interface PasswordProtectedProjectProps {
@@ -16,8 +15,6 @@ export default async function PasswordProtectedProject({
 
   return (
     <div className="h-screen w-screen bg-secondary  flex flex-col items-center justify-center z-1">
-      {/* <ChickenImage /> */}
-
       <p className="font-manrope font-medium tracking-widest uppercase text-xl text-black mt-6 mb-12">
         Page protected by password
       </p>
