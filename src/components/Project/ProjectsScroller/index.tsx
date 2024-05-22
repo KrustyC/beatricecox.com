@@ -35,13 +35,13 @@ export async function ProjectsScroller({
     return (
       <div className="h-[173px] bg-black w-screen flex items-center">
         <div className="project-container flex">
-          <div className="flex flex-col justify-between border-r-2 border-[#EDB8B8] w-1/2 max-w-1/2 pr-2">
+          <div className="flex flex-col justify-between border-r-2 border-primary w-1/2 max-w-1/2 pr-2">
             <div>
               {prevProject.slug && (
                 <Link
                   href={`/projects/${encodeURIComponent(prevProject.slug)}`}
                 >
-                  <span className="w-16 tracking-[0.30rem] text-[#EDB8B8] text-base uppercase mb-1 animated-underline animated-underline-pink">
+                  <span className="w-16 tracking-[0.30rem] text-primary text-base uppercase mb-1 animated-underline animated-underline-pink">
                     /prev
                   </span>
                 </Link>
@@ -52,7 +52,7 @@ export async function ProjectsScroller({
               </span>
             </div>
 
-            <span className="text-[#EDB8B8] text-sm lg:text-base">
+            <span className="text-primary text-sm lg:text-base">
               {prevProject.title}
             </span>
           </div>
@@ -63,7 +63,7 @@ export async function ProjectsScroller({
                 <Link
                   href={`/projects/${encodeURIComponent(nextProject.slug)}`}
                 >
-                  <span className="w-16 tracking-[0.30rem] text-[#EDB8B8] text-base uppercase mb-1 animated-underline animated-underline-pink">
+                  <span className="w-16 tracking-[0.30rem] text-primary text-base uppercase mb-1 animated-underline animated-underline-pink">
                     /next
                   </span>
                 </Link>
@@ -74,7 +74,7 @@ export async function ProjectsScroller({
               </span>
             </div>
 
-            <span className="text-[#EDB8B8] text-sm lg:text-base">
+            <span className="text-primary text-sm lg:text-base">
               {nextProject.title}
             </span>
           </div>

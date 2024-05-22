@@ -3,11 +3,13 @@ import {
   Options,
 } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { Document } from "@contentful/rich-text-types";
 
-import { RichText as RichTextType } from "@/types/global";
+import { InlineEntryHyperlink } from "@/types/global";
 
 import {
   Bold,
+  EntryHyperlink,
   Heading,
   Hyperlink,
   ListItem,
@@ -16,10 +18,13 @@ import {
   UnorderedList,
 } from "./Blocks";
 
-export const RichText: React.FC<{ richtext: RichTextType }> = ({
-  richtext,
-}) => {
-  if (!richtext.json) {
+interface RichTextProps {
+  richtext?: Document;
+  links?: InlineEntryHyperlink[];
+}
+
+export const RichText: React.FC<RichTextProps> = ({ richtext, links = [] }) => {
+  if (!richtext) {
     return null;
   }
 
@@ -28,6 +33,12 @@ export const RichText: React.FC<{ richtext: RichTextType }> = ({
       [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
     },
     renderNode: {
+      [INLINES.ENTRY_HYPERLINK]: ({ data }, content) => {
+        const link = links.find((link) => link.id === data.target.sys.id);
+        return (
+          <EntryHyperlink href={link?.href || ""}>{content}</EntryHyperlink>
+        );
+      },
       [BLOCKS.PARAGRAPH]: (_, children: any) => <Text>{children}</Text>,
       [BLOCKS.HEADING_1]: (_, children: any) => (
         <Heading size={1}>{children}</Heading>
@@ -74,7 +85,7 @@ export const RichText: React.FC<{ richtext: RichTextType }> = ({
 
   return (
     <article className="flex flex-col gap-y-2 break-words font-manrope">
-      {documentToReactComponents(richtext.json, options)}
+      {documentToReactComponents(richtext, options)}
     </article>
   );
 };

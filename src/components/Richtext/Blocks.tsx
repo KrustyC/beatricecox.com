@@ -6,7 +6,6 @@ export const Bold: React.FC<PropsWithChildren> = ({ children }) => (
 
 export const Text: React.FC<PropsWithChildren> = ({ children }) => {
   const childrenArray = Children.toArray(children);
-
   if (childrenArray.length === 1 && childrenArray[0] === "") {
     return null;
   }
@@ -71,6 +70,25 @@ export const Hyperlink: React.FC<PropsWithChildren<HyperlinkProps>> = ({
     <a
       className="text-primary hover:underline"
       href={uri}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {children}
+    </a>
+  );
+};
+
+interface EntryHyperlinkProps {
+  href: string;
+}
+
+export const EntryHyperlink: React.FC<
+  PropsWithChildren<EntryHyperlinkProps>
+> = ({ href, children }) => {
+  return (
+    <a
+      className="underline font-bold hover:underline"
+      href={href}
       target="_blank"
       rel="noreferrer"
     >

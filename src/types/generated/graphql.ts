@@ -189,6 +189,27 @@ export type TitlesWithSideParagraphsBlock = Entry & {
 };
 
 export type Homepage = Entry & {
+  __typename?: "Homepage";
   quote: Maybe<Richtext>;
   mainText: Maybe<Richtext>;
+};
+
+interface ProjectHyperlink {
+  sys: {
+    id: string;
+  };
+  slug: string;
+}
+interface AboutPageRichText {
+  json: Scalars["JSON"]["output"];
+  links: {
+    entries: {
+      hyperlink: ProjectHyperlink[];
+    };
+  };
+}
+
+export type AboutPage = Entry & {
+  __typename?: "AboutPage";
+  headerText: Maybe<AboutPageRichText>;
 };

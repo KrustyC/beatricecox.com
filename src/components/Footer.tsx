@@ -37,7 +37,7 @@ const iconsVariants: Variants = {
 
 export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
-    <div className="flex h-[136px] lg:h-[166px] flex-col-reverse lg:flex-row items-center justify-center lg:items-end lg:justify-between py-12 px-8 md:px-16 lg:px-24 bg-[#EDB8B8]">
+    <div className="flex h-[136px] lg:h-[166px] flex-col-reverse lg:flex-row items-center justify-center lg:items-end lg:justify-between py-12 px-8 md:px-16 lg:px-24 bg-primary">
       <div className="flex lg:items-end h-12">
         <span className="text-sm text-[#C89191]">© 2024 Beatrice Cox</span>
       </div>
@@ -53,7 +53,7 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
           >
             <motion.a
               variants={iconsVariants}
-              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
+              className="bg-primary h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
               href={INSTAGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
 
             <motion.a
               variants={iconsVariants}
-              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
+              className="bg-primary h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
               href={DRIBBLE_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -73,7 +73,7 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
 
             <motion.a
               variants={iconsVariants}
-              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
+              className="bg-primary h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center mr-2 lg:mr-4 rounded-full px-1 md:px-0"
               href={FLICKR_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -83,7 +83,7 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
 
             <motion.a
               variants={iconsVariants}
-              className="bg-[#EDB8B8] h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
+              className="bg-primary h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center rounded-full px-1 md:px-0"
               href={LINKEDIN_LINK}
               target="_blank"
               rel="noopener noreferrer"

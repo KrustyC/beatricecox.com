@@ -176,3 +176,13 @@ export interface HomepageCopy {
   quote: RichText;
   mainText: RichText;
 }
+
+export interface InlineEntryHyperlink {
+  id: string;
+  href: string;
+}
+
+export interface AboutPageCopy {
+  headerText: Document;
+  links: InlineEntryHyperlink[];
+}

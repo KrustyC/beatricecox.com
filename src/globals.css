@@ -144,15 +144,6 @@
   }
 }
 
-.ProseMirror {
-  height: 100% !important;
-  outline: none !important;
-}
-
-#slider-shadow {
-  box-shadow: inset 0px 0px 75px 18px #000000;
-}
-
 @media screen and (min-width: 768px) {
   #slider-shadow {
     box-shadow: inset 0px 0px 105px 38px #000000;

@@ -26,7 +26,7 @@ const variants: Variants = {
 };
 
 export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
-  <div className="bg-[#EDB8B8] flex flex-col">
+  <div className="bg-primary flex flex-col">
     <div className="w-full flex px-8 md:px-16 lg:px-32 xl:px-60 pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto">
       <motion.div
         className="flex flex-col mx-auto text-left text-black"
@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
       >
         {homepageCopy.quote && (
           <motion.div className="mb-4 text-sm" variants={variants}>
-            <RichText richtext={homepageCopy.quote} />
+            <RichText richtext={homepageCopy.quote.json} />
           </motion.div>
         )}
 
@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
             className="w-full md:w-3/4 leading-[1.9rem] md:leading-[2.5rem] text-xl md:text-3xl font-[500] lg:font-[400]"
             variants={variants}
           >
-            <RichText richtext={homepageCopy.mainText} />
+            <RichText richtext={homepageCopy.mainText.json} />
           </motion.div>
         )}
       </motion.div>

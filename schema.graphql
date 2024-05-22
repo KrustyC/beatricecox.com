@@ -149,5 +149,9 @@ type GridImages implements Entry {
 
 type Homepage implements Entry {
   quote: String
-  mainText: String
+  mainText: Richtext
+}
+
+type AboutPage implements Entry {
+  lefttColumnText: Richtext
 }

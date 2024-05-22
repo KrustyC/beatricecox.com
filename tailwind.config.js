@@ -4,7 +4,7 @@ const colors = require("tailwindcss/colors");
 const newColors = {
   ...colors,
   primary: "#EDB8B8",
-  accent: "#80ED99",
+  accent: "#B8CDED",
   secondary: "#B8CDED",
   link: "#80ED99",
   black: "#1E1E1E",
