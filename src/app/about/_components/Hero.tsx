@@ -1,9 +1,8 @@
 import { draftMode } from "next/headers";
 
+import { FadeFromBottom } from "@/components/animated/FadeFromBottom";
+import { RichText } from "@/components/Richtext";
 import { getAboutPageCopy } from "@/graphql/queries/get-about-page-copy";
-
-import { FadeFromBottom } from "../animated/FadeFromBottom";
-import { RichText } from "../Richtext";
 
 export async function AboutHero() {
   const aboutPageCopy = await getAboutPageCopy({

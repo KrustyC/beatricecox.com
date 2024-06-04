@@ -8,7 +8,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format:check": "prettier --check src",
-    "format:write": "prettier --write src",
+    "format": "prettier --write src",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "prisma:generate": "prisma generate --schema=./src/prisma/schema.prisma",
     "prisma:migrate-dev": "prisma migrate dev --schema=./src/prisma/schema.prisma",

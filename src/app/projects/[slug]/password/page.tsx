@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { PasswordProtectionForm } from "@/components/PasswordProtectionForm";
+import { PasswordProtectionForm } from "./_components/PasswordProtectionForm";
 
 interface PasswordProtectedProjectProps {
   params: {
