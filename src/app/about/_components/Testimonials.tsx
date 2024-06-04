@@ -1,4 +1,4 @@
-import { FadeFromBottom } from "../animated/FadeFromBottom";
+import { FadeFromBottom } from "@/components/animated/FadeFromBottom";
 
 export const Testimonials: React.FC = () => {
   return (

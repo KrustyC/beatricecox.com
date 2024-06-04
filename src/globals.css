@@ -15,6 +15,10 @@
     @apply font-bodoni font-[400] text-black;
   }
 
+  .container-x-padding {
+    @apply px-8 md:px-16 lg:px-32 xl:px-48;
+  }
+
   #editor > p {
     @apply text-gray-700;
   }

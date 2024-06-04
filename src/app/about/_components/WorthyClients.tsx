@@ -1,21 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useMeasure } from "@uidotdev/usehooks";
 import { animate, motion, useMotionValue } from "framer-motion";
 import Image from "next/image";
 
-import babingtonImage from "../../../public/partner-logos/babingtons.png";
-import berviniImage from "../../../public/partner-logos/bervini.png";
-import bonaveriImage from "../../../public/partner-logos/bonaveri.png";
-import bonolloImage from "../../../public/partner-logos/bonollo.png";
-import buieseImage from "../../../public/partner-logos/buiese.png";
-import castelloDiSpessaImage from "../../../public/partner-logos/castello-di-spessa.png";
-import gulpImage from "../../../public/partner-logos/gulp.png";
-import luisaImage from "../../../public/partner-logos/luisa.png";
-import ourHutImage from "../../../public/partner-logos/our-hut.png";
-import saltyCommuneImage from "../../../public/partner-logos/salty-commune.png";
-import trentinoImage from "../../../public/partner-logos/trentino.png";
+import babingtonImage from "../../../../public/partner-logos/babingtons.png";
+import berviniImage from "../../../../public/partner-logos/bervini.png";
+import bonaveriImage from "../../../../public/partner-logos/bonaveri.png";
+import bonolloImage from "../../../../public/partner-logos/bonollo.png";
+import buieseImage from "../../../../public/partner-logos/buiese.png";
+import castelloDiSpessaImage from "../../../../public/partner-logos/castello-di-spessa.png";
+import gulpImage from "../../../../public/partner-logos/gulp.png";
+import luisaImage from "../../../../public/partner-logos/luisa.png";
+import ourHutImage from "../../../../public/partner-logos/our-hut.png";
+import saltyCommuneImage from "../../../../public/partner-logos/salty-commune.png";
+import trentinoImage from "../../../../public/partner-logos/trentino.png";
 
 const logos = [
   babingtonImage,
@@ -56,12 +56,12 @@ export const WorthyClients = () => {
   return (
     <div className="relative">
       <motion.div
-        className="absolute left-0 flex gap-4 bg-[#F2F1F1]"
+        className="absolute left-0 flex gap-4 py-4 bg-[#F2F1F1]"
         style={{ x: xTranslation }}
         ref={ref}
       >
         {[...logos, ...logos].map((logo, index) => (
-          <motion.div key={index} className="relative h-24 aspect-video">
+          <motion.div key={index} className="relative h-20 aspect-video">
             <Image
               fill
               style={{ objectFit: "contain" }}

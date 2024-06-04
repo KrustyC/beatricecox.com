@@ -16,13 +16,19 @@ export async function AboutHero() {
   const { headerText, links } = aboutPageCopy;
 
   return (
-    <div className="bg-accent flex flex-col">
-      <div className="w-full flex px-8 md:px-16 lg:px-32 xl:px-48 pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto">
+    <div className="bg-[#272727] flex flex-col">
+      <div className="w-full flex container-x-padding pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto">
         <FadeFromBottom
           delay={1.3}
-          className="flex flex-col mx-auto text-left text-black"
+          className="flex flex-col lg:flex-row gap-8 mx-auto text-left text-black"
         >
-          <div className="w-full md:w-1/2 text-lg">
+          <div className="w-full md:w-1/2 text-4xl font-bodoni font-light text-primary">
+            Art Direction, Branding, Campaign Strategy, Digital, Identity,
+            Packaging, Photography, Print, Social Media, Strategy, Web Design,
+            Interior Visualisation.
+          </div>
+
+          <div className="w-full md:w-1/2 text-lg text-white">
             <RichText richtext={headerText} links={links} />
           </div>
         </FadeFromBottom>
