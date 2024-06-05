@@ -22,7 +22,7 @@ export default async function Home() {
       {homepageCopy && <Hero homepageCopy={homepageCopy} />}
 
       <ProjectsFilterContextProvider>
-        <div>
+        <div id="projects">
           <Filterbar />
 
           <Suspense fallback={<ProjectsListLoading />}>

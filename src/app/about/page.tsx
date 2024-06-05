@@ -1,11 +1,11 @@
 import { Footer } from "@/components/Footer";
+
 import { DesignProcess } from "./_components/DesignProcess";
 import { Expertise } from "./_components/Expertise";
-import { Faq } from "./_components/Faq";
+import { GetInTouch } from "./_components/GetInTouch";
 import { AboutHero } from "./_components/Hero";
 import { WorkTogether } from "./_components/WorkTogether";
 import { WorthyClients } from "./_components/WorthyClients";
-import { GetInTouch } from "./_components/GetInTouch";
 
 export default async function AboutPage() {
   return (
@@ -17,8 +17,6 @@ export default async function AboutPage() {
       <WorkTogether />
 
       <DesignProcess />
-
-      <Faq />
 
       <GetInTouch />
 

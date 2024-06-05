@@ -1,7 +1,9 @@
 "use client";
 
+import { PropsWithChildren, useRef, useState } from "react";
 import classNames from "classnames";
-import { PropsWithChildren, useState } from "react";
+
+import { ChevronDownIcon } from "@/icons/ChevronDown";
 
 interface CollapsibleContainerProps {
   title: string;
@@ -12,6 +14,8 @@ export const CollapsibleContainer: React.FC<
   PropsWithChildren<CollapsibleContainerProps>
 > = ({ title, variant, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -36,11 +40,26 @@ export const CollapsibleContainer: React.FC<
         </h3>
 
         <button type="button" onClick={() => setIsOpen((prev) => !prev)}>
-          {isOpen ? "Close" : "Open"}
+          <ChevronDownIcon
+            className={classNames("w-6 h-6 transition-all duration-500", {
+              "text-white": variant === "black",
+              "text-black": variant !== "black",
+              "rotate-180": isOpen,
+            })}
+          />
         </button>
       </div>
 
-      {isOpen && <div className="flex flex-col min-h-[530px]">{children}</div>}
+      <div
+        className={"transition-all duration-500"}
+        style={{
+          height: isOpen ? containerRef.current?.offsetHeight : 0,
+        }}
+      >
+        <div className="pb-20 pt-8" ref={containerRef}>
+          {children}
+        </div>
+      </div>
     </div>
   );
 };
