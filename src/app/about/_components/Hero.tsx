@@ -1,42 +1,55 @@
-import { draftMode } from "next/headers";
+"use client";
 
-import { FadeFromBottom } from "@/components/animated/FadeFromBottom";
+import { Document } from "@contentful/rich-text-types";
+import { motion, Variants } from "framer-motion";
+
 import { RichText } from "@/components/Richtext";
-import { getAboutPageCopy } from "@/graphql/queries/get-about-page-copy";
+import { InlineEntryHyperlink } from "@/types/global";
 
-export async function AboutHero() {
-  const aboutPageCopy = await getAboutPageCopy({
-    isPreview: draftMode().isEnabled,
-  });
+const variants: Variants = {
+  offscreen: {
+    y: 10,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+    },
+  },
+};
 
-  if (!aboutPageCopy) {
-    return null;
-  }
-
-  const { headerText, links } = aboutPageCopy;
-
-  return (
-    <div className="bg-[#272727] flex flex-col">
-      <div className="w-full flex container-x-padding pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto">
-        <FadeFromBottom
-          delay={1.3}
-          className="flex flex-col lg:flex-row gap-8 mx-auto text-left text-black"
-        >
-          <div className="w-full md:w-1/2 text-4xl font-bodoni font-light text-primary">
-            Art Direction, Branding, Campaign Strategy, Digital, Identity,
-            Packaging, Photography, Print, Social Media, Strategy, Web Design,
-            Interior Visualisation.
-          </div>
-
-          <div className="w-full md:w-1/2 text-lg text-white">
-            <RichText richtext={headerText} links={links} />
-          </div>
-        </FadeFromBottom>
-      </div>
-    </div>
-  );
+interface AboutHeroProps {
+  headerText: Document;
+  links: InlineEntryHyperlink[];
 }
 
-export const AboutHeroLoading = () => {
-  return <div className="bg-accent flex flex-col h-[450px]" />;
+export const AboutHero: React.FC<AboutHeroProps> = ({ headerText, links }) => {
+  return (
+    <motion.div
+      className="bg-[#272727] w-full flex flex-col lg:flex-row container-x-padding pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto gap-24 text-left"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.7 }}
+      transition={{ staggerChildren: 0.6 }}
+    >
+      <motion.div
+        variants={variants}
+        className="w-full md:w-1/2 text-4xl font-bodoni font-light text-primary"
+      >
+        Art Direction, Branding, Campaign Strategy, Digital, Identity,
+        Packaging, Photography, Print, Social Media, Strategy, Web Design,
+        Interior Visualisation.
+      </motion.div>
+
+      <motion.div
+        variants={variants}
+        className="w-full md:w-1/2 text-lg text-white"
+      >
+        <RichText richtext={headerText} links={links} />
+      </motion.div>
+    </motion.div>
+  );
 };

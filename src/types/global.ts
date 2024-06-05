@@ -183,6 +183,8 @@ export interface InlineEntryHyperlink {
 }
 
 export interface AboutPageCopy {
-  headerText: Document;
-  links: InlineEntryHyperlink[];
+  hero: {
+    headerText: Document;
+    links: InlineEntryHyperlink[];
+  };
 }

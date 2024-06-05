@@ -1,4 +1,4 @@
-const BASE_PATHS = [""];
+const BASE_PATHS = ["", "/about"];
 
 async function fetchProjectsRoutes() {
   try {

@@ -61,11 +61,13 @@ export async function getAboutPageCopy({
     const { headerText } = data.aboutPage;
 
     return {
-      headerText: headerText.json,
-      links: headerText.links.entries.hyperlink.map((link) => ({
-        id: link.sys.id,
-        href: `/projects/${link.slug}`,
-      })),
+      hero: {
+        headerText: headerText.json,
+        links: headerText.links.entries.hyperlink.map((link) => ({
+          id: link.sys.id,
+          href: `/projects/${link.slug}`,
+        })),
+      },
     };
   } catch (error) {
     console.error((error as any).networkError?.result?.errors);
