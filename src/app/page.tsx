@@ -35,8 +35,6 @@ export default async function Home() {
 
       <Blog />
 
-      <Footer />
-
       <GetInTouch />
     </div>
   );

@@ -8,7 +8,7 @@ import Script from "next/script";
 import { Organization, WithContext } from "schema-dts";
 
 import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { PreviewBadge } from "@/components/PreviewBadge";
 import { bodoni, manrope } from "@/utils/fonts";
 
