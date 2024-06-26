@@ -35,7 +35,7 @@ const feedbackVariants: Variants = {
 export const GetInTouch: React.FC = () => {
   return (
     <motion.div
-      className="bg-[#272727] w-full flex container-x-padding py-28 lg:py-36"
+      className="bg-[#272727] w-full flex flex-col lg:flex-row container-x-padding py-28 lg:py-36"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.7 }}

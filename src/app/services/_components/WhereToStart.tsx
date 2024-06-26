@@ -3,7 +3,7 @@ import { TitleAndCopy } from "@/components/TitleAndCopy";
 export const WhereToStart: React.FC = () => {
   return (
     <div className="bg-white container-x-padding flex flex-col py-20">
-      <div className="w-full flex text-black gap-10">
+      <div className="w-full flex flex-col lg:flex-row text-black gap-10">
         <TitleAndCopy title="Don't know where to start?" variant="dark">
           <p className="text-regular">
             I{"'"}ll provide an intro of myself and study a project proposal

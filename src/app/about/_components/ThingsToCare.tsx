@@ -9,7 +9,7 @@ export const ThingsToCare: React.FC = () => {
         </h3>
       </div>
 
-      <div className="w-full flex text-black gap-10">
+      <div className="w-full flex flex-col lg:flex-row text-black gap-10">
         <TitleAndCopy title="Design Impact" variant="dark">
           <p className="text-regular">
             Design has a lot to answer for. Which means as a designer I have the

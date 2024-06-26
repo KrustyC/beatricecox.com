@@ -3,7 +3,7 @@ import { TitleAndCopy } from "@/components/TitleAndCopy";
 export const Expertise: React.FC = () => {
   return (
     <div className="bg-black container-x-padding flex flex-col py-20">
-      <div className="w-full flex text-white gap-16">
+      <div className="w-full flex flex-col lg:flex-row text-white gap-16">
         <TitleAndCopy title="Brand Strategy" variant="light">
           <p className="text-regular">
             Working with businesses{"'"} to create or improve their identities,
