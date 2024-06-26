@@ -12,7 +12,7 @@ export const TitleAndCopy: React.FC<PropsWithChildren<TitleAndCopyProps>> = ({
   children,
 }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col flex-1 gap-2">
       <h4
         className={classNames(
           "text-regular tracking-[.3rem] font-light font-manrope uppercase",

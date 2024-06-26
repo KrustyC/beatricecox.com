@@ -12,6 +12,7 @@ import { FadeFromLeft } from "./animated/FadeFromLeft";
 const LINKS = [
   { label: "Projects", href: "/#projects" },
   { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
   { label: "Shop", href: "https://society6.com/beatricecox", target: "_blank" },
 ];
 
@@ -39,7 +40,9 @@ const linkVariants: Variants = {
 };
 
 export const Navbar: React.FC = () => {
-  const path = usePathname();
+  const pathname = usePathname();
+
+  const hasBlackBackground = ["/about", "/services"].includes(pathname);
 
   return (
     <div className="absolute top-0 right-0 left-0 w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-32 xl:px-48 z-50 bg-transparent">
@@ -49,8 +52,8 @@ export const Navbar: React.FC = () => {
             <span className="sr-only">Beatrice Duguid Cox Logo</span>
             <BeatriceCoxWrittenLogo
               className={classNames("h-10 w-fit", {
-                "fill-white": path === "/about",
-                "fill-black": path !== "/about",
+                "fill-white": hasBlackBackground,
+                "fill-black": !hasBlackBackground,
               })}
             />
           </Link>
@@ -74,8 +77,8 @@ export const Navbar: React.FC = () => {
               href={href}
               target={target}
               className={classNames("text-lg", {
-                "text-black": path !== "/about",
-                "text-white": path === "/about",
+                "text-white": hasBlackBackground,
+                "text-black": !hasBlackBackground,
               })}
             >
               {label}

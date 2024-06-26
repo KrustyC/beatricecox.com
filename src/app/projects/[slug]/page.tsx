@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import { cookies, draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
-import { Footer } from "@/components/Footer";
-import { Project } from "@/components/Project";
 import { getProject } from "@/graphql/queries/get-project.query";
 import { getProjects } from "@/graphql/queries/get-projects-list";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { validateSignedCookie } from "@/utils/cookies";
+
+import { Project } from "./_components/Project";
 
 interface ProjectPageProps {
   params: {
@@ -102,7 +102,6 @@ export default async function ProjectPage({
   return (
     <div className="pt-32 flex flex-col">
       <Project project={project} />
-      <Footer />
     </div>
   );
 }
