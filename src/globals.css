@@ -16,7 +16,7 @@
   }
 
   .container-x-padding {
-    @apply px-8 md:px-16 lg:px-32 xl:px-48;
+    @apply px-8 md:px-16 lg:px-24 3xl:px-48 4xl:px-64;
   }
 
   #editor > p {

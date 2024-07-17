@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { DisclosureButton } from "@headlessui/react";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-import classNames from "classnames";
 import { motion, Variants } from "framer-motion";
 
 import { DribbleIcon } from "@/icons/Dribble";
@@ -47,7 +45,7 @@ export const MobilePanel: React.FC = () => {
   return (
     <div className="bg-black h-screen space-y-1 px-2 pb-3 pt-2 flex flex-col justify-between overflow-hidden">
       <div className="mt-32 flex flex-col gap-4 items-center">
-        {LINKS.map(({ label, href, target }) => (
+        {LINKS.map(({ label, href }) => (
           <DisclosureButton
             key={href}
             as="a"

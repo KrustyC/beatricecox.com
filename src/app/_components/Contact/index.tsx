@@ -1,10 +1,8 @@
 "use client";
 
-import { Document } from "@contentful/rich-text-types";
 import { motion, Variants } from "framer-motion";
 
-import { RichText } from "@/components/Richtext";
-import { InlineEntryHyperlink } from "@/types/global";
+import { LetsWorkTogether } from "@/components/LetsWorkTogether";
 
 const variants: Variants = {
   offscreen: {
@@ -21,15 +19,10 @@ const variants: Variants = {
   },
 };
 
-interface AboutHeroProps {
-  headerText: Document;
-  links: InlineEntryHyperlink[];
-}
-
-export const AboutHero: React.FC<AboutHeroProps> = ({ headerText, links }) => {
+export const Contact = () => {
   return (
     <motion.div
-      className="bg-black w-full flex flex-col lg:flex-row container-x-padding pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto gap-12 lg:gap-64 text-left"
+      className="bg-black w-full flex flex-col lg:flex-row container-x-padding pt-28 lg:pt-24 pb-12 lg:pb-24 mx-auto gap-12 lg:gap-64 text-left"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.7 }}
@@ -44,11 +37,8 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ headerText, links }) => {
         Interior Branding and Visualisation, Book Design.
       </motion.div>
 
-      <motion.div
-        variants={variants}
-        className="w-full lg:w-1/2 text-lg text-white lg:pt-3"
-      >
-        <RichText richtext={headerText} links={links} />
+      <motion.div variants={variants} className="flex-1">
+        <LetsWorkTogether />
       </motion.div>
     </motion.div>
   );

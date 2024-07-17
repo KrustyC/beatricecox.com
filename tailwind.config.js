@@ -7,7 +7,7 @@ const newColors = {
   accent: "#B8CDED",
   secondary: "#B8CDED",
   link: "#80ED99",
-  black: "#1E1E1E",
+  black: "#272727",
   "light-gray": "#F5F5F5",
 };
 
@@ -45,9 +45,16 @@ module.exports = {
           "50%": { transform: "translateX(3px)" },
         },
       },
+      letterSpacing: {
+        titles: ".3rem",
+      },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
         slide: "slide 1s ease-in-out infinite",
+      },
+      screens: {
+        "3xl": "1600px",
+        "4xl": "1900px",
       },
       spacing: {
         128: "32rem",

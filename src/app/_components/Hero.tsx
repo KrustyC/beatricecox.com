@@ -27,7 +27,7 @@ const variants: Variants = {
 
 export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
   <div className="bg-primary flex flex-col">
-    <div className="w-full flex px-8 md:px-16 lg:px-32 xl:px-60 pt-28 lg:pt-36 pb-12 lg:pb-24 mx-auto">
+    <div className="w-full flex container-x-padding pt-28 lg:pt-40 pb-12 lg:pb-24 mx-auto">
       <motion.div
         className="flex flex-col mx-auto text-left text-black"
         initial="offscreen"
@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
         transition={{ staggerChildren: 0.3 }}
       >
         {homepageCopy.quote && (
-          <motion.div className="mb-4 text-sm" variants={variants}>
+          <motion.div className="mb-3 text-sm" variants={variants}>
             <RichText richtext={homepageCopy.quote.json} />
           </motion.div>
         )}

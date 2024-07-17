@@ -15,7 +15,7 @@ export const TitleAndCopy: React.FC<PropsWithChildren<TitleAndCopyProps>> = ({
     <div className="flex flex-col flex-1 gap-2">
       <h4
         className={classNames(
-          "text-regular tracking-[.3rem] font-light font-manrope uppercase",
+          "text-regular tracking-titles font-light font-manrope uppercase",
           {
             "text-white": variant === "light",
             "text-black": variant === "dark",

@@ -1,17 +1,15 @@
 import { Suspense } from "react";
 import { draftMode } from "next/headers";
 
-import { Footer } from "@/components/Footer";
+import { WorthyClients } from "@/components/WorthyClients";
 import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext";
 import { getHomepageCopy } from "@/graphql/queries/get-homepage-copy";
 
-import { Blog } from "./_components/Blog";
-import { GetInTouch } from "./_components/GetInTouch";
+import { Contact } from "./_components/Contact";
 import { Hero } from "./_components/Hero";
 import ProjectsListSection from "./_components/Projects";
 import { Filterbar } from "./_components/Projects/Filterbar";
 import { ProjectsListLoading } from "./_components/Projects/ProjectsListLoading";
-import { Skills } from "./_components/Skills";
 
 export default async function Home() {
   const { isEnabled: isPreviewEnabled } = draftMode();
@@ -31,11 +29,9 @@ export default async function Home() {
         </div>
       </ProjectsFilterContextProvider>
 
-      <Skills />
+      <Contact />
 
-      <Blog />
-
-      <GetInTouch />
+      <WorthyClients />
     </div>
   );
 }

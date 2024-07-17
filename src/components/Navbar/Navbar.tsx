@@ -51,10 +51,10 @@ export const Navbar: React.FC = () => {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }: { open: boolean }) => (
         <>
-          <div className="absolute top-0 right-0 left-0 w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-32 xl:px-48 z-50 bg-transparent">
+          <div className="absolute top-0 right-0 left-0 w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-24 3xl:px-48 z-50 bg-transparent">
             <div className="flex items-center">
               <FadeFromLeft delay={0.3}>
-                <Link href="/">
+                <Link href="/" className="block lg:pb-2">
                   <span className="sr-only">Beatrice Duguid Cox Logo</span>
                   <BeatriceCoxWrittenLogo
                     className={classNames("h-10 w-fit", {
@@ -95,7 +95,7 @@ export const Navbar: React.FC = () => {
               viewport={{ once: true, amount: 0.7 }}
               transition={{ staggerChildren: 0.4 }}
             >
-              {LINKS.map(({ label, href, target }) => (
+              {LINKS.map(({ label, href }) => (
                 <motion.div
                   key={href}
                   className="ml-12 lg:ml-8 xl:ml-0"
@@ -103,8 +103,8 @@ export const Navbar: React.FC = () => {
                 >
                   <Link
                     href={href}
-                    target={target}
-                    className={classNames("text-lg", {
+                    // target={target}
+                    className={classNames("text-base", {
                       "text-white": hasBlackBackground,
                       "text-black": !hasBlackBackground,
                     })}
