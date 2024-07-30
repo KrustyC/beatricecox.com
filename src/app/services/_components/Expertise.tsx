@@ -2,22 +2,22 @@ import { TitleAndCopy } from "@/components/TitleAndCopy";
 
 const items = [
   {
-    title: "Brand Strategy",
-    variant: "light" as "dark" | "light",
+    title: "Brand Strategy & Campaigns",
+    variant: "light" as const,
     description:
-      "Working with businesses to create or improve their identities, creating harmonious and consistent brands on multiple levels by habilitating people to tell their unique story.",
+      "I work with individuals and businesses to shape their identities into something that aligns with their personality and vision. Expanding a brand in multiple areas and transforming it in a coherent way by using the right approaches.",
   },
   {
-    title: "Packaging",
-    variant: "light" as "dark" | "light",
+    title: "Brand Assets & Packaging",
+    variant: "light" as const,
     description:
-      "Moulding your brand to coherent packaging and label design, from studying the design to preparing technical artwork, I create bespoke solutions for primary, secondary and tertiary packaging.",
+      "Moulding your brand to create coherent material, whether that be, branded assets, campaigns, packaging or label design. I provide both graphic artwork and technical support and have worked in primary, secondary and tertiary packaging areas.",
   },
   {
-    title: "UX/UI & Digital",
-    variant: "light" as "dark" | "light",
+    title: "UX/UI & Online Strategy",
+    variant: "light" as const,
     description:
-      "Whether it's a one-page marketing website, an e-commerce or a launch on social, I have helped clients get all three and know how to take your idea from prototype to the final product.",
+      "It might be a one-page marketing website, an e-commerce or a launch on social including initial SEO and social media strategy. I have worked with clients get all three and know how to take your idea from prototype to the final product. Introduction to social media planning and SEO.",
   },
 ];
 

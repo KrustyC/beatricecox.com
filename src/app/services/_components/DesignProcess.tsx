@@ -6,33 +6,33 @@ import { ChevronRightIcon } from "@/icons/ChevronRight";
 const items = [
   {
     number: "01",
-    title: "Discovery",
+    title: "Getting to know you",
     description:
-      "It's about understanding your goals and needs, by analysing your current brand, market position, target customer experience and, above all, the message you want to convey.",
+      "This is where we get to know you. We discover what makes you tick, explore the relationship between you and your audience, and understand your current and future positioning. This will provide a solid base to start our project.",
   },
   {
     number: "02",
-    title: "Concept Dev",
+    title: "Define the direction",
     description:
-      "Based on our discussion, we create a solid base by defining the key conceptual elements to use for our brand strategy.",
+      "Next, we transform our conversation into actionable information, supported by case studies and market research. We elaborate a conceptual foundation that will ensure everyone is on the same page regarding future steps.",
   },
   {
     number: "03",
-    title: "Design & Revision",
+    title: "The Magic",
     description:
-      "Now for the really fun bit! Starting with initial rough concepts we then collaborate with you through additional rounds of feedback to close in on a final result. Once you are happy with the outcome we can begin final production.",
+      "We create and design something together. The various stages in this chapter will include a series of design deliveries and client feedback, allowing us to move from initial ideas to concepts tailored to fit your brand.",
   },
   {
     number: "04",
-    title: "Delivery",
+    title: "Output",
     description:
-      "When you're happy and everything is tested we will package and deliver the finished product. This means putting websites live, sending designs to the printers, and handing over new brand guides.",
+      "Once we've finalised everything and you have given your approval, it's time for the handover of the signed-off material. This includes brand manuals and asset designs, print-ready artwork for printers, and website and online launches.",
   },
   {
     number: "05",
-    title: "Support",
+    title: "Continue the journey",
     description:
-      "Once we've opened the door to your new brand your journey has just begun! If needed we can continue to support you to ensure your brand is applied correctly and is continuously developed.",
+      "Now you have all the material you need to make your brand shine — if you feel you need ongoing assistance, we can plan a support system which will make sure your brand is implemented correctly and continues to evolve.",
   },
 ];
 

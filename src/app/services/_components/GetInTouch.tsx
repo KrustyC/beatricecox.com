@@ -45,26 +45,22 @@ const feedbackVariants: Variants = {
 export const GetInTouch: React.FC = () => {
   return (
     <motion.div
-      className="bg-black w-full flex flex-col lg:flex-row container-x-padding py-28 lg:py-36"
+      className="bg-black w-full flex flex-col lg:flex-row container-x-padding py-28 lg:py-36 gap-12"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.7 }}
       transition={{ staggerChildren: 0.6 }}
     >
-      <motion.div variants={textVariants} className="flex-1 md:w-2/3">
+      <motion.div variants={textVariants} className="flex-1 md:w-2/3 3xl:w-1/2">
         <LetsWorkTogether />
       </motion.div>
 
       <motion.div
         variants={feedbackVariants}
-        className="w-full md:w-1/3 text-white"
+        className="w-full md:w-1/3 3xl:w-1/2 3xl:pl-32 text-white"
       >
         <div className="flex flex-col h-full justify-center gap-2">
-          <h4
-            className={
-              "text-regular text-white tracking-[.3rem] font-light font-manrope uppercase"
-            }
-          >
+          <h4 className="text-regular text-white tracking-[.3rem] font-light font-manrope uppercase">
             Feedback
           </h4>
           <p>

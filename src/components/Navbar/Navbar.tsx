@@ -103,7 +103,6 @@ export const Navbar: React.FC = () => {
                 >
                   <Link
                     href={href}
-                    // target={target}
                     className={classNames("text-base", {
                       "text-white": hasBlackBackground,
                       "text-black": !hasBlackBackground,

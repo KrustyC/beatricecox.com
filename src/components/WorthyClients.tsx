@@ -47,26 +47,6 @@ const marqueeVariants = {
   },
 };
 
-// export const WorthyClients = () => {
-//   return (
-//     <div>
-//       <div className="relative w-screen max-w-full h-[100px] overflow-x-hidden">
-//         <motion.div
-//           className="absolute whitespace-nowrap"
-//           variants={marqueeVariants}
-//           animate="animate"
-//         >
-//           <h1>
-//             Let's Work Together. Let's Work Together. Let's Work Together. Let's
-//             Work Together. Let's Work Together. Let's Work Together. Let's Work
-//             Together
-//           </h1>
-//         </motion.div>
-//       </div>
-//     </div>
-//   );
-// };
-
 export const WorthyClients = () => {
   let [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);

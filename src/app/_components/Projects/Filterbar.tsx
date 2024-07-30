@@ -50,7 +50,7 @@ export const Filterbar: React.FC = () => {
   return (
     <div className="sticky top-0 h-28 bg-[#E5E4E2] z-50">
       <motion.div
-        className="h-full px-4 md:px-16 lg:px-32 xl:px-60 flex font-light items-center justify-between text-bodoni tracking-wide uppercase overflow-x-auto"
+        className="h-full container-x-padding flex font-light items-center justify-between text-bodoni tracking-wide uppercase overflow-x-auto"
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.7 }}
