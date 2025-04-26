@@ -134,14 +134,6 @@ export const getProject = cache(
       }).query<ProjectQueryResposne>({
         query: GET_PROJECT_QUERY,
         variables: { slug, preview: isPreview },
-        context: {
-          fetchOptions: {
-            next: {
-              revalidate:
-                isPreview || process.env.DISABLE_CACHE === "true" ? 0 : 3600,
-            },
-          },
-        },
       });
 
       const project = data.data.projectCollection.items[0];

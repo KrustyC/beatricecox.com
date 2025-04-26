@@ -36,13 +36,6 @@ export async function getHomepageCopy({
     }).query<HomepageQueryResposne>({
       query: GET_HOMEPAGE_COPY_QUERY,
       variables: { id: ID, preview: isPreview },
-      context: {
-        fetchOptions: {
-          next: {
-            revalidate: 0 /* Revalidate immediately to get the latest data. */,
-          },
-        },
-      },
     });
 
     if (!data.homepage.quote || !data.homepage.mainText) {

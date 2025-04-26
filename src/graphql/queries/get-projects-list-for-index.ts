@@ -32,13 +32,6 @@ export async function getProjectsListForIndex(): Promise<GetProjectListsForIndex
     const data = await getApolloServerClient().query<ProjectsListQueryResposne>(
       {
         query: GET_PROJECTS_LIST_FOR_INDEX_QUERY,
-        context: {
-          fetchOptions: {
-            next: {
-              revalidate: 0,
-            },
-          },
-        },
       }
     );
 

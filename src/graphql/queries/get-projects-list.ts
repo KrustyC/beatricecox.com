@@ -75,14 +75,6 @@ export async function getProjects({
     }).query<ProjectQueryResposne>({
       query: GET_PROJECTS_QUERY,
       variables: { preview: isPreview },
-      context: {
-        fetchOptions: {
-          next: {
-            revalidate:
-              isPreview || process.env.DISABLE_CACHE === "true" ? 0 : 3600,
-          },
-        },
-      },
     });
 
     const projects = data.data.projectCollection.items.map((project) => ({

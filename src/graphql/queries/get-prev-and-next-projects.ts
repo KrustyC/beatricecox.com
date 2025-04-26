@@ -49,13 +49,6 @@ export async function getPrevAndNextProjects({
     const data = await getApolloServerClient().query<ProjectQueryResposne>({
       query: GET_NEXT_AND_PREV_PROJECTS_QUERY,
       variables: { nextId, prevId },
-      context: {
-        fetchOptions: {
-          next: {
-            revalidate: process.env.DISABLE_CACHE === "true" ? 0 : 3600,
-          },
-        },
-      },
     });
 
     const projects = data.data.projectCollection.items;

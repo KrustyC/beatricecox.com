@@ -45,13 +45,6 @@ export async function getAboutPageCopy({
     }).query<AboutPageQueryResposne>({
       query: GET_ABOUTPAGE_COPY_QUERY,
       variables: { id: ID, preview: isPreview },
-      context: {
-        fetchOptions: {
-          next: {
-            revalidate: 0 /* Revalidate immediately to get the latest data. */,
-          },
-        },
-      },
     });
 
     if (!data.aboutPage.headerText) {
@@ -70,7 +63,7 @@ export async function getAboutPageCopy({
       },
     };
   } catch (error) {
-    console.error((error as any).networkError?.result?.errors);
+    console.error((error as any).networkError);
     throw new Error("Failed to fetch About Page copy");
   }
 }

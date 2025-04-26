@@ -34,13 +34,6 @@ export async function getProjectPassword({
     }).query<ProjectQueryResposne>({
       query: GET_PROJECT_PASSWORD_QUERY,
       variables: { slug, preview: isPreview },
-      context: {
-        fetchOptions: {
-          next: {
-            revalidate: 0 /* Revalidate immediately to get the latest data. */,
-          },
-        },
-      },
     });
 
     const project = data.data.projectCollection.items[0];
