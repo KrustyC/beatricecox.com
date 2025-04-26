@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState,useMemo } from "react";
+import { useActionState, useMemo } from "react";
 
 import { validateProjectPassword } from "@/actions/validate-project-password";
 

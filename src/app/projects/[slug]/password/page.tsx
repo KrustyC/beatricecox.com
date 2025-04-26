@@ -8,12 +8,12 @@ interface PasswordProtectedProjectProps {
   }>;
 }
 
-export default async function PasswordProtectedProject(props: PasswordProtectedProjectProps) {
+export default async function PasswordProtectedProject(
+  props: PasswordProtectedProjectProps
+) {
   const params = await props.params;
 
-  const {
-    slug
-  } = params;
+  const { slug } = params;
 
   const { isEnabled: isPreviewModeEnabled } = await draftMode();
 
