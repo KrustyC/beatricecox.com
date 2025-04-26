@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
-import { useFormState } from "react-dom";
+import { useActionState,useMemo } from "react";
 
 import { validateProjectPassword } from "@/actions/validate-project-password";
 
@@ -26,7 +25,7 @@ export function PasswordProtectionForm({
     [slug, isPreview]
   );
 
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     validateProjectPassword,
     initialState
   );

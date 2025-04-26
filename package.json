@@ -2,7 +2,7 @@
   "name": "beatricecox.com",
   "private": false,
   "scripts": {
-    "dev": "npm run prisma:generate && next dev --turbo",
+    "dev": "npm run prisma:generate && next dev --turbopack",
     "build": "npm run prisma:generate && npm run prisma:migrate:deploy && next build",
     "start": "next start",
     "lint": "next lint",
@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
-    "@apollo/experimental-nextjs-app-support": "^0.11.2",
+    "@apollo/experimental-nextjs-app-support": "^0.12.2",
     "@contentful/rich-text-plain-text-renderer": "^17.0.0",
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "@headlessui/react": "^2.2.2",
-    "@next/third-parties": "^15.3.1",
+    "@next/third-parties": "15.3.1",
     "@prisma/client": "^6.6.0",
     "@uidotdev/usehooks": "^2.4.1",
     "@vercel/analytics": "^1.5.0",
@@ -34,11 +34,11 @@
     "contentful": "^11.5.16",
     "framer-motion": "^12.9.2",
     "i": "^0.3.7",
-    "next": "^14.2.5",
+    "next": "15.3.1",
     "npm": "^11.3.0",
     "prisma": "^6.6.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "react-responsive-carousel": "^3.2.23",
     "schema-dts": "^1.1.5",
     "server-only": "^0.0.1"
@@ -49,10 +49,10 @@
     "@graphql-codegen/typescript": "^4.1.6",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.15.2",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5",
+    "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -60,5 +60,9 @@
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3"
+  },
+  "overrides": {
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2"
   }
 }

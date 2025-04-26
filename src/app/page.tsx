@@ -12,7 +12,7 @@ import { Filterbar } from "./_components/Projects/Filterbar";
 import { ProjectsListLoading } from "./_components/Projects/ProjectsListLoading";
 
 export default async function Home() {
-  const { isEnabled: isPreviewEnabled } = draftMode();
+  const { isEnabled: isPreviewEnabled } = await draftMode();
   const homepageCopy = await getHomepageCopy({ isPreview: isPreviewEnabled });
 
   return (

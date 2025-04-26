@@ -7,7 +7,7 @@ import { ThingsToCare } from "./_components/ThingsToCare";
 
 export default async function AboutPage() {
   const aboutPageCopy = await getAboutPageCopy({
-    isPreview: draftMode().isEnabled,
+    isPreview: (await draftMode()).isEnabled,
   });
 
   if (!aboutPageCopy) {

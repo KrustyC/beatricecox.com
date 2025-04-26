@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { gql } from "@apollo/client";
 import { getApolloServerClient } from "src/graphql/apollo-server-client";
 
@@ -122,30 +123,32 @@ const GET_PROJECT_QUERY = gql`
   }
 `;
 
-export async function getProject({
-  slug,
-  isPreview = false,
-}: GetProjectParams): Promise<GetProjectResponse> {
-  try {
-    const data = await getApolloServerClient({
-      isPreview,
-    }).query<ProjectQueryResposne>({
-      query: GET_PROJECT_QUERY,
-      variables: { slug, preview: isPreview },
-      context: {
-        fetchOptions: {
-          next: {
-            revalidate:
-              isPreview || process.env.DISABLE_CACHE === "true" ? 0 : 3600,
+export const getProject = cache(
+  async ({
+    slug,
+    isPreview = false,
+  }: GetProjectParams): Promise<GetProjectResponse> => {
+    try {
+      const data = await getApolloServerClient({
+        isPreview,
+      }).query<ProjectQueryResposne>({
+        query: GET_PROJECT_QUERY,
+        variables: { slug, preview: isPreview },
+        context: {
+          fetchOptions: {
+            next: {
+              revalidate:
+                isPreview || process.env.DISABLE_CACHE === "true" ? 0 : 3600,
+            },
           },
         },
-      },
-    });
+      });
 
-    const project = data.data.projectCollection.items[0];
-    return { project: project ? parseGraphQLProject(project) : null };
-  } catch (error) {
-    console.error((error as any).networkError?.result?.errors);
-    throw new Error(`Failed to fetch project with slug: ${slug}`);
+      const project = data.data.projectCollection.items[0];
+      return { project: project ? parseGraphQLProject(project) : null };
+    } catch (error) {
+      console.error((error as any).networkError?.result?.errors);
+      throw new Error(`Failed to fetch project with slug: ${slug}`);
+    }
   }
-}
+);

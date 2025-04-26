@@ -38,7 +38,7 @@ export async function validateProjectPassword(
   }
 
   const signedCookie = signCookie({ value: slug, secretKey });
-  cookies().set(reveleadProjectCookie(slug), signedCookie, {
+  (await cookies()).set(reveleadProjectCookie(slug), signedCookie, {
     expires: Date.now() + ONE_DAY_EXPIRATION_TIMESTAMP,
     httpOnly: true,
     secure: process.env.NEXT_PUBLIC_ENVIRONMENT === "production",

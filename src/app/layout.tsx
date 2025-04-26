@@ -59,8 +59,8 @@ type Props = {
   children: ReactNode;
 };
 
-export default function RootLayout({ children }: Props) {
-  const { isEnabled: isPreviewEnabled } = draftMode();
+export default async function RootLayout({ children }: Props) {
+  const { isEnabled: isPreviewEnabled } = await draftMode();
 
   const jsonLd: WithContext<Organization> = {
     "@context": "https://schema.org",

@@ -36,7 +36,7 @@ export async function GET(request: Request) {
     });
   }
 
-  draftMode().enable();
+  (await draftMode()).enable();
 
   redirect(`/projects/${slug}`);
 }

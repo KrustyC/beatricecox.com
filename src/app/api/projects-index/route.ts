@@ -9,7 +9,7 @@ import {
 } from "./utils";
 
 export async function POST() {
-  const apiKey = headers().get("x-api-key");
+  const apiKey = (await headers()).get("x-api-key");
 
   if (!apiKey || apiKey !== process.env.REBUILD_PROJECTS_INDEX_API_KEY) {
     return new Response("Unauthorized", {

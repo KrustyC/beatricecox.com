@@ -10,9 +10,9 @@ import { validateSignedCookie } from "@/utils/cookies";
 import { Project } from "./_components/Project";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 export const dynamicParams = true;
 export async function generateStaticParams() {
@@ -25,11 +25,15 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({
-  params: { slug },
-}: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata(
+  props: ProjectPageProps
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const { slug } = params;
+
   try {
-    const { isEnabled } = draftMode();
+    const { isEnabled } = await draftMode();
     const { project } = await getProject({ slug, isPreview: isEnabled });
 
     if (!project || project.isPasswordProtected) {
@@ -76,10 +80,10 @@ export async function generateMetadata({
   }
 }
 
-export default async function ProjectPage({
-  params: { slug },
-}: ProjectPageProps) {
-  const { isEnabled } = draftMode();
+export default async function ProjectPage(props: ProjectPageProps) {
+  const { slug } = await props.params;
+
+  const { isEnabled } = await draftMode();
   const { project } = await getProject({
     slug,
     isPreview: isEnabled,
@@ -89,7 +93,7 @@ export default async function ProjectPage({
     return notFound();
   }
 
-  const cookie = cookies().get(reveleadProjectCookie(slug));
+  const cookie = (await cookies()).get(reveleadProjectCookie(slug));
   const isValidCookie = validateSignedCookie({
     signedCookie: cookie?.value || "",
     secretKey: process.env.PROJECT_PASSWORD_COOKIE_SECRET as string,
