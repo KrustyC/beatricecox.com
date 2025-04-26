@@ -139,7 +139,7 @@ export const getProject = cache(
       const project = data.data.projectCollection.items[0];
       return { project: project ? parseGraphQLProject(project) : null };
     } catch (error) {
-      console.error((error as any).networkError?.result?.errors);
+      console.error("Error fetching project:", error);
       throw new Error(`Failed to fetch project with slug: ${slug}`);
     }
   }

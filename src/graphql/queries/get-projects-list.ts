@@ -53,6 +53,7 @@ const GET_PROJECTS_QUERY = gql`
         categoryText
         category
         order
+        comingSoon
         isPasswordProtected
         thumbnailImage {
           title
