@@ -42,7 +42,7 @@ export const Heading: React.FC<PropsWithChildren<HeadingProps>> = ({
       return <h1 className="rich-text-heading text-5xl">{children}</h1>;
     case 2:
       return (
-        <h2 className="rich-text-heading !font-semibold text-2xl lg:text-4xl mt-8 lg:mt-12">
+        <h2 className="rich-text-heading font-semibold! text-2xl lg:text-4xl mt-8 lg:mt-12">
           {children}
         </h2>
       );

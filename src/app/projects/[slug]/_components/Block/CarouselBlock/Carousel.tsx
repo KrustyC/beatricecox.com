@@ -43,7 +43,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
         {images.map((img, i) => (
           <div
             key={i}
-            className="relative w-screen lg:w-auto aspect-[4/3] lg:aspect-auto lg:h-[620px] lg:max-h-[620px]"
+            className="relative w-screen lg:w-auto aspect-4/3 lg:aspect-auto lg:h-[620px] lg:max-h-[620px]"
           >
             <Image
               className="z-1 object-cover lg:object-contain"
