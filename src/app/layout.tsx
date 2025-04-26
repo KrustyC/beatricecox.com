@@ -16,15 +16,16 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Beatrice Duguid Cox",
-  description: "Product & Graphic Designer",
+  description:
+    "I specialize in Brand Strategy, Packaging, Digital Design, and Online Launches for the Food and Beverage Industry. My work is inspired by the intersection of design, art, and the diverse perspectives I encounter through travel.",
   metadataBase: new URL("https://beatricecox.com"),
   openGraph: {
     title: "Beatrice Duguid Cox",
     siteName: "Beatrice Duguid Cox",
-    url: new URL("/", process.env.NEXT_PUBLIC_BASE_URL),
+    url: new URL("https://beatricecox.com"),
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/the_scrapbookers.webp`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/beatricecox.png`,
         height: 569,
         width: 853,
       },
@@ -93,7 +94,9 @@ export default function RootLayout({ children }: Props) {
             <GoogleAnalytics
               gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
             />
+
             <Analytics />
+
             <SpeedInsights />
           </>
         )}

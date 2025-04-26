@@ -32,9 +32,6 @@ module.exports = {
       "background-primary": "#22577A",
     },
     extend: {
-      backgroundImage: {
-        "home-pattern": "url('/images/the_scrapbookers.png')",
-      },
       keyframes: {
         wiggle: {
           "0%, 100%": { transform: "translateX(-8deg)" },

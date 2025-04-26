@@ -39,7 +39,7 @@ export const Footer: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <div className="flex h-[136px] lg:h-[166px] flex-col-reverse lg:flex-row items-center justify-center lg:items-end lg:justify-between py-12 px-8 md:px-16 lg:px-24 bg-primary">
       <div className="flex lg:items-end h-12">
-        <span className="text-sm text-[#C89191]">© 2024 Beatrice Cox</span>
+        <span className="text-sm text-[#C89191]">© 2025 Beatrice Cox</span>
       </div>
 
       <div className="flex items-center lg:items-end h-24 mb-2 lg:mb-0">
