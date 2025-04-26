@@ -40,7 +40,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
 
   return (
     <motion.div
-      className="mb-20 lg:mb-24 last:mb-0 flex flex-col"
+      className="mb-20 lg:mb-24 last:mb-0 flex flex-col max-w-[600px]"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.3 }}
