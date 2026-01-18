@@ -36,9 +36,9 @@ export async function getProjectPassword({
       variables: { slug, preview: isPreview },
     });
 
-    const project = data.data.projectCollection.items[0];
+    const project = data?.data?.projectCollection.items[0];
 
-    return project.protectionPassword;
+    return project?.protectionPassword || undefined;
   } catch (error) {
     console.error((error as any).networkError?.result?.errors);
     throw new Error(`Failed to fetch project with slug: ${slug}`);

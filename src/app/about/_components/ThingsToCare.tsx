@@ -4,28 +4,22 @@ const items = [
   {
     title: "Design Impact",
     description:
-      "Design has a lot to answer for. Which means as a designer I have the responsibility to do what I can to keep things organic, help smaller realities and keep my attention on sustainable outcomes.",
+      "Design has a lot to answer for. As a designer, I feel a constant responsibility for the impact of my work—so I do what I can to support smaller businesses and stay focused on sustainable outcomes.",
   },
   {
     title: "Community",
-    description: (
-      <>
-        I{"'"}m an active community member for <b>Humanitarian Designers</b> and{" "}
-        <b>Let{"'"}s Talk Palestine</b>. I{"'"}ve also volunteered for the{" "}
-        <b>Migration museum in London</b> and{" "}
-        <b>Bandstand Beds, a community garden</b>
-      </>
-    ),
+    description:
+      "I try to stay connected with professionals and creatives in my field, as well as with causes I care about. I’ve collaborated with Humanitarian Designers and Let’s Talk Palestine, and volunteered for the Migration Museum in London and Bandstand Beds, a local community garden.",
   },
   {
-    title: "Different Mediums",
+    title: "Experimenting",
     description:
-      "Should I say integrated? Multi-disciplined? Versatile? I love architecture, sculpture, photography, digital art and all forms of design, which make any chance to use as many variations of art in my work the more exciting.",
+      "As a multidisciplinary, I love trying new things. Pottery and hiking offer a meditative structure—slow and intentional. Tennis and board games are competitive and unpredictable. These activities reflect what I enjoy the most: being focused and playful.",
   },
   {
-    title: "Collaborations",
+    title: "Travel",
     description:
-      "I love working with other professionals and creatives, if you're looking for people to join you on a project or even just get a second opinion, please contact me - I would love to help any way I can.",
+      "I travel often and try to move via land whenever possible. Like design, I see travel as being more about the journey than the destination. Along the way, I’ve started a photography and travel blog side hustle with my travel companion.",
   },
 ];
 

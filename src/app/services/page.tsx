@@ -2,8 +2,8 @@ import { WorthyClients } from "@/components/WorthyClients";
 
 import { DesignProcess } from "./_components/DesignProcess";
 import { Expertise } from "./_components/Expertise";
-import { GetInTouch } from "./_components/GetInTouch";
-import { WhereToStart } from "./_components/WhereToStart";
+import { BookOrEmail } from "./_components/BookOrEmail";
+import { BookImage } from "./_components/BookImage";
 
 export default async function ServicesPage() {
   return (
@@ -12,9 +12,11 @@ export default async function ServicesPage() {
 
       <DesignProcess />
 
-      <GetInTouch />
+      <BookImage />
 
-      <WhereToStart />
+      <BookOrEmail />
+
+      {/* <GetInTouch /> */}
 
       <WorthyClients />
     </div>

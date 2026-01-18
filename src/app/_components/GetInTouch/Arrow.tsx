@@ -7,16 +7,16 @@ const divMotion = {
     x: 0,
     transition: {
       duration: 0.5,
-      type: "tween",
-      ease: "easeIn",
+      type: "tween" as const,
+      ease: "easeIn" as const,
     },
   },
   hover: {
     x: 30,
     transition: {
       duration: 0.4,
-      type: "tween",
-      ease: "easeOut",
+      type: "tween" as const,
+      ease: "easeOut" as const,
     },
   },
 };

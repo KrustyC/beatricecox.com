@@ -136,7 +136,7 @@ export const getProject = cache(
         variables: { slug, preview: isPreview },
       });
 
-      const project = data.data.projectCollection.items[0];
+      const project = data?.data?.projectCollection.items[0];
       return { project: project ? parseGraphQLProject(project) : null };
     } catch (error) {
       console.error("Error fetching project:", error);

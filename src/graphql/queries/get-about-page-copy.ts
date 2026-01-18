@@ -47,7 +47,7 @@ export async function getAboutPageCopy({
       variables: { id: ID, preview: isPreview },
     });
 
-    if (!data.aboutPage.headerText) {
+    if (!data?.aboutPage.headerText) {
       return undefined;
     }
 

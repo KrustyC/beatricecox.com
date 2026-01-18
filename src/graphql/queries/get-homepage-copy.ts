@@ -38,7 +38,9 @@ export async function getHomepageCopy({
       variables: { id: ID, preview: isPreview },
     });
 
-    if (!data.homepage.quote || !data.homepage.mainText) {
+    console.log(data);
+
+    if (!data?.homepage.quote || !data?.homepage.mainText) {
       return undefined;
     }
 
@@ -48,6 +50,7 @@ export async function getHomepageCopy({
     };
   } catch (error) {
     console.error((error as any).networkError?.result?.errors);
+    console.error(error);
     throw new Error("Failed to fetch homepage copy");
   }
 }

@@ -51,7 +51,7 @@ export async function getPrevAndNextProjects({
       variables: { nextId, prevId },
     });
 
-    const projects = data.data.projectCollection.items;
+    const projects = data.data?.projectCollection.items || [];
 
     const prevProject = projects.find(({ sys }) => sys.id === prevId);
     const nextProject = projects.find(({ sys }) => sys.id === nextId);

@@ -78,14 +78,14 @@ export async function getProjects({
       variables: { preview: isPreview },
     });
 
-    const projects = data.data.projectCollection.items.map((project) => ({
+    const projects = data?.data?.projectCollection.items.map((project) => ({
       ...project,
       thumbnailImage: extractImageDataFromContentfulAsset(
         project.thumbnailImage
       ),
     }));
 
-    return { projects };
+    return { projects: projects || [] };
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch projects");

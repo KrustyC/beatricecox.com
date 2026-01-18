@@ -35,12 +35,12 @@ export async function getProjectsListForIndex(): Promise<GetProjectListsForIndex
       }
     );
 
-    const projects = data.data.projectCollection.items.map((project) => ({
+    const projects = data?.data?.projectCollection.items.map((project) => ({
       contentfulId: project.sys.id,
       order: project.order,
     }));
 
-    return { projects };
+    return { projects: projects || [] };
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch projects");
