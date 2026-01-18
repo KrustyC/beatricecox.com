@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { getProjectPassword } from "@/graphql/queries/get-project-with-password.query";
+import { getProjectPassword } from "@/sanity/queries";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { signCookie } from "@/utils/cookies";
 

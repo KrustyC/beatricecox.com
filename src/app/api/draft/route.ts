@@ -17,10 +17,11 @@ export async function GET(request: Request) {
   let slug;
   try {
     switch (contentType) {
-      case "project":
+      case "project": {
         const project = await getProjectById(id);
         slug = project?.slug;
         break;
+      }
       default:
         return new Response("Invalid content_type", { status: 400 });
     }

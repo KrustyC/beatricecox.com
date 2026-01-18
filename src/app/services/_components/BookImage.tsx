@@ -1,23 +1,7 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-
-const variants: Variants = {
-  offscreen: {
-    x: -20,
-    opacity: 0,
-  },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      duration: 1,
-    },
-  },
-};
 
 export const BookImage: React.FC = () => {
   return (

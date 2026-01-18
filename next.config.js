@@ -1,10 +1,10 @@
-module.exports = { 
+module.exports = {
   reactCompiler: true,
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.ctfassets.net",
+        hostname: "cdn.sanity.io",
       },
     ],
   },

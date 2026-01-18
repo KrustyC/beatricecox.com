@@ -1,19 +1,21 @@
-import type { Asset } from "@/types/generated/graphql";
 import type { Image } from "@/types/global";
 
-export function extractImageDataFromContentfulAsset(
-  contentfulAsset: Asset | undefined
+// This file is kept for backwards compatibility
+// New code should use the Sanity parsers directly
+
+export function extractImageData(
+  imageData: { url?: string; description?: string; width?: number; height?: number } | undefined
 ): Image | undefined {
-  if (!contentfulAsset) {
+  if (!imageData) {
     return undefined;
   }
 
   return {
-    url: contentfulAsset.url!,
-    description: contentfulAsset.description!,
+    url: imageData.url,
+    description: imageData.description,
     details: {
-      height: contentfulAsset.height!,
-      width: contentfulAsset.width!,
+      height: imageData.height,
+      width: imageData.width,
     },
   };
 }

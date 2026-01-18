@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Link from "next/link";
 
 import { LetsWorkTogether } from "@/components/LetsWorkTogether";
 

@@ -11,9 +11,9 @@ datasource db {
 }
 
 model Project {
-  contentfulId String   @id
+  sanityId String @id
 
-  successorId  String?  @unique
-  successor    Project? @relation("ProjectsOrder", fields: [successorId], references: [contentfulId])
-  predecessor  Project? @relation("ProjectsOrder")
+  successorId String?  @unique
+  successor   Project? @relation("ProjectsOrder", fields: [successorId], references: [sanityId])
+  predecessor Project? @relation("ProjectsOrder")
 }

@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { getAboutPageCopy } from "@/graphql/queries/get-about-page-copy";
+import { getAboutPageCopy } from "@/sanity/queries";
 
 import { AboutHero } from "./_components/Hero";
 import { ThingsToCare } from "./_components/ThingsToCare";
@@ -12,7 +12,7 @@ export default async function AboutPage() {
 
   if (!aboutPageCopy) {
     return (
-      <div>Missing About Page copy. Make sure to add it on Contentful</div>
+      <div>Missing About Page copy. Make sure to add it on Sanity</div>
     );
   }
 

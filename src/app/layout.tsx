@@ -7,8 +7,7 @@ import { draftMode } from "next/headers";
 import Script from "next/script";
 import { Organization, WithContext } from "schema-dts";
 
-import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar/Navbar";
+import { ConditionalLayout } from "@/components/ConditionalLayout";
 import { PreviewBadge } from "@/components/PreviewBadge";
 import { bodoni, manrope } from "@/utils/fonts";
 
@@ -81,11 +80,9 @@ export default async function RootLayout({ children }: Props) {
       </head>
 
       <body className={`${bodoni.variable} ${manrope.variable}`}>
-        <Navbar />
-
-        {children}
-
-        <Footer />
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
 
         {isPreviewEnabled && <PreviewBadge />}
 

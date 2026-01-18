@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { getProjects } from "@/graphql/queries/get-projects-list";
+import { getProjects } from "@/sanity/queries";
 
 import { ProjectsList } from "./ProjectsList";
 

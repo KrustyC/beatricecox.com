@@ -1,11 +1,11 @@
 "use client";
 
-import { Document } from "@contentful/rich-text-types";
+import { PortableTextBlock } from "@portabletext/react";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 import { RichText } from "@/components/Richtext";
 import { InlineEntryHyperlink } from "@/types/global";
-import Image from "next/image";
 
 const variants: Variants = {
   offscreen: {
@@ -23,7 +23,7 @@ const variants: Variants = {
 };
 
 interface AboutHeroProps {
-  headerText: Document;
+  headerText: PortableTextBlock[];
   links: InlineEntryHyperlink[];
 }
 

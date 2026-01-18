@@ -1,14 +1,14 @@
 import prisma from "@/lib/prisma";
 import { Project } from "@/types/global";
 
-interface ProjectForPrisma extends Pick<Project, "contentfulId" | "order"> {}
+type ProjectForPrisma = Pick<Project, "sanityId" | "order">;
 
 export async function insertProjects(projects: ProjectForPrisma[]) {
-  const writeProjects = projects.map(({ contentfulId }) =>
+  const writeProjects = projects.map(({ sanityId }) =>
     prisma.project.upsert({
-      where: { contentfulId },
-      update: { contentfulId },
-      create: { contentfulId },
+      where: { sanityId },
+      update: { sanityId },
+      create: { sanityId },
     })
   );
 
@@ -18,22 +18,21 @@ export async function insertProjects(projects: ProjectForPrisma[]) {
 export async function insertProjectsRelations(projects: ProjectForPrisma[]) {
   projects.sort((a, b) => (a.order || 0) - (b.order || 0));
 
-  const projectsForFigma = projects.map((project, i) => {
+  const projectsForDb = projects.map((project, i) => {
     const nextIndex = i === projects.length - 1 ? 0 : i + 1;
 
     return {
-      contentfulId: project.contentfulId!,
-      successorId: projects[nextIndex].contentfulId,
+      sanityId: project.sanityId!,
+      successorId: projects[nextIndex].sanityId,
     };
   });
 
-  const writeProjectsRelations = projectsForFigma.map(
-    ({ contentfulId, successorId }) =>
-      prisma.project.upsert({
-        where: { contentfulId },
-        update: { contentfulId, successorId },
-        create: { contentfulId, successorId },
-      })
+  const writeProjectsRelations = projectsForDb.map(({ sanityId, successorId }) =>
+    prisma.project.upsert({
+      where: { sanityId },
+      update: { sanityId, successorId },
+      create: { sanityId, successorId },
+    })
   );
 
   await prisma.$transaction(writeProjectsRelations);

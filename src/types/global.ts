@@ -1,4 +1,4 @@
-import { Document } from "@contentful/rich-text-types";
+import { PortableTextBlock } from "@portabletext/react";
 
 export type ProjectLink<T> = Partial<T> & {
   _id: string;
@@ -31,7 +31,7 @@ export interface RichTextAsset {
 }
 
 export interface RichText {
-  json?: Document;
+  json?: PortableTextBlock[] | any;
   assets?: Array<RichTextAsset | undefined>;
 }
 
@@ -45,7 +45,7 @@ export interface Image {
   };
 }
 export interface Project {
-  contentfulId: string;
+  sanityId: string;
   title?: string;
   slug?: string;
   mainImage?: Image;
@@ -79,7 +79,7 @@ export enum ProjectBlockType {
 }
 
 export interface RichText {
-  json?: Document;
+  json?: PortableTextBlock[] | any;
 }
 
 export type ProjectBlock =
@@ -184,7 +184,7 @@ export interface InlineEntryHyperlink {
 
 export interface AboutPageCopy {
   hero: {
-    headerText: Document;
+    headerText: PortableTextBlock[] | any;
     links: InlineEntryHyperlink[];
   };
 }

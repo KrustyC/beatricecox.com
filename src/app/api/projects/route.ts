@@ -1,22 +1,21 @@
 import { NextResponse } from "next/server";
 
-import { getContentfulClient } from "@/utils/contentful-client";
+import { getClient } from "@/lib/sanity-client";
 
 export const revalidate = 0;
 
+const projectsQuery = `*[_type == "project"] {
+  "slug": slug.current,
+  "lastModified": _updatedAt
+}`;
+
 export async function GET() {
   try {
-    const client = getContentfulClient();
+    const client = getClient();
 
-    const result = await client.getEntries({
-      content_type: "project",
-      select: ["fields.slug", "sys.updatedAt"],
-    });
-
-    const projects = result?.items.map((project) => ({
-      lastModified: project.sys.updatedAt,
-      slug: project.fields.slug as unknown as string,
-    }));
+    const projects = await client.fetch<
+      Array<{ slug: string; lastModified: string }>
+    >(projectsQuery);
 
     return NextResponse.json({
       success: true,
