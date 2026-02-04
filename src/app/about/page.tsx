@@ -6,8 +6,9 @@ import { AboutHero } from "./_components/Hero";
 import { ThingsToCare } from "./_components/ThingsToCare";
 
 export default async function AboutPage() {
+  const { isEnabled: isPreviewEnabled } = await draftMode();
   const aboutPageCopy = await getAboutPageCopy({
-    isPreview: (await draftMode()).isEnabled,
+    isPreview: isPreviewEnabled,
   });
 
   if (!aboutPageCopy) {

@@ -36,9 +36,9 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ headerText }) => {
     >
       <motion.div
         variants={variants}
-        className="hidden bg-[green] md:bg-[red] lg:bg-[yellow] md:flex sm:w-1/2 md:w-1/2 lg:w-1/2 "
+        className="hidden md:flex sm:w-1/2 md:w-1/2 lg:w-1/2 "
       >
-        <div className="relative w-full md:h-[520px] lg:h-[720px] rounded-t-2xl bg-[purple]">
+        <div className="relative w-full md:h-[520px] lg:h-[720px] rounded-t-2xl">
           <Image
             fill
             className="rounded-t-2xl"
