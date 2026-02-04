@@ -9,6 +9,7 @@ import { Organization, WithContext } from "schema-dts";
 
 import { ConditionalLayout } from "@/components/ConditionalLayout";
 import { PreviewBadge } from "@/components/PreviewBadge";
+import { env } from "@/lib/env";
 import { bodoni, manrope } from "@/utils/fonts";
 
 import "../globals.css";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     url: new URL("https://beatricecox.com"),
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/beatricecox.png`,
+        url: `${env.NEXT_PUBLIC_BASE_URL}/images/beatricecox.png`,
         height: 569,
         width: 853,
       },
@@ -64,7 +65,7 @@ export default async function RootLayout({ children }: Props) {
   const jsonLd: WithContext<Organization> = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    url: process.env.NEXT_PUBLIC_BASE_URL,
+    url: env.NEXT_PUBLIC_BASE_URL,
     name: "Beatrice Duguid Cox",
     logo: "/icons/favicon-48x48.png",
   };
@@ -84,10 +85,10 @@ export default async function RootLayout({ children }: Props) {
 
         {isPreviewEnabled && <PreviewBadge />}
 
-        {process.env.NEXT_PUBLIC_ENVIRONMENT === "production" && (
+        {env.NEXT_PUBLIC_ENVIRONMENT === "production" && (
           <>
             <GoogleAnalytics
-              gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
+              gaId={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
             />
 
             <Analytics />

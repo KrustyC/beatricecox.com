@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
@@ -36,7 +37,9 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         </div>
       )}
 
-      <ProjectsScroller projectSanityId={project.sanityId} />
+      <Suspense>
+        <ProjectsScroller projectSanityId={project.sanityId} />
+      </Suspense>
     </div>
   );
 };

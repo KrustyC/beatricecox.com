@@ -1,3 +1,5 @@
+import { env } from "@/lib/env";
+
 import { getClient } from "../lib/sanity/client";
 
 const BASE_PATHS = ["", "/about"];
@@ -16,7 +18,7 @@ async function fetchProjectsRoutes() {
       );
 
     return projects.map(({ slug, lastModified }) => ({
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
+      url: `${env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
       lastModified,
     }));
   } catch (error) {
@@ -27,7 +29,7 @@ async function fetchProjectsRoutes() {
 
 export default async function sitemap() {
   const baseRoutes = BASE_PATHS.map((path) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}${path}`,
+    url: `${env.NEXT_PUBLIC_BASE_URL}${path}`,
     lastModified: new Date().toISOString(),
   }));
 

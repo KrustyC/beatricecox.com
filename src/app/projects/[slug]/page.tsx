@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { cookies, draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
+import { env } from "@/lib/env";
 import { getProject, getProjects } from "@/lib/sanity/queries";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { validateSignedCookie } from "@/utils/cookies";
@@ -46,12 +47,12 @@ export async function generateMetadata(
 
     const images = project.mainImage?.url
       ? [
-        {
-          url: new URL(project.mainImage.url),
-          height: project.mainImage?.details.height || 569,
-          width: project.mainImage?.details.width || 853,
-        },
-      ]
+          {
+            url: new URL(project.mainImage.url),
+            height: project.mainImage?.details.height || 569,
+            width: project.mainImage?.details.width || 853,
+          },
+        ]
       : [];
 
     return {
@@ -66,7 +67,7 @@ export async function generateMetadata(
         locale: "en",
         url: new URL(
           `/project/${project.slug || ""}`,
-          process.env.NEXT_PUBLIC_BASE_URL
+          env.NEXT_PUBLIC_BASE_URL
         ),
       },
       twitter: {
@@ -97,7 +98,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
   const cookie = (await cookies()).get(reveleadProjectCookie(slug));
   const isValidCookie = validateSignedCookie({
     signedCookie: cookie?.value || "",
-    secretKey: process.env.PROJECT_PASSWORD_COOKIE_SECRET as string,
+    secretKey: env.PROJECT_PASSWORD_COOKIE_SECRET as string,
   });
 
   if (project.isPasswordProtected && !isValidCookie) {

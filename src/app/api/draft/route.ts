@@ -1,6 +1,8 @@
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { env } from "@/lib/env";
+
 import { getProjectById } from "./utils";
 
 export async function GET(request: Request) {
@@ -10,7 +12,7 @@ export async function GET(request: Request) {
   const contentType = searchParams.get("content_type");
   const id = searchParams.get("id");
 
-  if (secret !== process.env.DRAFT_MODE_SECRET_TOKEN || !id || !contentType) {
+  if (secret !== env.DRAFT_MODE_SECRET_TOKEN || !id || !contentType) {
     return new Response("Invalid token", { status: 401 });
   }
 

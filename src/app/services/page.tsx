@@ -16,8 +16,6 @@ export default async function ServicesPage() {
 
       <BookOrEmail />
 
-      {/* <GetInTouch /> */}
-
       <WorthyClients />
     </div>
   );

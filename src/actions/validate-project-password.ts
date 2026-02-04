@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { env } from "@/lib/env";
 import { getProjectPassword } from "@/lib/sanity/queries";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { signCookie } from "@/utils/cookies";
@@ -32,7 +33,7 @@ export async function validateProjectPassword(
     };
   }
 
-  const secretKey = process.env.PROJECT_PASSWORD_COOKIE_SECRET;
+  const secretKey = env.PROJECT_PASSWORD_COOKIE_SECRET;
   if (!secretKey) {
     throw new Error("Missing PROJECT_PASSWORD_COOKIE_SECRET env variable");
   }
@@ -41,7 +42,7 @@ export async function validateProjectPassword(
   (await cookies()).set(reveleadProjectCookie(slug), signedCookie, {
     expires: Date.now() + ONE_DAY_EXPIRATION_TIMESTAMP,
     httpOnly: true,
-    secure: process.env.NEXT_PUBLIC_ENVIRONMENT === "production",
+    secure: env.NEXT_PUBLIC_ENVIRONMENT === "production",
   });
 
   revalidatePath(`/projects/${slug}`);

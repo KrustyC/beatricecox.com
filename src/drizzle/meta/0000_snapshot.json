@@ -1,0 +1,50 @@
+{
+  "id": "71b63980-c064-4431-8c97-8e8e3b47cf8e",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.Project": {
+      "name": "Project",
+      "schema": "",
+      "columns": {
+        "sanityId": {
+          "name": "sanityId",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "successorId": {
+          "name": "successorId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "Project_successorId_unique": {
+          "name": "Project_successorId_unique",
+          "nullsNotDistinct": false,
+          "columns": ["successorId"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

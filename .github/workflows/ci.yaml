@@ -6,6 +6,19 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  DATABASE_URL: placeholder
+  SANITY_API_READ_TOKEN: placeholder
+  DRAFT_MODE_SECRET_TOKEN: placeholder
+  PROJECT_PASSWORD_COOKIE_SECRET: placeholder
+  REBUILD_PROJECTS_INDEX_API_KEY: placeholder
+  NEXT_PUBLIC_SANITY_PROJECT_ID: placeholder
+  NEXT_PUBLIC_SANITY_DATASET: placeholder
+  NEXT_PUBLIC_SANITY_API_VERSION: placeholder
+  NEXT_PUBLIC_ENVIRONMENT: local
+  NEXT_PUBLIC_BASE_URL: placeholder
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: placeholder
+
 jobs:
   typecheck:
     runs-on: ubuntu-latest
@@ -17,8 +30,8 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm install
-      - name: Generate prisma types
-        run: npm run prisma:generate
+      - name: Generate db types
+        run: npm run db:generate
       - name: Run typecheck
         run: npm run typecheck
 

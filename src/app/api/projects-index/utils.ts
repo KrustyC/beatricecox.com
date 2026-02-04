@@ -1,21 +1,20 @@
-import prisma from "@/lib/prisma";
+import { db, schema } from "@/lib/db";
 import { Project } from "@/types/global";
 
-type ProjectForPrisma = Pick<Project, "sanityId" | "order">;
+type ProjectForDb = Pick<Project, "sanityId" | "order">;
 
-export async function insertProjects(projects: ProjectForPrisma[]) {
-  const writeProjects = projects.map(({ sanityId }) =>
-    prisma.project.upsert({
-      where: { sanityId },
-      update: { sanityId },
-      create: { sanityId },
-    })
-  );
-
-  await prisma.$transaction(writeProjects);
+export async function insertProjects(projects: ProjectForDb[]) {
+  await db.transaction(async (tx) => {
+    for (const { sanityId } of projects) {
+      await tx.insert(schema.projects).values({ sanityId }).onConflictDoUpdate({
+        target: schema.projects.sanityId,
+        set: { sanityId },
+      });
+    }
+  });
 }
 
-export async function insertProjectsRelations(projects: ProjectForPrisma[]) {
+export async function insertProjectsRelations(projects: ProjectForDb[]) {
   projects.sort((a, b) => (a.order || 0) - (b.order || 0));
 
   const projectsForDb = projects.map((project, i) => {
@@ -27,18 +26,19 @@ export async function insertProjectsRelations(projects: ProjectForPrisma[]) {
     };
   });
 
-  const writeProjectsRelations = projectsForDb.map(
-    ({ sanityId, successorId }) =>
-      prisma.project.upsert({
-        where: { sanityId },
-        update: { sanityId, successorId },
-        create: { sanityId, successorId },
-      })
-  );
-
-  await prisma.$transaction(writeProjectsRelations);
+  await db.transaction(async (tx) => {
+    for (const { sanityId, successorId } of projectsForDb) {
+      await tx
+        .insert(schema.projects)
+        .values({ sanityId, successorId })
+        .onConflictDoUpdate({
+          target: schema.projects.sanityId,
+          set: { sanityId, successorId },
+        });
+    }
+  });
 }
 
 export async function deleteAllProjects() {
-  await prisma.project.deleteMany();
+  await db.delete(schema.projects);
 }

@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 
+import { env } from "@/lib/env";
 import { getProjectsListForIndex } from "@/lib/sanity/queries";
 
 import {
@@ -11,7 +12,7 @@ import {
 export async function POST() {
   const apiKey = (await headers()).get("x-api-key");
 
-  if (!apiKey || apiKey !== process.env.REBUILD_PROJECTS_INDEX_API_KEY) {
+  if (!apiKey || apiKey !== env.REBUILD_PROJECTS_INDEX_API_KEY) {
     return new Response("Unauthorized", {
       status: 401,
     });

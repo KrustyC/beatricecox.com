@@ -10,6 +10,7 @@ import { Hero } from "./_components/Hero";
 import { ProjectsListSection } from "./_components/Projects";
 import { Filterbar } from "./_components/Projects/Filterbar";
 import { ProjectsListLoading } from "./_components/Projects/ProjectsListLoading";
+// import { GetInTouch } from "./_components/GetInTouch/GetInTouch";
 
 export default async function Home() {
   const { isEnabled: isPreviewEnabled } = await draftMode();
@@ -32,6 +33,8 @@ export default async function Home() {
       <Contact />
 
       <WorthyClients />
+
+      {/* <GetInTouch /> */}
     </div>
   );
 }

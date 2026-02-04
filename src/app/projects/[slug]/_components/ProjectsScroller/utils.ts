@@ -1,38 +1,43 @@
-import prisma from "@/lib/prisma";
+import { eq } from "drizzle-orm";
+
+import { db, schema } from "@/lib/db";
 
 export async function getProjectSuccessorAndPredecessorIds(sanityId: string) {
-  const { successor, predecessor } = await prisma.project.findUniqueOrThrow({
-    select: {
-      successor: {
-        select: {
-          sanityId: true,
-        },
+  try {
+    const project = await db.query.projects.findFirst({
+      where: eq(schema.projects.sanityId, sanityId),
+      with: {
+        successor: true,
+        predecessor: true,
       },
-      predecessor: {
-        select: {
-          sanityId: true,
-        },
-      },
-    },
-    where: {
-      sanityId: sanityId,
-    },
-  });
+    });
 
-  if (!predecessor) {
+    if (!project) {
+      throw new Error(`Project not found with Sanity ID: ${sanityId}`);
+    }
+
+    const { predecessor, successor } = project;
+
+    if (!predecessor) {
+      throw new Error(
+        `No predecessor defined for project with Sanity ID: ${sanityId}`
+      );
+    }
+
+    if (!successor) {
+      throw new Error(
+        `No successor defined for project with Sanity ID: ${sanityId}`
+      );
+    }
+
+    return {
+      prevId: predecessor.sanityId,
+      nextId: successor.sanityId,
+    };
+  } catch (error) {
+    console.error(error);
     throw new Error(
-      `No predecessor defined for project with Sanity ID: ${sanityId}`
+      `Failed to get project successor and predecessor IDs: ${error}`
     );
   }
-
-  if (!successor) {
-    throw new Error(
-      `No successor defined for project with Sanity ID: ${sanityId}`
-    );
-  }
-
-  return {
-    prevId: predecessor.sanityId,
-    nextId: successor.sanityId,
-  };
 }

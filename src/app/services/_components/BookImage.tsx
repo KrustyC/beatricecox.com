@@ -13,7 +13,7 @@ export const BookImage: React.FC = () => {
       transition={{ staggerChildren: 0.6 }}
     >
       <div className="absolute bottom-[-30%] left-0 right-0 w-full h-[500px]">
-        <div className="relative w-full h-[500px] bg-[purple]">
+        <div className="relative w-full h-[500px]">
           <Image
             fill
             src="/images/book.jpg"

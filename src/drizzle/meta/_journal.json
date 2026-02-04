@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1770210181545,
+      "tag": "0000_cheerful_virginia_dare",
+      "breakpoints": true
+    }
+  ]
+}
