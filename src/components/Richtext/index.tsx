@@ -62,11 +62,17 @@ export const RichText: React.FC<RichTextProps> = ({ value }) => {
         const href = slug ? `/projects/${slug}` : "";
         return <EntryHyperlink href={href}>{children}</EntryHyperlink>;
       },
+      // Handle direct reference marks (from migrated content or alternative schema)
+      reference: ({ value, children }) => {
+        const slug = value?.slug?.current || value?.slug;
+        const href = slug ? `/projects/${slug}` : "";
+        return <EntryHyperlink href={href}>{children}</EntryHyperlink>;
+      },
     },
   };
 
   return (
-    <article className="flex flex-col gap-y-2 break-words font-manrope">
+    <article className="flex flex-col gap-y-2 wrap-break-words font-manrope">
       <PortableText value={value} components={components} />
     </article>
   );

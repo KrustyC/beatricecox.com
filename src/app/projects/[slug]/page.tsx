@@ -13,7 +13,9 @@ interface ProjectPageProps {
     slug: string;
   }>;
 }
-export const dynamicParams = true;
+
+export const dynamic = "force-static";
+
 export async function generateStaticParams() {
   const { projects } = await getProjects({ isPreview: false });
 
@@ -44,12 +46,12 @@ export async function generateMetadata(
 
     const images = project.mainImage?.url
       ? [
-          {
-            url: new URL(project.mainImage.url),
-            height: project.mainImage?.details.height || 569,
-            width: project.mainImage?.details.width || 853,
-          },
-        ]
+        {
+          url: new URL(project.mainImage.url),
+          height: project.mainImage?.details.height || 569,
+          width: project.mainImage?.details.width || 853,
+        },
+      ]
       : [];
 
     return {
