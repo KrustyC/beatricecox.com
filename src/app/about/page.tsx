@@ -12,9 +12,7 @@ export default async function AboutPage() {
   });
 
   if (!aboutPageCopy) {
-    return (
-      <div>Missing About Page copy. Make sure to add it on Sanity</div>
-    );
+    return <div>Missing About Page copy. Make sure to add it on Sanity</div>;
   }
 
   const { hero } = aboutPageCopy;

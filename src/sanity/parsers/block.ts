@@ -190,9 +190,7 @@ function parseTwoTitlesAndParagraphBlock(
   };
 }
 
-export function parseBlock(
-  block?: SanityBlock
-): Partial<ProjectBlock> | null {
+export function parseBlock(block?: SanityBlock): Partial<ProjectBlock> | null {
   if (!block) return null;
 
   switch (block._type) {

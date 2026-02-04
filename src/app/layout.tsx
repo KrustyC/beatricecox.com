@@ -80,9 +80,7 @@ export default async function RootLayout({ children }: Props) {
       </head>
 
       <body className={`${bodoni.variable} ${manrope.variable}`}>
-        <ConditionalLayout>
-          {children}
-        </ConditionalLayout>
+        <ConditionalLayout>{children}</ConditionalLayout>
 
         {isPreviewEnabled && <PreviewBadge />}
 

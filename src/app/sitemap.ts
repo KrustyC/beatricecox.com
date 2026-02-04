@@ -10,9 +10,10 @@ const projectsQuery = `*[_type == "project"] {
 async function fetchProjectsRoutes() {
   try {
     const client = getClient();
-    const projects = await client.fetch<
-      Array<{ slug: string; lastModified: string }>
-    >(projectsQuery);
+    const projects =
+      await client.fetch<Array<{ slug: string; lastModified: string }>>(
+        projectsQuery
+      );
 
     return projects.map(({ slug, lastModified }) => ({
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,

@@ -18,7 +18,9 @@ interface ProjectForSanity {
 export async function getProjectsListForIndex(): Promise<GetProjectListsForIndexResponse> {
   try {
     const client = getClient();
-    const projects = await client.fetch<ProjectForSanity[]>(projectsListForIndexQuery);
+    const projects = await client.fetch<ProjectForSanity[]>(
+      projectsListForIndexQuery
+    );
 
     if (!projects) {
       return {
@@ -27,11 +29,10 @@ export async function getProjectsListForIndex(): Promise<GetProjectListsForIndex
     }
 
     return {
-      projects:
-        projects.map((project) => ({
-          sanityId: project._id,
-          order: project.order,
-        })),
+      projects: projects.map((project) => ({
+        sanityId: project._id,
+        order: project.order,
+      })),
     };
   } catch (error) {
     console.error(error);

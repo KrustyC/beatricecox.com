@@ -4,7 +4,9 @@ import type { Image } from "@/types/global";
 // New code should use the Sanity parsers directly
 
 export function extractImageData(
-  imageData: { url?: string; description?: string; width?: number; height?: number } | undefined
+  imageData:
+    | { url?: string; description?: string; width?: number; height?: number }
+    | undefined
 ): Image | undefined {
   if (!imageData) {
     return undefined;

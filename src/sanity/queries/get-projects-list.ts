@@ -59,9 +59,8 @@ export async function getProjects({
 }: GetProjectsParams = {}): Promise<GetProjectsResponse> {
   try {
     const client = getClient(isPreview);
-    const projects = await client.fetch<SanityProjectListItem[]>(
-      projectsListQuery
-    );
+    const projects =
+      await client.fetch<SanityProjectListItem[]>(projectsListQuery);
 
     projects.sort((a, b) => (a.order || 0) - (b.order || 0));
 

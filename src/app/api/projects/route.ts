@@ -13,9 +13,10 @@ export async function GET() {
   try {
     const client = getClient();
 
-    const projects = await client.fetch<
-      Array<{ slug: string; lastModified: string }>
-    >(projectsQuery);
+    const projects =
+      await client.fetch<Array<{ slug: string; lastModified: string }>>(
+        projectsQuery
+      );
 
     return NextResponse.json({
       success: true,

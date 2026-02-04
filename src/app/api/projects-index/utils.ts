@@ -27,12 +27,13 @@ export async function insertProjectsRelations(projects: ProjectForPrisma[]) {
     };
   });
 
-  const writeProjectsRelations = projectsForDb.map(({ sanityId, successorId }) =>
-    prisma.project.upsert({
-      where: { sanityId },
-      update: { sanityId, successorId },
-      create: { sanityId, successorId },
-    })
+  const writeProjectsRelations = projectsForDb.map(
+    ({ sanityId, successorId }) =>
+      prisma.project.upsert({
+        where: { sanityId },
+        update: { sanityId, successorId },
+        create: { sanityId, successorId },
+      })
   );
 
   await prisma.$transaction(writeProjectsRelations);
