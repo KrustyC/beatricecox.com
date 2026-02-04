@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+
 import { validateIn } from "../utils";
 
 export const gridBlockType = defineType({

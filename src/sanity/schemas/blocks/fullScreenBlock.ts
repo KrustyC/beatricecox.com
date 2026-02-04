@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { validateIn } from "../utils";
 
 export const fullScreenBlockType = defineType({
     type: "document",

@@ -1,5 +1,5 @@
 import { getClient } from "@/lib/sanity-client";
-import { NextOrPrevProject } from "@/types/global";
+import { Project } from "@/types/global";
 
 interface GetNextAndPrevParams {
   nextId: string;
@@ -7,8 +7,8 @@ interface GetNextAndPrevParams {
 }
 
 interface GetNextAndPrevProjectsResponse {
-  prevProject: NextOrPrevProject;
-  nextProject: NextOrPrevProject;
+  prevProject: Pick<Project, "title" | "slug" | "category" | "categoryText">;
+  nextProject: Pick<Project, "title" | "slug" | "category" | "categoryText">;
 }
 
 interface SanityProjectNav {

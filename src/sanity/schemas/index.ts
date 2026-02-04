@@ -1,8 +1,8 @@
-import { carouselBlockType, titleAndTextBlockType, fullScreenBlockType, gridBlockType, gridImagesType, projectInfoBlockType, titlesWithSideParagraphsBlockType, breakType } from "./blocks";
-import { homePageType } from "./homePage";
-import { projectType } from "./project";
 import { aboutPageType } from "./aboutPage";
 import { blockContentType } from "./blockContent";
+import { breakType,carouselBlockType, fullScreenBlockType, gridBlockType, gridImagesType, projectInfoBlockType, titleAndTextBlockType, titlesWithSideParagraphsBlockType } from "./blocks";
+import { homePageType } from "./homePage";
+import { projectType } from "./project";
 
 export const schemaTypes = [
     // Block content (rich text)

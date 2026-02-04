@@ -152,9 +152,6 @@ export interface GridImages {
   images: Image[];
 }
 
-export interface NextOrPrevProject
-  extends Pick<Project, "title" | "slug" | "category" | "categoryText"> {}
-
 export interface HomepageCopy {
   quote?: PortableTextBlock[];
   mainText?: PortableTextBlock[];
