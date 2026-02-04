@@ -84,7 +84,7 @@ export const TitleAndTextBlock: React.FC<TitleAndTextBlockProps> = ({
           className="lg:w-2/3 lg:max-w-2/3 mt-8 lg:mt-0 text-lg"
           variants={textVariants}
         >
-          <RichText richtext={block.text.json} />
+          <RichText value={block.text} />
         </motion.span>
       </motion.div>
     </div>

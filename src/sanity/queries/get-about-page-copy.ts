@@ -1,5 +1,7 @@
+import { PortableTextBlock } from "@portabletext/react";
+
 import { getClient } from "@/lib/sanity-client";
-import { AboutPageCopy, InlineEntryHyperlink } from "@/types/global";
+import { AboutPageCopy } from "@/types/global";
 
 interface GetAboutPageCopyParams {
   isPreview?: boolean;
@@ -7,7 +9,7 @@ interface GetAboutPageCopyParams {
 
 interface SanityAboutPage {
   _id: string;
-  headerText?: any[];
+  headerText?: PortableTextBlock[];
 }
 
 const aboutPageQuery = `*[_type == "aboutPage"][0] {
@@ -36,25 +38,9 @@ export async function getAboutPageCopy({
       return undefined;
     }
 
-    // Extract internal links from the portable text
-    const links: InlineEntryHyperlink[] = [];
-    aboutPage.headerText.forEach((block: any) => {
-      if (block.markDefs) {
-        block.markDefs.forEach((mark: any) => {
-          if (mark._type === "internalLink" && mark.slug) {
-            links.push({
-              id: mark._key,
-              href: `/projects/${mark.slug}`,
-            });
-          }
-        });
-      }
-    });
-
     return {
       hero: {
-        headerText: aboutPage.headerText as any,
-        links,
+        headerText: aboutPage.headerText,
       },
     };
   } catch (error) {

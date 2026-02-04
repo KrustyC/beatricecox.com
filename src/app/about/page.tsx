@@ -20,7 +20,7 @@ export default async function AboutPage() {
 
   return (
     <div className="flex flex-col">
-      {hero && <AboutHero headerText={hero.headerText} links={hero.links} />}
+      {hero && <AboutHero headerText={hero.headerText} />}
 
       <ThingsToCare />
     </div>

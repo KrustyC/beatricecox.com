@@ -63,6 +63,8 @@ export async function getProjects({
       projectsListQuery
     );
 
+    projects.sort((a, b) => (a.order || 0) - (b.order || 0));
+
     return {
       projects: projects?.map(parseSanityProjectListItem) || [],
     };

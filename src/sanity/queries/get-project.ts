@@ -55,7 +55,7 @@ const projectQuery = `*[_type == "project" && slug.current == $slug][0] {
     },
     _type == "carouselBlock" => {
       title,
-      "description": description,
+      "description": carouselDescription,
       colorCode,
       images[] {
         _type,
@@ -91,7 +91,7 @@ const projectQuery = `*[_type == "project" && slug.current == $slug][0] {
     },
     _type == "gridBlock" => {
       spacing,
-      gridRows[] {
+      "gridRows": images[]-> {
         _key,
         images[] {
           _type,
@@ -109,12 +109,12 @@ const projectQuery = `*[_type == "project" && slug.current == $slug][0] {
         }
       }
     },
-    _type == "titleAndTextBlock" => {
+    _type == "titleTextBlock" => {
       title,
-      text,
+      "text": description,
       colorCode
     },
-    _type == "twoTitlesAndParagraphBlock" => {
+    _type == "titlesWithSideParagraphsBlock" => {
       title1,
       description1,
       title2,

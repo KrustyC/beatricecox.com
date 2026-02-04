@@ -14,7 +14,6 @@ import {
 import { notEmpty } from "@/utils/generic";
 
 import { parseSanityImage, SanityImageExpanded } from "./image";
-import { parsePortableTextToRichText } from "./richtext";
 
 // Sanity block types
 interface SanityProjectInfoBlock {
@@ -33,7 +32,7 @@ interface SanityCarouselBlock {
   _type: "carouselBlock";
   _key: string;
   title?: string;
-  description?: string;
+  description?: PortableTextBlock[] | string;
   colorCode?: string;
   images?: SanityImageExpanded[];
 }
@@ -56,20 +55,20 @@ interface SanityGridBlock {
 }
 
 interface SanityTitleAndTextBlock {
-  _type: "titleAndTextBlock";
+  _type: "titleTextBlock";
   _key: string;
   title?: string;
   text?: PortableTextBlock[];
   colorCode?: string;
 }
 
-interface SanityTwoTitlesAndParagraphBlock {
-  _type: "twoTitlesAndParagraphBlock";
+interface SanityTitlesWithSideParagraphsBlock {
+  _type: "titlesWithSideParagraphsBlock";
   _key: string;
   title1?: string;
-  description1?: string;
+  description1?: PortableTextBlock[];
   title2?: string;
-  description2?: string;
+  description2?: PortableTextBlock[];
   colorCode?: string;
 }
 
@@ -79,7 +78,23 @@ export type SanityBlock =
   | SanityFullScreenBlock
   | SanityGridBlock
   | SanityTitleAndTextBlock
-  | SanityTwoTitlesAndParagraphBlock;
+  | SanityTitlesWithSideParagraphsBlock;
+
+function portableTextToPlainString(
+  blocks: PortableTextBlock[] | undefined | null
+): string {
+  if (!blocks?.length) return "";
+  return blocks
+    .map((block) => {
+      if (block._type === "block" && block.children) {
+        return block.children
+          .map((child) => ("text" in child ? (child.text ?? "") : ""))
+          .join("");
+      }
+      return "";
+    })
+    .join("\n");
+}
 
 function parseProjectInfoBlock(
   block: SanityProjectInfoBlock
@@ -88,7 +103,7 @@ function parseProjectInfoBlock(
     type: ProjectBlockType.PROJECT_INFO,
     title: block.title || "",
     subtitle: block.subtitle || "",
-    description: parsePortableTextToRichText(block.description),
+    description: block.description,
     info: {
       team: block.team,
       role: block.role,
@@ -101,13 +116,16 @@ function parseProjectInfoBlock(
 function parseCarouselBlock(
   block: SanityCarouselBlock
 ): Partial<CarouselBlock> {
+  const description =
+    typeof block.description === "string"
+      ? block.description
+      : portableTextToPlainString(block.description as PortableTextBlock[]);
   return {
     type: ProjectBlockType.CAROUSEL,
     backgroundColor: block.colorCode,
     title: block.title || "",
-    description: block.description || "",
-    pictures:
-      block.images?.map(parseSanityImage).filter(notEmpty) || [],
+    description,
+    pictures: block.images?.map(parseSanityImage).filter(notEmpty) || [],
   };
 }
 
@@ -150,18 +168,24 @@ function parseTitleAndTextBlock(
   return {
     type: ProjectBlockType.TITLE_AND_TEXT,
     title: block.title || "",
-    text: parsePortableTextToRichText(block.text),
+    text: block.text,
     backgroundColor: block.colorCode,
   };
 }
 
 function parseTwoTitlesAndParagraphBlock(
-  block: SanityTwoTitlesAndParagraphBlock
+  block: SanityTitlesWithSideParagraphsBlock
 ): Partial<TwoTitlesAndParagraphBlock> {
   return {
     type: ProjectBlockType.TWO_TITLES_AND_PARAGRAPH,
-    firstItem: { title: block.title1, paragraph: block.description1 },
-    secondItem: { title: block.title2, paragraph: block.description2 },
+    firstItem: {
+      title: block.title1,
+      paragraph: portableTextToPlainString(block.description1),
+    },
+    secondItem: {
+      title: block.title2,
+      paragraph: portableTextToPlainString(block.description2),
+    },
     backgroundColor: block.colorCode,
   };
 }
@@ -180,9 +204,9 @@ export function parseBlock(
       return parseFullScreenBlock(block);
     case "gridBlock":
       return parseGridBlock(block);
-    case "titleAndTextBlock":
+    case "titleTextBlock":
       return parseTitleAndTextBlock(block);
-    case "twoTitlesAndParagraphBlock":
+    case "titlesWithSideParagraphsBlock":
       return parseTwoTitlesAndParagraphBlock(block);
     default:
       return null;

@@ -20,20 +20,6 @@ export enum GridBlockSpacing {
   EXTRA_LARGE = "xl",
   EXTRA_EXTRA_LARGE = "2xl",
 }
-export interface RichTextAsset {
-  id: string;
-  title?: string;
-  description?: string;
-  contentType?: string;
-  width?: number;
-  height?: number;
-  url?: string;
-}
-
-export interface RichText {
-  json?: PortableTextBlock[] | any;
-  assets?: Array<RichTextAsset | undefined>;
-}
 
 export interface Image {
   url?: string;
@@ -44,6 +30,7 @@ export interface Image {
     width?: number;
   };
 }
+
 export interface Project {
   sanityId: string;
   title?: string;
@@ -53,9 +40,9 @@ export interface Project {
   order?: number;
   category?: string;
   categoryText?: string;
-  intro?: string;
+  intro?: PortableTextBlock[];
   metaDescription?: string;
-  description?: RichText;
+  description?: PortableTextBlock[];
   team?: string;
   year?: number;
   role?: string;
@@ -76,10 +63,6 @@ export enum ProjectBlockType {
   TITLE_AND_TEXT = "title-and-text",
   FULL_SCREEN = "full-screen",
   GRID_BLOCK = "grid-block",
-}
-
-export interface RichText {
-  json?: PortableTextBlock[] | any;
 }
 
 export type ProjectBlock =
@@ -103,7 +86,7 @@ export interface ProjectInfoBlock extends BaseBlock {
   type: ProjectBlockType.PROJECT_INFO;
   title: string;
   subtitle: string;
-  description: RichText;
+  description?: PortableTextBlock[];
   info: {
     team?: string;
     client?: string;
@@ -150,7 +133,7 @@ export interface CarouselBlock extends BaseBlock {
 export interface TitleAndTextBlock extends BaseBlock {
   type: ProjectBlockType.TITLE_AND_TEXT;
   title: string;
-  text: RichText;
+  text?: PortableTextBlock[];
 }
 
 export interface FullScreenBlock extends BaseBlock {
@@ -173,18 +156,12 @@ export interface NextOrPrevProject
   extends Pick<Project, "title" | "slug" | "category" | "categoryText"> {}
 
 export interface HomepageCopy {
-  quote: RichText;
-  mainText: RichText;
-}
-
-export interface InlineEntryHyperlink {
-  id: string;
-  href: string;
+  quote?: PortableTextBlock[];
+  mainText?: PortableTextBlock[];
 }
 
 export interface AboutPageCopy {
   hero: {
-    headerText: PortableTextBlock[] | any;
-    links: InlineEntryHyperlink[];
+    headerText?: PortableTextBlock[];
   };
 }

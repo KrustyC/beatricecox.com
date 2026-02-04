@@ -1,6 +1,6 @@
-export { carouselBlock } from "./carouselBlock";
-export { fullScreenBlock } from "./fullScreenBlock";
-export { gridBlock } from "./gridBlock";
-export { projectInfoBlock } from "./projectInfoBlock";
-export { titleAndTextBlock } from "./titleAndTextBlock";
-export { twoTitlesAndParagraphBlock } from "./twoTitlesAndParagraphBlock";
+export { carouselBlockType } from "./carouselBlock";
+export { fullScreenBlockType } from "./fullScreenBlock";
+export { gridBlockType, gridImagesType, breakType } from "./gridBlock";
+export { projectInfoBlockType } from "./projectInfoBlock";
+export { titleAndTextBlockType } from "./titleAndTextBlock";
+export { titlesWithSideParagraphsBlockType } from "./titlesWithSideParagraphsBlock";

@@ -7,7 +7,7 @@ import { getHomepageCopy } from "@/sanity/queries";
 
 import { Contact } from "./_components/Contact";
 import { Hero } from "./_components/Hero";
-import ProjectsListSection from "./_components/Projects";
+import { ProjectsListSection } from "./_components/Projects";
 import { Filterbar } from "./_components/Projects/Filterbar";
 import { ProjectsListLoading } from "./_components/Projects/ProjectsListLoading";
 

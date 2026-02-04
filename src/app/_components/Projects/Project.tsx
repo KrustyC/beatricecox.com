@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
+import { RichText } from "@/components/Richtext";
 import { Project as IProject } from "@/types/global";
 
 interface ProjectsProps {
@@ -89,9 +90,10 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
       >
         {project.categoryText}
       </motion.span>
+
       {project.intro && (
         <motion.div variants={textVariants} className="mt-4">
-          {project.intro}
+          <RichText value={project.intro} />
         </motion.div>
       )}
     </motion.div>

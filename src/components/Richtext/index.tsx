@@ -1,10 +1,10 @@
+"use client";
+
 import {
   PortableText,
   PortableTextBlock,
   PortableTextComponents,
 } from "@portabletext/react";
-
-import { InlineEntryHyperlink } from "@/types/global";
 
 import {
   Bold,
@@ -18,12 +18,11 @@ import {
 } from "./Blocks";
 
 interface RichTextProps {
-  richtext?: PortableTextBlock[];
-  links?: InlineEntryHyperlink[];
+  value?: PortableTextBlock[];
 }
 
-export const RichText: React.FC<RichTextProps> = ({ richtext, links = [] }) => {
-  if (!richtext) {
+export const RichText: React.FC<RichTextProps> = ({ value }) => {
+  if (!value?.length) {
     return null;
   }
 
@@ -58,8 +57,9 @@ export const RichText: React.FC<RichTextProps> = ({ richtext, links = [] }) => {
         );
       },
       internalLink: ({ value, children }) => {
-        const link = links.find((l) => l.id === value?._key);
-        const href = link?.href || (value?.slug ? `/projects/${value.slug}` : "");
+        // Supports both direct slug (from expanded query) and nested reference
+        const slug = value?.slug || value?.reference?.slug?.current;
+        const href = slug ? `/projects/${slug}` : "";
         return <EntryHyperlink href={href}>{children}</EntryHyperlink>;
       },
     },
@@ -67,7 +67,7 @@ export const RichText: React.FC<RichTextProps> = ({ richtext, links = [] }) => {
 
   return (
     <article className="flex flex-col gap-y-2 break-words font-manrope">
-      <PortableText value={richtext} components={components} />
+      <PortableText value={value} components={components} />
     </article>
   );
 };

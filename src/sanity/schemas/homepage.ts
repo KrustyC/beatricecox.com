@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 
-export const homepage = defineType({
+export const homePageType = defineType({
   name: "homepage",
   title: "Homepage",
   type: "document",
@@ -33,3 +33,4 @@ export const homepage = defineType({
     },
   },
 });
+

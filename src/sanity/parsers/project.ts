@@ -15,7 +15,7 @@ export interface SanityProject {
   order?: number;
   category?: string;
   categoryText?: string;
-  intro?: string;
+  intro?: PortableTextBlock[];
   metaDescription?: string;
   description?: PortableTextBlock[];
   team?: string;
@@ -64,7 +64,7 @@ export interface SanityProjectListItem {
   _id: string;
   title?: string;
   slug?: { current: string };
-  intro?: string;
+  intro?: PortableTextBlock[];
   category?: string;
   categoryText?: string;
   thumbnailImage?: SanityImageExpanded;

@@ -5,7 +5,6 @@ import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
 import { RichText } from "@/components/Richtext";
-import { InlineEntryHyperlink } from "@/types/global";
 
 const variants: Variants = {
   offscreen: {
@@ -23,11 +22,10 @@ const variants: Variants = {
 };
 
 interface AboutHeroProps {
-  headerText: PortableTextBlock[];
-  links: InlineEntryHyperlink[];
+  headerText?: PortableTextBlock[];
 }
 
-export const AboutHero: React.FC<AboutHeroProps> = ({ headerText, links }) => {
+export const AboutHero: React.FC<AboutHeroProps> = ({ headerText }) => {
   return (
     <motion.div
       className="bg-black w-full flex flex-col md:flex-row container-x-padding pt-28 lg:pt-36 pb-12 lg:pb-0 mx-auto gap-12 lg:gap-24 text-left"
@@ -55,7 +53,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ headerText, links }) => {
         variants={variants}
         className="w-full lg:w-1/2 text-lg text-white lg:pt-1"
       >
-        <RichText richtext={headerText} links={links} />
+        <RichText value={headerText} />
       </motion.div>
     </motion.div>
   );

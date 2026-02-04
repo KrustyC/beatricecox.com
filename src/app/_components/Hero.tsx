@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
       >
         {homepageCopy.quote && (
           <motion.div className="mb-3 text-sm" variants={variants}>
-            <RichText richtext={homepageCopy.quote.json} />
+            <RichText value={homepageCopy.quote} />
           </motion.div>
         )}
 
@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
             className="w-full md:w-3/4 leading-[1.9rem] md:leading-[2.5rem] text-xl md:text-3xl font-[500] lg:font-[400]"
             variants={variants}
           >
-            <RichText richtext={homepageCopy.mainText.json} />
+            <RichText value={homepageCopy.mainText} />
           </motion.div>
         )}
       </motion.div>

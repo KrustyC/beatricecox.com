@@ -1,7 +1,7 @@
+import { PortableTextBlock } from "@portabletext/react";
+
 import { getClient } from "@/lib/sanity-client";
 import { HomepageCopy } from "@/types/global";
-
-import { parsePortableTextToRichText } from "../parsers/richtext";
 
 interface GetHomepageCopyParams {
   isPreview?: boolean;
@@ -9,8 +9,8 @@ interface GetHomepageCopyParams {
 
 interface SanityHomepage {
   _id: string;
-  quote?: any[];
-  mainText?: any[];
+  quote?: PortableTextBlock[];
+  mainText?: PortableTextBlock[];
 }
 
 const homepageQuery = `*[_type == "homepage"][0] {
@@ -26,13 +26,13 @@ export async function getHomepageCopy({
     const client = getClient(isPreview);
     const homepage = await client.fetch<SanityHomepage | null>(homepageQuery);
 
-    if (!homepage?.quote || !homepage?.mainText) {
+    if (!homepage) {
       return undefined;
     }
 
     return {
-      quote: parsePortableTextToRichText(homepage.quote),
-      mainText: parsePortableTextToRichText(homepage.mainText),
+      quote: homepage.quote,
+      mainText: homepage.mainText,
     };
   } catch (error) {
     console.error(error);

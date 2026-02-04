@@ -1,30 +1,25 @@
-import { aboutPage } from "./aboutPage";
-import { blockContent } from "./blockContent";
-import {
-  carouselBlock,
-  fullScreenBlock,
-  gridBlock,
-  projectInfoBlock,
-  titleAndTextBlock,
-  twoTitlesAndParagraphBlock,
-} from "./blocks";
-import { homepage } from "./homepage";
-import { project } from "./project";
+import { carouselBlockType, titleAndTextBlockType, fullScreenBlockType, gridBlockType, gridImagesType, projectInfoBlockType, titlesWithSideParagraphsBlockType, breakType } from "./blocks";
+import { homePageType } from "./homePage";
+import { projectType } from "./project";
+import { aboutPageType } from "./aboutPage";
+import { blockContentType } from "./blockContent";
 
 export const schemaTypes = [
-  // Block content (rich text)
-  blockContent,
+    // Block content (rich text)
+    blockContentType,
 
-  // Block types (used within project)
-  projectInfoBlock,
-  carouselBlock,
-  fullScreenBlock,
-  gridBlock,
-  titleAndTextBlock,
-  twoTitlesAndParagraphBlock,
+    // Block types (used within project)
+    projectInfoBlockType,
+    carouselBlockType,
+    fullScreenBlockType,
+    gridBlockType,
+    gridImagesType,
+    titleAndTextBlockType,
+    titlesWithSideParagraphsBlockType,
+    breakType,
 
-  // Document types
-  project,
-  homepage,
-  aboutPage,
+    // Document types
+    projectType,
+    homePageType,
+    aboutPageType,
 ];

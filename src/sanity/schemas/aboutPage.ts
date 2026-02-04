@@ -1,29 +1,68 @@
 import { defineField, defineType } from "sanity";
 
-export const aboutPage = defineType({
-  name: "aboutPage",
-  title: "About Page",
+export const aboutPageType = defineType({
   type: "document",
+  name: "aboutPage",
+  title: "👩🏼\u200d💼 About Page",
+  description: "Where you can change the copy about the about page",
   fields: [
     defineField({
       name: "title",
-      title: "Title",
       type: "string",
-      initialValue: "About Page",
-      readOnly: true,
+      title: "Title",
+      hidden: false,
     }),
     defineField({
       name: "headerText",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          marks: {
+            decorators: [
+              { title: "Strong", value: "strong" },
+              { title: "Emphasis", value: "em" },
+              { title: "Underline", value: "underline" },
+            ],
+            annotations: [
+              {
+                type: "object",
+                name: "link",
+                title: "url",
+                fields: [
+                  defineField({
+                    type: "string",
+                    name: "href",
+                    title: "URL",
+                    validation: (Rule) => Rule.required(),
+                  }),
+                  defineField({
+                    type: "string",
+                    name: "target",
+                    title: "Target",
+                    options: {
+                      list: [
+                        { value: "_blank", title: "Blank" },
+                        { value: "_parent", title: "Parent" },
+                      ],
+                    },
+                  }),
+                ],
+              },
+              {
+                type: "reference",
+                name: "reference",
+                title: "Reference",
+                to: [{ type: "project" }],
+              },
+            ],
+          },
+        },
+      ],
       title: "Header Text",
-      type: "blockContent",
-      description: "The main header text for the about page",
+      hidden: false,
+      validation: (Rule) => Rule.required(),
     }),
   ],
-  preview: {
-    prepare() {
-      return {
-        title: "About Page",
-      };
-    },
-  },
+  preview: { select: { title: "title" } }
 });
