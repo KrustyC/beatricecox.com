@@ -41,7 +41,7 @@ const projectQuery = `*[_type == "project" && slug.current == $slug][0] {
       }
     }
   },
-  blocks[] {
+  blocks[]-> {
     _type,
     _key,
     _type == "projectInfoBlock" => {

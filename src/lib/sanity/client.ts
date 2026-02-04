@@ -9,6 +9,7 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: true,
+  token: process.env.SANITY_API_READ_TOKEN,
 });
 
 export function getClient(preview?: boolean) {

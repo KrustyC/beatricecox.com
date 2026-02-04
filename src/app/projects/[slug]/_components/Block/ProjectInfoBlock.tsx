@@ -32,11 +32,11 @@ interface LineProps {
 
 const Line: React.FC<LineProps> = ({ title, value }) => (
   <motion.div
-    className="flex flex-col lg:flex-row lg:justify-between lg:items-center border-t-2 border-black py-4"
+    className="flex flex-col lg:flex-row lg:justify-between lg:items-center border-t-2 border-black py-4 gap-x-6"
     variants={variants}
   >
     <span className="uppercase tracking-[.30rem]">{title}</span>
-    <span className="mt-3 lg:mt-0">{value}</span>
+    <span className="mt-3 lg:mt-0 text-right">{value}</span>
   </motion.div>
 );
 
