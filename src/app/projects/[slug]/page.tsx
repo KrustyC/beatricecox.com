@@ -2,8 +2,7 @@ import { Metadata } from "next";
 import { cookies, draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
-import { getProject } from "@/graphql/queries/get-project.query";
-import { getProjects } from "@/graphql/queries/get-projects-list";
+import { getProject, getProjects } from "@/lib/sanity/queries";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { validateSignedCookie } from "@/utils/cookies";
 
@@ -14,8 +13,6 @@ interface ProjectPageProps {
     slug: string;
   }>;
 }
-
-// export const dynamicParams = true;
 
 export const dynamic = "force-static";
 
@@ -79,7 +76,7 @@ export async function generateMetadata(
         images,
       },
     };
-  } catch (error) {
+  } catch {
     return {};
   }
 }

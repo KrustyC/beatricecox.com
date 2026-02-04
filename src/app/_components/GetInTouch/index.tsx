@@ -27,7 +27,7 @@ const variants: Variants = {
   },
 };
 
-export const GetInTouch: React.FC = ({}) => {
+export const GetInTouch: React.FC = () => {
   const isSmallScreen = useIsSmallScreen({ defaultValue: true });
 
   if (isSmallScreen) {

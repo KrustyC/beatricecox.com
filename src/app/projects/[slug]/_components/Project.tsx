@@ -8,7 +8,7 @@ import { ProjectsScroller } from "./ProjectsScroller";
 const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
-  project: Partial<IProject> & { contentfulId: string };
+  project: Partial<IProject> & { sanityId: string };
 }
 
 export const Project: React.FC<ProjectProps> = ({ project }) => {
@@ -23,7 +23,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
             alt={project.mainImage?.description || ""}
             src={project.mainImage?.url || ""}
             loading="eager"
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>
@@ -36,7 +36,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         </div>
       )}
 
-      <ProjectsScroller projectContentfulId={project.contentfulId} />
+      <ProjectsScroller projectSanityId={project.sanityId} />
     </div>
   );
 };

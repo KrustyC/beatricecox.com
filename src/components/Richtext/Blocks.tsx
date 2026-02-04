@@ -60,18 +60,20 @@ export const Heading: React.FC<PropsWithChildren<HeadingProps>> = ({
 
 interface HyperlinkProps {
   uri: string;
+  blank?: boolean;
 }
 
 export const Hyperlink: React.FC<PropsWithChildren<HyperlinkProps>> = ({
   uri,
   children,
+  blank = true,
 }) => {
   return (
     <a
       className="text-primary hover:underline"
       href={uri}
-      target="_blank"
-      rel="noreferrer"
+      target={blank ? "_blank" : undefined}
+      rel={blank ? "noreferrer" : undefined}
     >
       {children}
     </a>

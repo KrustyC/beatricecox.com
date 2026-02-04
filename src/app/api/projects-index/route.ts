@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { getProjectsListForIndex } from "@/graphql/queries/get-projects-list-for-index";
+import { getProjectsListForIndex } from "@/lib/sanity/queries";
 
 import {
   deleteAllProjects,

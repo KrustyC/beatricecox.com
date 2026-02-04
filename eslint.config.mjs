@@ -1,34 +1,23 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import pluginReact from "eslint-plugin-react";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import tseslint from "typescript-eslint";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
-export default defineConfig([
-  globalIgnores(["src/prisma/generated"]),
+const config = [
   {
-    extends: compat.extends("next/core-web-vitals", "prettier"),
-
+    ignores: ["./node_modules/**", ".next/**", "dist/**", "src/prisma/generated"],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  {
     plugins: {
       "simple-import-sort": simpleImportSort,
     },
 
     rules: {
-      "import/newline-after-import": [
-        "error",
-        {
-          count: 1,
-        },
-      ],
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
 
       "simple-import-sort/imports": [
         "error",
@@ -46,5 +35,32 @@ export default defineConfig([
 
       "simple-import-sort/exports": "error",
     },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
   },
-]);
+  {
+    files: ["**/*.{jsx,tsx}"],
+    rules: {
+      "no-console": "warn",
+    },
+  },
+  {
+    files: ["src/types/generated/**/*.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  {
+    files: ["*.config.js", "*.config.mjs"],
+    languageOptions: {
+      globals: {
+        module: "readonly",
+      },
+    },
+  },
+];
+
+export default config;

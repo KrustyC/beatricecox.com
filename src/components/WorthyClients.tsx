@@ -33,22 +33,8 @@ const logos = [
 
 const FAST_DURATION = 30;
 
-const marqueeVariants = {
-  animate: {
-    x: [0, -1036],
-    transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 5,
-        ease: "linear",
-      },
-    },
-  },
-};
-
 export const WorthyClients = () => {
-  let [ref, { width }] = useMeasure();
+  const [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
   useEffect(() => {

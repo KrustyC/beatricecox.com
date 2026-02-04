@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { getPrevAndNextProjects } from "@/graphql/queries/get-prev-and-next-projects";
+import { getPrevAndNextProjects } from "@/lib/sanity/queries";
 
 import { getProjectSuccessorAndPredecessorIds } from "./utils";
 
@@ -17,15 +17,15 @@ function getCatgeoryText(category: string | undefined) {
 }
 
 interface ProjectsScrollerProps {
-  projectContentfulId: string;
+  projectSanityId: string;
 }
 
 export async function ProjectsScroller({
-  projectContentfulId,
+  projectSanityId,
 }: ProjectsScrollerProps) {
   try {
     const { prevId, nextId } =
-      await getProjectSuccessorAndPredecessorIds(projectContentfulId);
+      await getProjectSuccessorAndPredecessorIds(projectSanityId);
 
     const { prevProject, nextProject } = await getPrevAndNextProjects({
       prevId,
@@ -81,7 +81,7 @@ export async function ProjectsScroller({
         </div>
       </div>
     );
-  } catch (e) {
+  } catch {
     return null;
   }
 }

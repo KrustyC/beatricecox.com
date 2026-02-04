@@ -1,6 +1,5 @@
 import classNames from "classnames";
 
-import { TitleAndCopy } from "@/components/TitleAndCopy";
 import { ChevronRightIcon } from "@/icons/ChevronRight";
 
 const items = [

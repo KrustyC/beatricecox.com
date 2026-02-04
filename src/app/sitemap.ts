@@ -1,22 +1,24 @@
+import { getClient } from "../lib/sanity/client";
+
 const BASE_PATHS = ["", "/about"];
+
+const projectsQuery = `*[_type == "project"] {
+  "slug": slug.current,
+  "lastModified": _updatedAt
+}`;
 
 async function fetchProjectsRoutes() {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`,
-      {
-        next: { revalidate: 30 },
-      }
-    );
+    const client = getClient();
+    const projects =
+      await client.fetch<Array<{ slug: string; lastModified: string }>>(
+        projectsQuery
+      );
 
-    const { projects } = await res.json();
-
-    return projects.map(
-      ({ slug, lastModified }: { slug: string; lastModified: Date }) => ({
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${slug}`,
-        lastModified,
-      })
-    );
+    return projects.map(({ slug, lastModified }) => ({
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
+      lastModified,
+    }));
   } catch (error) {
     console.error(error);
     return [];

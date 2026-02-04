@@ -3,8 +3,6 @@
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 
-import { LetsWorkTogether } from "@/components/LetsWorkTogether";
-
 const textVariants: Variants = {
   offscreen: {
     x: -20,

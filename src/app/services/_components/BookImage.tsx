@@ -1,23 +1,7 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-
-const variants: Variants = {
-  offscreen: {
-    x: -20,
-    opacity: 0,
-  },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      duration: 1,
-    },
-  },
-};
 
 export const BookImage: React.FC = () => {
   return (
@@ -28,13 +12,13 @@ export const BookImage: React.FC = () => {
       viewport={{ once: true, amount: 0.7 }}
       transition={{ staggerChildren: 0.6 }}
     >
-      <div className="bg-[green] absolute bottom-[-30%] left-0 right-0 w-full h-[500px]">
+      <div className="absolute bottom-[-30%] left-0 right-0 w-full h-[500px]">
         <div className="relative w-full h-[500px] bg-[purple]">
           <Image
             fill
             src="/images/book.jpg"
             alt="Book cover of Babingtons Recipe Book"
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

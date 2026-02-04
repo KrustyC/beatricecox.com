@@ -1,11 +1,10 @@
-import {
-  documentToReactComponents,
-  Options,
-} from "@contentful/rich-text-react-renderer";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
-import { Document } from "@contentful/rich-text-types";
+"use client";
 
-import { InlineEntryHyperlink } from "@/types/global";
+import {
+  PortableText,
+  PortableTextBlock,
+  PortableTextComponents,
+} from "@portabletext/react";
 
 import {
   Bold,
@@ -19,73 +18,62 @@ import {
 } from "./Blocks";
 
 interface RichTextProps {
-  richtext?: Document;
-  links?: InlineEntryHyperlink[];
+  value?: PortableTextBlock[];
 }
 
-export const RichText: React.FC<RichTextProps> = ({ richtext, links = [] }) => {
-  if (!richtext) {
+export const RichText: React.FC<RichTextProps> = ({ value }) => {
+  if (!value?.length) {
     return null;
   }
 
-  const options: Options = {
-    renderMark: {
-      [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+  const components: PortableTextComponents = {
+    block: {
+      normal: ({ children }) => <Text>{children}</Text>,
+      h1: ({ children }) => <Heading size={1}>{children}</Heading>,
+      h2: ({ children }) => <Heading size={2}>{children}</Heading>,
+      h3: ({ children }) => <Heading size={3}>{children}</Heading>,
+      h4: ({ children }) => <Heading size={4}>{children}</Heading>,
+      h5: ({ children }) => <Heading size={5}>{children}</Heading>,
+      h6: ({ children }) => <Heading size={6}>{children}</Heading>,
     },
-    renderNode: {
-      [INLINES.ENTRY_HYPERLINK]: ({ data }, content) => {
-        const link = links.find((link) => link.id === data.target.sys.id);
+    list: {
+      bullet: ({ children }) => <UnorderedList>{children}</UnorderedList>,
+      number: ({ children }) => <OrderedList>{children}</OrderedList>,
+    },
+    listItem: {
+      bullet: ({ children }) => <ListItem>{children}</ListItem>,
+      number: ({ children }) => <ListItem>{children}</ListItem>,
+    },
+    marks: {
+      strong: ({ children }) => <Bold>{children}</Bold>,
+      em: ({ children }) => <em>{children}</em>,
+      link: ({ value, children }) => {
+        const href = value?.href || "";
+        const blank = value?.blank !== false;
         return (
-          <EntryHyperlink href={link?.href || ""}>{content}</EntryHyperlink>
+          <Hyperlink uri={href} blank={blank}>
+            {children}
+          </Hyperlink>
         );
       },
-      [BLOCKS.PARAGRAPH]: (_, children: any) => <Text>{children}</Text>,
-      [BLOCKS.HEADING_1]: (_, children: any) => (
-        <Heading size={1}>{children}</Heading>
-      ),
-      [BLOCKS.HEADING_2]: (_, children: any) => (
-        <Heading size={2}>{children}</Heading>
-      ),
-      [BLOCKS.HEADING_3]: (_, children: any) => (
-        <Heading size={3}>{children}</Heading>
-      ),
-      [BLOCKS.HEADING_4]: (_, children: any) => (
-        <Heading size={4}>{children}</Heading>
-      ),
-      [BLOCKS.HEADING_5]: (_, children: any) => (
-        <Heading size={5}>{children}</Heading>
-      ),
-      [BLOCKS.HEADING_6]: (_, children: any) => (
-        <Heading size={6}>{children}</Heading>
-      ),
-      [BLOCKS.OL_LIST]: (_, children: any) => (
-        <OrderedList>{children}</OrderedList>
-      ),
-      [BLOCKS.UL_LIST]: (_, children: any) => (
-        <UnorderedList>{children}</UnorderedList>
-      ),
-      [BLOCKS.LIST_ITEM]: (node) => {
-        const UnTaggedChildren = documentToReactComponents(
-          node as unknown as any,
-          {
-            renderNode: {
-              [BLOCKS.PARAGRAPH]: (_, children) => children,
-              [BLOCKS.LIST_ITEM]: (_, children) => children,
-              [INLINES.HYPERLINK]: ({ data }, children) => (
-                <Hyperlink uri={data.uri}>{children}</Hyperlink>
-              ),
-            },
-          }
-        );
-
-        return <ListItem>{UnTaggedChildren}</ListItem>;
+      internalLink: ({ value, children }) => {
+        // Supports both direct slug (from expanded query) and nested reference
+        const slug = value?.slug || value?.reference?.slug?.current;
+        const href = slug ? `/projects/${slug}` : "";
+        return <EntryHyperlink href={href}>{children}</EntryHyperlink>;
+      },
+      // Handle direct reference marks (from migrated content or alternative schema)
+      reference: ({ value, children }) => {
+        const slug = value?.slug?.current || value?.slug;
+        const href = slug ? `/projects/${slug}` : "";
+        return <EntryHyperlink href={href}>{children}</EntryHyperlink>;
       },
     },
   };
 
   return (
-    <article className="flex flex-col gap-y-2 break-words font-manrope">
-      {documentToReactComponents(richtext, options)}
+    <article className="flex flex-col gap-y-2 wrap-break-words font-manrope">
+      <PortableText value={value} components={components} />
     </article>
   );
 };
