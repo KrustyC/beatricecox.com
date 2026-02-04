@@ -1,4 +1,4 @@
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "@/lib/sanity/client";
 import { Project } from "@/types/global";
 
 interface GetProjectListsForIndexResponse {

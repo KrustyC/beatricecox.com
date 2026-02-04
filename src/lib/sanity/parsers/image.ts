@@ -1,5 +1,6 @@
-import { urlFor } from "@/lib/sanity-image";
 import type { Image } from "@/types/global";
+
+import { urlFor } from "../sanity-image";
 
 export interface SanityImage {
   _type: "image";

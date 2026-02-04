@@ -3,7 +3,7 @@ import { draftMode } from "next/headers";
 
 import { WorthyClients } from "@/components/WorthyClients";
 import { ProjectsFilterContextProvider } from "@/contexts/ProjectsFilterContext";
-import { getHomepageCopy } from "@/sanity/queries";
+import { getHomepageCopy } from "@/lib/sanity/queries";
 
 import { Contact } from "./_components/Contact";
 import { Hero } from "./_components/Hero";

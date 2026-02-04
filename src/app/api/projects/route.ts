@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "@/lib/sanity/client";
 
 export const revalidate = 0;
 

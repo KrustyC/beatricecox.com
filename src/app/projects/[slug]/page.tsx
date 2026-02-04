@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { cookies, draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
-import { getProject, getProjects } from "@/sanity/queries";
+import { getProject, getProjects } from "@/lib/sanity/queries";
 import { reveleadProjectCookie } from "@/utils/constants";
 import { validateSignedCookie } from "@/utils/cookies";
 

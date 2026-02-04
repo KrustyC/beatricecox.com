@@ -18,7 +18,7 @@ export const BookImage: React.FC = () => {
             fill
             src="/images/book.jpg"
             alt="Book cover of Babingtons Recipe Book"
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

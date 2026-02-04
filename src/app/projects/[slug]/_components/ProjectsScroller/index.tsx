@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { getPrevAndNextProjects } from "@/sanity/queries";
+import { getPrevAndNextProjects } from "@/lib/sanity/queries";
 
 import { getProjectSuccessorAndPredecessorIds } from "./utils";
 

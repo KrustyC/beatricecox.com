@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { getAboutPageCopy } from "@/sanity/queries";
+import { getAboutPageCopy } from "@/lib/sanity/queries";
 
 import { AboutHero } from "./_components/Hero";
 import { ThingsToCare } from "./_components/ThingsToCare";

@@ -1,4 +1,4 @@
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "@/lib/sanity/client";
 
 interface SanityProjectById {
   _id: string;

@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { getProjects } from "@/sanity/queries";
+import { getProjects } from "@/lib/sanity/queries";
 
 import { ProjectsList } from "./ProjectsList";
 

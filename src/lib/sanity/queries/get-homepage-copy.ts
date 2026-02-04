@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "@portabletext/react";
 
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "@/lib/sanity/client";
 import { HomepageCopy } from "@/types/global";
 
 interface GetHomepageCopyParams {

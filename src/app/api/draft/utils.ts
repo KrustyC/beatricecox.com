@@ -1,4 +1,4 @@
-import { getProjectById as getSanityProjectById } from "@/sanity/queries";
+import { getProjectById as getSanityProjectById } from "@/lib/sanity/queries";
 
 export async function getProjectById(id: string) {
   const project = await getSanityProjectById(id);

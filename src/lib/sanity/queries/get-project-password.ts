@@ -1,4 +1,4 @@
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "../client";
 
 interface GetProjectPasswordParams {
   slug: string;
@@ -8,8 +8,6 @@ interface GetProjectPasswordParams {
 const projectPasswordQuery = `*[_type == "project" && slug.current == $slug][0] {
   protectionPassword
 }`;
-
-// @TODO I should create a sanityFetch util function
 
 export async function getProjectPassword({
   slug,

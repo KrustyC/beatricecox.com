@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { getProjectsListForIndex } from "@/sanity/queries";
+import { getProjectsListForIndex } from "@/lib/sanity/queries";
 
 import {
   deleteAllProjects,

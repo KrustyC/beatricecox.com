@@ -1,4 +1,4 @@
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "../lib/sanity/client";
 
 const BASE_PATHS = ["", "/about"];
 

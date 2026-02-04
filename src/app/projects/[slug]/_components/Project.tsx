@@ -23,7 +23,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
             alt={project.mainImage?.description || ""}
             src={project.mainImage?.url || ""}
             loading="eager"
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

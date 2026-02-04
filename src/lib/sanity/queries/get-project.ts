@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { getClient } from "@/lib/sanity-client";
+import { getClient } from "@/lib/sanity/client";
 
 import {
   ParsedProject,
