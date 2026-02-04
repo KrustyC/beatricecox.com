@@ -40,6 +40,7 @@ export async function ProjectsScroller({
               {prevProject.slug && (
                 <Link
                   href={`/projects/${encodeURIComponent(prevProject.slug)}`}
+                  prefetch={false}
                 >
                   <span className="w-16 tracking-[0.30rem] text-primary text-base uppercase mb-1 animated-underline animated-underline-pink">
                     /prev
@@ -62,6 +63,7 @@ export async function ProjectsScroller({
               {nextProject.slug && (
                 <Link
                   href={`/projects/${encodeURIComponent(nextProject.slug)}`}
+                  prefetch={false}
                 >
                   <span className="w-16 tracking-[0.30rem] text-primary text-base uppercase mb-1 animated-underline animated-underline-pink">
                     /next

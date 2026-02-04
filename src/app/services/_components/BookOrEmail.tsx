@@ -55,6 +55,7 @@ export const BookOrEmail: React.FC = () => {
         </h3>
         <h3 className="text-5xl font-thin text-primary font-manrope">
           <Link
+            prefetch={false}
             className="font-bold hover:underline"
             target="_blank"
             href="https://calendly.com/beatricecox/30min"
@@ -63,6 +64,7 @@ export const BookOrEmail: React.FC = () => {
           </Link>{" "}
           or{" "}
           <Link
+            prefetch={false}
             className="font-bold hover:underline"
             href="mailto:hello@beatricecox.com"
           >

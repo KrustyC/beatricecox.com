@@ -17,6 +17,7 @@ export default function NotFound() {
 
       <Link
         href="/"
+        prefetch={false}
         className="items-center cursor-pointer px-12 h-14 disabled:cursor-not-allowed rounded-lg text-lg py-2 overflow-hidden relative group border-2 font-medium border-black text-black disabled:bg-black disabled:opacity-75"
       >
         Homepage

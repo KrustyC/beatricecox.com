@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
           <div className="absolute top-0 right-0 left-0 w-screen flex justify-between items-center py-10 px-8 md:px-16 lg:px-24 3xl:px-48 z-50 bg-transparent">
             <div className="flex items-center">
               <FadeFromLeft delay={0.3}>
-                <Link href="/" className="block lg:pb-2">
+                <Link href="/" prefetch={false} className="block lg:pb-2">
                   <span className="sr-only">Beatrice Duguid Cox Logo</span>
                   <BeatriceCoxWrittenLogo
                     className={classNames("h-10 w-fit", {
@@ -103,6 +103,7 @@ export const Navbar: React.FC = () => {
                 >
                   <Link
                     href={href}
+                    prefetch={false}
                     className={classNames("text-base", {
                       "text-white": hasBlackBackground,
                       "text-black": !hasBlackBackground,

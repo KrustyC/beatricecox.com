@@ -12,6 +12,7 @@ export const LetsWorkTogether = () => {
         collaborate on something together, and would like to get in touch, I
         would love to hear from you! Please feel free to{" "}
         <Link
+          prefetch={false}
           className="underline font-bold"
           target="_blank"
           href="https://calendly.com/beatricecox/30min"
@@ -20,6 +21,7 @@ export const LetsWorkTogether = () => {
         </Link>{" "}
         or{" "}
         <Link
+          prefetch={false}
           className="underline font-bold"
           href="mailto:hello@beatricecox.com"
         >

@@ -12,7 +12,7 @@ export const Buttons = () => {
         Reveal Project
       </button>
 
-      <Link href="/" className="btn w-full">
+      <Link href="/" prefetch={false} className="btn w-full">
         Homepage
       </Link>
     </div>

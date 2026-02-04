@@ -68,7 +68,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
         </motion.div>
       ) : (
         <motion.div variants={imageVariants}>
-          <Link href={`/projects/${project.slug}`}>
+          <Link href={`/projects/${project.slug}`} prefetch={false}>
             {thumbnailImage && (
               <Image
                 src={thumbnailImage.url || ""}
