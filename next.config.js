@@ -1,11 +1,7 @@
 module.exports = {
   reactCompiler: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-      },
-    ],
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
   },
 };
